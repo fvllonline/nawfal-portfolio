@@ -9,10 +9,11 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { useToast } from "@/hooks/use-toast"
-import { Mail, Phone, Github, ExternalLink, Send } from "lucide-react"
+import { Mail, Phone, Github, Send, CheckCircle } from "lucide-react"
 
 export function ContactSection() {
   const [isSubmitting, setIsSubmitting] = useState(false)
+  const [messageSent, setMessageSent] = useState(false)
   const { toast } = useToast()
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -20,25 +21,21 @@ export function ContactSection() {
     setIsSubmitting(true)
 
     const formData = new FormData(e.currentTarget)
-    const data = {
-      name: formData.get("name"),
-      email: formData.get("email"),
-      message: formData.get("message"),
-    }
 
     try {
-      const response = await fetch("/api/contact", {
+      const response = await fetch("https://formspree.io/f/movdjqaa", {
         method: "POST",
+        body: formData,
         headers: {
-          "Content-Type": "application/json",
+          Accept: "application/json",
         },
-        body: JSON.stringify(data),
       })
 
       if (response.ok) {
+        setMessageSent(true)
         toast({
-          title: "Message sent!",
-          description: "Thank you for your message. I'll get back to you soon.",
+          title: "Message envoyé !",
+          description: "Merci pour votre message. Je vous répondrai bientôt.",
         })
         e.currentTarget.reset()
       } else {
@@ -46,8 +43,8 @@ export function ContactSection() {
       }
     } catch (error) {
       toast({
-        title: "Error",
-        description: "Failed to send message. Please try again.",
+        title: "Erreur",
+        description: "Échec de l'envoi du message. Veuillez réessayer.",
         variant: "destructive",
       })
     } finally {
@@ -85,33 +82,53 @@ export function ContactSection() {
                 <CardTitle className="text-2xl font-bold text-foreground">Send Message</CardTitle>
               </CardHeader>
               <CardContent>
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  <div>
-                    <Input name="name" placeholder="Your Name" required className="w-full" />
+                {!messageSent ? (
+                  <form onSubmit={handleSubmit} className="space-y-6">
+                    <div>
+                      <Input name="name" placeholder="Your Name" required className="w-full" />
+                    </div>
+                    <div>
+                      <Input name="email" type="email" placeholder="Your Email" required className="w-full" />
+                    </div>
+                    <div>
+                      <Textarea
+                        name="message"
+                        placeholder="Your Message"
+                        required
+                        rows={6}
+                        className="w-full resize-none"
+                      />
+                    </div>
+                    <Button type="submit" disabled={isSubmitting} className="w-full" size="lg">
+                      {isSubmitting ? (
+                        "Sending..."
+                      ) : (
+                        <>
+                          <Send className="h-4 w-4 mr-2" />
+                          Send Message
+                        </>
+                      )}
+                    </Button>
+                  </form>
+                ) : (
+                  <div className="text-center py-12">
+                    <motion.div
+                      initial={{ scale: 0 }}
+                      animate={{ scale: 1 }}
+                      transition={{ duration: 0.5 }}
+                      className="mb-6"
+                    >
+                      <CheckCircle className="h-16 w-16 text-green-500 mx-auto" />
+                    </motion.div>
+                    <h3 className="text-2xl font-bold text-foreground mb-4">Message Sent !</h3>
+                    <p className="text-muted-foreground mb-6">
+                      Thank you for your message. I will reply as soon as possible.
+                    </p>
+                    <Button onClick={() => setMessageSent(false)} variant="outline" className="mt-4">
+                      Send another message
+                    </Button>
                   </div>
-                  <div>
-                    <Input name="email" type="email" placeholder="Your Email" required className="w-full" />
-                  </div>
-                  <div>
-                    <Textarea
-                      name="message"
-                      placeholder="Your Message"
-                      required
-                      rows={6}
-                      className="w-full resize-none"
-                    />
-                  </div>
-                  <Button type="submit" disabled={isSubmitting} className="w-full" size="lg">
-                    {isSubmitting ? (
-                      "Sending..."
-                    ) : (
-                      <>
-                        <Send className="h-4 w-4 mr-2" />
-                        Send Message
-                      </>
-                    )}
-                  </Button>
-                </form>
+                )}
               </CardContent>
             </Card>
           </motion.div>

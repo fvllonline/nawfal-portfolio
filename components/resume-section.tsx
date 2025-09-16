@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
-import { GraduationCap, Briefcase, Code, Download } from "lucide-react"
+import { GraduationCap, Briefcase, Code, Download, ExternalLink } from "lucide-react"
 
 const education = [
   { period: "Ongoing", institution: "SUPEMIR", degree: "Bachelor's in Software Development", status: "Current" },
@@ -22,6 +22,7 @@ const experience = [
     description:
       "Full website development with Next.js & Vercel (needs analysis, tech choices, design, deployment, and maintenance).",
     technologies: ["Next.js", "Vercel", "React", "TypeScript"],
+    link: "https://adamadventuretours.com", // 🔗 Lien du projet
   },
   {
     year: "2025",
@@ -29,6 +30,7 @@ const experience = [
     role: "Backend Developer & Brand Designer",
     description: 'Backend development for "Quick Stay" application (Laravel) + Visual identity & branding.',
     technologies: ["Laravel", "PHP", "MySQL", "Branding"],
+    link: "https://github.com/fvllonline/QUICKSTAY-backend-project", // 🔗 Exemple : repo GitHub ou autre lien
   },
 ]
 
@@ -180,20 +182,38 @@ export function ResumeSection() {
                     {activeCard === "experience" && (
                       <div className="space-y-4">
                         {experience.map((exp, index) => (
-                          <motion.div key={index} initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.3, delay: index * 0.1 }} className="p-3 border rounded-lg bg-gray-100">
+                          <motion.div
+                            key={index}
+                            initial={{ opacity: 0, x: -20 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            transition={{ duration: 0.3, delay: index * 0.1 }}
+                            className="p-3 border rounded-lg bg-gray-100"
+                          >
                             <Badge variant="secondary" className="bg-blue-100 text-blue-600 border-blue-200 mb-2">
                               {exp.year}
                             </Badge>
                             <h4 className="font-semibold text-gray-900 mb-1">{exp.role}</h4>
                             <p className="text-blue-600 font-medium mb-2">{exp.company}</p>
                             <p className="text-gray-600 mb-3 text-sm leading-relaxed">{exp.description}</p>
-                            <div className="flex flex-wrap gap-2">
+                            <div className="flex flex-wrap gap-2 mb-4">
                               {exp.technologies.map((tech) => (
                                 <Badge key={tech} variant="outline" className="text-xs border-gray-300 text-gray-600">
                                   {tech}
                                 </Badge>
                               ))}
                             </div>
+                            {/* 🔘 New Button */}
+                            {exp.link && (
+                              <Button
+                                variant="outline"
+                                className="bg-white text-blue-600 border-blue-300 hover:bg-blue-50"
+                                size="sm"
+                                onClick={() => window.open(exp.link, "_blank")}
+                              >
+                                <ExternalLink className="h-4 w-4 mr-2" />
+                                View Work
+                              </Button>
+                            )}
                           </motion.div>
                         ))}
                       </div>

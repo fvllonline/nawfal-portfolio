@@ -13,6 +13,11 @@ export const metadata: Metadata = {
   keywords: ["Full Stack Developer", "React", "Laravel", "Next.js", "Web Development", "Nawfal ADDAOUI"],
   authors: [{ name: "Nawfal ADDAOUI" }],
   creator: "Nawfal ADDAOUI",
+    icons: {
+    icon: "/favicon.png",
+    shortcut: "/favicon.png",
+    apple: "/favicon.png",
+  },
   openGraph: {
     title: "Nawfal ADDAOUI - Full Stack Web Developer",
     description: "Creative and adaptable developer passionate about building modern web solutions.",

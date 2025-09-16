@@ -68,7 +68,7 @@ export function HeroSection() {
               onClick={() => scrollToSection("resume")}
               className="text-lg px-8 py-3 glow-effect hover:shadow-lg hover:shadow-primary/25 transition-all duration-300"
             >
-              View My Work
+              View My Resume
             </Button>
             <Button
               variant="outline"

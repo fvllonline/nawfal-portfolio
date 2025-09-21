@@ -10,6 +10,7 @@ import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { useToast } from "@/hooks/use-toast"
 import { Mail, Phone, Github, Send, CheckCircle } from "lucide-react"
+import { FaLinkedin, FaFacebook, FaInstagram } from "react-icons/fa"
 
 export function ContactSection() {
   const [isSubmitting, setIsSubmitting] = useState(false)
@@ -129,6 +130,39 @@ export function ContactSection() {
                     </Button>
                   </div>
                 )}
+
+                {/* Social Links under form */}
+                <motion.div
+                  initial={{ y: 30, opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  transition={{ duration: 0.8, delay: 1 }}
+                  className="flex justify-center space-x-6 mt-8"
+                >
+                  <a
+                    href="https://www.linkedin.com/in/nawfal-addaoui-40b651248/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-gray-500 hover:text-primary transition-all duration-300 hover:scale-110 hover:drop-shadow-lg"
+                  >
+                    <FaLinkedin className="h-6 w-6" />
+                  </a>
+                  <a
+                    href="https://www.facebook.com/naoufal.addaoui.3"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-gray-500 hover:text-primary transition-all duration-300 hover:scale-110 hover:drop-shadow-lg"
+                  >
+                    <FaFacebook className="h-6 w-6" />
+                  </a>
+                  <a
+                    href="https://www.instagram.com/fvllonline/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-gray-500 hover:text-primary transition-all duration-300 hover:scale-110 hover:drop-shadow-lg"
+                  >
+                    <FaInstagram className="h-6 w-6" />
+                  </a>
+                </motion.div>
               </CardContent>
             </Card>
           </motion.div>

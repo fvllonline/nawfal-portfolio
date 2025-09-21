@@ -3,6 +3,7 @@
 import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { Github, Mail } from "lucide-react"
+import { FaLinkedin, FaFacebook, FaInstagram } from "react-icons/fa"
 import Image from "next/image"
 
 export function HeroSection() {
@@ -80,6 +81,7 @@ export function HeroSection() {
             </Button>
           </motion.div>
 
+          {/* Social Icons */}
           <motion.div
             initial={{ y: 30, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
@@ -99,6 +101,30 @@ export function HeroSection() {
               className="text-gray-300 hover:text-primary transition-all duration-300 hover:scale-110 hover:drop-shadow-lg"
             >
               <Mail className="h-6 w-6" />
+            </a>
+            <a
+              href="https://www.linkedin.com/in/nawfal-addaoui-40b651248/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-300 hover:text-primary transition-all duration-300 hover:scale-110 hover:drop-shadow-lg"
+            >
+              <FaLinkedin className="h-6 w-6" />
+            </a>
+            <a
+              href="https://www.facebook.com/naoufal.addaoui.3"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-300 hover:text-primary transition-all duration-300 hover:scale-110 hover:drop-shadow-lg"
+            >
+              <FaFacebook className="h-6 w-6" />
+            </a>
+            <a
+              href="https://www.instagram.com/fvllonline/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-300 hover:text-primary transition-all duration-300 hover:scale-110 hover:drop-shadow-lg"
+            >
+              <FaInstagram className="h-6 w-6" />
             </a>
           </motion.div>
         </div>

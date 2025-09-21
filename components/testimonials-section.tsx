@@ -3,6 +3,7 @@
 import { motion } from "framer-motion"
 import { Card, CardContent } from "@/components/ui/card"
 import { Quote, Star } from "lucide-react"
+import { FaLinkedin } from "react-icons/fa"
 import Image from "next/image"
 
 const testimonials = [
@@ -14,6 +15,7 @@ const testimonials = [
       "Your work demonstrates a strong mastery of full stack skills, with a methodical and well-structured approach. The code is both clean and optimized, ensuring good performance and future scalability. Congratulations on this high-quality achievement.",
     rating: 5,
     image: "/Mina.jpg",
+    linkedin: "https://www.linkedin.com/in/mina-boujnah-560a06149/",
   },
   {
     name: "Mr. BENNAY Youness",
@@ -23,6 +25,7 @@ const testimonials = [
       "Working with Nawfal was a game-changer for our project. His full-stack expertise bridged our frontend and backend seamlessly, delivering a React + Laravel application 2 weeks ahead of schedule. His clean code and problem-solving skills set him apart - we've hired him for three more projects since!",
     rating: 5,
     image: "/Youness.jpg",
+    linkedin: "https://www.linkedin.com/in/youness-bennay/",
   },
   {
     name: "Mr. BOUJJAR Ayman",
@@ -31,7 +34,8 @@ const testimonials = [
     content:
       "Working with Nawfal was a pleasure. His technical expertise combined with his communication skills made our project a success. Highly recommended!",
     rating: 5,
-    image: "/Ayman.jpg", 
+    image: "/Ayman.jpg",
+    linkedin: "https://www.linkedin.com/in/aymanboujjar/",
   },
 ]
 
@@ -75,7 +79,9 @@ export function TestimonialsSection() {
                   </div>
 
                   {/* Texte du témoignage */}
-                  <p className="text-muted-foreground mb-6 leading-relaxed text-pretty">"{testimonial.content}"</p>
+                  <p className="text-muted-foreground mb-6 leading-relaxed text-pretty">
+                    "{testimonial.content}"
+                  </p>
 
                   {/* Infos auteur */}
                   <div className="mt-auto border-t pt-4 flex items-center gap-4">
@@ -96,6 +102,16 @@ export function TestimonialsSection() {
                       <h4 className="font-semibold text-foreground">{testimonial.name}</h4>
                       <p className="text-sm text-primary font-medium">{testimonial.role}</p>
                       <p className="text-sm text-muted-foreground">{testimonial.company}</p>
+                      {testimonial.linkedin && (
+                        <a
+                          href={testimonial.linkedin}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-1 text-blue-600 hover:text-blue-800 text-sm mt-1 transition-colors"
+                        >
+                          <FaLinkedin className="h-4 w-4" /> View LinkedIn
+                        </a>
+                      )}
                     </div>
                   </div>
                 </CardContent>

@@ -22,7 +22,7 @@ const experience = [
     description:
       "Full website development with Next.js & Vercel (needs analysis, tech choices, design, deployment, and maintenance).",
     technologies: ["Next.js", "Vercel", "React", "TypeScript"],
-    link: "https://adamadventuretours.com", // 🔗 Lien du projet
+    link: "https://adamadventuretours.com",
   },
   {
     year: "2025",
@@ -30,7 +30,7 @@ const experience = [
     role: "Backend Developer & Brand Designer",
     description: 'Backend development for "Quick Stay" application (Laravel) + Visual identity & branding.',
     technologies: ["Laravel", "PHP", "MySQL", "Branding"],
-    link: "https://github.com/fvllonline/QUICKSTAY-backend-project", // 🔗 Exemple : repo GitHub ou autre lien
+    link: "https://github.com/fvllonline/QUICKSTAY-backend-project",
   },
 ]
 
@@ -49,10 +49,19 @@ export function ResumeSection() {
     setActiveCard(activeCard === cardType ? null : cardType)
   }
 
-  const handleDownloadCV = () => {
+  const handleDownloadCVFr = () => {
     const link = document.createElement("a")
-    link.href = "/NAWFAL_ADDAOUI_CV.pdf"
-    link.download = "NAWFAL_ADDAOUI_CV.pdf"
+    link.href = "/NAWFAL_CV_FrenshV.pdf" // ⚠️ Remplace par le vrai chemin du CV FR
+    link.download = "NAWFAL_ADDAOUI_CV_FR.pdf"
+    document.body.appendChild(link)
+    link.click()
+    document.body.removeChild(link)
+  }
+
+  const handleDownloadCVEn = () => {
+    const link = document.createElement("a")
+    link.href = "/NAWFAL_CV_EnglishV.pdf" // ⚠️ Remplace par le vrai chemin du CV EN
+    link.download = "NAWFAL_ADDAOUI_CV_EN.pdf"
     document.body.appendChild(link)
     link.click()
     document.body.removeChild(link)
@@ -77,16 +86,12 @@ export function ResumeSection() {
           {/* Education Card */}
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.1 }} viewport={{ once: true }} className="cursor-pointer">
             <Card
-              className={`border hover:border-blue-500 transition-all duration-300 rounded-2xl shadow-md hover:shadow-lg ${
-                activeCard === "education" ? "bg-blue-600 border-blue-500 shadow-blue-200" : "bg-gray-50"
-              }`}
+              className={`border hover:border-blue-500 transition-all duration-300 rounded-2xl shadow-md hover:shadow-lg ${activeCard === "education" ? "bg-blue-600 border-blue-500 shadow-blue-200" : "bg-gray-50"}`}
               onClick={() => handleCardClick("education")}
             >
               <CardContent className="p-6 text-center">
                 <GraduationCap className={`h-8 w-8 mx-auto mb-4 ${activeCard === "education" ? "text-white" : "text-blue-600"}`} />
-                <h3 className={`text-lg font-semibold mb-2 ${activeCard === "education" ? "text-white" : "text-gray-900"}`}>
-                  Education
-                </h3>
+                <h3 className={`text-lg font-semibold mb-2 ${activeCard === "education" ? "text-white" : "text-gray-900"}`}>Education</h3>
                 <p className={`text-sm ${activeCard === "education" ? "text-blue-100" : "text-gray-500"}`}>Academic background</p>
               </CardContent>
             </Card>
@@ -95,34 +100,26 @@ export function ResumeSection() {
           {/* Experience Card */}
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.2 }} viewport={{ once: true }} className="cursor-pointer">
             <Card
-              className={`border hover:border-blue-500 transition-all duration-300 rounded-2xl shadow-md hover:shadow-lg ${
-                activeCard === "experience" ? "bg-blue-600 border-blue-500 shadow-blue-200" : "bg-gray-50"
-              }`}
+              className={`border hover:border-blue-500 transition-all duration-300 rounded-2xl shadow-md hover:shadow-lg ${activeCard === "experience" ? "bg-blue-600 border-blue-500 shadow-blue-200" : "bg-gray-50"}`}
               onClick={() => handleCardClick("experience")}
             >
               <CardContent className="p-6 text-center">
                 <Briefcase className={`h-8 w-8 mx-auto mb-4 ${activeCard === "experience" ? "text-white" : "text-blue-600"}`} />
-                <h3 className={`text-lg font-semibold mb-2 ${activeCard === "experience" ? "text-white" : "text-gray-900"}`}>
-                  Experiences
-                </h3>
+                <h3 className={`text-lg font-semibold mb-2 ${activeCard === "experience" ? "text-white" : "text-gray-900"}`}>Experiences</h3>
                 <p className={`text-sm ${activeCard === "experience" ? "text-blue-100" : "text-gray-500"}`}>Professional work</p>
               </CardContent>
             </Card>
           </motion.div>
 
-          {/* Academic Projects Card */}
+          {/* Projects Card */}
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.3 }} viewport={{ once: true }} className="cursor-pointer">
             <Card
-              className={`border hover:border-blue-500 transition-all duration-300 rounded-2xl shadow-md hover:shadow-lg ${
-                activeCard === "projects" ? "bg-blue-600 border-blue-500 shadow-blue-200" : "bg-gray-50"
-              }`}
+              className={`border hover:border-blue-500 transition-all duration-300 rounded-2xl shadow-md hover:shadow-lg ${activeCard === "projects" ? "bg-blue-600 border-blue-500 shadow-blue-200" : "bg-gray-50"}`}
               onClick={() => handleCardClick("projects")}
             >
               <CardContent className="p-6 text-center">
                 <Code className={`h-8 w-8 mx-auto mb-4 ${activeCard === "projects" ? "text-white" : "text-blue-600"}`} />
-                <h3 className={`text-lg font-semibold mb-2 ${activeCard === "projects" ? "text-white" : "text-gray-900"}`}>
-                  Academic Projects
-                </h3>
+                <h3 className={`text-lg font-semibold mb-2 ${activeCard === "projects" ? "text-white" : "text-gray-900"}`}>Academic Projects</h3>
                 <p className={`text-sm ${activeCard === "projects" ? "text-blue-100" : "text-gray-500"}`}>Student projects</p>
               </CardContent>
             </Card>
@@ -131,16 +128,12 @@ export function ResumeSection() {
           {/* Download CV Card */}
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.4 }} viewport={{ once: true }} className="cursor-pointer">
             <Card
-              className={`border hover:border-blue-500 transition-all duration-300 rounded-2xl shadow-md hover:shadow-lg ${
-                activeCard === "download" ? "bg-blue-600 border-blue-500 shadow-blue-200" : "bg-gray-50"
-              }`}
+              className={`border hover:border-blue-500 transition-all duration-300 rounded-2xl shadow-md hover:shadow-lg ${activeCard === "download" ? "bg-blue-600 border-blue-500 shadow-blue-200" : "bg-gray-50"}`}
               onClick={() => handleCardClick("download")}
             >
               <CardContent className="p-6 text-center">
                 <Download className={`h-8 w-8 mx-auto mb-4 ${activeCard === "download" ? "text-white" : "text-blue-600"}`} />
-                <h3 className={`text-lg font-semibold mb-2 ${activeCard === "download" ? "text-white" : "text-gray-900"}`}>
-                  Download CV
-                </h3>
+                <h3 className={`text-lg font-semibold mb-2 ${activeCard === "download" ? "text-white" : "text-gray-900"}`}>Download CV</h3>
                 <p className={`text-sm ${activeCard === "download" ? "text-blue-100" : "text-gray-500"}`}>Get my resume</p>
               </CardContent>
             </Card>
@@ -165,12 +158,8 @@ export function ResumeSection() {
                         {education.map((edu, index) => (
                           <motion.div key={index} initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.3, delay: index * 0.1 }} className="p-3 border rounded-lg bg-gray-100">
                             <div className="flex justify-between items-start mb-2">
-                              <Badge variant="secondary" className="bg-blue-100 text-blue-600 border-blue-200">
-                                {edu.period}
-                              </Badge>
-                              <Badge variant="outline" className="border-gray-300 text-gray-600">
-                                {edu.status}
-                              </Badge>
+                              <Badge variant="secondary" className="bg-blue-100 text-blue-600 border-blue-200">{edu.period}</Badge>
+                              <Badge variant="outline" className="border-gray-300 text-gray-600">{edu.status}</Badge>
                             </div>
                             <h4 className="font-semibold text-gray-900 mb-1">{edu.degree}</h4>
                             <p className="text-gray-600">{edu.institution}</p>
@@ -182,36 +171,19 @@ export function ResumeSection() {
                     {activeCard === "experience" && (
                       <div className="space-y-4">
                         {experience.map((exp, index) => (
-                          <motion.div
-                            key={index}
-                            initial={{ opacity: 0, x: -20 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            transition={{ duration: 0.3, delay: index * 0.1 }}
-                            className="p-3 border rounded-lg bg-gray-100"
-                          >
-                            <Badge variant="secondary" className="bg-blue-100 text-blue-600 border-blue-200 mb-2">
-                              {exp.year}
-                            </Badge>
+                          <motion.div key={index} initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.3, delay: index * 0.1 }} className="p-3 border rounded-lg bg-gray-100">
+                            <Badge variant="secondary" className="bg-blue-100 text-blue-600 border-blue-200 mb-2">{exp.year}</Badge>
                             <h4 className="font-semibold text-gray-900 mb-1">{exp.role}</h4>
                             <p className="text-blue-600 font-medium mb-2">{exp.company}</p>
                             <p className="text-gray-600 mb-3 text-sm leading-relaxed">{exp.description}</p>
                             <div className="flex flex-wrap gap-2 mb-4">
                               {exp.technologies.map((tech) => (
-                                <Badge key={tech} variant="outline" className="text-xs border-gray-300 text-gray-600">
-                                  {tech}
-                                </Badge>
+                                <Badge key={tech} variant="outline" className="text-xs border-gray-300 text-gray-600">{tech}</Badge>
                               ))}
                             </div>
-                            {/* 🔘 New Button */}
                             {exp.link && (
-                              <Button
-                                variant="outline"
-                                className="bg-white text-blue-600 border-blue-300 hover:bg-blue-50"
-                                size="sm"
-                                onClick={() => window.open(exp.link, "_blank")}
-                              >
-                                <ExternalLink className="h-4 w-4 mr-2" />
-                                View Work
+                              <Button variant="outline" className="bg-white text-blue-600 border-blue-300 hover:bg-blue-50" size="sm" onClick={() => window.open(exp.link, "_blank")}>
+                                <ExternalLink className="h-4 w-4 mr-2" /> View Work
                               </Button>
                             )}
                           </motion.div>
@@ -223,16 +195,12 @@ export function ResumeSection() {
                       <div className="space-y-4">
                         {projects.map((project, index) => (
                           <motion.div key={index} initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.3, delay: index * 0.1 }} className="p-3 border rounded-lg bg-gray-100">
-                            <Badge variant="secondary" className="bg-blue-100 text-blue-600 border-blue-200 mb-2">
-                              {project.year}
-                            </Badge>
+                            <Badge variant="secondary" className="bg-blue-100 text-blue-600 border-blue-200 mb-2">{project.year}</Badge>
                             <h4 className="font-semibold text-gray-900 mb-2">{project.title}</h4>
                             <p className="text-gray-600 mb-3 text-sm leading-relaxed">{project.description}</p>
                             <div className="flex flex-wrap gap-2">
                               {project.technologies.map((tech) => (
-                                <Badge key={tech} variant="outline" className="text-xs border-gray-300 text-gray-600">
-                                  {tech}
-                                </Badge>
+                                <Badge key={tech} variant="outline" className="text-xs border-gray-300 text-gray-600">{tech}</Badge>
                               ))}
                             </div>
                           </motion.div>
@@ -245,13 +213,14 @@ export function ResumeSection() {
                         <Download className="h-16 w-16 text-blue-600 mx-auto mb-6" />
                         <h3 className="text-xl font-semibold text-gray-900 mb-4">Download My CV</h3>
                         <p className="text-gray-600 mb-6">Get the latest version of my resume in PDF format</p>
-                        <Button
-                          onClick={handleDownloadCV}
-                          className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-medium transition-colors duration-200"
-                        >
-                          <Download className="h-4 w-4 mr-2" />
-                          Download the CV
-                        </Button>
+                        <div className="flex flex-col sm:flex-row justify-center gap-4">
+                          <Button onClick={handleDownloadCVFr} className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-medium transition-colors duration-200 flex items-center justify-center">
+                            <Download className="h-4 w-4 mr-2" /> Frensh Version
+                          </Button>
+                          <Button onClick={handleDownloadCVEn} className="bg-green-600 hover:bg-green-700 text-white px-8 py-3 rounded-lg font-medium transition-colors duration-200 flex items-center justify-center">
+                            <Download className="h-4 w-4 mr-2" /> English Version
+                          </Button>
+                        </div>
                       </motion.div>
                     )}
                   </div>

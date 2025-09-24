@@ -8,10 +8,10 @@ import { Button } from "@/components/ui/button"
 import { GraduationCap, Briefcase, Code, Download, ExternalLink } from "lucide-react"
 
 const education = [
-  { period: "Ongoing", institution: "SUPEMIR", degree: "Bachelor's in Software Development", status: "Current" },
-  { period: "2023–2025", institution: "IFIAG", degree: "Advanced Diploma in Software Development", status: "Current" },
-  { period: "2022–2023", institution: "Faculty of Sciences Ben M'sick", degree: "SMP", status: "Completed" },
-  { period: "2021–2022", institution: "Lycée El Baroudi", degree: "Physics Baccalaureate (French option)", status: "Completed" },
+  { period: "Ongoing", institution: "SUPEMIR – Higher School of IT & Management", degree: "Bachelor’s Degree in Software Development", status: "Current" },
+  { period: "2023–2025", institution: "IFIAG - Vocational School", degree: "Specialized Technician in Software Development", status: "Completed" },
+  { period: "2022–2023", institution: "Faculty of Sciences Ben M'sick", degree: "1st Year, Fundamental License in Physical Sciences (SMP)", status: "Completed" },
+  { period: "2021–2022", institution: "El Baroudi High School", degree: "Baccalaureate in Physical Sciences – French Section", status: "Completed" },
 ]
 
 const experience = [
@@ -35,9 +35,9 @@ const experience = [
 ]
 
 const projects = [
-  { year: "2025", title: "E-learning Web App", description: "Main features & technical logic implementation using Inertia.js.", technologies: ["Inertia.js", "Vue.js", "Laravel"] },
+  { year: "2025", title: "E-learning Web App", description: "Main features & technical logic implementation using Inertia.js.", technologies: ["Inertia.js", "Laravel", "TailwindCSS"] },
   { year: "2025", title: "Backend Web App", description: "APIs development & Postman testing for comprehensive backend solution.", technologies: ["Laravel", "APIs", "Postman"] },
-  { year: "2024", title: "Patek Philippe Website Redesign", description: "Frontend redesign using React with modern UI/UX principles.", technologies: ["React", "CSS3", "JavaScript"] },
+  { year: "2024", title: "Patek Philippe Website Redesign", description: "Frontend redesign using React with modern UI/UX principles.", technologies: ["HTML5", "CSS3", "JavaScript"] },
 ]
 
 type CardType = "education" | "experience" | "projects" | "download" | null

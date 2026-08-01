@@ -1,0 +1,58 @@
+import type { Certification } from "@/lib/types"
+
+export const certifications: Certification[] = [
+  {
+    id: "tcf-b2",
+    name: "TCF TP - B2",
+    institution: "Institut Français",
+    category: "Language",
+    icon: "globe",
+    logo: "/tcf.jpg",
+    pdfPath: "/certifs/tcf.pdf",
+  },
+  {
+    id: "efi",
+    name: "English For IT 1 & 2",
+    institution: "Cisco Networking Academy",
+    category: "Language",
+    icon: "globe",
+    logo: "/cisco.jpg",
+    pdfPaths: ["/certifs/efi1.pdf", "/certifs/efi2.pdf"],
+  },
+  {
+    id: "js-essentials",
+    name: "JavaScript Essentials 1 & 2",
+    institution: "Cisco Networking Academy",
+    category: "Programming",
+    icon: "code",
+    logo: "/cisco.jpg",
+    pdfPaths: ["/certifs/js1.pdf", "/certifs/js2.pdf"],
+  },
+  {
+    id: "python-essentials",
+    name: "Python Essentials 1 & 2",
+    institution: "Cisco Networking Academy",
+    category: "Programming",
+    icon: "code",
+    logo: "/cisco.jpg",
+    pdfPaths: ["/certifs/ps1.pdf", "/certifs/ps2.pdf"],
+  },
+  {
+    id: "cyber-intro",
+    name: "Introduction to CyberSecurity",
+    institution: "Cisco Networking Academy",
+    category: "Security",
+    icon: "shield",
+    logo: "/cisco.jpg",
+    pdfPath: "/certifs/ics.pdf",
+  },
+  {
+    id: "junior-cyber",
+    name: "Junior CyberSecurity Analyst Path",
+    institution: "Cisco Networking Academy",
+    category: "Security",
+    icon: "shield",
+    logo: "/cisco.jpg",
+    pdfPath: "/certifs/jcs.pdf",
+  },
+]

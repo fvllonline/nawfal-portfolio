@@ -1,36 +1,46 @@
-import type React from "react"
 import type { Metadata } from "next"
-import { GeistSans } from "geist/font/sans"
-import { GeistMono } from "geist/font/mono"
 import { Analytics } from "@vercel/analytics/next"
 import { Suspense } from "react"
+import { siteConfig } from "@/data"
+import { fontDisplay, fontSans, fontMono } from "@/lib/fonts"
 import "./globals.css"
 
 export const metadata: Metadata = {
-  title: "Nawfal ADDAOUI - Full Stack Web Developer",
-  description:
-    "Creative and adaptable developer passionate about building modern web solutions. Specializing in React, Laravel, and full-stack development.",
-  keywords: ["Full Stack Developer", "React", "Laravel", "Next.js", "Web Development", "Nawfal ADDAOUI"],
-  authors: [{ name: "Nawfal ADDAOUI" }],
-  creator: "Nawfal ADDAOUI",
-    icons: {
+  metadataBase: new URL(siteConfig.url),
+  title: {
+    default: `${siteConfig.fullName} — ${siteConfig.title}`,
+    template: `%s | ${siteConfig.fullName}`,
+  },
+  description: siteConfig.tagline,
+  keywords: [
+    "Full Stack Developer",
+    "React",
+    "Laravel",
+    "Next.js",
+    "Web Development",
+    "Nawfal ADDAOUI",
+    "Casablanca",
+  ],
+  authors: [{ name: siteConfig.fullName }],
+  creator: siteConfig.fullName,
+  icons: {
     icon: "/favicon.png",
     shortcut: "/favicon.png",
     apple: "/favicon.png",
   },
   openGraph: {
-    title: "Nawfal ADDAOUI - Full Stack Web Developer",
-    description: "Creative and adaptable developer passionate about building modern web solutions.",
-    url: "https://nawfalsportfolio.vercel.app",
-    siteName: "Nawfal ADDAOUI Portfolio",
+    title: `${siteConfig.fullName} — ${siteConfig.title}`,
+    description: siteConfig.tagline,
+    url: siteConfig.url,
+    siteName: `${siteConfig.fullName} Portfolio`,
+    locale: "en_US",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Nawfal ADDAOUI - Full Stack Web Developer",
-    description: "Creative and adaptable developer passionate about building modern web solutions.",
+    title: `${siteConfig.fullName} — ${siteConfig.title}`,
+    description: siteConfig.tagline,
   },
-  generator: "v0.app",
 }
 
 export default function RootLayout({
@@ -39,8 +49,11 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className="scroll-smooth dark">
-      <body className={`font-sans ${GeistSans.variable} ${GeistMono.variable} antialiased`}>
+    <html
+      lang="en"
+      className={`dark scroll-smooth ${fontDisplay.variable} ${fontSans.variable} ${fontMono.variable}`}
+    >
+      <body className="min-h-screen bg-background font-sans text-foreground antialiased">
         <Suspense fallback={null}>{children}</Suspense>
         <Analytics />
       </body>

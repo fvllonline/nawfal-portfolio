@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>MonPassTCF | Portfolio Case Study</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800&amp;family=DM+Sans:wght@400;500;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind Config Verbatim -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface": "#101415",
+                    "inverse-primary": "#006c49",
+                    "on-surface": "#e0e3e5",
+                    "surface-container-highest": "#323537",
+                    "surface-container-high": "#272a2c",
+                    "surface-container": "#1d2022",
+                    "secondary-fixed": "#e5deff",
+                    "outline-variant": "#3b4a41",
+                    "error-container": "#93000a",
+                    "on-tertiary-fixed-variant": "#404659",
+                    "on-secondary-fixed": "#1a0063",
+                    "on-primary": "#003824",
+                    "secondary-fixed-dim": "#c9bfff",
+                    "surface-variant": "#323537",
+                    "tertiary-container": "#c2c9e0",
+                    "primary": "#6effc0",
+                    "primary-fixed-dim": "#00e29e",
+                    "primary-fixed": "#47ffb8",
+                    "surface-dim": "#101415",
+                    "on-secondary": "#2e009c",
+                    "surface-container-lowest": "#0b0f10",
+                    "on-tertiary": "#293042",
+                    "on-secondary-fixed-variant": "#441cc8",
+                    "tertiary": "#dfe5fd",
+                    "inverse-on-surface": "#2d3133",
+                    "tertiary-fixed-dim": "#bfc6dd",
+                    "error": "#ffb4ab",
+                    "primary-container": "#00e5a0",
+                    "on-error-container": "#ffdad6",
+                    "inverse-surface": "#e0e3e5",
+                    "background": "#101415",
+                    "on-background": "#e0e3e5",
+                    "surface-bright": "#363a3b",
+                    "secondary-container": "#4720ca",
+                    "tertiary-fixed": "#dbe2fa",
+                    "surface-container-low": "#191c1e",
+                    "on-surface-variant": "#bacbbf",
+                    "on-primary-fixed": "#002114",
+                    "on-secondary-container": "#baaeff",
+                    "on-tertiary-fixed": "#141b2c",
+                    "on-primary-container": "#006141",
+                    "outline": "#84958a",
+                    "surface-tint": "#00e29e",
+                    "secondary": "#c9bfff",
+                    "on-tertiary-container": "#4d5468",
+                    "on-primary-fixed-variant": "#005236",
+                    "on-error": "#690005"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "section-gap-mobile": "64px",
+                    "stack-lg": "32px",
+                    "stack-sm": "8px",
+                    "section-gap": "120px",
+                    "container-max": "1280px",
+                    "stack-md": "16px",
+                    "gutter": "24px"
+            },
+            "fontFamily": {
+                    "display-lg": ["Hanken Grotesk"],
+                    "label-sm": ["JetBrains Mono"],
+                    "headline-md": ["Hanken Grotesk"],
+                    "body-md": ["DM Sans"],
+                    "body-lg": ["DM Sans"],
+                    "headline-sm": ["Hanken Grotesk"],
+                    "headline-lg": ["Hanken Grotesk"],
+                    "display-lg-mobile": ["Hanken Grotesk"],
+                    "label-md": ["JetBrains Mono"]
+            },
+            "fontSize": {
+                    "display-lg": ["72px", {"lineHeight": "1.1", "letterSpacing": "-0.04em", "fontWeight": "800"}],
+                    "label-sm": ["12px", {"lineHeight": "1.0", "letterSpacing": "0.1em", "fontWeight": "500"}],
+                    "headline-md": ["32px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "headline-sm": ["24px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                    "headline-lg": ["48px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                    "display-lg-mobile": ["40px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                    "label-md": ["14px", {"lineHeight": "1.0", "letterSpacing": "0.05em", "fontWeight": "500"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #0b0f10;
+            color: #e0e3e5;
+            -webkit-font-smoothing: antialiased;
+        }
+        .glow-sm {
+            text-shadow: 0 0 10px rgba(110, 255, 192, 0.4);
+        }
+        .glass-card {
+            background: rgba(29, 32, 34, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #6effc0 0%, #c9bfff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .gradient-bg {
+            background: linear-gradient(135deg, #6effc0 0%, #c9bfff 100%);
+        }
+        .mesh-gradient {
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(110, 255, 192, 0.15) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, rgba(201, 191, 255, 0.1) 0px, transparent 50%);
+        }
+    </style>
+</head>
+<body class="mesh-gradient min-h-screen">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-surface/70 dark:bg-surface/70 backdrop-blur-xl border-b border-white/10 shadow-[0_0_40px_rgba(110,255,192,0.15)]">
+<nav class="flex items-center justify-between px-gutter py-4 max-w-container-max mx-auto">
+<div class="flex items-center gap-2 group cursor-pointer active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">terminal</span>
+<span class="font-display-lg text-headline-sm tracking-tighter text-primary dark:text-primary">NAWFAL</span>
+</div>
+<div class="hidden md:flex items-center gap-stack-lg">
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">Home</a>
+<a class="font-label-md text-label-md text-primary relative after:content-[''] after:absolute after:-bottom-1 after:left-1/2 after:-translate-x-1/2 after:w-1 after:h-1 after:bg-primary after:rounded-full" href="#">Projects</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">About</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">Contact</a>
+</div>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-all active:scale-95">search</button>
+<button class="material-symbols-outlined text-on-surface-variant md:hidden">menu</button>
+</div>
+</nav>
+</header>
+<main class="pt-[100px]">
+<!-- Page Header & Title Section -->
+<section class="max-w-container-max mx-auto px-gutter py-stack-lg">
+<a class="inline-flex items-center gap-2 font-label-md text-label-md text-primary mb-stack-md group hover:opacity-80 transition-opacity" href="#">
+<span class="material-symbols-outlined text-[18px]">arrow_back</span>
+                Back to Projects
+            </a>
+<div class="space-y-2">
+<h1 class="font-display-lg text-display-lg-mobile md:text-display-lg gradient-text tracking-tighter">MonPassTCF</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">
+                    The ultimate digital preparation companion for the Test de Connaissance du Français (TCF).
+                </p>
+</div>
+</section>
+<!-- Hero Section -->
+<section class="w-full px-gutter max-w-container-max mx-auto mb-section-gap">
+<div class="relative w-full aspect-[21/9] rounded-xl overflow-hidden glass-card">
+<img class="w-full h-full object-cover" data-alt="A high-end, photorealistic 3D mockup of a sleek web platform interface called MonPassTCF displayed on a floating ultra-wide monitor. The screen shows a sophisticated dashboard with data visualization charts, progress rings, and clean typography. The atmosphere is professional and modern, with soft mint and purple glows reflecting off dark glass surfaces. The lighting is dramatic, high-key studio lighting set against a deep obsidian background with subtle atmospheric haze." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCNM_IX9xY7EacS5fRmrTe1iOrCZIRK6SPLzCY2VHEP9nZIM17NZ_kul9AWGI3F1XJ1eQqu1BwWQ6NWQEmwg6Bvfv8AVnVJr_66nEKu0puSh57BiB4TficGyYwyMFiw5L6o_xV_Mk5wOmUqfMNzD1mBJ54ug-ssv0luA_rk-Aghw0LQX4BqNjnDnt4mnVvDDmBCLT9s5Cx_DtC0-51Op9D6WniTxl9vVXZ7vOm50xkWzWcx49-5A1-L3Q"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-transparent opacity-40"></div>
+</div>
+</section>
+<!-- Content & Sidebar -->
+<section class="max-w-container-max mx-auto px-gutter mb-section-gap">
+<div class="flex flex-col lg:flex-row gap-stack-lg">
+<!-- Left Column: Details -->
+<div class="lg:w-2/3 space-y-section-gap-mobile">
+<article>
+<h2 class="font-headline-lg text-headline-lg text-primary mb-stack-md">Overview</h2>
+<div class="space-y-stack-md font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
+<p>MonPassTCF is a comprehensive ed-tech platform designed to revolutionize how candidates prepare for the French language proficiency exam. Recognizing the high stakes and stress associated with international mobility, the platform offers a structured, data-driven approach to mastering the TCF exam components: listening, reading, structure, and writing.</p>
+<p>The project was born from a need for more interactive and accessible preparation materials. Unlike traditional paper-based methods, MonPassTCF provides instant feedback through an intelligent scoring engine, allowing users to identify their linguistic weaknesses in real-time and focus their efforts where it matters most.</p>
+<p>By leveraging modern web technologies, the platform provides a seamless, "app-like" experience across all devices, ensuring that students can practice during a commute or in a focused study session at home. The result is a premium, distraction-free environment that prioritizes learning efficiency and user confidence.</p>
+</div>
+</article>
+<article>
+<h2 class="font-headline-lg text-headline-lg text-primary mb-stack-md">Key Features</h2>
+<ul class="grid grid-cols-1 md:grid-cols-2 gap-stack-md">
+<li class="glass-card p-stack-md rounded-lg flex items-start gap-4">
+<span class="material-symbols-outlined text-primary bg-primary/10 p-2 rounded-full">bolt</span>
+<div>
+<h4 class="font-headline-sm text-headline-sm mb-1">Adaptive Simulations</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Full-length timed exams that mirror the actual TCF environment and difficulty scaling.</p>
+</div>
+</li>
+<li class="glass-card p-stack-md rounded-lg flex items-start gap-4">
+<span class="material-symbols-outlined text-primary bg-primary/10 p-2 rounded-full">analytics</span>
+<div>
+<h4 class="font-headline-sm text-headline-sm mb-1">Performance Analytics</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Granular tracking of progress across CEFR levels from A1 to C2 with visual growth charts.</p>
+</div>
+</li>
+<li class="glass-card p-stack-md rounded-lg flex items-start gap-4">
+<span class="material-symbols-outlined text-primary bg-primary/10 p-2 rounded-full">headset</span>
+<div>
+<h4 class="font-headline-sm text-headline-sm mb-1">Interactive Audio</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Integrated high-fidelity audio player for listening comprehension with playback speed control.</p>
+</div>
+</li>
+<li class="glass-card p-stack-md rounded-lg flex items-start gap-4">
+<span class="material-symbols-outlined text-primary bg-primary/10 p-2 rounded-full">security</span>
+<div>
+<h4 class="font-headline-sm text-headline-sm mb-1">Cloud Sync</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Save progress across devices instantly, allowing for a continuous learning journey.</p>
+</div>
+</li>
+</ul>
+</article>
+<article>
+<h2 class="font-headline-lg text-headline-lg text-primary mb-stack-md">Challenges &amp; Solutions</h2>
+<div class="space-y-stack-md font-body-lg text-body-lg text-on-surface-variant">
+<div class="p-stack-md border-l-2 border-primary/30 bg-surface-container-low/50">
+<strong class="text-on-surface block mb-1">The Challenge: Real-time Audio Sync</strong>
+<p>Handling large audio assets while maintaining a responsive UI during timed tests was critical. Traditional loading led to latency that broke the exam immersion.</p>
+</div>
+<div class="p-stack-md border-l-2 border-secondary/30 bg-surface-container-low/50">
+<strong class="text-on-surface block mb-1">The Solution: Intelligent Pre-fetching</strong>
+<p>We implemented a service-worker based pre-fetching strategy that loads audio chunks in the background based on the user's predicted path through the exam, ensuring zero-latency playback.</p>
+</div>
+</div>
+</article>
+</div>
+<!-- Right Sidebar: Stats & Links -->
+<aside class="lg:w-1/3 lg:sticky lg:top-[120px] h-fit space-y-stack-lg">
+<div class="glass-card p-stack-lg rounded-xl space-y-stack-md">
+<div>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest block mb-2">Tech Stack</span>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 bg-primary/10 text-primary border border-primary/20 rounded-full font-label-sm text-label-sm">Next.js</span>
+<span class="px-3 py-1 bg-primary/10 text-primary border border-primary/20 rounded-full font-label-sm text-label-sm">Tailwind CSS</span>
+<span class="px-3 py-1 bg-primary/10 text-primary border border-primary/20 rounded-full font-label-sm text-label-sm">PostgreSQL</span>
+<span class="px-3 py-1 bg-primary/10 text-primary border border-primary/20 rounded-full font-label-sm text-label-sm">Supabase</span>
+<span class="px-3 py-1 bg-primary/10 text-primary border border-primary/20 rounded-full font-label-sm text-label-sm">Framermotion</span>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-stack-md py-stack-md border-y border-outline-variant/30">
+<div>
+<span class="font-label-sm text-label-sm text-on-surface-variant block mb-1">Type</span>
+<span class="font-headline-sm text-body-lg text-on-surface">Full-Stack / Mobile</span>
+</div>
+<div>
+<span class="font-label-sm text-label-sm text-on-surface-variant block mb-1">Year</span>
+<span class="font-headline-sm text-body-lg text-on-surface">2024</span>
+</div>
+<div>
+<span class="font-label-sm text-label-sm text-on-surface-variant block mb-1">Role</span>
+<span class="font-headline-sm text-body-lg text-on-surface">Lead Developer</span>
+</div>
+</div>
+<div class="space-y-stack-sm pt-stack-sm">
+<button class="w-full py-4 gradient-bg text-surface font-headline-sm text-label-md rounded-lg flex items-center justify-center gap-2 group transition-all hover:shadow-[0_0_20px_rgba(110,255,192,0.4)] active:scale-[0.98]">
+<span class="material-symbols-outlined">rocket_launch</span>
+                                Live Demo
+                            </button>
+<button class="w-full py-4 border border-outline-variant text-on-surface font-headline-sm text-label-md rounded-lg flex items-center justify-center gap-2 transition-all hover:border-primary/50 hover:bg-white/5 active:scale-[0.98]">
+<span class="material-symbols-outlined">code</span>
+                                GitHub Repo
+                            </button>
+</div>
+</div>
+<!-- Additional Sidebar Element: Quote -->
+<div class="glass-card p-stack-md rounded-xl border-l-4 border-primary italic text-on-surface-variant font-body-md">
+                        "The goal was to create a digital environment so polished that users forget they're studying for an exam."
+                    </div>
+</aside>
+</div>
+</section>
+<!-- Gallery Section -->
+<section class="max-w-container-max mx-auto px-gutter mb-section-gap">
+<h2 class="font-headline-lg text-headline-lg text-primary mb-stack-lg">Interface Gallery</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-stack-md">
+<div class="rounded-xl overflow-hidden glass-card aspect-video relative group cursor-pointer">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="A detailed screenshot showing the MonPassTCF dashboard. Features include a clean sidebar with icons for home, exams, and settings, a central progress area with circular charts in mint green, and a list of upcoming practice sessions. The aesthetic is Lumina Noir: dark backgrounds, subtle glass effects, and vibrant mint accents." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCNxXalMGCG7Yt0ez8UNhkS97tI1jsxMrLtn9RieQXNq76AUQQcCx65bft8LH88Yqw9I9noazdnSAyXeDC26zM0823NKV5iyJGWGHvDEls7I5z_Nb8ANiC4uc_ZX-hBSNcut8Mbaj3-5nd6968NRNYUaMg90tgi_PsSDJ7zhMmtgsVxbu1M8fgyxTOHr43S0c2BQY6I570H9LZyw-B2TUgMiIgx4G0zPsD1_yawRFbA-zr0yDZlqoBc5A"/>
+</div>
+<div class="rounded-xl overflow-hidden glass-card aspect-video relative group cursor-pointer lg:col-span-2">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="A widescreen interface view of the MonPassTCF exam simulation page. A reading passage is on the left, with multiple-choice questions on the right. A sleek timer countdown glows in the top corner. The UI uses sharp typography and a professional palette of deep blues and greens. Soft atmospheric shadows provide depth." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBHV1AcKfLQsgqx-LvC7STLM3I18QbO5PpPjbu2LRvCNRVi_zjJ4t24f2t65XnzEdpLBgn5cRaUczqLVairlyLnEaK_WEC6wweHxQRw5bvIgQikKCWc7RdMauAC7167p6cFXzLgkOl3hgL8El0KuT6JGiG1F9H-bGn7xz-jH4SJ8CcISgBTAIoKukzzANp4Nk3xFiCROj0HNXS4LyYUcpVZy_OLDapjz2sAJ6x1JCkv0UhWtIjp6dy4Hg"/>
+</div>
+<div class="rounded-xl overflow-hidden glass-card aspect-square relative group cursor-pointer">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="A close-up UI detail of the performance analytics module in MonPassTCF. A line graph shows improvement over time using a neon mint line. Hover states on the data points reveal CEFR level scores. The background is a translucent dark pane over a subtle mesh gradient of purple and dark gray." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDvbZ4NyFuVZ2hNd5ntn8drmhfdePOH9y7WYMmZJsJkQmiAOAgHT_4cwZv5h-eDKMUiUJyL2Z4pbX0XUf8EYG0BX8c3LseckxEAInW-QYFmKCP9QivgE7XA21rJVq56MYl_Zq0TBovyIz3ceSsokLeyB95IW9hT_IF3GvadCYFFA9m1OnErD9xXrXN2pKzlzkYdjOUu66dpqlTyMJvWY2lM5-Q8mLWT8M-3_5PF9GCKRWnvQZbDam04xA"/>
+</div>
+<div class="rounded-xl overflow-hidden glass-card aspect-video relative group cursor-pointer">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="The mobile view of the MonPassTCF app, showing a study-on-the-go interface. Flashcards for vocabulary are shown with smooth corner radii and elegant shadows. The branding is consistent with the desktop version, optimized for touch with large interactive elements." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBWGJbEIYxPVAiKBoEZOcF_89RchTSFivf3CtiKBI0R9TPSYFNvNr6ROfirUnbehkL85W-6FupY3r1YV5uqJOb9X1LYdZ9MDFcsXR0ZnFsiSB3EG4OqV5xPj1Re0qbXKITrxjQ9zFKzZu5NPi6-8CuqeV4ljAC8Ec8K-oaRrVgqvi4bZXc6MIgao5AkctFCDmiBKhtUgfKJueTqQpGu-Bj0AOsxJTwu4JcDiPm2RAz3I5zI1YOdqpmOTw"/>
+</div>
+<div class="rounded-xl overflow-hidden glass-card aspect-video relative group cursor-pointer">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="A stylized layout showing the MonPassTCF login and onboarding screens. Clean, minimalist inputs with mint green focus rings and high-contrast labels. The background features a subtle, slowly shifting animated shader with dark oceanic tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAKjDT6L8K4WObnMPFwJQfEtHEyQQWLtgtqTrop6uY6ySq2kWUcoNJUtM0Hz14bJJ2Zo9sz6ZN7pxHZd1XTFiF5Xu0_eDA_YhsIzsLdKu3qeHK2TcL-QQQW-EOAiLw355MXwGxOMJiWNELXsYx1S4KR-VX885vQLh11OAfxTJrKwH87TIEM-uZg2cweiASWs81wXHtVtqTF8YTqHgt0P4z7Y5Ok9SzgfBm8Q5i8E9KYvAsEGTEJtXGgVw"/>
+</div>
+</div>
+</section>
+<!-- Related Projects -->
+<section class="max-w-container-max mx-auto px-gutter mb-section-gap">
+<div class="flex items-end justify-between mb-stack-lg">
+<h2 class="font-headline-lg text-headline-lg text-primary">Related Projects</h2>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="#">View All Works →</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-stack-lg">
+<!-- Card 1 -->
+<div class="group cursor-pointer">
+<div class="aspect-[4/3] rounded-xl overflow-hidden mb-stack-md glass-card relative">
+<img class="w-full h-full object-cover transition-all duration-500 group-hover:scale-105 group-hover:opacity-70" data-alt="A premium project thumbnail for a crypto wallet app. High-contrast UI with purple accents, floating glass cards, and glowing currency balances. Modern dark mode aesthetic consistent with the professional Lumina Noir style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCoq4Vh8HP2jF3GqvEqC5xlP8o4BRwpGojg5sw0Nux-MqWClrrgklm6Q83k8yotu_L-T3Cwq0yRc2dUCdZpPpFQoBrhxX5clBr63s8uivMe5SZcBhhBJbmFUZh6l3SvJpf24ir-FGCk0_nlNb6JgouXQls_5KwrqkeiI-uts_hEvh5e1FIWavjiV7kKSYjYwYlOSSdOX0eM34y9Un-bBR7OmUfXjk8KZsy2TTvKfPaF55mBZOykAGANZg"/>
+<div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="px-4 py-2 bg-surface/90 rounded-full border border-primary text-primary font-label-md">View Case Study</span>
+</div>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary transition-colors">Lumina Wallet</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">DeFi Asset Management Interface</p>
+</div>
+<!-- Card 2 -->
+<div class="group cursor-pointer">
+<div class="aspect-[4/3] rounded-xl overflow-hidden mb-stack-md glass-card relative">
+<img class="w-full h-full object-cover transition-all duration-500 group-hover:scale-105 group-hover:opacity-70" data-alt="A project thumbnail for a health-tech dashboard. Minimalist clean data visualization with soft blue and green hues. The design is airy and professional, featuring high-quality photography of a doctor using the tablet app." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBvE_jPurpnSL3VinM8sT3WUeqP1l9uLJGGy-YeACHnCFMN2jR7fxNLoCZ5jI_8IaQ-GYtQ19a4Je4Wm0iXyG96IkYsaITgAnD1uQk9bDzg__iI8-axpaI6wlvTf1YWLQgf1leF2i-stFEen4uouLsiWvMSMYFeK_CRegDNGyieeW1aExUsdOK3GQKDbPn1bEZDWaZdVtdsFnbViWp8RXP9AcOsIvYNO5teaPTnnsTCYyoGzL1yRKDpRQ"/>
+<div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="px-4 py-2 bg-surface/90 rounded-full border border-primary text-primary font-label-md">View Case Study</span>
+</div>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary transition-colors">Vitalis Dashboard</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Real-time Patient Monitoring System</p>
+</div>
+<!-- Card 3 -->
+<div class="group cursor-pointer">
+<div class="aspect-[4/3] rounded-xl overflow-hidden mb-stack-md glass-card relative">
+<img class="w-full h-full object-cover transition-all duration-500 group-hover:scale-105 group-hover:opacity-70" data-alt="A project thumbnail for a fashion e-commerce site. High-fashion photography, bold typography, and a grid-based layout. The interface is high-end and minimalist, using shadows to create deep layering and luxury feel." src="https://lh3.googleusercontent.com/aida-public/AB6AXuANlrGH5M5-jf6h4jrsLE7qU7GVeJcUrDoml-bkykZ_PRIc6myebt3bMF7oa-WFZIAIvlJ4Ay7dQLXDz2gdpKWXS-YOSWS3mwPFyShoOQ-6lQQ62f0q-uzCu8lU2h5g9hmpym4RdKeSPlb5zwONgZfMsHgngzB3LpxqTi-7Oz6A2YFOljxi1ZAKrzEq_hlY1QMJl1amsr8MKUOIpZRvxdaI3fMmyZDtJONugc-KWdYBdVtxcDt8R6_Kgg"/>
+<div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="px-4 py-2 bg-surface/90 rounded-full border border-primary text-primary font-label-md">View Case Study</span>
+</div>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary transition-colors">Aura Boutique</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Next-gen Retail Experience</p>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full py-stack-lg bg-surface-container-lowest dark:bg-surface-container-lowest border-t border-outline-variant/30">
+<div class="flex flex-col md:flex-row justify-between items-center px-gutter gap-stack-md max-w-container-max mx-auto">
+<div class="space-y-1">
+<span class="font-headline-sm text-headline-sm text-primary">NAWFAL</span>
+<p class="font-label-md text-label-md text-on-surface-variant">© 2024 NAWFAL. All rights reserved.</p>
+</div>
+<div class="flex gap-stack-lg">
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary hover:glow-sm transition-all duration-300 opacity-80 hover:opacity-100" href="#">GitHub</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary hover:glow-sm transition-all duration-300 opacity-80 hover:opacity-100" href="#">LinkedIn</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary hover:glow-sm transition-all duration-300 opacity-80 hover:opacity-100" href="#">Twitter</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary hover:glow-sm transition-all duration-300 opacity-80 hover:opacity-100" href="#">Email</a>
+</div>
+</div>
+</footer>
+<script>
+        // Micro-interactions and scroll effects
+        document.addEventListener('DOMContentLoaded', () => {
+            const header = document.querySelector('header');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 20) {
+                    header.classList.add('shadow-lg', 'bg-surface/90');
+                } else {
+                    header.classList.remove('shadow-lg', 'bg-surface/90');
+                }
+            });
+
+            // Smooth parallax-ish effect for images
+            const images = document.querySelectorAll('.group img');
+            window.addEventListener('mousemove', (e) => {
+                const { clientX, clientY } = e;
+                const centerX = window.innerWidth / 2;
+                const centerY = window.innerHeight / 2;
+                const moveX = (clientX - centerX) / 50;
+                const moveY = (clientY - centerY) / 50;
+
+                // Subtle mesh move based on mouse
+                document.body.style.backgroundPosition = `${moveX}px ${moveY}px`;
+            });
+        });
+    </script>
+</body></html>

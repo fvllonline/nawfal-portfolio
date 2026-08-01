@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>MonPassTCF | Case Study</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800&amp;family=DM+Sans:wght@400;500;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-secondary-fixed-variant": "#441cc8",
+                    "surface-container-highest": "#323537",
+                    "error-container": "#93000a",
+                    "outline-variant": "#3b4a41",
+                    "background": "#101415",
+                    "on-primary": "#003824",
+                    "tertiary-fixed-dim": "#bfc6dd",
+                    "on-background": "#e0e3e5",
+                    "surface-container": "#1d2022",
+                    "inverse-primary": "#006c49",
+                    "on-secondary-fixed": "#1a0063",
+                    "primary-container": "#00e5a0",
+                    "on-secondary-container": "#baaeff",
+                    "inverse-on-surface": "#2d3133",
+                    "on-surface": "#e0e3e5",
+                    "surface-container-low": "#191c1e",
+                    "on-surface-variant": "#bacbbf",
+                    "error": "#ffb4ab",
+                    "tertiary-fixed": "#dbe2fa",
+                    "surface-container-lowest": "#0b0f10",
+                    "surface": "#101415",
+                    "on-error-container": "#ffdad6",
+                    "on-tertiary": "#293042",
+                    "on-tertiary-fixed": "#141b2c",
+                    "secondary-container": "#4720ca",
+                    "on-error": "#690005",
+                    "surface-bright": "#363a3b",
+                    "on-primary-fixed-variant": "#005236",
+                    "on-tertiary-container": "#4d5468",
+                    "primary-fixed": "#47ffb8",
+                    "tertiary-container": "#c2c9e0",
+                    "on-primary-fixed": "#002114",
+                    "secondary-fixed": "#e5deff",
+                    "surface-tint": "#00e29e",
+                    "surface-variant": "#323537",
+                    "on-secondary": "#2e009c",
+                    "primary": "#6effc0",
+                    "on-tertiary-fixed-variant": "#404659",
+                    "secondary": "#c9bfff",
+                    "on-primary-container": "#006141",
+                    "inverse-surface": "#e0e3e5",
+                    "tertiary": "#dfe5fd",
+                    "primary-fixed-dim": "#00e29e",
+                    "outline": "#84958a",
+                    "surface-container-high": "#272a2c",
+                    "surface-dim": "#101415",
+                    "secondary-fixed-dim": "#c9bfff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "stack-md": "16px",
+                    "section-gap-mobile": "64px",
+                    "stack-lg": "32px",
+                    "stack-sm": "8px",
+                    "gutter": "24px",
+                    "container-max": "1280px",
+                    "section-gap": "120px"
+            },
+            "fontFamily": {
+                    "headline-sm": ["Hanken Grotesk"],
+                    "display-lg-mobile": ["Hanken Grotesk"],
+                    "headline-md": ["Hanken Grotesk"],
+                    "body-lg": ["DM Sans"],
+                    "label-sm": ["JetBrains Mono"],
+                    "label-md": ["JetBrains Mono"],
+                    "headline-lg": ["Hanken Grotesk"],
+                    "body-md": ["DM Sans"],
+                    "display-lg": ["Hanken Grotesk"]
+            },
+            "fontSize": {
+                    "headline-sm": ["24px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                    "display-lg-mobile": ["40px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                    "headline-md": ["32px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "label-sm": ["12px", {"lineHeight": "1.0", "letterSpacing": "0.1em", "fontWeight": "500"}],
+                    "label-md": ["14px", {"lineHeight": "1.0", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                    "headline-lg": ["48px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "display-lg": ["72px", {"lineHeight": "1.1", "letterSpacing": "-0.04em", "fontWeight": "800"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #0B0F19;
+            color: #e0e3e5;
+            -webkit-font-smoothing: antialiased;
+        }
+        .glass-card {
+            background: rgba(19, 26, 43, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .primary-gradient {
+            background: linear-gradient(135deg, #6effc0 0%, #c9bfff 100%);
+        }
+        .text-gradient {
+            background: linear-gradient(135deg, #6effc0 0%, #c9bfff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .skill-chip {
+            background: rgba(110, 255, 192, 0.1);
+            color: #6effc0;
+            border: 1px solid rgba(110, 255, 192, 0.2);
+        }
+        .glow-mint {
+            box-shadow: 0 0 40px rgba(110, 255, 192, 0.15);
+        }
+        .masonry {
+            column-count: 1;
+            column-gap: 24px;
+        }
+        @media (min-width: 768px) {
+            .masonry {
+                column-count: 2;
+            }
+        }
+        .masonry-item {
+            break-inside: avoid;
+            margin-bottom: 24px;
+        }
+    </style>
+</head>
+<body class="font-body-md overflow-x-hidden">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-surface/70 dark:bg-surface/70 backdrop-blur-xl border-b border-white/10 shadow-[0_0_40px_rgba(110,255,192,0.15)]">
+<div class="flex items-center justify-between px-gutter py-4 max-w-container-max mx-auto">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">terminal</span>
+<span class="font-display-lg text-[24px] md:text-display-lg-mobile tracking-tighter text-primary dark:text-primary">NAWFAL</span>
+</div>
+<nav class="hidden md:flex items-center gap-stack-lg">
+<a class="font-label-md text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">Work</a>
+<a class="font-label-md text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">Experience</a>
+<a class="font-label-md text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">About</a>
+<a class="font-label-md text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">Contact</a>
+</nav>
+<button class="md:hidden text-primary">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</header>
+<main class="pt-24">
+<!-- Hero Section -->
+<section class="px-gutter max-w-container-max mx-auto mb-stack-lg">
+<a class="inline-flex items-center gap-2 font-label-md text-primary mb-stack-lg hover:translate-x-[-4px] transition-transform" href="#">
+<span class="material-symbols-outlined text-[18px]">arrow_back</span>
+                Back to Projects
+            </a>
+<div class="mb-12">
+<h1 class="font-headline-lg text-headline-lg md:text-display-lg mb-2">MonPassTCF</h1>
+<p class="font-headline-sm text-on-surface-variant max-w-2xl">TCF preparation platform powered by AI to help students achieve their language certification goals.</p>
+</div>
+<!-- Hero Image -->
+<div class="relative w-full aspect-[21/9] rounded-xl overflow-hidden glass-card glow-mint">
+<img class="w-full h-full object-cover" data-alt="A premium wide-angle shot of a sleek modern laptop and tablet displaying a dark-themed TCF preparation application interface. The UI features elegant progress charts, mint-colored highlights, and clean typography. The setting is a minimalist, high-end office space with soft ambient lighting and deep navy tones, emphasizing a professional educational atmosphere." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC3HOqRhmCM1Pc6_hIdzxSxy7I2b0ysI_dYl3TBbar5QQNqW0HkM3WRaGsMviOKmh2wYpS9TCKylrj5cUd1rZCgLK0euexlDAhcInpG7fyTCSs4uaGQF1dA6niPiLr5hz6JakjRG_7M_cu2b00VEwNHBEUBXNn4Bx8_IOCv9sTe_AYsDY2UqxW4t1Vqfqjw05FEEnOZBAdblBm68YDJsvvzdK5OODBeVFcwqGq8cH3lNbjUL6YIA3F3hA"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent"></div>
+</div>
+</section>
+<!-- Project Info Grid -->
+<section class="px-gutter max-w-container-max mx-auto py-stack-lg grid grid-cols-1 lg:grid-cols-12 gap-12">
+<!-- Left: Description & Features -->
+<div class="lg:col-span-8 space-y-12">
+<div>
+<h2 class="font-headline-md text-headline-md mb-6">Overview</h2>
+<p class="font-body-lg text-on-surface-variant leading-relaxed">
+                        MonPassTCF is a comprehensive ed-tech ecosystem designed to streamline the Test de Connaissance du Français (TCF) preparation process. Recognizing the stress and complexity of language certification, the platform provides a data-driven approach to learning, combining real-world simulations with advanced AI feedback loops.
+                    </p>
+<p class="font-body-lg text-on-surface-variant leading-relaxed mt-4">
+                        The core mission was to build a tool that doesn't just present questions, but actively analyzes performance gaps and suggests targeted improvements, creating a personalized roadmap for every candidate.
+                    </p>
+</div>
+<div>
+<h2 class="font-headline-md text-headline-md mb-8">Key Features</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="glass-card p-6 rounded-xl hover:border-primary/40 transition-colors">
+<span class="material-symbols-outlined text-primary mb-4 text-[32px]">psychology</span>
+<h3 class="font-headline-sm text-headline-sm mb-2">AI Integration with Groq</h3>
+<p class="font-body-md text-on-surface-variant">Real-time oral and written evaluation using Groq's high-speed inference engine for instant feedback.</p>
+</div>
+<div class="glass-card p-6 rounded-xl hover:border-primary/40 transition-colors">
+<span class="material-symbols-outlined text-primary mb-4 text-[32px]">timer</span>
+<h3 class="font-headline-sm text-headline-sm mb-2">Test Simulation</h3>
+<p class="font-body-md text-on-surface-variant">Full-length timed practice exams that mimic the official TCF environment and difficulty levels.</p>
+</div>
+<div class="glass-card p-6 rounded-xl hover:border-primary/40 transition-colors">
+<span class="material-symbols-outlined text-primary mb-4 text-[32px]">dashboard</span>
+<h3 class="font-headline-sm text-headline-sm mb-2">User Dashboard</h3>
+<p class="font-body-md text-on-surface-variant">Visualized progress tracking, strength/weakness heatmaps, and personalized study schedules.</p>
+</div>
+<div class="glass-card p-6 rounded-xl hover:border-primary/40 transition-colors">
+<span class="material-symbols-outlined text-primary mb-4 text-[32px]">cloud_sync</span>
+<h3 class="font-headline-sm text-headline-sm mb-2">Cross-Platform Sync</h3>
+<p class="font-body-md text-on-surface-variant">Seamless transition between the web dashboard and mobile application for on-the-go learning.</p>
+</div>
+</div>
+</div>
+<!-- Gallery -->
+<div>
+<h2 class="font-headline-md text-headline-md mb-8">Gallery</h2>
+<div class="masonry">
+<div class="masonry-item">
+<div class="glass-card rounded-xl overflow-hidden">
+<img class="w-full" data-alt="A vertical mobile screenshot showing a beautifully designed language test interface with a clean progress bar, multiple-choice questions, and a mint-green accent color on a deep dark background. The UI is modern, minimalist, and highly legible." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD6Ojir-c2Z47LFdg8lP-DB-Ecf1syBHyCCV23M-VJoDUMT4p5Sv4Kv7rr3Yl2gbyCwz4qLAtfwBrBQrhyYz63VT_vtd2Ne23NN2kVb1SOnx9abl6wPv6jQxDfmukpnMqlRDlw4vz7-r09AC_KyZ8ghYr27_l8zCMeulTBxwqiOTH4tEtOhigyTYdLjRpm_rKAFWjI57dQ1vCyryuph-8iZ2AVPO6NOMVgAb9wgtG03CQKyHFD-_BZrZw"/>
+</div>
+</div>
+<div class="masonry-item">
+<div class="glass-card rounded-xl overflow-hidden">
+<img class="w-full" data-alt="A desktop dashboard view of an educational app featuring advanced data visualization charts showing language proficiency levels. The colors are deep navy and emerald green, with smooth gradients and semi-transparent glassmorphic elements." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDLYPgc3ar1Fm1M__I1uQl5wwsWwhxvpBP3aaZdPRzogLT7hjdXocW1JoGJCj2HAsEu8ovh4dJihbWJ7iz9ikl1etvXx-u0--OyCLaaSVv6e5dqmmPBRTSuOx_yjkSeiNeIKbS1DnxuGtupSk5NCuV7blNKDH9x1138_9kbhaEyEL0SLNJMHTwrPE1-RKsRUTrU8lBy2wICJ2_Vm0pCEg2Zk1pfo3Fq1uMoRyyXO9oMm92odvytfkuI6Q"/>
+</div>
+</div>
+<div class="masonry-item">
+<div class="glass-card rounded-xl overflow-hidden">
+<img class="w-full" data-alt="A detailed view of an AI feedback screen where a user's French composition is analyzed with highlighted suggestions and score breakdowns. The interface uses a professional dark aesthetic with sophisticated typography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA0JwIJSeeA7N5p1zQMdECWsopSROxxufRzd9qYy3nbzDBnpYCAwHdHyhlJkDpcXnpQm42-0Orm6ebfOSSI48u0wdl2uGkBgEynMpzjLr-0Jqr_rtsu-Y7DTKsmgmRibVxLkdNEmkQzBFraQNlFLlF7a8L3dchb_NMbeh9_2R9SRCitMk4UmnLRPw2SBFOX66Bn_W8gEYNhhLdW5w9GNGxncKH7uEYNsUu5rc2OGOWSXKx_wBEPfQyeIQ"/>
+</div>
+</div>
+<div class="masonry-item">
+<div class="glass-card rounded-xl overflow-hidden">
+<img class="w-full" data-alt="A minimalist login and onboarding screen for a high-end mobile app, featuring a subtle geometric background pattern and a large, welcoming brand logo. The style is premium and tech-focused." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDe0Lh7k-bZZhVrW-K2E-Ghc0HTrYcy6d8SeUBKYuBqi6QhSiix77TANtO8x5HhPbC_uwCGcBcrXwgsWuWPCvEcezdiBIuqnO92db2aHBX9F9a2dN0JxYYEWHQg35MkEi90-b_4uFeW-dmASphhFHjrnV7B5pXWC8G6mjdq_JDIP6Q6KRmckwMu7yuw5n9bIIkFKednOlcDhrND-eH2ctcE2JTCb4CwdoHN61J6q8vSuLStS_HFrUkVGw"/>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Right: Sidebar -->
+<aside class="lg:col-span-4 space-y-8">
+<div class="glass-card p-8 rounded-xl sticky top-28">
+<div class="space-y-6">
+<div>
+<span class="font-label-sm text-on-surface-variant uppercase mb-2 block">Role</span>
+<p class="font-headline-sm text-on-surface">Full-Stack Developer</p>
+</div>
+<div>
+<span class="font-label-sm text-on-surface-variant uppercase mb-2 block">Type</span>
+<p class="font-headline-sm text-on-surface">Full-Stack / Mobile</p>
+</div>
+<div>
+<span class="font-label-sm text-on-surface-variant uppercase mb-2 block">Year</span>
+<p class="font-headline-sm text-on-surface">2026</p>
+</div>
+<div>
+<span class="font-label-sm text-on-surface-variant uppercase mb-2 block">Technologies</span>
+<div class="flex flex-wrap gap-2 mt-2">
+<span class="skill-chip px-3 py-1 rounded-full font-label-sm">React Native</span>
+<span class="skill-chip px-3 py-1 rounded-full font-label-sm">Next.js</span>
+<span class="skill-chip px-3 py-1 rounded-full font-label-sm">Express.js</span>
+<span class="skill-chip px-3 py-1 rounded-full font-label-sm">Groq AI</span>
+<span class="skill-chip px-3 py-1 rounded-full font-label-sm">PostgreSQL</span>
+<span class="skill-chip px-3 py-1 rounded-full font-label-sm">Tailwind CSS</span>
+</div>
+</div>
+<div class="pt-6 flex flex-col gap-4">
+<a class="primary-gradient text-background font-bold py-4 rounded-lg flex items-center justify-center gap-2 hover:scale-[1.02] transition-transform" href="#">
+<span class="material-symbols-outlined">rocket_launch</span>
+                                Live Demo
+                            </a>
+<a class="border border-outline-variant text-on-surface font-bold py-4 rounded-lg flex items-center justify-center gap-2 hover:border-primary/50 transition-colors" href="#">
+<span class="material-symbols-outlined">code</span>
+                                GitHub
+                            </a>
+</div>
+</div>
+</div>
+</aside>
+</section>
+<!-- Related Projects -->
+<section class="bg-surface-container-low py-section-gap mt-section-gap">
+<div class="px-gutter max-w-container-max mx-auto">
+<div class="flex justify-between items-end mb-12">
+<h2 class="font-headline-md text-headline-md">Related Projects</h2>
+<a class="font-label-md text-primary hover:underline" href="#">View All</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Card 1 -->
+<div class="glass-card group rounded-xl overflow-hidden hover:scale-[1.02] transition-all duration-300">
+<div class="aspect-video relative">
+<img class="w-full h-full object-cover" data-alt="A sleek dark-mode interface for a financial management application with vibrant neon accents and glassmorphic panels. The visual style is premium and professional, featuring sophisticated charts." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBEDRDxOyhW2zo28g9gAHOYxqfNLhjKbtHkSsoUhcIpBjpAZP0gAIog8M5XigOwDrLqrjBzmGmAw4kg3hTyvY8lG2Qftaxyj75-n2Rzg2isgK008WbgzfReAg2S0lDJ-rG2mbitJa_aPAvOWH9HVe9XmP7QTs7uDnM7r6vfLQUSa9nISmOcg1DctJDIdxJJYfvbe81x0hae3Rp6jYdOkZ_GBHi5K45Mvh0ly0c99gNoZPHGrVO1zdZgAQ"/>
+</div>
+<div class="p-6">
+<h3 class="font-headline-sm text-headline-sm mb-2 group-hover:text-primary transition-colors">FinTrack AI</h3>
+<p class="font-body-md text-on-surface-variant mb-4">Financial forecasting and expense tracking platform.</p>
+<span class="font-label-sm text-primary">Web Application</span>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="glass-card group rounded-xl overflow-hidden hover:scale-[1.02] transition-all duration-300">
+<div class="aspect-video relative">
+<img class="w-full h-full object-cover" data-alt="A minimalist mobile app design for a meditation and wellness platform, featuring soft lavender and mint gradients on a deep navy background. The layout is clean and focused on serenity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC2f1poYzMrKq6y2cuTjvllPyxy3B6vAMK3XlWNI1BNbgk6M2XJZbAsLFgIggTaSdhn3Yz-r3bK69F3Qqc9cUdpX5AIUh4rl8Mz-SV_OJ_iQwR7PphFydtJbB-8lekx4EW3s7OLgh63lLxEE2SAUaRtcrbl2pmg6bCeh_wnk2FLmX_54LX__TxktKr9b2ytIaHje_qpBcKxA2gD5BribOFy1O2bCMMfXwF34MrmhR2igoiPbSiduxKpPw"/>
+</div>
+<div class="p-6">
+<h3 class="font-headline-sm text-headline-sm mb-2 group-hover:text-primary transition-colors">Zenith Wellness</h3>
+<p class="font-body-md text-on-surface-variant mb-4">Holistic health and meditation companion app.</p>
+<span class="font-label-sm text-primary">Mobile Design</span>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="glass-card group rounded-xl overflow-hidden hover:scale-[1.02] transition-all duration-300">
+<div class="aspect-video relative">
+<img class="w-full h-full object-cover" data-alt="A sophisticated e-commerce platform for high-end digital assets, featuring a crisp dark-mode interface with sharp typography and vibrant accent colors. The aesthetic is modern and high-tech." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDGZvWgOIpzNvgcW3TAqec2HZehnrMAFqJps40fSqDCAWdz4yKGAgqm8BspsDc06Dv6ehPF_AwtgTasOxGuUL-hd7Wd4UM3JglrWNK0zynYzW-J9rMv8q1AQQ5wHJS5EwxrN9uQreOoBJo63cw7W9CuimTa-_gD9d9tD9RLs4h2A7CgHZI5yixFr3mnerY2gQj1pOoQevTc2PXAVPNnj6HSvKtT8S-FZoaFbc_8gzMSsQFFDAr4Sayxqw"/>
+</div>
+<div class="p-6">
+<h3 class="font-headline-sm text-headline-sm mb-2 group-hover:text-primary transition-colors">PixelMarket</h3>
+<p class="font-body-md text-on-surface-variant mb-4">Marketplace for premium 3D assets and textures.</p>
+<span class="font-label-sm text-primary">Full-Stack Platform</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest dark:bg-surface-container-lowest w-full py-stack-lg border-t border-outline-variant/30">
+<div class="flex flex-col md:flex-row justify-between items-center px-gutter gap-stack-md max-w-container-max mx-auto">
+<div class="flex flex-col items-center md:items-start">
+<span class="font-headline-sm text-headline-sm text-primary mb-2">NAWFAL</span>
+<p class="font-label-md text-on-surface-variant">© 2024 NAWFAL. All rights reserved.</p>
+</div>
+<div class="flex gap-stack-lg">
+<a class="font-label-md text-on-surface-variant hover:text-primary hover:glow-sm transition-all duration-300" href="#">GitHub</a>
+<a class="font-label-md text-on-surface-variant hover:text-primary hover:glow-sm transition-all duration-300" href="#">LinkedIn</a>
+<a class="font-label-md text-on-surface-variant hover:text-primary hover:glow-sm transition-all duration-300" href="#">Twitter</a>
+<a class="font-label-md text-on-surface-variant hover:text-primary hover:glow-sm transition-all duration-300" href="#">Email</a>
+</div>
+</div>
+</footer>
+<script>
+        // Simple scroll reveal effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 20) {
+                header.classList.add('py-2');
+                header.classList.remove('py-4');
+            } else {
+                header.classList.add('py-4');
+                header.classList.remove('py-2');
+            }
+        });
+
+        // Hover animation for glass cards
+        document.querySelectorAll('.glass-card').forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                card.style.setProperty('--mouse-x', `${x}px`);
+                card.style.setProperty('--mouse-y', `${y}px`);
+            });
+        });
+    </script>
+</body></html>

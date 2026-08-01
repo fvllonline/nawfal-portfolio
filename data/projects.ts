@@ -1,13 +1,5 @@
 import type { Project } from "@/lib/types"
 
-/** Shared placeholder assets until real project screenshots are added */
-const img = {
-  cover: "/herobg.jpg",
-  alt: "/placeholder.jpg",
-  portrait: "/PRFLN.png",
-  brand: "/cisco.jpg",
-}
-
 /**
  * Featured projects — temporary set while waiting for remaining case studies.
  * Sourced from CV + user brief.
@@ -25,8 +17,20 @@ export const projects: Project[] = [
       "Built during a PFE internship at Alvon Digital Group, the platform combines a full-stack architecture (Express.js, React Native, Next.js), AI integration via Groq, real-time social features, gamification, and an admin dashboard.",
       "The goal: a premium, distraction-free study experience that feels like a polished app — on the go or at home.",
     ],
-    coverImage: img.cover,
-    gallery: [img.cover, img.alt, img.portrait, img.brand],
+    coverImage: "/MonPassTCF/miniature-monpasstcf.png",
+    gallery: [
+      "/MonPassTCF/1.png",
+      "/MonPassTCF/2.png",
+      "/MonPassTCF/3.png",
+      "/MonPassTCF/4.png",
+      "/MonPassTCF/5.png",
+      "/MonPassTCF/7.png",
+      "/MonPassTCF/8.png",
+      "/MonPassTCF/9.png",
+      "/MonPassTCF/10.png",
+      "/MonPassTCF/11.png",
+      "/MonPassTCF/12.png",
+    ],
     technologies: [
       "React Native",
       "Next.js",

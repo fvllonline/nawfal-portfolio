@@ -230,7 +230,7 @@ export const projects: Project[] = [
       "It focuses on a clean storefront, responsive product pages, and a checkout path that stays simple on every device.",
       "Note: this project is still under active development and is not finished at 100% yet — the live demo reflects work in progress.",
     ],
-    coverImage: "/ZacaStore/miniature-zacastore.png",
+    coverImage: "/ZacaStore/miniature-zacastore.jpg",
     gallery: [
       "/ZacaStore/1-landing-page.png",
       "/ZacaStore/2-products.png",

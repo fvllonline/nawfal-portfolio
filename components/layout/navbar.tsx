@@ -13,6 +13,13 @@ import {
 } from "@/hooks/use-active-section"
 import { cn } from "@/lib/utils"
 
+function scrollToId(id: string) {
+  const el = document.getElementById(id)
+  if (!el) return
+  el.scrollIntoView({ behavior: "smooth", block: "start" })
+  window.history.replaceState(null, "", `/#${id}`)
+}
+
 export function Navbar() {
   const [open, setOpen] = useState(false)
   const scrolled = useScrolled(50)
@@ -33,32 +40,35 @@ export function Navbar() {
     setOpen(false)
   }, [pathname])
 
+  const closeMenu = () => {
+    setOpen(false)
+    document.body.style.overflow = ""
+  }
+
   const handleNavClick = (e: MouseEvent<HTMLAnchorElement>, href: string) => {
     const id = sectionIdFromHref(href)
     if (!id) return
 
-    // Same-page hash scroll
+    e.preventDefault()
+    e.stopPropagation()
+
+    // Unlock scroll before scrolling — overflow:hidden blocks scrollIntoView on mobile
+    closeMenu()
+
     if (pathname === "/") {
-      e.preventDefault()
-      const el = document.getElementById(id)
-      if (el) {
-        el.scrollIntoView({ behavior: "smooth", block: "start" })
-        window.history.replaceState(null, "", `/#${id}`)
-      }
-      setOpen(false)
+      window.requestAnimationFrame(() => {
+        window.setTimeout(() => scrollToId(id), 40)
+      })
       return
     }
 
-    // From project page → home + hash
-    e.preventDefault()
-    setOpen(false)
     router.push(`/#${id}`)
   }
 
   return (
     <header
       className={cn(
-        "fixed top-0 z-50 w-full border-b border-white/10 transition-all duration-300",
+        "fixed top-0 z-[70] w-full border-b border-white/10 transition-all duration-300",
         "bg-[#101415]/70 backdrop-blur-xl",
         "shadow-[0_0_40px_rgba(110,255,192,0.15)]",
         scrolled && "bg-[#101415]/90 shadow-[0_0_30px_rgba(110,255,192,0.1)]"
@@ -66,7 +76,7 @@ export function Navbar() {
     >
       <nav
         className={cn(
-          "container-ln flex items-center justify-between transition-all duration-300",
+          "container-ln relative z-[72] flex items-center justify-between transition-all duration-300",
           scrolled ? "py-2" : "py-4"
         )}
       >
@@ -121,7 +131,7 @@ export function Navbar() {
         {/* Mobile / tablet toggle */}
         <button
           type="button"
-          className="flex h-11 w-11 items-center justify-center text-primary xl:hidden"
+          className="relative z-[72] flex h-11 w-11 items-center justify-center text-primary xl:hidden"
           aria-label={open ? "Close menu" : "Open menu"}
           aria-expanded={open}
           aria-controls="mobile-nav"
@@ -131,53 +141,65 @@ export function Navbar() {
         </button>
       </nav>
 
-      {/* Mobile drawer */}
+      {/* Mobile drawer + backdrop */}
       <AnimatePresence>
         {open && (
-          <motion.div
-            id="mobile-nav"
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.25, ease: "easeInOut" }}
-            className="max-h-[calc(100dvh-4rem)] overflow-y-auto border-t border-border bg-background/95 backdrop-blur-xl xl:hidden"
-          >
-            <div className="container-ln flex flex-col gap-1 py-4">
-              {navLinks.map((link, i) => {
-                const id = sectionIdFromHref(link.href)
-                const isActive = id === active
+          <>
+            <motion.button
+              type="button"
+              aria-label="Close menu overlay"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.2 }}
+              className="fixed inset-0 z-[68] bg-background/55 xl:hidden"
+              onClick={closeMenu}
+            />
+            <motion.div
+              id="mobile-nav"
+              initial={{ opacity: 0, y: -8 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -8 }}
+              transition={{ duration: 0.2, ease: "easeOut" }}
+              className="absolute left-0 right-0 top-full z-[71] max-h-[min(70dvh,calc(100dvh-4.5rem))] overflow-y-auto overscroll-contain border-t border-border bg-background/98 shadow-2xl backdrop-blur-xl xl:hidden"
+            >
+              <div className="container-ln flex flex-col gap-1 py-3 pb-[max(1rem,env(safe-area-inset-bottom))]">
+                {navLinks.map((link, i) => {
+                  const id = sectionIdFromHref(link.href)
+                  const isActive = id === active
 
-                return (
-                  <motion.div
-                    key={link.href}
-                    initial={{ opacity: 0, x: -12 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: i * 0.04 }}
-                  >
-                    <Link
-                      href={link.href}
-                      onClick={(e) => handleNavClick(e, link.href)}
-                      className={cn(
-                        "label-md-ln flex min-h-11 items-center gap-3 rounded-xl px-4 py-3 transition-colors",
-                        isActive
-                          ? "bg-primary/10 text-primary"
-                          : "text-foreground-muted hover:bg-white/5 hover:text-primary"
-                      )}
-                      aria-current={isActive ? "page" : undefined}
+                  return (
+                    <motion.div
+                      key={link.href}
+                      initial={{ opacity: 0, x: -12 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: i * 0.03 }}
                     >
-                      {isActive && (
-                        <span
-                          className="h-1.5 w-1.5 rounded-full bg-primary"
-                          aria-hidden
-                        />
-                      )}
-                      {link.label}
-                    </Link>
-                  </motion.div>
-                )
-              })}
-            </div>
-          </motion.div>
+                      <a
+                        href={link.href}
+                        onClick={(e) => handleNavClick(e, link.href)}
+                        className={cn(
+                          "label-md-ln flex min-h-12 touch-manipulation items-center gap-3 rounded-xl px-4 py-3 transition-colors",
+                          isActive
+                            ? "bg-primary/10 text-primary"
+                            : "text-foreground-muted active:bg-white/5 active:text-primary"
+                        )}
+                        aria-current={isActive ? "page" : undefined}
+                      >
+                        {isActive && (
+                          <span
+                            className="h-1.5 w-1.5 rounded-full bg-primary"
+                            aria-hidden
+                          />
+                        )}
+                        {link.label}
+                      </a>
+                    </motion.div>
+                  )
+                })}
+              </div>
+            </motion.div>
+          </>
         )}
       </AnimatePresence>
     </header>

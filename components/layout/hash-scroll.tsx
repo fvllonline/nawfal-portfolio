@@ -10,15 +10,17 @@ export function HashScroll() {
   useEffect(() => {
     if (pathname !== "/") return
 
-    const hash = window.location.hash.replace("#", "")
-    if (!hash) return
+    const scrollToHash = () => {
+      const hash = window.location.hash.replace("#", "")
+      if (!hash) return
+      window.setTimeout(() => {
+        document.getElementById(hash)?.scrollIntoView({ behavior: "smooth" })
+      }, 80)
+    }
 
-    // Wait for sections to paint
-    const t = window.setTimeout(() => {
-      document.getElementById(hash)?.scrollIntoView({ behavior: "smooth" })
-    }, 80)
-
-    return () => window.clearTimeout(t)
+    scrollToHash()
+    window.addEventListener("hashchange", scrollToHash)
+    return () => window.removeEventListener("hashchange", scrollToHash)
   }, [pathname])
 
   return null

@@ -24,6 +24,13 @@ export function ProjectSidebar({ project }: { project: Project }) {
           <Meta label="Type" value={project.type} />
           <Meta label="Year" value={project.year} />
           <Meta label="Role" value={project.role} className="col-span-2" />
+          {project.inProgress && (
+            <Meta
+              label="Status"
+              value="In progress — not finished yet"
+              className="col-span-2"
+            />
+          )}
         </div>
 
         <div className="flex flex-col gap-3">
@@ -35,7 +42,7 @@ export function ProjectSidebar({ project }: { project: Project }) {
               className="gradient-bg inline-flex w-full items-center justify-center gap-2 rounded-xl py-4 font-mono text-sm text-white transition-all hover:shadow-[0_0_20px_rgba(110,255,192,0.4)] active:scale-[0.98]"
             >
               <Rocket className="h-4 w-4" />
-              Live Demo
+              {project.inProgress ? "Live Preview" : "Live Demo"}
               <ExternalLink className="h-3.5 w-3.5 opacity-70" />
             </Link>
           ) : (

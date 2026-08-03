@@ -41,6 +41,7 @@ export const projects: Project[] = [
     type: "Mobile Application",
     year: "2026",
     role: "Full-Stack Developer",
+    liveUrl: "https://lnkd.in/p/e3FwCSgD",
     features: [
       {
         title: "Adaptive Simulations",
@@ -103,6 +104,7 @@ export const projects: Project[] = [
     type: "E-commerce Website",
     year: "2025",
     role: "Full-Stack Developer",
+    liveUrl: "https://breezoria.vercel.app/",
     features: [
       {
         title: "Product Catalog",
@@ -146,12 +148,13 @@ export const projects: Project[] = [
     slug: "zacastore",
     title: "ZacaStore",
     subtitle:
-      "E-commerce website built to showcase products and convert visitors into customers.",
+      "E-commerce website in active development — product browsing, cart, and storefront UX.",
     shortDescription:
-      "E-commerce website with product browsing, cart, and a clean storefront experience.",
+      "E-commerce website currently in development (not 100% finished yet) — live preview available.",
     description: [
       "ZacaStore is an e-commerce website designed for a clear product hierarchy and a fast shopping experience.",
       "It focuses on a clean storefront, responsive product pages, and a checkout path that stays simple on every device.",
+      "Note: this project is still under active development and is not finished at 100% yet — the live demo reflects work in progress.",
     ],
     coverImage: "/ZacaStore/miniature-zacastore.png",
     gallery: [
@@ -167,6 +170,8 @@ export const projects: Project[] = [
     type: "E-commerce Website",
     year: "2025",
     role: "Full-Stack Developer",
+    liveUrl: "https://zacastore.vercel.app/",
+    inProgress: true,
     features: [
       {
         title: "Storefront Grid",
@@ -228,7 +233,7 @@ export const projects: Project[] = [
     type: "Showcase Website",
     year: "2024",
     role: "Frontend Developer",
-    liveUrl: undefined,
+    liveUrl: "https://dupondcafe.vercel.app/",
     features: [
       {
         title: "Brand Storytelling",
@@ -288,7 +293,7 @@ export const projects: Project[] = [
     type: "Showcase Website",
     year: "2025",
     role: "Web Developer",
-    liveUrl: "https://adamadventuretours.com",
+    liveUrl: "https://www.adamadventuretours.com/",
     features: [
       {
         title: "Brand Showcase",

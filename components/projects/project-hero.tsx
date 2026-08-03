@@ -34,6 +34,15 @@ export function ProjectHero({ project }: { project: Project }) {
         {project.title}
       </motion.h1>
 
+      {project.inProgress && (
+        <motion.p
+          {...enter(0.09)}
+          className="mt-4 inline-flex items-center rounded-full border border-secondary/40 bg-secondary/10 px-3 py-1 font-mono text-xs uppercase tracking-wider text-secondary-bright"
+        >
+          In progress — not 100% finished yet
+        </motion.p>
+      )}
+
       <motion.p {...enter(0.12)} className="body-lg mt-4 max-w-2xl">
         {project.subtitle}
       </motion.p>

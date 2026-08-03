@@ -84,6 +84,8 @@ export type Project = {
   role: string
   liveUrl?: string
   githubUrl?: string
+  /** Still being developed — not 100% finished */
+  inProgress?: boolean
   features: ProjectFeature[]
   challenges?: ProjectChallenge[]
   quote?: string

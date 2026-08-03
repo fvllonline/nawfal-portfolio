@@ -83,6 +83,80 @@ export const projects: Project[] = [
     featured: true,
   },
   {
+    slug: "quick-stay",
+    title: "Quick Stay",
+    subtitle:
+      "End-of-studies internship — Laravel backend APIs, technical docs, and full brand identity.",
+    shortDescription:
+      "Backend development & branding for Quick Stay: REST APIs with Laravel, Postman testing, and complete visual identity.",
+    description: [
+      "During my end-of-studies internship, I contributed actively to the Quick Stay web application, with a strong focus on technical design and backend delivery.",
+      "On the organization side, I wrote the functional and technical specifications, helped coordinate tasks within the project team, and created the logo plus the full graphic charter for the product.",
+      "On the backend, I designed and implemented robust REST APIs with Laravel (routes, controllers, models, middlewares), thoroughly tested endpoints with Postman, and documented requests/responses in a complete Excel technical pack. The internship strengthened both my backend craft and my project teamwork skills.",
+    ],
+    coverImage: "/QuickSTAY/miniature-quickstay.jpg",
+    gallery: ["/QuickSTAY/1-screen-repository.png"],
+    technologies: [
+      "Laravel",
+      "PHP",
+      "API REST",
+      "Postman",
+      "MySQL",
+      "Branding",
+    ],
+    type: "Web Application",
+    year: "2025",
+    role: "Backend Developer & Brand Designer",
+    githubUrl: "https://github.com/fvllonline/QUICKSTAY-backend-project",
+    features: [
+      {
+        title: "Specs & Team Coordination",
+        description:
+          "Wrote functional and technical requirements, and helped distribute work across the project team.",
+        icon: "file-text",
+      },
+      {
+        title: "Laravel REST APIs",
+        description:
+          "Structured backend with routes, controllers, models, and middlewares for reliable endpoints.",
+        icon: "server",
+      },
+      {
+        title: "Postman Testing & Docs",
+        description:
+          "Deep endpoint testing and full technical documentation (requests/responses) in Excel.",
+        icon: "chart",
+      },
+      {
+        title: "Brand Identity",
+        description:
+          "Logo design and complete graphic charter for a cohesive Quick Stay product look.",
+        icon: "palette",
+      },
+    ],
+    challenges: [
+      {
+        challenge: "Reliable API Surface",
+        challengeDetail:
+          "APIs had to stay consistent under real team usage and evolving product rules.",
+        solution: "Structured Laravel Architecture",
+        solutionDetail:
+          "Clear resource structure, middleware, and Postman-validated contracts before handoff.",
+      },
+      {
+        challenge: "Product + Brand Alignment",
+        challengeDetail:
+          "The app needed both solid backend foundations and a recognizable visual identity.",
+        solution: "Dual Delivery",
+        solutionDetail:
+          "Parallel tracks: engineering (APIs, docs) and design (logo, charter) owned end-to-end.",
+      },
+    ],
+    quote:
+      "A strong backend is invisible when it works — documentation and design make it last.",
+    featured: true,
+  },
+  {
     slug: "breezoria",
     title: "Breezoria",
     subtitle:

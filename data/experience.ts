@@ -74,7 +74,7 @@ export const experiences: Experience[] = [
       "Designed logo and complete brand identity / graphic charter",
     ],
     technologies: ["Laravel", "PHP", "MySQL", "Branding", "Logo Design"],
-    link: "https://github.com/fvllonline/QUICKSTAY-backend-project",
+    link: "/projects/quick-stay",
   },
 ]
 

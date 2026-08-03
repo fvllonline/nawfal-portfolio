@@ -1,39 +1,125 @@
 "use client"
 
-import Link from "next/link"
-import { ArrowRight } from "lucide-react"
+import { useEffect, useState } from "react"
+import Autoplay from "embla-carousel-autoplay"
+import { ChevronLeft, ChevronRight } from "lucide-react"
 import { getFeaturedProjects } from "@/data"
 import { ProjectCard } from "@/components/projects/project-card"
-import { FadeIn, Stagger, StaggerItem } from "@/components/ui/motion"
+import { FadeIn } from "@/components/ui/motion"
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  type CarouselApi,
+} from "@/components/ui/carousel"
+import { cn } from "@/lib/utils"
 
 export function ProjectsSection() {
   const projects = getFeaturedProjects()
+  const [api, setApi] = useState<CarouselApi>()
+  const [selected, setSelected] = useState(0)
+  const [snapCount, setSnapCount] = useState(0)
+  const [autoplayPlugin] = useState(() =>
+    Autoplay({
+      delay: 5000,
+      stopOnInteraction: false,
+      stopOnMouseEnter: true,
+    })
+  )
+
+  useEffect(() => {
+    if (!api) return
+
+    const onSelect = () => {
+      setSelected(api.selectedScrollSnap())
+      setSnapCount(api.scrollSnapList().length)
+    }
+
+    onSelect()
+    api.on("select", onSelect)
+    api.on("reInit", onSelect)
+
+    return () => {
+      api.off("select", onSelect)
+      api.off("reInit", onSelect)
+    }
+  }, [api])
 
   return (
     <section id="projects" className="section-ln">
       <div className="container-ln">
-        <FadeIn className="mb-10 flex flex-col gap-4 sm:mb-16 sm:flex-row sm:items-end sm:justify-between">
+        <FadeIn className="mb-10 flex flex-col gap-6 sm:mb-14 sm:flex-row sm:items-end sm:justify-between">
           <div>
             <p className="label-ln">Work</p>
             <h2 className="heading-lg mt-2">Featured Projects</h2>
-            <p className="body-md mt-2">A showcase of recent engineering work.</p>
+            <p className="body-md mt-2 max-w-2xl">
+              A showcase of recent engineering work — swipe or use arrows to explore.
+            </p>
           </div>
-          <Link
-            href="/projects/monpasstcf"
-            className="label-md-ln group inline-flex items-center gap-2 self-start text-primary transition-all hover:drop-shadow-[0_0_8px_rgba(110,255,192,0.4)] sm:self-auto"
-          >
-            View Archive
-            <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-          </Link>
+
+          <div className="flex gap-2 self-start sm:self-auto">
+            <button
+              type="button"
+              aria-label="Previous projects"
+              onClick={() => api?.scrollPrev()}
+              className="flex h-11 w-11 items-center justify-center rounded-xl border border-border text-foreground-muted transition-colors hover:border-primary/40 hover:text-primary"
+            >
+              <ChevronLeft className="h-5 w-5" />
+            </button>
+            <button
+              type="button"
+              aria-label="Next projects"
+              onClick={() => api?.scrollNext()}
+              className="flex h-11 w-11 items-center justify-center rounded-xl border border-border text-foreground-muted transition-colors hover:border-primary/40 hover:text-primary"
+            >
+              <ChevronRight className="h-5 w-5" />
+            </button>
+          </div>
         </FadeIn>
 
-        <Stagger className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-          {projects.map((project) => (
-            <StaggerItem key={project.slug}>
-              <ProjectCard project={project} />
-            </StaggerItem>
-          ))}
-        </Stagger>
+        <FadeIn>
+          <Carousel
+            setApi={setApi}
+            opts={{
+              align: "start",
+              loop: true,
+              dragFree: false,
+            }}
+            plugins={[autoplayPlugin]}
+            className="w-full"
+          >
+            <CarouselContent className="-ml-4">
+              {projects.map((project) => (
+                <CarouselItem
+                  key={project.slug}
+                  className="basis-full pl-4 sm:basis-1/2 lg:basis-1/3"
+                >
+                  <div className="h-full select-none">
+                    <ProjectCard project={project} />
+                  </div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+          </Carousel>
+
+          <div className="mt-8 flex items-center justify-center gap-2">
+            {Array.from({ length: snapCount }).map((_, i) => (
+              <button
+                key={i}
+                type="button"
+                aria-label={`Go to slide ${i + 1}`}
+                aria-current={selected === i}
+                onClick={() => api?.scrollTo(i)}
+                className={cn(
+                  "h-2 rounded-full transition-all duration-300",
+                  selected === i
+                    ? "w-6 bg-primary"
+                    : "w-2 bg-foreground-muted/30 hover:bg-foreground-muted/50"
+                )}
+              />
+            ))}
+          </div>
+        </FadeIn>
       </div>
     </section>
   )

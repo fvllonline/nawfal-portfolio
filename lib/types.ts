@@ -130,6 +130,7 @@ export type SiteConfig = {
   cv: {
     fr: string
     en: string
+    de: string
   }
   socials: SocialLink[]
   formspreeEndpoint: string

@@ -100,17 +100,24 @@ export function ContactSection() {
           <div className="flex flex-wrap gap-3 pt-2">
             <a
               href={siteConfig.cv.en}
-              download
+              download="CV-NAWFAL-English.pdf"
               className="rounded-xl border border-border-strong px-5 py-3 font-mono text-xs text-foreground transition-colors hover:border-primary/50"
             >
               Download CV (EN)
             </a>
             <a
               href={siteConfig.cv.fr}
-              download
+              download="CV-NAWFAL-French.pdf"
               className="rounded-xl border border-border-strong px-5 py-3 font-mono text-xs text-foreground transition-colors hover:border-primary/50"
             >
               Download CV (FR)
+            </a>
+            <a
+              href={siteConfig.cv.de}
+              download="CV-NAWFAL-Deutsch.pdf"
+              className="rounded-xl border border-border-strong px-5 py-3 font-mono text-xs text-foreground transition-colors hover:border-primary/50"
+            >
+              Download CV (DE)
             </a>
           </div>
         </FadeIn>

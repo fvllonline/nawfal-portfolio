@@ -15,8 +15,9 @@ export const siteConfig: SiteConfig = {
   url: "https://nawfalsportfolio.vercel.app",
   github: "https://github.com/fvllonline",
   cv: {
-    fr: "/NAWFAL_CV_FrenshV.pdf",
-    en: "/NAWFAL_CV_EnglishV.pdf",
+    fr: "/CV-NAWFAL-French.pdf",
+    en: "/CV-NAWFAL-English.pdf",
+    de: "/CV-NAWFAL-Deutsch.pdf",
   },
   socials: [
     { label: "GitHub", href: "https://github.com/fvllonline", icon: "github" },

@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, type FormEvent } from "react"
+import { useEffect, useState, type FormEvent } from "react"
 import Link from "next/link"
 import { motion } from "framer-motion"
 import { Mail, Phone, MapPin, Send, CheckCircle, Github } from "lucide-react"
@@ -12,6 +12,26 @@ export function ContactSection() {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [sent, setSent] = useState(false)
   const [error, setError] = useState<string | null>(null)
+  const [subject, setSubject] = useState("")
+  const [message, setMessage] = useState("")
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search)
+    const service = params.get("service")
+    const pack = params.get("pack")
+    if (!service) return
+
+    setSubject(
+      pack
+        ? `Devis — ${service} (${pack})`
+        : `Devis — ${service}`
+    )
+    setMessage(
+      pack
+        ? `Bonjour Nawfal,\n\nJe suis intéressé(e) par le pack ${pack} pour : ${service}.\n\nPouvez-vous me préparer un devis et me préciser les prochaines étapes ?\n\nMerci.`
+        : `Bonjour Nawfal,\n\nJe suis intéressé(e) par : ${service}.\n\nPouvez-vous me préparer un devis ?\n\nMerci.`
+    )
+  }, [])
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
@@ -32,6 +52,8 @@ export function ContactSection() {
 
       setSent(true)
       form.reset()
+      setSubject("")
+      setMessage("")
     } catch {
       setError("Failed to send message. Please try again or email me directly.")
     } finally {
@@ -161,6 +183,8 @@ export function ContactSection() {
                   name="subject"
                   placeholder="Project Inquiry"
                   required
+                  value={subject}
+                  onChange={setSubject}
                 />
                 <div className="space-y-2">
                   <label
@@ -174,6 +198,8 @@ export function ContactSection() {
                     name="message"
                     required
                     rows={4}
+                    value={message}
+                    onChange={(e) => setMessage(e.target.value)}
                     placeholder="Tell me about your project..."
                     className="w-full rounded-xl border border-border bg-muted px-4 py-3 text-base text-foreground placeholder:text-foreground-muted/40 transition-all focus:border-primary focus:outline-none focus:ring-4 focus:ring-primary/20"
                   />
@@ -213,12 +239,16 @@ function Field({
   type = "text",
   placeholder,
   required,
+  value,
+  onChange,
 }: {
   label: string
   name: string
   type?: string
   placeholder?: string
   required?: boolean
+  value?: string
+  onChange?: (value: string) => void
 }) {
   return (
     <div className="space-y-2">
@@ -231,6 +261,8 @@ function Field({
         type={type}
         required={required}
         placeholder={placeholder}
+        value={value}
+        onChange={onChange ? (e) => onChange(e.target.value) : undefined}
         className="w-full rounded-xl border border-border bg-muted px-4 py-3 text-base text-foreground placeholder:text-foreground-muted/40 transition-all focus:border-primary focus:outline-none focus:ring-4 focus:ring-primary/20"
       />
     </div>

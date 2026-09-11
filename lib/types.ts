@@ -20,19 +20,42 @@ export type Language = {
   label: string
 }
 
+export type ServicePack = {
+  name: string
+  price: number
+  currency: string
+  delivery?: string
+  billing?: "monthly" | "one-time"
+  popular?: boolean
+  features: string[]
+}
+
 export type Service = {
   id: string
   title: string
   description: string
   icon:
-    | "code"
-    | "server"
+    | "globe"
+    | "shopping-bag"
+    | "layout"
     | "smartphone"
+    | "search"
+    | "refresh"
+    | "wrench"
     | "palette"
     | "wordpress"
-    | "monitor"
-    | "database"
+    | "server"
     | "message-square"
+  packs: ServicePack[]
+}
+
+export type ServiceGeneralTerms = {
+  currency: string
+  payment: string
+  customQuote: boolean
+  supportAfterDelivery: string
+  maintenanceAvailable: boolean
+  note: string
 }
 
 export type Experience = {

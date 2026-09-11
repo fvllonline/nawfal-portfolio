@@ -13,9 +13,10 @@ export function TestimonialsSection() {
       <div className="container-ln overflow-hidden rounded-3xl bg-accent/40 py-12 sm:rounded-[40px] sm:py-section-sm md:py-section">
         <FadeIn className="mb-10 px-2 text-center sm:mb-16 sm:px-4">
           <p className="label-ln">Témoignages</p>
-          <h2 className="heading-lg mt-2">Ce que disent les clients</h2>
+          <h2 className="heading-lg mt-2">Avis clients & collaborateurs</h2>
           <p className="body-md mx-auto mt-4 max-w-2xl">
-            Ce que collègues et collaborateurs disent de notre collaboration.
+            Ce que disent ceux qui ont travaillé avec un développeur Full-Stack
+            basé à Casablanca.
           </p>
         </FadeIn>
 

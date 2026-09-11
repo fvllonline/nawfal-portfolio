@@ -18,7 +18,7 @@ export function AboutSection() {
             <div className="relative aspect-[4/5] overflow-hidden rounded-xl">
               <Image
                 src={aboutContent.portrait}
-                alt="Nawfal ADDAOUI"
+                alt="Nawfal Addaoui, développeur Full-Stack à Casablanca"
                 fill
                 loading="lazy"
                 className="object-cover object-top transition-transform duration-700 hover:scale-105"

@@ -53,9 +53,10 @@ export function ExperienceSection() {
       <div className="container-ln">
         <FadeIn className="mb-10 text-center sm:mb-14">
           <p className="label-ln">Parcours</p>
-          <h2 className="heading-lg mt-2">Expérience professionnelle</h2>
+          <h2 className="heading-lg mt-2">Expérience au Maroc</h2>
           <p className="body-md mx-auto mt-4 max-w-2xl">
-            Mon parcours récent — glissez ou utilisez les flèches pour explorer.
+            Stages, collaborations et missions freelance — un parcours ancré à
+            Casablanca, orienté produits web & mobile.
           </p>
           <div className="mt-6 flex justify-center gap-2">
             <button

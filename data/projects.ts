@@ -10,10 +10,10 @@ export const projects: Project[] = [
     subtitle:
       "Application mobile de préparation au TCF — s’entraîner, suivre sa progression et rester prêt le jour J.",
     shortDescription:
-      "App mobile de préparation au TCF avec feedback en temps réel, assistance IA et suivi de progression.",
+      "App mobile de préparation au TCF — projet full-stack réalisé à Casablanca (React Native, Next.js, IA).",
     description: [
-      "MonPassTCF est un produit ed-tech mobile-first conçu pour aider les candidats à préparer le Test de Connaissance du Français (TCF). Il couvre compréhension orale, écrite, structures et expression écrite avec une approche structurée et data-driven.",
-      "Réalisé durant un stage PFE chez Alvon Digital Group, la plateforme combine une architecture full-stack (Express.js, React Native, Next.js), une intégration IA via Groq, des fonctionnalités sociales en temps réel, de la gamification et un dashboard administrateur.",
+      "MonPassTCF est un produit ed-tech mobile-first conçu pour aider les candidats — notamment au Maroc — à préparer le Test de Connaissance du Français (TCF). Il couvre compréhension orale, écrite, structures et expression écrite avec une approche structurée et data-driven.",
+      "Réalisé durant un stage PFE chez Alvon Digital Group à Casablanca, la plateforme combine une architecture full-stack (Express.js, React Native, Next.js), une intégration IA via Groq, des fonctionnalités sociales en temps réel, de la gamification et un dashboard administrateur.",
       "L’objectif : une expérience d’étude premium, sans distractions, digne d’une vraie app — en mobilité comme à la maison.",
     ],
     coverImage: "/MonPassTCF/miniature-monpasstcf.webp",
@@ -89,9 +89,9 @@ export const projects: Project[] = [
     subtitle:
       "Stage de fin d’études — APIs backend Laravel, documentation technique et identité visuelle complète.",
     shortDescription:
-      "Backend & branding pour Quick Stay : APIs REST Laravel, tests Postman et identité visuelle complète.",
+      "Backend Laravel & branding pour Quick Stay — stage full-stack à Casablanca (APIs REST, Postman, identité visuelle).",
     description: [
-      "Durant mon stage de fin d’études, j’ai participé activement au développement de l’application web Quick Stay, avec une forte implication sur la conception technique et la réalisation du backend.",
+      "Durant mon stage de fin d’études à Casablanca, j’ai participé activement au développement de l’application web Quick Stay, avec une forte implication sur la conception technique et la réalisation du backend.",
       "Côté organisation : rédaction du cahier des charges fonctionnel et technique, coordination des tâches en équipe, création du logo et définition de la charte graphique complète.",
       "Côté backend : conception et implémentation d’APIs REST robustes avec Laravel (routes, contrôleurs, modèles, middlewares), tests approfondis via Postman, et documentation technique complète sous format Excel. Ce stage a renforcé mes compétences backend et mon travail d’équipe.",
     ],
@@ -165,9 +165,9 @@ export const projects: Project[] = [
     subtitle:
       "Boutique e-commerce moderne pensée pour la conversion, la vitesse et un parcours d’achat fluide.",
     shortDescription:
-      "Site e-commerce avec catalogue, panier et parcours de commande soigné.",
+      "E-commerce Next.js pensé pour la conversion — vitrine produit livrée depuis Casablanca.",
     description: [
-      "Breezoria est un site e-commerce personnalisable, axé sur une présentation produit claire et un chemin sans friction de la découverte à l’achat.",
+      "Breezoria est un site e-commerce personnalisable, axé sur une présentation produit claire et un chemin sans friction de la découverte à l’achat — adapté aux marques qui veulent vendre en ligne au Maroc ou à l’international.",
       "La vitrine mise sur la performance, le responsive et une structure merchandising adaptée à une marque en croissance.",
     ],
     coverImage: "/Breezoria/miniature-breezoria.webp",
@@ -356,9 +356,9 @@ export const projects: Project[] = [
     subtitle:
       "Site vitrine pour une marque tourisme — de l’analyse des besoins au déploiement Next.js.",
     shortDescription:
-      "Site vitrine Adam Adventure Tours, réalisé avec Next.js et déployé sur Vercel.",
+      "Site vitrine tourisme Next.js pour Adam Adventure Tours — présence digitale professionnelle au Maroc.",
     description: [
-      "Conception et développement de bout en bout du site vitrine Adam Adventure Tours & Tourism durant un stage.",
+      "Conception et développement de bout en bout du site vitrine Adam Adventure Tours & Tourism durant un stage — une marque tourisme qui s’adresse à des voyageurs au Maroc et à l’étranger.",
       "Périmètre : analyse des besoins, choix technologiques, design graphique, intégration Next.js, déploiement Vercel et maintenance.",
       "Résultat : une présence tourisme rapide et professionnelle, prête à accueillir visiteurs et clients en ligne.",
     ],

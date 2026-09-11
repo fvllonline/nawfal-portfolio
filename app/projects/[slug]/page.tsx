@@ -36,13 +36,14 @@ export async function generateMetadata({
   if (!project) return { title: "Projet introuvable" }
 
   return {
-    title: project.title,
-    description: project.shortDescription,
+    title: `${project.title} | Développeur Full-Stack Casablanca`,
+    description: `${project.shortDescription} Réalisé par Nawfal Addaoui, développeur Full-Stack à Casablanca.`,
     openGraph: {
-      title: `${project.title} | Nawfal ADDAOUI`,
+      title: `${project.title} | Nawfal Addaoui — Casablanca`,
       description: project.shortDescription,
       images: [project.coverImage],
       type: "article",
+      locale: "fr_MA",
     },
   }
 }

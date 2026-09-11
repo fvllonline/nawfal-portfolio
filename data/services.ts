@@ -14,7 +14,7 @@ export const services: Service[] = [
     id: "website",
     title: "Site Vitrine / Landing Page",
     description:
-      "Création de sites web modernes, rapides et responsive pour présenter une entreprise, un produit ou un service.",
+      "Création de sites web modernes, rapides et responsive à Casablanca — pour présenter une entreprise, un produit ou un service au Maroc.",
     icon: "globe",
     packs: [
       {
@@ -70,7 +70,7 @@ export const services: Service[] = [
     id: "ecommerce",
     title: "Site E-commerce",
     description:
-      "Développement de boutiques en ligne modernes avec catalogue, panier, paiement et gestion des commandes.",
+      "Boutiques en ligne modernes (catalogue, panier, commande) pour vendre au Maroc et à l’international — livrées depuis Casablanca.",
     icon: "shopping-bag",
     packs: [
       {
@@ -129,7 +129,7 @@ export const services: Service[] = [
     id: "web_app",
     title: "Application Web Full-Stack",
     description:
-      "Conception et développement d'applications web, SaaS, dashboards et plateformes métier sur mesure.",
+      "Applications web, SaaS et dashboards sur mesure — développement Full-Stack à Casablanca (React, Next.js, Laravel).",
     icon: "layout",
     packs: [
       {
@@ -191,7 +191,7 @@ export const services: Service[] = [
     id: "mobile_app",
     title: "Application Mobile",
     description:
-      "Développement d'applications mobiles cross-platform pour Android et iOS avec React Native et Expo.",
+      "Applications mobiles Android & iOS avec React Native / Expo — pour startups et entreprises au Maroc.",
     icon: "smartphone",
     packs: [
       {

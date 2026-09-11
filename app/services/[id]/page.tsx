@@ -20,12 +20,13 @@ export async function generateMetadata({
   if (!service) return { title: "Service introuvable" }
 
   return {
-    title: service.title,
-    description: service.description,
+    title: `${service.title} Casablanca | Devis MAD`,
+    description: `${service.description} Packs en MAD — Nawfal Addaoui, développeur Full-Stack freelance à Casablanca.`,
     openGraph: {
-      title: `${service.title} | ${siteConfig.fullName}`,
+      title: `${service.title} | ${siteConfig.fullName} — Casablanca`,
       description: service.description,
       type: "website",
+      locale: "fr_MA",
     },
   }
 }

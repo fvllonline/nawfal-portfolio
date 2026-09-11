@@ -97,12 +97,13 @@ export function ContactSection() {
           <div>
             <p className="label-ln">Contact</p>
             <h2 className="heading-lg mt-2">
-              Construisons quelque chose{" "}
-              <span className="gradient-text italic">remarquable</span>.
+              Parlons de votre projet à{" "}
+              <span className="gradient-text italic">Casablanca</span>
             </h2>
             <p className="body-lg mt-4 max-w-md">
-              Un projet en tête ou simplement envie d&apos;échanger ? Je suis
-              toujours ouvert aux nouvelles idées et opportunités.
+              Une idée de site, d&apos;app ou d&apos;API ? Développeur Full-Stack
+              freelance à Casablanca, je réponds aux demandes au Maroc et en
+              remote. Écrivez-moi pour un devis ou un premier échange.
             </p>
           </div>
 

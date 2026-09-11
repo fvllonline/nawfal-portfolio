@@ -53,10 +53,13 @@ export function ServicesSection() {
       <div className="container-ln">
         <FadeIn className="mb-10 text-center sm:mb-14">
           <p className="label-ln">Expertises</p>
-          <h2 className="heading-lg mt-2">Expertise spécialisée</h2>
+          <h2 className="heading-lg mt-2">
+            Services de développement à Casablanca
+          </h2>
           <p className="body-md mx-auto mt-4 max-w-2xl">
-            Découvrez mes services, comparez les packs et demandez un devis
-            adapté à votre projet.
+            Packs clairs en MAD pour sites web, e-commerce, apps et APIs —
+            conçus pour startups et entreprises au Maroc. Comparez les offres et
+            demandez un devis adapté à votre projet.
           </p>
           <div className="mt-6 flex justify-center gap-2">
             <button

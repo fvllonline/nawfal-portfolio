@@ -71,10 +71,10 @@ export function CertificationsSection() {
       <div className="container-ln">
         <FadeIn className="mb-10 text-center sm:mb-14">
           <p className="label-ln">Qualifications</p>
-          <h2 className="heading-lg mt-2">Certifications</h2>
+          <h2 className="heading-lg mt-2">Certifications & compétences</h2>
           <p className="body-md mx-auto mt-4 max-w-2xl">
-            Certifications professionnelles attestant d&apos;un apprentissage
-            continu et d&apos;une expertise technique.
+            Langues, programmation et cybersécurité — un socle solide pour des
+            missions full-stack à Casablanca et au Maroc.
           </p>
           <div className="mt-6 flex justify-center gap-2">
             <button

@@ -16,7 +16,7 @@ export function Footer() {
           <Link
             href="/#home"
             className="flex items-center gap-2 text-primary transition-opacity hover:opacity-80"
-            aria-label={`${siteConfig.fullName} — Accueil`}
+            aria-label={`${siteConfig.fullName} — Développeur Full-Stack Casablanca`}
           >
             <Terminal className="h-5 w-5" aria-hidden />
             <span className="font-display text-xl font-semibold tracking-tighter">
@@ -24,9 +24,19 @@ export function Footer() {
             </span>
           </Link>
           <p className="label-md-ln text-foreground-muted/80">
-            © {year} {siteConfig.name}. Tous droits réservés.
+            © {year} {siteConfig.fullName}. Tous droits réservés.
           </p>
-          <p className="text-xs text-foreground-muted/50">{siteConfig.location}</p>
+          {/* NAP — Nom, Adresse, Téléphone (cohérent avec le schema) */}
+          <p className="max-w-xs text-center text-xs text-foreground-muted/60 md:text-left">
+            {siteConfig.fullName} · Développeur Full-Stack ·{" "}
+            {siteConfig.location}
+          </p>
+          <a
+            href={`tel:${siteConfig.phone}`}
+            className="text-xs text-foreground-muted/60 transition-colors hover:text-primary"
+          >
+            {siteConfig.phoneDisplay}
+          </a>
         </div>
 
         <nav
@@ -43,7 +53,7 @@ export function Footer() {
                   ? "noopener noreferrer"
                   : undefined
               }
-          className="label-md-ln flex min-h-11 items-center px-2 text-foreground-muted transition-all duration-300 hover:text-primary hover:drop-shadow-[0_0_8px_rgba(110,255,192,0.5)]"
+              className="label-md-ln flex min-h-11 items-center px-2 text-foreground-muted transition-all duration-300 hover:text-primary hover:drop-shadow-[0_0_8px_rgba(110,255,192,0.5)]"
             >
               {social.label}
             </Link>

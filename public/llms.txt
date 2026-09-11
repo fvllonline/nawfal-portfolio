@@ -3,15 +3,16 @@
 
 > Développeur Full-Stack freelance basé à Casablanca (Maroc).
 > Spécialités : React, Next.js, Laravel, React Native, APIs et e-commerce.
+> Cible : startups et entreprises au Maroc (sites, apps, e-commerce, devis en MAD).
 
 ## Profil
 
 - Nom : Nawfal Addaoui
-- Métier : Développeur Full-Stack
+- Métier : Développeur Full-Stack à Casablanca
 - Localisation : Casablanca, Maroc
 - Email : naoufaladdaoui@gmail.com
 - Téléphone : +212 631-108355
-- Disponibilité : missions freelance, collaborations, projets web & mobile
+- Disponibilité : missions freelance, collaborations, projets web & mobile (Casablanca, Maroc, remote)
 
 ## Site
 

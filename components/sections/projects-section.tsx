@@ -48,16 +48,14 @@ export function ProjectsSection() {
   return (
     <section id="projects" className="section-ln">
       <div className="container-ln">
-        <FadeIn className="mb-10 flex flex-col gap-6 sm:mb-14 sm:flex-row sm:items-end sm:justify-between">
-          <div>
-            <p className="label-ln">Réalisations</p>
-            <h2 className="heading-lg mt-2">Projets phares</h2>
-            <p className="body-md mt-2 max-w-2xl">
-              Une sélection de réalisations récentes — glissez ou utilisez les flèches pour explorer.
-            </p>
-          </div>
-
-          <div className="flex gap-2 self-start sm:self-auto">
+        <FadeIn className="mb-10 text-center sm:mb-14">
+          <p className="label-ln">Réalisations</p>
+          <h2 className="heading-lg mt-2">Projets phares</h2>
+          <p className="body-md mx-auto mt-4 max-w-2xl">
+            Une sélection de réalisations récentes — glissez ou utilisez les
+            flèches pour explorer.
+          </p>
+          <div className="mt-6 flex justify-center gap-2">
             <button
               type="button"
               aria-label="Projets précédents"

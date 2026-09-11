@@ -65,17 +65,14 @@ export function CertificationsSection() {
   return (
     <section id="certifications" className="section-ln">
       <div className="container-ln">
-        <FadeIn className="mb-10 flex flex-col gap-6 sm:mb-14 sm:flex-row sm:items-end sm:justify-between">
-          <div>
-            <p className="label-ln">Qualifications</p>
-            <h2 className="heading-lg mt-2">Certifications</h2>
-            <p className="body-md mt-4 max-w-2xl">
-              Certifications professionnelles attestant d&apos;un apprentissage
-              continu et d&apos;une expertise technique.
-            </p>
-          </div>
-
-          <div className="flex gap-2 self-start sm:self-auto">
+        <FadeIn className="mb-10 text-center sm:mb-14">
+          <p className="label-ln">Qualifications</p>
+          <h2 className="heading-lg mt-2">Certifications</h2>
+          <p className="body-md mx-auto mt-4 max-w-2xl">
+            Certifications professionnelles attestant d&apos;un apprentissage
+            continu et d&apos;une expertise technique.
+          </p>
+          <div className="mt-6 flex justify-center gap-2">
             <button
               type="button"
               aria-label="Certifications précédentes"

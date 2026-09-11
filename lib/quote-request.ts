@@ -28,7 +28,7 @@ Merci de me préciser les prochaines étapes, le délai confirmé et les modalit
 Cordialement,`
 }
 
-/** Prefill contact form + scroll to #contact (works on same page) */
+/** Prefill contact form + scroll to #contact (works from any page) */
 export function requestQuote(detail: QuoteRequestDetail) {
   if (typeof window === "undefined") return
 
@@ -39,6 +39,14 @@ export function requestQuote(detail: QuoteRequestDetail) {
   if (detail.priceLabel) params.set("price", detail.priceLabel)
 
   const url = `/?${params.toString()}#contact`
+
+  // From a service detail page, navigate home so #contact exists
+  if (window.location.pathname !== "/") {
+    sessionStorage.setItem(QUOTE_REQUEST_EVENT, JSON.stringify(detail))
+    window.location.assign(url)
+    return
+  }
+
   window.history.pushState({}, "", url)
   window.dispatchEvent(
     new CustomEvent<QuoteRequestDetail>(QUOTE_REQUEST_EVENT, { detail })
@@ -60,7 +68,16 @@ export function readQuoteFromUrl(): QuoteRequestDetail | null {
   const params = new URLSearchParams(window.location.search)
   const service = params.get("service")
   const pack = params.get("pack")
-  if (!service || !pack) return null
+  if (!service || !pack) {
+    try {
+      const raw = sessionStorage.getItem(QUOTE_REQUEST_EVENT)
+      if (!raw) return null
+      sessionStorage.removeItem(QUOTE_REQUEST_EVENT)
+      return JSON.parse(raw) as QuoteRequestDetail
+    } catch {
+      return null
+    }
+  }
   return {
     service,
     pack,

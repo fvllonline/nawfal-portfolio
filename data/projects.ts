@@ -79,6 +79,8 @@ export const projects: Project[] = [
     ],
     quote:
       "Un compagnon d’étude qui a le feeling d’un produit — pas juste une pile de PDF.",
+    relatedServiceId: "mobile_app",
+    relatedServiceIds: ["web_app", "uiux", "api_backend"],
     featured: true,
   },
   {
@@ -153,6 +155,8 @@ export const projects: Project[] = [
     ],
     quote:
       "Un backend solide se fait oublier quand il fonctionne — la doc et le design le font durer.",
+    relatedServiceId: "api_backend",
+    relatedServiceIds: ["web_app", "uiux", "consulting"],
     featured: true,
   },
   {
@@ -215,6 +219,8 @@ export const projects: Project[] = [
       },
     ],
     quote: "Une boutique e-com doit sembler évidente dès le premier scroll.",
+    relatedServiceId: "ecommerce",
+    relatedServiceIds: ["website", "seo", "maintenance"],
     featured: true,
   },
   {
@@ -282,6 +288,8 @@ export const projects: Project[] = [
       },
     ],
     quote: "Un bon e-commerce, c’est de la clarté — produits d’abord, friction en dernier.",
+    relatedServiceId: "ecommerce",
+    relatedServiceIds: ["website", "seo", "uiux"],
     featured: true,
   },
   {
@@ -338,6 +346,8 @@ export const projects: Project[] = [
       },
     ],
     quote: "Un site de café doit donner l’impression d’entrer avant même d’arriver.",
+    relatedServiceId: "website",
+    relatedServiceIds: ["uiux", "seo", "wordpress"],
     featured: true,
   },
   {
@@ -398,6 +408,8 @@ export const projects: Project[] = [
       },
     ],
     quote: "Une marque tourisme mérite un site aussi invitant que la destination.",
+    relatedServiceId: "website",
+    relatedServiceIds: ["seo", "uiux", "maintenance"],
     featured: true,
   },
 ]
@@ -416,4 +428,12 @@ export function getRelatedProjects(slug: string, limit = 3): Project[] {
 
 export function getFeaturedProjects(): Project[] {
   return projects.filter((project) => project.featured)
+}
+
+export function getProjectRelatedServiceIds(project: Project): string[] {
+  const ids = [
+    project.relatedServiceId,
+    ...(project.relatedServiceIds ?? []),
+  ]
+  return [...new Set(ids.filter(Boolean))]
 }

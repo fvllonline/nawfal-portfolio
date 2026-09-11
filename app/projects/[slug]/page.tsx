@@ -9,11 +9,15 @@ import {
   ProjectSidebar,
   ProjectGallery,
   RelatedProjects,
+  RelatedServices,
+  ProjectServiceOffer,
 } from "@/components/projects"
 import {
   getAllProjectSlugs,
   getProjectBySlug,
   getRelatedProjects,
+  getProjectRelatedServiceIds,
+  getServiceById,
 } from "@/data"
 
 type ProjectPageProps = {
@@ -49,6 +53,10 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
   if (!project) notFound()
 
   const related = getRelatedProjects(slug)
+  const primaryService = getServiceById(project.relatedServiceId)
+  const relatedServices = getProjectRelatedServiceIds(project)
+    .map((id) => getServiceById(id))
+    .filter((service): service is NonNullable<typeof service> => Boolean(service))
 
   return (
     <SiteShell>
@@ -72,8 +80,25 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         </div>
 
         <ProjectGallery images={project.gallery} title={project.title} />
+
+        {primaryService && relatedServices.length > 0 && (
+          <RelatedServices
+            projectTitle={project.title}
+            primaryService={primaryService}
+            services={relatedServices}
+          />
+        )}
+
         <RelatedProjects projects={related} />
       </article>
+
+      {primaryService && (
+        <ProjectServiceOffer
+          projectTitle={project.title}
+          projectSlug={project.slug}
+          service={primaryService}
+        />
+      )}
     </SiteShell>
   )
 }

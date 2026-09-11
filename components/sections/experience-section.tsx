@@ -1,168 +1,188 @@
 "use client"
 
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import Link from "next/link"
-import { ExternalLink, ChevronDown, ChevronUp } from "lucide-react"
-import { AnimatePresence, motion } from "framer-motion"
+import Autoplay from "embla-carousel-autoplay"
+import { ExternalLink, ChevronLeft, ChevronRight } from "lucide-react"
 import { experiences } from "@/data"
-import { FadeIn, easeOutExpo } from "@/components/ui/motion"
+import { FadeIn } from "@/components/ui/motion"
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  type CarouselApi,
+} from "@/components/ui/carousel"
 import type { Experience } from "@/lib/types"
+import { cn } from "@/lib/utils"
 
 export function ExperienceSection() {
-  const [showAll, setShowAll] = useState(false)
-  const latest = experiences[0]
-  const older = experiences.slice(1)
-  const remaining = older.length
+  const [api, setApi] = useState<CarouselApi>()
+  const [selected, setSelected] = useState(0)
+  const [snapCount, setSnapCount] = useState(0)
+  const [autoplayPlugin] = useState(() =>
+    Autoplay({
+      delay: 5500,
+      stopOnInteraction: false,
+      stopOnMouseEnter: true,
+    })
+  )
+
+  useEffect(() => {
+    if (!api) return
+
+    const onSelect = () => {
+      setSelected(api.selectedScrollSnap())
+      setSnapCount(api.scrollSnapList().length)
+    }
+
+    onSelect()
+    api.on("select", onSelect)
+    api.on("reInit", onSelect)
+
+    return () => {
+      api.off("select", onSelect)
+      api.off("reInit", onSelect)
+    }
+  }, [api])
 
   return (
     <section id="experience" className="section-ln">
       <div className="container-ln">
-        <FadeIn className="mb-16 text-center">
+        <FadeIn className="mb-10 text-center sm:mb-14">
           <p className="label-ln">Parcours</p>
           <h2 className="heading-lg mt-2">Expérience professionnelle</h2>
-        </FadeIn>
-
-        <div className="timeline-thread relative mx-auto max-w-3xl space-y-8 sm:space-y-10">
-          {latest && <ExperienceCard exp={latest} index={0} />}
-
-          <AnimatePresence initial={false}>
-            {showAll &&
-              older.map((exp, i) => (
-                <motion.div
-                  key={exp.id}
-                  initial={{ opacity: 0, height: 0, y: -12 }}
-                  animate={{ opacity: 1, height: "auto", y: 0 }}
-                  exit={{ opacity: 0, height: 0, y: -8 }}
-                  transition={{ duration: 0.35, ease: easeOutExpo, delay: i * 0.05 }}
-                  className="overflow-hidden"
-                >
-                  <div className="pb-8 sm:pb-10">
-                    <ExperienceCard exp={exp} index={i + 1} />
-                  </div>
-                </motion.div>
-              ))}
-          </AnimatePresence>
-        </div>
-
-        {remaining > 0 && (
-          <FadeIn className="mt-10 flex justify-center sm:mt-12">
+          <p className="body-md mx-auto mt-4 max-w-2xl">
+            Mon parcours récent — glissez ou utilisez les flèches pour explorer.
+          </p>
+          <div className="mt-6 flex justify-center gap-2">
             <button
               type="button"
-              onClick={() => setShowAll((v) => !v)}
-              aria-expanded={showAll}
-              className="inline-flex min-h-11 items-center gap-2 rounded-xl border border-border-strong px-6 py-3 font-mono text-sm text-foreground transition-all hover:border-primary/50 hover:bg-primary/5 hover:text-primary"
+              aria-label="Expériences précédentes"
+              onClick={() => api?.scrollPrev()}
+              className="flex h-11 w-11 items-center justify-center rounded-xl border border-border text-foreground-muted transition-colors hover:border-primary/40 hover:text-primary"
             >
-              {showAll ? (
-                <>
-                  Voir moins <ChevronUp className="h-4 w-4" />
-                </>
-              ) : (
-                <>
-                  Voir plus ({remaining}) <ChevronDown className="h-4 w-4" />
-                </>
-              )}
+              <ChevronLeft className="h-5 w-5" />
             </button>
-          </FadeIn>
-        )}
+            <button
+              type="button"
+              aria-label="Expériences suivantes"
+              onClick={() => api?.scrollNext()}
+              className="flex h-11 w-11 items-center justify-center rounded-xl border border-border text-foreground-muted transition-colors hover:border-primary/40 hover:text-primary"
+            >
+              <ChevronRight className="h-5 w-5" />
+            </button>
+          </div>
+        </FadeIn>
+
+        <FadeIn>
+          <Carousel
+            setApi={setApi}
+            opts={{
+              align: "start",
+              loop: true,
+              dragFree: false,
+            }}
+            plugins={[autoplayPlugin]}
+            className="w-full"
+          >
+            <CarouselContent className="-ml-4">
+              {experiences.map((exp) => (
+                <CarouselItem
+                  key={exp.id}
+                  className="basis-full pl-4 sm:basis-1/2 lg:basis-1/3"
+                >
+                  <ExperienceCard exp={exp} />
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+          </Carousel>
+
+          <div className="mt-8 flex items-center justify-center gap-2">
+            {Array.from({ length: snapCount }).map((_, i) => (
+              <button
+                key={i}
+                type="button"
+                aria-label={`Aller à l'expérience ${i + 1}`}
+                aria-current={selected === i}
+                onClick={() => api?.scrollTo(i)}
+                className={cn(
+                  "h-2 rounded-full transition-all duration-300",
+                  selected === i
+                    ? "w-6 bg-primary"
+                    : "w-2 bg-foreground-muted/30 hover:bg-foreground-muted/50"
+                )}
+              />
+            ))}
+          </div>
+        </FadeIn>
       </div>
     </section>
   )
 }
 
-function ExperienceCard({
-  exp,
-  index,
-}: {
-  exp: Experience
-  index: number
-}) {
-  const isActive = index === 0 || exp.current
+function ExperienceCard({ exp }: { exp: Experience }) {
   const isInternal = exp.link?.startsWith("/")
 
   return (
-    <div className="group relative">
-      <motion.div
-        className={`timeline-node z-10 flex h-6 w-6 items-center justify-center rounded-full border-2 bg-background ${
-          isActive
-            ? "border-primary glow-sm"
-            : "border-foreground-muted/40 group-hover:border-primary"
-        }`}
-        whileHover={{ scale: 1.15 }}
-      >
-        <motion.div
-          className={`h-2 w-2 rounded-full ${
-            isActive
-              ? "bg-primary"
-              : "bg-foreground-muted/40 group-hover:bg-primary"
-          }`}
-          animate={
-            isActive
-              ? { scale: [1, 1.35, 1], opacity: [1, 0.7, 1] }
-              : undefined
-          }
-          transition={
-            isActive
-              ? { duration: 2.2, repeat: Infinity, ease: "easeInOut" }
-              : undefined
-          }
-        />
-      </motion.div>
-
-      <div className="glass-card glass-card-hover rounded-2xl p-5 sm:p-6">
-        <div className="mb-4 flex flex-col gap-3 md:flex-row md:items-start md:justify-between">
-          <div className="min-w-0">
-            {exp.contractType && (
-              <span className="chip-mint mb-2 inline-block">
-                {exp.contractType}
-              </span>
-            )}
-            <h3 className="heading-sm">{exp.role}</h3>
-            <p className="label-md-ln mt-1 text-primary">{exp.company}</p>
-          </div>
-          <span className="w-fit shrink-0 rounded-full bg-muted px-4 py-1.5 font-mono text-xs text-foreground-muted">
-            {exp.period}
-          </span>
-        </div>
-
-        <p className="body-md">{exp.description}</p>
-
-        {exp.highlights && exp.highlights.length > 0 && (
-          <ul className="mt-4 space-y-2">
-            {exp.highlights.map((item) => (
-              <li
-                key={item}
-                className="flex gap-2 text-sm text-foreground-muted"
-              >
-                <span
-                  className="mt-2 h-1 w-1 shrink-0 rounded-full bg-primary"
-                  aria-hidden
-                />
-                <span>{item}</span>
-              </li>
-            ))}
-          </ul>
-        )}
-
-        <div className="mt-4 flex flex-wrap gap-2">
-          {exp.technologies.map((tech) => (
-            <span key={tech} className="chip-muted">
-              {tech}
+    <article className="glass-card glass-card-hover flex h-full min-h-[320px] flex-col rounded-2xl p-5 select-none sm:p-6">
+      <div className="mb-4 flex flex-col gap-3">
+        <div className="flex flex-wrap items-center gap-2">
+          {exp.contractType && (
+            <span className="chip-mint">{exp.contractType}</span>
+          )}
+          {exp.current && (
+            <span className="rounded-full border border-primary/40 bg-primary/10 px-2.5 py-1 font-mono text-[10px] uppercase tracking-wider text-primary">
+              En cours
             </span>
-          ))}
+          )}
         </div>
-
-        {exp.link && (
-          <Link
-            href={exp.link}
-            target={isInternal ? undefined : "_blank"}
-            rel={isInternal ? undefined : "noopener noreferrer"}
-            className="label-md-ln mt-4 inline-flex items-center gap-2 text-primary hover:underline"
-          >
-            {isInternal ? "Voir le projet" : "Voir le travail"}{" "}
-            <ExternalLink className="h-3.5 w-3.5" />
-          </Link>
-        )}
+        <div>
+          <h3 className="heading-sm text-lg leading-snug">{exp.role}</h3>
+          <p className="label-md-ln mt-1 text-primary">{exp.company}</p>
+        </div>
+        <span className="w-fit rounded-full bg-muted px-3 py-1.5 font-mono text-xs text-foreground-muted">
+          {exp.period}
+        </span>
       </div>
-    </div>
+
+      <p className="body-md line-clamp-4 flex-1">{exp.description}</p>
+
+      {exp.highlights && exp.highlights.length > 0 && (
+        <ul className="mt-4 space-y-2">
+          {exp.highlights.slice(0, 3).map((item) => (
+            <li
+              key={item}
+              className="flex gap-2 text-sm text-foreground-muted"
+            >
+              <span
+                className="mt-2 h-1 w-1 shrink-0 rounded-full bg-primary"
+                aria-hidden
+              />
+              <span className="line-clamp-2">{item}</span>
+            </li>
+          ))}
+        </ul>
+      )}
+
+      <div className="mt-4 flex flex-wrap gap-2">
+        {exp.technologies.slice(0, 4).map((tech) => (
+          <span key={tech} className="chip-muted">
+            {tech}
+          </span>
+        ))}
+      </div>
+
+      {exp.link && (
+        <Link
+          href={exp.link}
+          target={isInternal ? undefined : "_blank"}
+          rel={isInternal ? undefined : "noopener noreferrer"}
+          className="label-md-ln mt-4 inline-flex items-center gap-2 text-primary hover:underline"
+        >
+          {isInternal ? "Voir le projet" : "Voir le travail"}{" "}
+          <ExternalLink className="h-3.5 w-3.5" />
+        </Link>
+      )}
+    </article>
   )
 }

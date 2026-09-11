@@ -109,6 +109,10 @@ export type Project = {
   githubUrl?: string
   /** Still being developed — not 100% finished */
   inProgress?: boolean
+  /** Primary service to suggest on this project page */
+  relatedServiceId: string
+  /** Extra services to suggest alongside the primary one */
+  relatedServiceIds?: string[]
   features: ProjectFeature[]
   challenges?: ProjectChallenge[]
   quote?: string

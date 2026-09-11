@@ -132,3 +132,79 @@ export function buildSiteJsonLd() {
     "@graph": [person, professionalService],
   }
 }
+
+/** JSON-LD Service Offer pour une page /services/[id] */
+export function buildServicePageJsonLd(service: {
+  id: string
+  title: string
+  description: string
+  content?: { h1: string; intro: string[] }
+  packs: { name: string; price: number; currency: string }[]
+}) {
+  const url = absoluteUrl(`/services/${service.id}`)
+  const name = service.content?.h1 ?? service.title
+  const description =
+    service.content?.intro?.[0] ?? service.description
+
+  return {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name,
+    description,
+    url,
+    provider: {
+      "@type": "Person",
+      name: siteConfig.nap.name,
+      url: siteConfig.url,
+      telephone: siteConfig.phone,
+      address: postalAddress(),
+    },
+    areaServed: [
+      { "@type": "City", name: "Casablanca" },
+      { "@type": "Country", name: "Maroc" },
+    ],
+    offers: service.packs.map((pack) => ({
+      "@type": "Offer",
+      name: pack.name,
+      price: pack.price,
+      priceCurrency: pack.currency,
+      url,
+      availability: "https://schema.org/InStock",
+    })),
+  }
+}
+
+/** JSON-LD CreativeWork pour une étude de cas projet */
+export function buildProjectPageJsonLd(project: {
+  slug: string
+  title: string
+  shortDescription: string
+  description: string[]
+  coverImage: string
+  technologies: string[]
+  year: string
+  liveUrl?: string
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "CreativeWork",
+    name: project.title,
+    description: project.description.join(" "),
+    url: absoluteUrl(`/projects/${project.slug}`),
+    image: absoluteUrl(project.coverImage),
+    dateCreated: project.year,
+    keywords: project.technologies.join(", "),
+    author: {
+      "@type": "Person",
+      name: siteConfig.nap.name,
+      url: siteConfig.url,
+      jobTitle: "Développeur Full-Stack",
+      address: postalAddress(),
+    },
+    ...(project.liveUrl
+      ? { sameAs: [project.liveUrl] }
+      : {}),
+    about: project.shortDescription,
+  }
+}
+

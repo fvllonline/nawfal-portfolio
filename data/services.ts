@@ -1,4 +1,5 @@
 import type { Service, ServiceGeneralTerms } from "@/lib/types"
+import { getServicePageContent } from "./service-content"
 
 export const serviceGeneralTerms: ServiceGeneralTerms = {
   currency: "MAD",
@@ -250,7 +251,7 @@ export const services: Service[] = [
     id: "seo",
     title: "SEO & Optimisation",
     description:
-      "Amélioration de la visibilité, des performances et de la structure technique de votre site.",
+      "SEO technique et on-page à Casablanca — visibilité Google, performances et SEO local pour entreprises au Maroc.",
     icon: "search",
     packs: [
       {
@@ -305,7 +306,7 @@ export const services: Service[] = [
     id: "redesign",
     title: "Refonte de Site Existant",
     description:
-      "Modernisation d'un site existant pour améliorer son design, ses performances, son expérience utilisateur et son référencement.",
+      "Refonte de site à Casablanca : moderniser design, UX, performances et SEO d’un site existant au Maroc.",
     icon: "refresh",
     packs: [
       {
@@ -360,7 +361,7 @@ export const services: Service[] = [
     id: "maintenance",
     title: "Maintenance & Support",
     description:
-      "Maintenance technique, mises à jour, corrections et accompagnement continu de votre projet.",
+      "Maintenance mensuelle en MAD — mises à jour, sauvegardes et support pour votre site à Casablanca.",
     icon: "wrench",
     packs: [
       {
@@ -411,7 +412,7 @@ export const services: Service[] = [
     id: "uiux",
     title: "UI/UX Design",
     description:
-      "Conception d'interfaces modernes et intuitives avec Figma, adaptées au web et au mobile.",
+      "UI/UX Design Figma à Casablanca — interfaces web & mobile, prototypes et design system pour produits au Maroc.",
     icon: "palette",
     packs: [
       {
@@ -460,7 +461,7 @@ export const services: Service[] = [
     id: "wordpress",
     title: "WordPress / CMS",
     description:
-      "Création et personnalisation de sites WordPress professionnels adaptés aux besoins des entreprises.",
+      "Sites WordPress professionnels à Casablanca — design, contenu administrable et SEO de base pour entreprises au Maroc.",
     icon: "wordpress",
     packs: [
       {
@@ -515,7 +516,7 @@ export const services: Service[] = [
     id: "api_backend",
     title: "API & Backend",
     description:
-      "Développement d'APIs REST robustes et de backends adaptés aux applications web et mobiles.",
+      "APIs REST et backends (Laravel / Node) à Casablanca — auth, docs et déploiement pour apps web & mobile.",
     icon: "server",
     packs: [
       {
@@ -572,7 +573,7 @@ export const services: Service[] = [
     id: "consulting",
     title: "Consulting & Audit Technique",
     description:
-      "Analyse technique de projets web et recommandations concrètes pour améliorer qualité, performance, sécurité et architecture.",
+      "Audit technique & consulting à Casablanca — perf, SEO, UX, architecture et plan d’action pour votre projet au Maroc.",
     icon: "message-square",
     packs: [
       {
@@ -625,7 +626,10 @@ export const services: Service[] = [
 ]
 
 export function getServiceById(id: string): Service | undefined {
-  return services.find((service) => service.id === id)
+  const service = services.find((item) => item.id === id)
+  if (!service) return undefined
+  const content = getServicePageContent(id)
+  return content ? { ...service, content } : service
 }
 
 export function getAllServiceIds(): string[] {

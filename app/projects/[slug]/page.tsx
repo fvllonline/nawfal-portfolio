@@ -19,6 +19,7 @@ import {
   getProjectRelatedServiceIds,
   getServiceById,
 } from "@/data"
+import { buildProjectPageJsonLd } from "@/lib/seo"
 
 type ProjectPageProps = {
   params: Promise<{ slug: string }>
@@ -35,15 +36,19 @@ export async function generateMetadata({
   const project = getProjectBySlug(slug)
   if (!project) return { title: "Projet introuvable" }
 
+  const description = `${project.shortDescription} Étude de cas par Nawfal Addaoui, développeur Full-Stack à Casablanca.`
+
   return {
-    title: `${project.title} | Développeur Full-Stack Casablanca`,
-    description: `${project.shortDescription} Réalisé par Nawfal Addaoui, développeur Full-Stack à Casablanca.`,
+    title: `${project.title} | Étude de cas — Full-Stack Casablanca`,
+    description,
+    alternates: { canonical: `/projects/${project.slug}` },
     openGraph: {
       title: `${project.title} | Nawfal Addaoui — Casablanca`,
       description: project.shortDescription,
       images: [project.coverImage],
       type: "article",
       locale: "fr_MA",
+      url: `/projects/${project.slug}`,
     },
   }
 }
@@ -58,9 +63,14 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
   const relatedServices = getProjectRelatedServiceIds(project)
     .map((id) => getServiceById(id))
     .filter((service): service is NonNullable<typeof service> => Boolean(service))
+  const jsonLd = buildProjectPageJsonLd(project)
 
   return (
     <SiteShell>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <article className="container-ln pb-16 pt-24 sm:pb-20 sm:pt-28 md:pt-32">
         <ProjectHero project={project} />
 

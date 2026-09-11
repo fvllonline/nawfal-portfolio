@@ -47,6 +47,18 @@ export type Service = {
     | "server"
     | "message-square"
   packs: ServicePack[]
+  /** Contenu SEO longue forme (page /services/[id]) */
+  content?: ServicePageContent
+}
+
+export type ServicePageContent = {
+  /** H1 optimisé local */
+  h1: string
+  /** Paragraphes d’autorité */
+  intro: string[]
+  benefits: string[]
+  idealFor: string[]
+  process: string[]
 }
 
 export type ServiceGeneralTerms = {

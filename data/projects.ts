@@ -229,11 +229,11 @@ export const projects: Project[] = [
     subtitle:
       "Site e-commerce en cours de développement — catalogue, panier et UX boutique.",
     shortDescription:
-      "Site e-commerce encore en développement (pas terminé à 100 %) — aperçu en ligne disponible.",
+      "E-commerce Next.js en cours (Casablanca) — catalogue, panier et UX boutique ; démo en ligne disponible.",
     description: [
-      "ZacaStore est un site e-commerce conçu pour une hiérarchie produit claire et une expérience d’achat rapide.",
-      "Il mise sur une vitrine propre, des pages produit responsive et un parcours de commande simple sur tous les appareils.",
-      "Note : ce projet est encore en développement actif et n’est pas terminé à 100 % — la démo en ligne reflète un travail en cours.",
+      "ZacaStore est un site e-commerce conçu pour une hiérarchie produit claire et une expérience d’achat rapide — un cas concret de boutique en ligne développée en Full-Stack depuis Casablanca.",
+      "Il mise sur une vitrine propre (Next.js, React, Tailwind), des pages produit responsive et un parcours de commande simple sur tous les appareils, adapté aux attentes des acheteurs au Maroc.",
+      "Note : ce projet est encore en développement actif et n’est pas terminé à 100 % — la démo en ligne reflète un travail en cours, utile pour évaluer l’approche UX et technique.",
     ],
     coverImage: "/ZacaStore/miniature-zacastore.webp",
     gallery: [
@@ -298,10 +298,11 @@ export const projects: Project[] = [
     subtitle:
       "Site vitrine pour un café artisanal — ambiance, menu et présence digitale chaleureuse.",
     shortDescription:
-      "Site vitrine Dupond Café avec visuels élégants et storytelling de marque clair.",
+      "Site vitrine café artisanal (React) — storytelling, menu et présence digitale ; exemple de site vitrine professionnel.",
     description: [
-      "Dupond Café est un site vitrine qui présente l’ambiance du café, les points forts du menu et la personnalité de la marque en ligne.",
-      "Réalisé avec React + Vite et Tailwind CSS, déployé sur Vercel, il privilégie des visuels élégants et un parcours visiteur simple.",
+      "Dupond Café est un site vitrine qui présente l’ambiance du café, les points forts du menu et la personnalité de la marque en ligne — le type de présence digitale dont ont besoin restaurants et commerces de proximité.",
+      "Réalisé avec React + Vite et Tailwind CSS, déployé sur Vercel, il privilégie des visuels élégants et un parcours visiteur simple : une référence concrète pour des projets de site vitrine à Casablanca ou ailleurs au Maroc.",
+      "Objectif : donner envie avant même la visite physique — photos, typographie et structure claires, sans surcharger le chargement.",
     ],
     coverImage: "/DupondCafe/miniature-dupondcafe.webp",
     gallery: [
@@ -428,6 +429,16 @@ export function getRelatedProjects(slug: string, limit = 3): Project[] {
 
 export function getFeaturedProjects(): Project[] {
   return projects.filter((project) => project.featured)
+}
+
+export function getProjectsByServiceId(serviceId: string, limit = 3): Project[] {
+  return projects
+    .filter(
+      (project) =>
+        project.relatedServiceId === serviceId ||
+        project.relatedServiceIds?.includes(serviceId)
+    )
+    .slice(0, limit)
 }
 
 export function getProjectRelatedServiceIds(project: Project): string[] {

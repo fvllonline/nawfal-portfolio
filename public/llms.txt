@@ -1,9 +1,6 @@
 # Nawfal Addaoui — Portfolio
-# https://nawfalsportfolio.vercel.app
 
-> Développeur Full-Stack freelance basé à Casablanca (Maroc).
-> Spécialités : React, Next.js, Laravel, React Native, APIs et e-commerce.
-> Cible : startups et entreprises au Maroc (sites, apps, e-commerce, devis en MAD).
+> Développeur Full-Stack freelance basé à Casablanca (Maroc). Spécialités : React, Next.js, Laravel, React Native, APIs et e-commerce. Disponible pour startups et entreprises au Maroc (devis en MAD).
 
 ## Profil
 
@@ -11,58 +8,59 @@
 - Métier : Développeur Full-Stack à Casablanca
 - Adresse (NAP) : Casablanca, Casablanca-Settat, Maroc
 - Téléphone (NAP) : +212 631-108355
-- Email : naoufaladdaoui@gmail.com
+- Email : [naoufaladdaoui@gmail.com](mailto:naoufaladdaoui@gmail.com)
 - Zone : Casablanca & Maroc (présentiel ou remote)
 - Disponibilité : missions freelance, collaborations, projets web & mobile
 
-## NAP (à reprendre à l’identique sur Google Business)
+## NAP (Google Business)
 
-```
-Nawfal Addaoui
-Casablanca, Casablanca-Settat, Maroc
-+212 631-108355
-https://nawfalsportfolio.vercel.app
-```
+À reprendre à l’identique :
 
-Catégorie Google Business recommandée : Développeur de logiciels / Conception de sites Web (service area business — masquer l’adresse rue si pas de local).
+- Nom : Nawfal Addaoui
+- Adresse : Casablanca, Casablanca-Settat, Maroc
+- Téléphone : +212 631-108355
+- Site : [https://nawfalsportfolio.vercel.app](https://nawfalsportfolio.vercel.app)
+
+Catégorie recommandée : Développeur de logiciels / Conception de sites Web (service area business — masquer l’adresse rue si pas de local).
 
 ## Site
 
-- Accueil / portfolio : https://nawfalsportfolio.vercel.app
-- Sitemap : https://nawfalsportfolio.vercel.app/sitemap.xml
-- Contact : https://nawfalsportfolio.vercel.app/#contact
+- [Accueil / portfolio](https://nawfalsportfolio.vercel.app)
+- [Sitemap](https://nawfalsportfolio.vercel.app/sitemap.xml)
+- [Contact](https://nawfalsportfolio.vercel.app/#contact)
+- [llms.txt](https://nawfalsportfolio.vercel.app/llms.txt)
 
 ## Services
 
 Pages détaillées (packs & devis) :
 
-- Sites web : https://nawfalsportfolio.vercel.app/services/website
-- E-commerce : https://nawfalsportfolio.vercel.app/services/ecommerce
-- Applications web : https://nawfalsportfolio.vercel.app/services/web_app
-- Applications mobiles : https://nawfalsportfolio.vercel.app/services/mobile_app
-- SEO : https://nawfalsportfolio.vercel.app/services/seo
-- Redesign : https://nawfalsportfolio.vercel.app/services/redesign
-- Maintenance : https://nawfalsportfolio.vercel.app/services/maintenance
-- UI/UX : https://nawfalsportfolio.vercel.app/services/uiux
-- WordPress : https://nawfalsportfolio.vercel.app/services/wordpress
-- API / Backend : https://nawfalsportfolio.vercel.app/services/api_backend
-- Consulting : https://nawfalsportfolio.vercel.app/services/consulting
+- [Sites web / Landing page](https://nawfalsportfolio.vercel.app/services/website)
+- [E-commerce](https://nawfalsportfolio.vercel.app/services/ecommerce)
+- [Applications web Full-Stack](https://nawfalsportfolio.vercel.app/services/web_app)
+- [Applications mobiles](https://nawfalsportfolio.vercel.app/services/mobile_app)
+- [SEO & optimisation](https://nawfalsportfolio.vercel.app/services/seo)
+- [Refonte de site](https://nawfalsportfolio.vercel.app/services/redesign)
+- [Maintenance & support](https://nawfalsportfolio.vercel.app/services/maintenance)
+- [UI/UX Design](https://nawfalsportfolio.vercel.app/services/uiux)
+- [WordPress / CMS](https://nawfalsportfolio.vercel.app/services/wordpress)
+- [API & Backend](https://nawfalsportfolio.vercel.app/services/api_backend)
+- [Consulting & audit](https://nawfalsportfolio.vercel.app/services/consulting)
 
 ## Projets
 
 Études de cas :
 
-- MonPassTCF : https://nawfalsportfolio.vercel.app/projects/monpasstcf
-- Quick Stay : https://nawfalsportfolio.vercel.app/projects/quick-stay
-- Breezoria : https://nawfalsportfolio.vercel.app/projects/breezoria
-- ZacaStore : https://nawfalsportfolio.vercel.app/projects/zacastore
-- Dupond Café : https://nawfalsportfolio.vercel.app/projects/dupond-cafe
-- Adam Adventure Tours : https://nawfalsportfolio.vercel.app/projects/adam-adventure-tours
+- [MonPassTCF](https://nawfalsportfolio.vercel.app/projects/monpasstcf)
+- [Quick Stay](https://nawfalsportfolio.vercel.app/projects/quick-stay)
+- [Breezoria](https://nawfalsportfolio.vercel.app/projects/breezoria)
+- [ZacaStore](https://nawfalsportfolio.vercel.app/projects/zacastore)
+- [Dupond Café](https://nawfalsportfolio.vercel.app/projects/dupond-cafe)
+- [Adam Adventure Tours](https://nawfalsportfolio.vercel.app/projects/adam-adventure-tours)
 
 ## Présence en ligne
 
-- GitHub : https://github.com/fvllonline
-- LinkedIn : https://www.linkedin.com/in/nawfal-addaoui-40b651248/
+- [GitHub](https://github.com/fvllonline)
+- [LinkedIn](https://www.linkedin.com/in/nawfal-addaoui-40b651248/)
 
 ## Mots-clés
 

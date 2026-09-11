@@ -3,8 +3,7 @@
 import { useEffect, useState, type FormEvent } from "react"
 import Link from "next/link"
 import { motion } from "framer-motion"
-import { Mail, Phone, MapPin, Send, CheckCircle, Github, FileText } from "lucide-react"
-import { FaLinkedin } from "react-icons/fa"
+import { Mail, Phone, MapPin, Send, CheckCircle, Github, FileText, Linkedin } from "lucide-react"
 import { siteConfig } from "@/data"
 import { FadeIn } from "@/components/ui/motion"
 import {
@@ -144,7 +143,7 @@ export function ContactSection() {
               aria-label="LinkedIn"
               className="flex h-11 w-11 items-center justify-center rounded-xl border border-border text-foreground-muted transition-colors hover:border-primary/40 hover:text-primary"
             >
-              <FaLinkedin className="h-5 w-5" />
+              <Linkedin className="h-5 w-5" />
             </Link>
           </div>
 

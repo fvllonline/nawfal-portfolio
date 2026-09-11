@@ -8,8 +8,8 @@ export const aboutContent = {
     "Je suis un développeur Full-Stack passionné basé à Casablanca, spécialisé en React, Laravel et Next.js. Ma philosophie repose sur l’alliance entre fonctionnalité et esthétique : chaque pixel doit avoir un sens.",
     "Créatif, adaptable et enthousiaste à l’idée de contribuer à des projets innovants — je conçois des solutions web modernes qui scalent et plaisent aux utilisateurs.",
   ],
-  portrait: "/PRFLN.png",
-  workspaceImage: "/herobg.jpg",
+  portrait: "/PRFLN.webp",
+  workspaceImage: "/herobg.webp",
   skillBars: [
     { name: "Frontend / UI-UX", level: 95 },
     { name: "Backend & APIs", level: 88 },

@@ -3,8 +3,13 @@
 import type { ReactNode } from "react"
 import Image from "next/image"
 import Link from "next/link"
-import { Github, Mail } from "lucide-react"
-import { FaLinkedin, FaFacebook, FaInstagram } from "react-icons/fa"
+import {
+  Facebook,
+  Github,
+  Instagram,
+  Linkedin,
+  Mail,
+} from "lucide-react"
 import { motion, useReducedMotion } from "framer-motion"
 import { siteConfig } from "@/data"
 import { easeOutExpo } from "@/components/ui/motion"
@@ -20,10 +25,12 @@ export function HeroSection() {
       {/* Background image */}
       <div className="absolute inset-0 -z-10">
         <Image
-          src="/herobg.jpg"
+          src="/herobg.webp"
           alt=""
           fill
           priority
+          fetchPriority="high"
+          quality={75}
           className="object-cover object-center"
           sizes="100vw"
         />
@@ -31,28 +38,13 @@ export function HeroSection() {
         <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-transparent to-background" />
       </div>
 
-      <motion.div
-        className="pointer-events-none absolute -right-[20%] -top-[10%] h-[320px] w-[320px] rounded-full bg-primary/10 blur-[120px] sm:-right-[10%] sm:-top-[20%] sm:h-[500px] sm:w-[500px]"
-        animate={
-          reduce
-            ? undefined
-            : { scale: [1, 1.08, 1], opacity: [0.4, 0.7, 0.4] }
-        }
-        transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+      <div
+        className="animate-ambient-glow pointer-events-none absolute -right-[20%] -top-[10%] h-[320px] w-[320px] rounded-full bg-primary/10 blur-[120px] sm:-right-[10%] sm:-top-[20%] sm:h-[500px] sm:w-[500px]"
+        aria-hidden
       />
-      <motion.div
-        className="pointer-events-none absolute -bottom-[10%] -left-[20%] h-[280px] w-[280px] rounded-full bg-secondary/10 blur-[120px] sm:-bottom-[20%] sm:-left-[10%] sm:h-[500px] sm:w-[500px]"
-        animate={
-          reduce
-            ? undefined
-            : { scale: [1, 1.12, 1], opacity: [0.3, 0.6, 0.3] }
-        }
-        transition={{
-          duration: 12,
-          repeat: Infinity,
-          ease: "easeInOut",
-          delay: 1,
-        }}
+      <div
+        className="animate-ambient-glow-delayed pointer-events-none absolute -bottom-[10%] -left-[20%] h-[280px] w-[280px] rounded-full bg-secondary/10 blur-[120px] sm:-bottom-[20%] sm:-left-[10%] sm:h-[500px] sm:w-[500px]"
+        aria-hidden
       />
 
       <div className="container-ln relative z-10 mx-auto flex max-w-3xl justify-center">
@@ -139,7 +131,7 @@ export function HeroSection() {
               href="https://www.linkedin.com/in/nawfal-addaoui-40b651248/"
               label="LinkedIn"
             >
-              <FaLinkedin className="h-5 w-5" />
+              <Linkedin className="h-5 w-5" />
             </SocialIcon>
             <SocialIcon href={`mailto:${siteConfig.email}`} label="Email">
               <Mail className="h-5 w-5" />
@@ -148,13 +140,13 @@ export function HeroSection() {
               href="https://www.facebook.com/naoufal.addaoui.3"
               label="Facebook"
             >
-              <FaFacebook className="h-5 w-5" />
+              <Facebook className="h-5 w-5" />
             </SocialIcon>
             <SocialIcon
               href="https://www.instagram.com/fvllonline/"
               label="Instagram"
             >
-              <FaInstagram className="h-5 w-5" />
+              <Instagram className="h-5 w-5" />
             </SocialIcon>
           </motion.div>
         </div>

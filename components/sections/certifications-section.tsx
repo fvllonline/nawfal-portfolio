@@ -6,12 +6,14 @@ import Autoplay from "embla-carousel-autoplay"
 import { Eye, Globe, Code, Shield, ChevronLeft, ChevronRight } from "lucide-react"
 import { certifications } from "@/data"
 import { FadeIn } from "@/components/ui/motion"
+import { LazyMount } from "@/components/ui/lazy-mount"
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
   type CarouselApi,
 } from "@/components/ui/carousel"
+import { useAutoplayInView } from "@/hooks/use-autoplay-in-view"
 import type { Certification } from "@/lib/types"
 import { cn } from "@/lib/utils"
 
@@ -38,11 +40,13 @@ export function CertificationsSection() {
   const [snapCount, setSnapCount] = useState(0)
   const [autoplayPlugin] = useState(() =>
     Autoplay({
-      delay: 4000,
+      delay: 6500,
       stopOnInteraction: false,
       stopOnMouseEnter: true,
     })
   )
+
+  useAutoplayInView(api)
 
   useEffect(() => {
     if (!api) return
@@ -92,37 +96,39 @@ export function CertificationsSection() {
           </div>
         </FadeIn>
 
-        <FadeIn>
-          <Carousel
-            setApi={setApi}
-            opts={{
-              align: "start",
-              loop: true,
-              dragFree: false,
-            }}
-            plugins={[autoplayPlugin]}
-            className="w-full"
-          >
-            <CarouselContent className="-ml-4">
-              {certifications.map((cert) => {
-                const Icon = categoryIcon[cert.category]
-                return (
-                  <CarouselItem
-                    key={cert.id}
-                    className="basis-full pl-4 sm:basis-1/2 lg:basis-1/3"
-                  >
-                    <article className="glass-card glass-card-hover flex h-full min-h-[260px] flex-col rounded-2xl p-6 select-none">
-                      <div className="mb-4 flex items-start justify-between gap-4">
-                        <div className="relative h-14 w-14 overflow-hidden rounded-xl bg-muted">
-                          <Image
-                            src={cert.logo}
-                            alt={cert.institution}
-                            fill
-                            className="object-contain p-1.5"
-                            sizes="56px"
-                            draggable={false}
-                          />
-                        </div>
+        <LazyMount minHeight={300}>
+          <FadeIn>
+            <Carousel
+              setApi={setApi}
+              opts={{
+                align: "start",
+                loop: true,
+                dragFree: false,
+              }}
+              plugins={[autoplayPlugin]}
+              className="w-full"
+            >
+              <CarouselContent className="-ml-4">
+                {certifications.map((cert) => {
+                  const Icon = categoryIcon[cert.category]
+                  return (
+                    <CarouselItem
+                      key={cert.id}
+                      className="basis-full pl-4 sm:basis-1/2 lg:basis-1/3"
+                    >
+                      <article className="glass-card glass-card-hover flex h-full min-h-[260px] flex-col rounded-2xl p-6 select-none">
+                        <div className="mb-4 flex items-start justify-between gap-4">
+                          <div className="relative h-14 w-14 overflow-hidden rounded-xl bg-muted">
+                            <Image
+                              src={cert.logo}
+                              alt={cert.institution}
+                              fill
+                              loading="lazy"
+                              className="object-contain p-1.5"
+                              sizes="56px"
+                              draggable={false}
+                            />
+                          </div>
                         <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10 text-primary">
                           <Icon className="h-5 w-5" />
                         </div>
@@ -148,28 +154,28 @@ export function CertificationsSection() {
                   </CarouselItem>
                 )
               })}
-            </CarouselContent>
-          </Carousel>
+              </CarouselContent>
+            </Carousel>
 
-          {/* Dots */}
-          <div className="mt-8 flex items-center justify-center gap-2">
-            {Array.from({ length: snapCount }).map((_, i) => (
-              <button
-                key={i}
-                type="button"
-                aria-label={`Aller à la diapositive ${i + 1}`}
-                aria-current={selected === i}
-                onClick={() => api?.scrollTo(i)}
-                className={cn(
-                  "h-2 rounded-full transition-all duration-300",
-                  selected === i
-                    ? "w-6 bg-primary"
-                    : "w-2 bg-foreground-muted/30 hover:bg-foreground-muted/50"
-                )}
-              />
-            ))}
-          </div>
-        </FadeIn>
+            <div className="mt-8 flex items-center justify-center gap-2">
+              {Array.from({ length: snapCount }).map((_, i) => (
+                <button
+                  key={i}
+                  type="button"
+                  aria-label={`Aller à la diapositive ${i + 1}`}
+                  aria-current={selected === i}
+                  onClick={() => api?.scrollTo(i)}
+                  className={cn(
+                    "h-2 rounded-full transition-all duration-300",
+                    selected === i
+                      ? "w-6 bg-primary"
+                      : "w-2 bg-foreground-muted/30 hover:bg-foreground-muted/50"
+                  )}
+                />
+              ))}
+            </div>
+          </FadeIn>
+        </LazyMount>
       </div>
     </section>
   )

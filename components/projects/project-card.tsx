@@ -8,9 +8,11 @@ import { easeOutExpo } from "@/components/ui/motion"
 
 type ProjectCardProps = {
   project: Project
+  /** When false, skip the cover fetch (off-screen carousel slides). */
+  loadImage?: boolean
 }
 
-export function ProjectCard({ project }: ProjectCardProps) {
+export function ProjectCard({ project, loadImage = true }: ProjectCardProps) {
   return (
     <motion.div
       whileHover={{ y: -8 }}
@@ -21,14 +23,18 @@ export function ProjectCard({ project }: ProjectCardProps) {
         href={`/projects/${project.slug}`}
         className="glass-card group block h-full overflow-hidden rounded-2xl transition-colors duration-300 hover:border-primary/40"
       >
-        <div className="relative aspect-[16/10] overflow-hidden">
-          <Image
-            src={project.coverImage}
-            alt={project.title}
-            fill
-            className="object-cover transition-transform duration-700 group-hover:scale-110"
-            sizes="(max-width: 768px) 100vw, 33vw"
-          />
+        <div className="relative aspect-[16/10] overflow-hidden bg-muted">
+          {loadImage ? (
+            <Image
+              src={project.coverImage}
+              alt={project.title}
+              fill
+              loading="lazy"
+              className="object-cover transition-transform duration-700 group-hover:scale-110"
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+              quality={70}
+            />
+          ) : null}
           {project.inProgress && (
             <span className="absolute left-3 top-3 z-10 rounded-full border border-secondary/40 bg-background/80 px-3 py-1 font-mono text-[10px] uppercase tracking-wider text-secondary-bright backdrop-blur-md">
               En cours

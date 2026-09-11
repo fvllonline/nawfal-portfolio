@@ -56,8 +56,10 @@ export function ProjectHero({ project }: { project: Project }) {
           alt={`Couverture de ${project.title}`}
           fill
           priority
+          fetchPriority="high"
+          quality={75}
           className="object-cover"
-          sizes="100vw"
+          sizes="(max-width: 1280px) 100vw, 1200px"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-40" />
       </motion.div>

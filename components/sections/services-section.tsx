@@ -13,6 +13,7 @@ import {
   CarouselItem,
   type CarouselApi,
 } from "@/components/ui/carousel"
+import { useAutoplayInView } from "@/hooks/use-autoplay-in-view"
 import { cn } from "@/lib/utils"
 
 export function ServicesSection() {
@@ -21,11 +22,13 @@ export function ServicesSection() {
   const [snapCount, setSnapCount] = useState(0)
   const [autoplayPlugin] = useState(() =>
     Autoplay({
-      delay: 5000,
+      delay: 7000,
       stopOnInteraction: false,
       stopOnMouseEnter: true,
     })
   )
+
+  useAutoplayInView(api)
 
   useEffect(() => {
     if (!api) return

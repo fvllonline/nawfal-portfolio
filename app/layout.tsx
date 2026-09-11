@@ -24,9 +24,9 @@ export const metadata: Metadata = {
   authors: [{ name: siteConfig.fullName }],
   creator: siteConfig.fullName,
   icons: {
-    icon: "/favicon.png",
-    shortcut: "/favicon.png",
-    apple: "/favicon.png",
+    icon: "/favicon.webp",
+    shortcut: "/favicon.webp",
+    apple: "/favicon-48.png",
   },
   openGraph: {
     title: `${siteConfig.fullName} — ${siteConfig.title}`,

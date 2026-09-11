@@ -9,7 +9,7 @@ export const testimonials: Testimonial[] = [
     content:
       "Durant son stage PFE, Nawfal a développé le backend Laravel de notre application Quick Stay avec des APIs propres et fiables. Il a également conçu toute notre identité de marque — logo et charte graphique — avec un soin qui a renforcé le produit et notre image. Un contributeur solide et polyvalent.",
     rating: 5,
-    image: "/Mina.jpg",
+    image: "/Mina.webp",
     linkedin: "https://www.linkedin.com/in/mina-boujnah-560a06149/",
   },
   {
@@ -20,7 +20,7 @@ export const testimonials: Testimonial[] = [
     content:
       "Nawfal a mené notre site vitrine de l’analyse des besoins jusqu’à une réalisation Next.js soignée, en passant par le design, le déploiement Vercel et la maintenance. Il a rapidement compris notre marque tourisme et livré un site rapide et professionnel que nous sommes fiers de partager avec nos clients.",
     rating: 5,
-    image: "/Youness.jpg",
+    image: "/Youness.webp",
     linkedin: "https://www.linkedin.com/in/youness-bennay/",
   },
   {
@@ -31,7 +31,7 @@ export const testimonials: Testimonial[] = [
     content:
       "Travailler avec Nawfal a été un plaisir. Son expertise technique associée à ses compétences en communication a fait de notre projet un succès. Je le recommande vivement !",
     rating: 5,
-    image: "/Ayman.jpg",
+    image: "/Ayman.webp",
     linkedin: "https://www.linkedin.com/in/aymanboujjar/",
   },
 ]

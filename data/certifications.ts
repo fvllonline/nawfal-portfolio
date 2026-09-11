@@ -7,7 +7,7 @@ export const certifications: Certification[] = [
     institution: "Institut Français",
     category: "Langue",
     icon: "globe",
-    logo: "/tcf.jpg",
+    logo: "/tcf.webp",
     pdfPath: "/certifs/tcf.pdf",
   },
   {
@@ -16,7 +16,7 @@ export const certifications: Certification[] = [
     institution: "Cisco Networking Academy",
     category: "Langue",
     icon: "globe",
-    logo: "/cisco.jpg",
+    logo: "/cisco.webp",
     pdfPaths: ["/certifs/efi1.pdf", "/certifs/efi2.pdf"],
   },
   {
@@ -25,7 +25,7 @@ export const certifications: Certification[] = [
     institution: "Cisco Networking Academy",
     category: "Programmation",
     icon: "code",
-    logo: "/cisco.jpg",
+    logo: "/cisco.webp",
     pdfPaths: ["/certifs/js1.pdf", "/certifs/js2.pdf"],
   },
   {
@@ -34,7 +34,7 @@ export const certifications: Certification[] = [
     institution: "Cisco Networking Academy",
     category: "Programmation",
     icon: "code",
-    logo: "/cisco.jpg",
+    logo: "/cisco.webp",
     pdfPaths: ["/certifs/ps1.pdf", "/certifs/ps2.pdf"],
   },
   {
@@ -43,7 +43,7 @@ export const certifications: Certification[] = [
     institution: "Cisco Networking Academy",
     category: "Sécurité",
     icon: "shield",
-    logo: "/cisco.jpg",
+    logo: "/cisco.webp",
     pdfPath: "/certifs/ics.pdf",
   },
   {
@@ -52,7 +52,7 @@ export const certifications: Certification[] = [
     institution: "Cisco Networking Academy",
     category: "Sécurité",
     icon: "shield",
-    logo: "/cisco.jpg",
+    logo: "/cisco.webp",
     pdfPath: "/certifs/jcs.pdf",
   },
 ]

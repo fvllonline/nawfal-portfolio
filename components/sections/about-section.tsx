@@ -20,8 +20,10 @@ export function AboutSection() {
                 src={aboutContent.portrait}
                 alt="Nawfal ADDAOUI"
                 fill
+                loading="lazy"
                 className="object-cover object-top transition-transform duration-700 hover:scale-105"
-                sizes="(max-width: 1024px) 100vw, 40vw"
+                sizes="(max-width: 1024px) 90vw, 40vw"
+                quality={75}
               />
             </div>
           </div>

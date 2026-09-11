@@ -20,6 +20,7 @@ import {
   ZoomIn,
 } from "lucide-react"
 import { FadeIn, Stagger, StaggerItem } from "@/components/ui/motion"
+import { LazyMount } from "@/components/ui/lazy-mount"
 import { cn } from "@/lib/utils"
 
 const MIN_ZOOM = 1
@@ -38,35 +39,41 @@ export function ProjectGallery({ images, title }: ProjectGalleryProps) {
 
   return (
     <>
-      <FadeIn className="mt-16 md:mt-24">
-        <h2 className="heading-lg mb-8 text-primary">Galerie d&apos;interfaces</h2>
-        <Stagger className="grid grid-cols-2 gap-3 sm:gap-4 md:grid-cols-3 lg:grid-cols-4">
-          {images.map((src, index) => (
-            <StaggerItem key={`${src}-${index}`}>
-              <button
-                type="button"
-                onClick={() => setActiveIndex(index)}
-                className="glass-card group relative aspect-square w-full overflow-hidden rounded-2xl text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
-                aria-label={`Ouvrir la capture ${index + 1} de ${title}`}
-              >
-                <Image
-                  src={src}
-                  alt={`Capture ${index + 1} de ${title}`}
-                  fill
-                  className="object-cover transition-transform duration-500 group-hover:scale-105"
-                  sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
-                />
-                <span className="pointer-events-none absolute inset-0 bg-background/0 transition-colors duration-300 group-hover:bg-background/35" />
-                <span className="pointer-events-none absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                  <span className="flex size-11 items-center justify-center rounded-full border border-white/15 bg-background/70 text-primary backdrop-blur-md">
-                    <Expand className="size-5" aria-hidden />
+      <LazyMount minHeight={320} rootMargin="200px 0px">
+        <FadeIn className="mt-16 md:mt-24">
+          <h2 className="heading-lg mb-8 text-primary">
+            Galerie d&apos;interfaces
+          </h2>
+          <Stagger className="grid grid-cols-2 gap-3 sm:gap-4 md:grid-cols-3 lg:grid-cols-4">
+            {images.map((src, index) => (
+              <StaggerItem key={`${src}-${index}`}>
+                <button
+                  type="button"
+                  onClick={() => setActiveIndex(index)}
+                  className="glass-card group relative aspect-square w-full overflow-hidden rounded-2xl text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+                  aria-label={`Ouvrir la capture ${index + 1} de ${title}`}
+                >
+                  <Image
+                    src={src}
+                    alt={`Capture ${index + 1} de ${title}`}
+                    fill
+                    loading="lazy"
+                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                    quality={70}
+                  />
+                  <span className="pointer-events-none absolute inset-0 bg-background/0 transition-colors duration-300 group-hover:bg-background/35" />
+                  <span className="pointer-events-none absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                    <span className="flex size-11 items-center justify-center rounded-full border border-white/15 bg-background/70 text-primary backdrop-blur-md">
+                      <Expand className="size-5" aria-hidden />
+                    </span>
                   </span>
-                </span>
-              </button>
-            </StaggerItem>
-          ))}
-        </Stagger>
-      </FadeIn>
+                </button>
+              </StaggerItem>
+            ))}
+          </Stagger>
+        </FadeIn>
+      </LazyMount>
 
       {activeIndex !== null && (
         <Lightbox
@@ -251,12 +258,13 @@ function Lightbox({
               transform: `translate(${offset.x}px, ${offset.y}px) scale(${zoom})`,
             }}
           >
-            {/* Native img keeps original aspect ratio (not cropped) */}
+            {/* Full-res only when lightbox is open (mounted on click) */}
             <img
               src={src}
               alt={`Capture ${index + 1} de ${title}`}
               className="max-h-full max-w-full select-none object-contain shadow-2xl"
               draggable={false}
+              decoding="async"
             />
           </div>
         </div>

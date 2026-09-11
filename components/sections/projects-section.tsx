@@ -6,26 +6,53 @@ import { ChevronLeft, ChevronRight } from "lucide-react"
 import { getFeaturedProjects } from "@/data"
 import { ProjectCard } from "@/components/projects/project-card"
 import { FadeIn } from "@/components/ui/motion"
+import { LazyMount } from "@/components/ui/lazy-mount"
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
   type CarouselApi,
 } from "@/components/ui/carousel"
+import { useAutoplayInView } from "@/hooks/use-autoplay-in-view"
 import { cn } from "@/lib/utils"
+
+/** Keep a small window of covers loaded around the active snap (loop-safe). */
+function useLoadedSlideIndices(selected: number, total: number, windowSize = 4) {
+  const [loaded, setLoaded] = useState(() => {
+    const initial = new Set<number>()
+    for (let i = 0; i < Math.min(windowSize, total); i++) initial.add(i)
+    return initial
+  })
+
+  useEffect(() => {
+    if (total === 0) return
+    setLoaded((prev) => {
+      const next = new Set(prev)
+      for (let i = -1; i < windowSize; i++) {
+        next.add((selected + i + total) % total)
+      }
+      return next
+    })
+  }, [selected, total, windowSize])
+
+  return loaded
+}
 
 export function ProjectsSection() {
   const projects = getFeaturedProjects()
   const [api, setApi] = useState<CarouselApi>()
   const [selected, setSelected] = useState(0)
   const [snapCount, setSnapCount] = useState(0)
+  const loadedSlides = useLoadedSlideIndices(selected, projects.length)
   const [autoplayPlugin] = useState(() =>
     Autoplay({
-      delay: 5000,
+      delay: 7000,
       stopOnInteraction: false,
       stopOnMouseEnter: true,
     })
   )
+
+  useAutoplayInView(api)
 
   useEffect(() => {
     if (!api) return
@@ -75,49 +102,54 @@ export function ProjectsSection() {
           </div>
         </FadeIn>
 
-        <FadeIn>
-          <Carousel
-            setApi={setApi}
-            opts={{
-              align: "start",
-              loop: true,
-              dragFree: false,
-            }}
-            plugins={[autoplayPlugin]}
-            className="w-full"
-          >
-            <CarouselContent className="-ml-4">
-              {projects.map((project) => (
-                <CarouselItem
-                  key={project.slug}
-                  className="basis-full pl-4 sm:basis-1/2 lg:basis-1/3"
-                >
-                  <div className="h-full select-none">
-                    <ProjectCard project={project} />
-                  </div>
-                </CarouselItem>
-              ))}
-            </CarouselContent>
-          </Carousel>
+        <LazyMount minHeight={360}>
+          <FadeIn>
+            <Carousel
+              setApi={setApi}
+              opts={{
+                align: "start",
+                loop: true,
+                dragFree: false,
+              }}
+              plugins={[autoplayPlugin]}
+              className="w-full"
+            >
+              <CarouselContent className="-ml-4">
+                {projects.map((project, index) => (
+                  <CarouselItem
+                    key={project.slug}
+                    className="basis-full pl-4 sm:basis-1/2 lg:basis-1/3"
+                  >
+                    <div className="h-full select-none">
+                      <ProjectCard
+                        project={project}
+                        loadImage={loadedSlides.has(index)}
+                      />
+                    </div>
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+            </Carousel>
 
-          <div className="mt-8 flex items-center justify-center gap-2">
-            {Array.from({ length: snapCount }).map((_, i) => (
-              <button
-                key={i}
-                type="button"
-                aria-label={`Aller à la diapositive ${i + 1}`}
-                aria-current={selected === i}
-                onClick={() => api?.scrollTo(i)}
-                className={cn(
-                  "h-2 rounded-full transition-all duration-300",
-                  selected === i
-                    ? "w-6 bg-primary"
-                    : "w-2 bg-foreground-muted/30 hover:bg-foreground-muted/50"
-                )}
-              />
-            ))}
-          </div>
-        </FadeIn>
+            <div className="mt-8 flex items-center justify-center gap-2">
+              {Array.from({ length: snapCount }).map((_, i) => (
+                <button
+                  key={i}
+                  type="button"
+                  aria-label={`Aller à la diapositive ${i + 1}`}
+                  aria-current={selected === i}
+                  onClick={() => api?.scrollTo(i)}
+                  className={cn(
+                    "h-2 rounded-full transition-all duration-300",
+                    selected === i
+                      ? "w-6 bg-primary"
+                      : "w-2 bg-foreground-muted/30 hover:bg-foreground-muted/50"
+                  )}
+                />
+              ))}
+            </div>
+          </FadeIn>
+        </LazyMount>
       </div>
     </section>
   )

@@ -26,7 +26,7 @@ export function ProjectHero({ project }: { project: Project }) {
           className="label-md-ln group mb-8 inline-flex items-center gap-2 text-primary transition-opacity hover:opacity-80"
         >
           <ArrowLeft className="h-4 w-4 transition-transform group-hover:-translate-x-1" />
-          Back to Projects
+          Retour aux projets
         </Link>
       </motion.div>
 
@@ -39,7 +39,7 @@ export function ProjectHero({ project }: { project: Project }) {
           {...enter(0.09)}
           className="mt-4 inline-flex items-center rounded-full border border-secondary/40 bg-secondary/10 px-3 py-1 font-mono text-xs uppercase tracking-wider text-secondary-bright"
         >
-          In progress — not 100% finished yet
+          En cours — pas encore terminé à 100 %
         </motion.p>
       )}
 
@@ -53,7 +53,7 @@ export function ProjectHero({ project }: { project: Project }) {
       >
         <Image
           src={project.coverImage}
-          alt={`${project.title} cover`}
+          alt={`Couverture de ${project.title}`}
           fill
           priority
           className="object-cover"

@@ -11,13 +11,13 @@ export function RelatedProjects({ projects }: { projects: Project[] }) {
   return (
     <FadeIn className="mt-16 border-t border-border pt-16 md:mt-24">
       <div className="mb-8 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between sm:gap-4">
-        <h2 className="heading-lg text-primary">Related Projects</h2>
+        <h2 className="heading-lg text-primary">Projets liés</h2>
         <Link
           href="/#projects"
           className="label-md-ln shrink-0 text-foreground-muted transition-colors hover:text-primary"
         >
-          <span className="sm:hidden">View all →</span>
-          <span className="hidden sm:inline">View All Works →</span>
+          <span className="sm:hidden">Tout voir →</span>
+          <span className="hidden sm:inline">Voir tous les projets →</span>
         </Link>
       </div>
 
@@ -35,7 +35,7 @@ export function RelatedProjects({ projects }: { projects: Project[] }) {
                 />
                 <div className="absolute inset-0 flex items-center justify-center opacity-0 transition-opacity group-hover:opacity-100">
                   <span className="rounded-full border border-primary bg-background/90 px-4 py-2 font-mono text-sm text-primary">
-                    View Case Study
+                    Voir l’étude de cas
                   </span>
                 </div>
               </div>

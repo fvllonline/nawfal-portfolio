@@ -1,7 +1,6 @@
 "use client"
 
 import { useMemo, useState } from "react"
-import Link from "next/link"
 import {
   Check,
   Clock,
@@ -22,6 +21,7 @@ import { AnimatePresence, motion } from "framer-motion"
 import { services, serviceGeneralTerms } from "@/data"
 import { FadeIn } from "@/components/ui/motion"
 import type { Service, ServicePack } from "@/lib/types"
+import { requestQuote } from "@/lib/quote-request"
 import { cn } from "@/lib/utils"
 import type { ComponentType } from "react"
 
@@ -60,8 +60,8 @@ export function ServicesSection() {
     <section id="services" className="section-ln">
       <div className="container-ln">
         <FadeIn className="mb-10 text-center sm:mb-14">
-          <p className="label-ln">Capabilities</p>
-          <h2 className="heading-lg mt-2">Specialized Expertise</h2>
+          <p className="label-ln">Expertises</p>
+          <h2 className="heading-lg mt-2">Expertise spécialisée</h2>
           <p className="body-md mx-auto mt-4 max-w-2xl">
             Choisissez un service, comparez les packs Starter / Pro / Business,
             puis demandez un devis adapté à votre projet.
@@ -158,7 +158,7 @@ function PackCard({
   serviceTitle: string
   pack: ServicePack
 }) {
-  const contactHref = `/?service=${encodeURIComponent(serviceTitle)}&pack=${encodeURIComponent(pack.name)}#contact`
+  const priceLabel = formatPrice(pack)
 
   return (
     <article
@@ -180,7 +180,7 @@ function PackCard({
           {pack.name}
         </h4>
         <p className="mt-3 font-mono text-2xl font-bold text-primary sm:text-3xl">
-          {formatPrice(pack)}
+          {priceLabel}
         </p>
         {(pack.delivery || pack.billing === "monthly") && (
           <p className="mt-2 inline-flex items-center gap-1.5 text-xs text-foreground-muted">
@@ -204,8 +204,15 @@ function PackCard({
         ))}
       </ul>
 
-      <Link
-        href={contactHref}
+      <button
+        type="button"
+        onClick={() =>
+          requestQuote({
+            service: serviceTitle,
+            pack: pack.name,
+            priceLabel,
+          })
+        }
         className={cn(
           "inline-flex w-full items-center justify-center rounded-xl py-3 font-mono text-sm transition-all active:scale-[0.98]",
           pack.popular
@@ -214,7 +221,7 @@ function PackCard({
         )}
       >
         Demander un devis
-      </Link>
+      </button>
     </article>
   )
 }

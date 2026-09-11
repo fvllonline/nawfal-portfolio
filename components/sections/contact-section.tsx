@@ -3,10 +3,18 @@
 import { useEffect, useState, type FormEvent } from "react"
 import Link from "next/link"
 import { motion } from "framer-motion"
-import { Mail, Phone, MapPin, Send, CheckCircle, Github } from "lucide-react"
+import { Mail, Phone, MapPin, Send, CheckCircle, Github, FileText } from "lucide-react"
 import { FaLinkedin } from "react-icons/fa"
 import { siteConfig } from "@/data"
 import { FadeIn } from "@/components/ui/motion"
+import {
+  QUOTE_REQUEST_EVENT,
+  buildQuoteMessage,
+  buildQuoteSubject,
+  readQuoteFromUrl,
+  type QuoteRequestDetail,
+} from "@/lib/quote-request"
+import { cn } from "@/lib/utils"
 
 export function ContactSection() {
   const [isSubmitting, setIsSubmitting] = useState(false)
@@ -14,23 +22,38 @@ export function ContactSection() {
   const [error, setError] = useState<string | null>(null)
   const [subject, setSubject] = useState("")
   const [message, setMessage] = useState("")
+  const [quoteMeta, setQuoteMeta] = useState<QuoteRequestDetail | null>(null)
+
+  const applyQuote = (detail: QuoteRequestDetail) => {
+    setSent(false)
+    setError(null)
+    setQuoteMeta(detail)
+    setSubject(buildQuoteSubject(detail.service, detail.pack))
+    setMessage(
+      buildQuoteMessage(detail.service, detail.pack, detail.priceLabel)
+    )
+  }
 
   useEffect(() => {
-    const params = new URLSearchParams(window.location.search)
-    const service = params.get("service")
-    const pack = params.get("pack")
-    if (!service) return
+    const fromUrl = readQuoteFromUrl()
+    if (fromUrl) applyQuote(fromUrl)
 
-    setSubject(
-      pack
-        ? `Devis — ${service} (${pack})`
-        : `Devis — ${service}`
-    )
-    setMessage(
-      pack
-        ? `Bonjour Nawfal,\n\nJe suis intéressé(e) par le pack ${pack} pour : ${service}.\n\nPouvez-vous me préparer un devis et me préciser les prochaines étapes ?\n\nMerci.`
-        : `Bonjour Nawfal,\n\nJe suis intéressé(e) par : ${service}.\n\nPouvez-vous me préparer un devis ?\n\nMerci.`
-    )
+    const onQuote = (event: Event) => {
+      const detail = (event as CustomEvent<QuoteRequestDetail>).detail
+      if (detail?.service && detail?.pack) applyQuote(detail)
+    }
+
+    const onPopState = () => {
+      const next = readQuoteFromUrl()
+      if (next) applyQuote(next)
+    }
+
+    window.addEventListener(QUOTE_REQUEST_EVENT, onQuote)
+    window.addEventListener("popstate", onPopState)
+    return () => {
+      window.removeEventListener(QUOTE_REQUEST_EVENT, onQuote)
+      window.removeEventListener("popstate", onPopState)
+    }
   }, [])
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
@@ -48,14 +71,20 @@ export function ContactSection() {
         headers: { Accept: "application/json" },
       })
 
-      if (!response.ok) throw new Error("Failed to send")
+      if (!response.ok) throw new Error("Échec de l'envoi")
 
       setSent(true)
       form.reset()
       setSubject("")
       setMessage("")
+      setQuoteMeta(null)
+      if (window.location.search.includes("service=")) {
+        window.history.replaceState({}, "", "/#contact")
+      }
     } catch {
-      setError("Failed to send message. Please try again or email me directly.")
+      setError(
+        "Échec de l'envoi. Veuillez réessayer ou m'écrire directement par e-mail."
+      )
     } finally {
       setIsSubmitting(false)
     }
@@ -67,33 +96,33 @@ export function ContactSection() {
         {/* Info */}
         <FadeIn className="space-y-8">
           <div>
-            <p className="label-ln">Connect</p>
+            <p className="label-ln">Contact</p>
             <h2 className="heading-lg mt-2">
-              Let&apos;s build something{" "}
-              <span className="gradient-text italic">remarkable</span>.
+              Construisons quelque chose{" "}
+              <span className="gradient-text italic">remarquable</span>.
             </h2>
             <p className="body-lg mt-4 max-w-md">
-              Have a project in mind or just want to say hi? I&apos;m always open
-              to discussing new ideas and opportunities.
+              Un projet en tête ou simplement envie d&apos;échanger ? Je suis
+              toujours ouvert aux nouvelles idées et opportunités.
             </p>
           </div>
 
           <div className="space-y-5">
             <ContactRow
               icon={Mail}
-              label="Email me at"
+              label="Écrivez-moi à"
               value={siteConfig.email}
               href={`mailto:${siteConfig.email}`}
             />
             <ContactRow
               icon={Phone}
-              label="Call me"
+              label="Appelez-moi"
               value={siteConfig.phoneDisplay}
               href={`tel:${siteConfig.phone}`}
             />
             <ContactRow
               icon={MapPin}
-              label="Located in"
+              label="Basé à"
               value={siteConfig.location}
             />
           </div>
@@ -125,21 +154,21 @@ export function ContactSection() {
               download="CV-NAWFAL-English.pdf"
               className="rounded-xl border border-border-strong px-5 py-3 font-mono text-xs text-foreground transition-colors hover:border-primary/50"
             >
-              Download CV (EN)
+              Télécharger le CV (EN)
             </a>
             <a
               href={siteConfig.cv.fr}
               download="CV-NAWFAL-French.pdf"
               className="rounded-xl border border-border-strong px-5 py-3 font-mono text-xs text-foreground transition-colors hover:border-primary/50"
             >
-              Download CV (FR)
+              Télécharger le CV (FR)
             </a>
             <a
               href={siteConfig.cv.de}
               download="CV-NAWFAL-Deutsch.pdf"
               className="rounded-xl border border-border-strong px-5 py-3 font-mono text-xs text-foreground transition-colors hover:border-primary/50"
             >
-              Download CV (DE)
+              Télécharger le CV (DE)
             </a>
           </div>
         </FadeIn>
@@ -154,54 +183,103 @@ export function ContactSection() {
                 className="flex flex-col items-center justify-center gap-4 py-16 text-center"
               >
                 <CheckCircle className="h-14 w-14 text-primary" />
-                <h3 className="heading-sm">Message sent!</h3>
+                <h3 className="heading-sm">Message envoyé !</h3>
                 <p className="body-md">
-                  Thanks for reaching out. I&apos;ll get back to you soon.
+                  Merci pour votre message. Je vous répondrai bientôt.
                 </p>
                 <button
                   type="button"
                   onClick={() => setSent(false)}
                   className="label-md-ln mt-2 text-primary hover:underline"
                 >
-                  Send another message
+                  Envoyer un autre message
                 </button>
               </motion.div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-6">
+                {quoteMeta && (
+                  <div className="rounded-xl border border-primary/30 bg-primary/5 p-4">
+                    <p className="inline-flex items-center gap-2 font-mono text-xs text-primary">
+                      <FileText className="h-3.5 w-3.5" />
+                      Demande de devis préparée
+                    </p>
+                    <p className="mt-2 text-sm text-foreground">
+                      <span className="font-medium">{quoteMeta.service}</span>
+                      {" · "}
+                      Pack <span className="font-medium">{quoteMeta.pack}</span>
+                      {quoteMeta.priceLabel ? (
+                        <>
+                          {" · "}
+                          <span className="text-primary">{quoteMeta.priceLabel}</span>
+                        </>
+                      ) : null}
+                    </p>
+                    <p className="mt-1 text-xs text-foreground-muted">
+                      L&apos;objet et le message sont proposés automatiquement.
+                      Indiquez votre nom et votre e-mail pour envoyer.
+                    </p>
+                  </div>
+                )}
+
                 <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-                  <Field label="Full Name" name="name" placeholder="John Doe" required />
                   <Field
-                    label="Email Address"
+                    label="Nom complet"
+                    name="name"
+                    placeholder="Jean Dupont"
+                    required
+                    autoFocus={Boolean(quoteMeta)}
+                    emphasized={Boolean(quoteMeta)}
+                  />
+                  <Field
+                    label="Adresse e-mail"
                     name="email"
                     type="email"
-                    placeholder="john@example.com"
+                    placeholder="jean@exemple.com"
                     required
+                    emphasized={Boolean(quoteMeta)}
                   />
                 </div>
+
                 <Field
-                  label="Subject"
+                  label={quoteMeta ? "Objet (proposé)" : "Objet"}
                   name="subject"
-                  placeholder="Project Inquiry"
+                  placeholder="Demande de projet"
                   required
                   value={subject}
                   onChange={setSubject}
+                  hint={
+                    quoteMeta
+                      ? "Modifiable si besoin"
+                      : undefined
+                  }
                 />
+
                 <div className="space-y-2">
-                  <label
-                    htmlFor="message"
-                    className="label-ln text-foreground-muted"
-                  >
-                    Message
-                  </label>
+                  <div className="flex items-end justify-between gap-3">
+                    <label
+                      htmlFor="message"
+                      className="label-ln text-foreground-muted"
+                    >
+                      {quoteMeta ? "Message (proposé)" : "Message"}
+                    </label>
+                    {quoteMeta && (
+                      <span className="text-[10px] font-mono text-foreground-muted">
+                        Modifiable si besoin
+                      </span>
+                    )}
+                  </div>
                   <textarea
                     id="message"
                     name="message"
                     required
-                    rows={4}
+                    rows={quoteMeta ? 7 : 4}
                     value={message}
                     onChange={(e) => setMessage(e.target.value)}
-                    placeholder="Tell me about your project..."
-                    className="w-full rounded-xl border border-border bg-muted px-4 py-3 text-base text-foreground placeholder:text-foreground-muted/40 transition-all focus:border-primary focus:outline-none focus:ring-4 focus:ring-primary/20"
+                    placeholder="Parlez-moi de votre projet..."
+                    className={cn(
+                      "w-full rounded-xl border bg-muted px-4 py-3 text-base text-foreground placeholder:text-foreground-muted/40 transition-all focus:border-primary focus:outline-none focus:ring-4 focus:ring-primary/20",
+                      quoteMeta ? "border-primary/25" : "border-border"
+                    )}
                   />
                 </div>
 
@@ -217,10 +295,11 @@ export function ContactSection() {
                   className="gradient-bg glow-sm flex min-h-12 w-full items-center justify-center gap-2 rounded-xl py-4 font-display text-base font-semibold text-white transition-transform hover:scale-[1.02] active:scale-95 disabled:opacity-60 sm:text-lg"
                 >
                   {isSubmitting ? (
-                    "Sending…"
+                    "Envoi…"
                   ) : (
                     <>
-                      Send Message <Send className="h-5 w-5" />
+                      {quoteMeta ? "Envoyer ma demande de devis" : "Envoyer le message"}{" "}
+                      <Send className="h-5 w-5" />
                     </>
                   )}
                 </button>
@@ -241,6 +320,9 @@ function Field({
   required,
   value,
   onChange,
+  autoFocus,
+  emphasized,
+  hint,
 }: {
   label: string
   name: string
@@ -249,12 +331,20 @@ function Field({
   required?: boolean
   value?: string
   onChange?: (value: string) => void
+  autoFocus?: boolean
+  emphasized?: boolean
+  hint?: string
 }) {
   return (
     <div className="space-y-2">
-      <label htmlFor={name} className="label-ln text-foreground-muted">
-        {label}
-      </label>
+      <div className="flex items-end justify-between gap-3">
+        <label htmlFor={name} className="label-ln text-foreground-muted">
+          {label}
+        </label>
+        {hint && (
+          <span className="text-[10px] font-mono text-foreground-muted">{hint}</span>
+        )}
+      </div>
       <input
         id={name}
         name={name}
@@ -262,8 +352,12 @@ function Field({
         required={required}
         placeholder={placeholder}
         value={value}
+        autoFocus={autoFocus}
         onChange={onChange ? (e) => onChange(e.target.value) : undefined}
-        className="w-full rounded-xl border border-border bg-muted px-4 py-3 text-base text-foreground placeholder:text-foreground-muted/40 transition-all focus:border-primary focus:outline-none focus:ring-4 focus:ring-primary/20"
+        className={cn(
+          "w-full rounded-xl border bg-muted px-4 py-3 text-base text-foreground placeholder:text-foreground-muted/40 transition-all focus:border-primary focus:outline-none focus:ring-4 focus:ring-primary/20",
+          emphasized ? "border-primary/40 ring-2 ring-primary/10" : "border-border"
+        )}
       />
     </div>
   )

@@ -31,7 +31,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
           />
           {project.inProgress && (
             <span className="absolute left-3 top-3 z-10 rounded-full border border-secondary/40 bg-background/80 px-3 py-1 font-mono text-[10px] uppercase tracking-wider text-secondary-bright backdrop-blur-md">
-              In progress
+              En cours
             </span>
           )}
           <div className="absolute inset-0 flex items-center justify-center bg-primary/20 opacity-0 backdrop-blur-sm transition-opacity duration-300 group-hover:opacity-100">
@@ -39,7 +39,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
               initial={false}
               className="rounded-full bg-background px-6 py-2 font-mono text-sm text-primary"
             >
-              View Details
+              Voir les détails
             </motion.span>
           </div>
         </div>

@@ -84,7 +84,7 @@ export function Navbar() {
           href="/#home"
           onClick={(e) => handleNavClick(e, "/#home")}
           className="group flex items-center gap-2 text-primary transition-transform active:scale-95"
-          aria-label={`${siteConfig.fullName} — Home`}
+          aria-label={`${siteConfig.fullName} — Accueil`}
         >
           <Terminal
             className="h-6 w-6 transition-transform group-hover:rotate-6"
@@ -132,7 +132,7 @@ export function Navbar() {
         <button
           type="button"
           className="relative z-[72] flex h-11 w-11 items-center justify-center text-primary xl:hidden"
-          aria-label={open ? "Close menu" : "Open menu"}
+          aria-label={open ? "Fermer le menu" : "Ouvrir le menu"}
           aria-expanded={open}
           aria-controls="mobile-nav"
           onClick={() => setOpen((v) => !v)}
@@ -147,7 +147,7 @@ export function Navbar() {
           <>
             <motion.button
               type="button"
-              aria-label="Close menu overlay"
+              aria-label="Fermer le menu"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}

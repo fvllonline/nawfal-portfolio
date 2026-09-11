@@ -16,7 +16,7 @@ export function Footer() {
           <Link
             href="/#home"
             className="flex items-center gap-2 text-primary transition-opacity hover:opacity-80"
-            aria-label={`${siteConfig.fullName} — Home`}
+            aria-label={`${siteConfig.fullName} — Accueil`}
           >
             <Terminal className="h-5 w-5" aria-hidden />
             <span className="font-display text-xl font-semibold tracking-tighter">
@@ -24,14 +24,14 @@ export function Footer() {
             </span>
           </Link>
           <p className="label-md-ln text-foreground-muted/80">
-            © {year} {siteConfig.name}. All rights reserved.
+            © {year} {siteConfig.name}. Tous droits réservés.
           </p>
           <p className="text-xs text-foreground-muted/50">{siteConfig.location}</p>
         </div>
 
         <nav
           className="flex flex-wrap items-center justify-center gap-4 sm:gap-8"
-          aria-label="Social links"
+          aria-label="Liens sociaux"
         >
           {footerLinks.map((social) => (
             <Link

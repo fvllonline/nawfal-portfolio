@@ -3,15 +3,15 @@ import type { SiteConfig } from "@/lib/types"
 export const siteConfig: SiteConfig = {
   name: "NAWFAL",
   fullName: "Nawfal ADDAOUI",
-  title: "Full-Stack Developer",
+  title: "Développeur Full-Stack",
   location: "Casablanca, Maroc",
   email: "naoufaladdaoui@gmail.com",
   phone: "+212631108355",
   phoneDisplay: "+212 631-108355",
   tagline:
-    "Crafting performant & intuitive digital experiences that merge cutting-edge engineering with user-centric design.",
-  availability: "Available for new opportunities",
-  bio: "Passionate Full-Stack Developer based in Casablanca, specializing in React, Laravel, and Next.js. Creative, adaptable, and eager to contribute to innovative projects that blend functionality with aesthetics.",
+    "Je conçois des expériences numériques performantes et intuitives, à la croisée de l’ingénierie moderne et du design centré utilisateur.",
+  availability: "Disponible pour de nouvelles opportunités",
+  bio: "Développeur Full-Stack passionné basé à Casablanca, spécialisé en React, Laravel et Next.js. Créatif, adaptable et motivé pour contribuer à des projets innovants qui allient fonctionnalité et esthétique.",
   url: "https://nawfalsportfolio.vercel.app",
   github: "https://github.com/fvllonline",
   cv: {
@@ -37,7 +37,7 @@ export const siteConfig: SiteConfig = {
       icon: "instagram",
     },
     { label: "Email", href: "mailto:naoufaladdaoui@gmail.com", icon: "mail" },
-    { label: "Phone", href: "tel:+212631108355", icon: "phone" },
+    { label: "Téléphone", href: "tel:+212631108355", icon: "phone" },
   ],
   formspreeEndpoint: "https://formspree.io/f/movdjqaa",
 }

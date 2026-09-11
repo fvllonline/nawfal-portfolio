@@ -51,7 +51,7 @@ export function ProjectFeatures({ features }: { features: ProjectFeature[] }) {
   return (
     <FadeIn>
       <article>
-        <h2 className="heading-lg mb-6 text-primary">Key Features</h2>
+        <h2 className="heading-lg mb-6 text-primary">Fonctionnalités clés</h2>
         <Stagger className="grid grid-cols-1 gap-4 md:grid-cols-2">
           {features.map((feature) => {
             const Icon = featureIcons[feature.icon] ?? Sparkles

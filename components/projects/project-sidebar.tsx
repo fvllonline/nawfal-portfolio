@@ -10,7 +10,7 @@ export function ProjectSidebar({ project }: { project: Project }) {
     <FadeIn delay={0.15} className="space-y-6">
       <aside className="glass-card space-y-6 rounded-2xl p-6 md:p-8">
         <div>
-          <p className="label-ln mb-3 text-foreground-muted">Tech Stack</p>
+          <p className="label-ln mb-3 text-foreground-muted">Stack technique</p>
           <div className="flex flex-wrap gap-2">
             {project.technologies.map((tech) => (
               <span key={tech} className="chip-mint">
@@ -22,12 +22,12 @@ export function ProjectSidebar({ project }: { project: Project }) {
 
         <div className="grid grid-cols-2 gap-4 border-y border-border py-6">
           <Meta label="Type" value={project.type} />
-          <Meta label="Year" value={project.year} />
-          <Meta label="Role" value={project.role} className="col-span-2" />
+          <Meta label="Année" value={project.year} />
+          <Meta label="Rôle" value={project.role} className="col-span-2" />
           {project.inProgress && (
             <Meta
-              label="Status"
-              value="In progress — not finished yet"
+              label="Statut"
+              value="En cours — pas encore terminé"
               className="col-span-2"
             />
           )}
@@ -42,12 +42,12 @@ export function ProjectSidebar({ project }: { project: Project }) {
               className="gradient-bg inline-flex w-full items-center justify-center gap-2 rounded-xl py-4 font-mono text-sm text-white transition-all hover:shadow-[0_0_20px_rgba(110,255,192,0.4)] active:scale-[0.98]"
             >
               <Rocket className="h-4 w-4" />
-              {project.inProgress ? "Live Preview" : "Live Demo"}
+              {project.inProgress ? "Aperçu en ligne" : "Démo en ligne"}
               <ExternalLink className="h-3.5 w-3.5 opacity-70" />
             </Link>
           ) : (
             <span className="inline-flex w-full cursor-not-allowed items-center justify-center gap-2 rounded-xl border border-border py-4 font-mono text-sm text-foreground-muted/50">
-              Live Demo — soon
+              Démo en ligne — bientôt
             </span>
           )}
 
@@ -59,7 +59,7 @@ export function ProjectSidebar({ project }: { project: Project }) {
               className="inline-flex w-full items-center justify-center gap-2 rounded-xl border border-border-strong py-4 font-mono text-sm text-foreground transition-all hover:border-primary/50 hover:bg-white/5 active:scale-[0.98]"
             >
               <Github className="h-4 w-4" />
-              GitHub Repo
+              Dépôt GitHub
             </Link>
           ) : null}
         </div>

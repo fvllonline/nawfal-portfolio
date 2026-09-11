@@ -75,7 +75,7 @@ export function AboutSection() {
 
           <FadeIn delay={0.2}>
             <div className="mt-4 max-w-md space-y-5">
-              <p className="label-ln">Languages</p>
+              <p className="label-ln">Langues</p>
               {languages.map((lang, i) => (
                 <div key={lang.name}>
                   <div className="mb-2 flex justify-between font-mono text-sm">

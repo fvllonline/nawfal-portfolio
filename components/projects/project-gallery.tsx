@@ -39,7 +39,7 @@ export function ProjectGallery({ images, title }: ProjectGalleryProps) {
   return (
     <>
       <FadeIn className="mt-16 md:mt-24">
-        <h2 className="heading-lg mb-8 text-primary">Interface Gallery</h2>
+        <h2 className="heading-lg mb-8 text-primary">Galerie d&apos;interfaces</h2>
         <Stagger className="grid grid-cols-2 gap-3 sm:gap-4 md:grid-cols-3 lg:grid-cols-4">
           {images.map((src, index) => (
             <StaggerItem key={`${src}-${index}`}>
@@ -47,11 +47,11 @@ export function ProjectGallery({ images, title }: ProjectGalleryProps) {
                 type="button"
                 onClick={() => setActiveIndex(index)}
                 className="glass-card group relative aspect-square w-full overflow-hidden rounded-2xl text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
-                aria-label={`Open ${title} screenshot ${index + 1}`}
+                aria-label={`Ouvrir la capture ${index + 1} de ${title}`}
               >
                 <Image
                   src={src}
-                  alt={`${title} screenshot ${index + 1}`}
+                  alt={`Capture ${index + 1} de ${title}`}
                   fill
                   className="object-cover transition-transform duration-500 group-hover:scale-105"
                   sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
@@ -182,7 +182,7 @@ function Lightbox({
     <div
       role="dialog"
       aria-modal="true"
-      aria-label={`${title} gallery lightbox`}
+      aria-label={`Visionneuse de la galerie ${title}`}
       className="fixed inset-0 z-[100] flex flex-col bg-background/92 backdrop-blur-md"
     >
       <div className="flex items-center justify-between gap-3 border-b border-border px-4 py-3 sm:px-6">
@@ -190,21 +190,21 @@ function Lightbox({
           {title} · {index + 1} / {images.length}
         </p>
         <div className="flex items-center gap-1.5 sm:gap-2">
-          <ToolbarButton label="Zoom out" onClick={zoomOut} disabled={zoom <= MIN_ZOOM}>
+          <ToolbarButton label="Zoom arrière" onClick={zoomOut} disabled={zoom <= MIN_ZOOM}>
             <Minus className="size-4" />
           </ToolbarButton>
           <button
             type="button"
             onClick={resetView}
             className="min-w-14 rounded-full border border-border bg-card/80 px-2 py-1.5 font-mono text-xs text-foreground transition hover:border-primary/40"
-            aria-label="Reset zoom"
+            aria-label="Réinitialiser le zoom"
           >
             {Math.round(zoom * 100)}%
           </button>
-          <ToolbarButton label="Zoom in" onClick={zoomIn} disabled={zoom >= MAX_ZOOM}>
+          <ToolbarButton label="Zoom avant" onClick={zoomIn} disabled={zoom >= MAX_ZOOM}>
             <Plus className="size-4" />
           </ToolbarButton>
-          <ToolbarButton label="Close gallery" onClick={onClose}>
+          <ToolbarButton label="Fermer la galerie" onClick={onClose}>
             <X className="size-4" />
           </ToolbarButton>
         </div>
@@ -215,14 +215,14 @@ function Lightbox({
           <>
             <NavButton
               className="left-2 sm:left-4"
-              label="Previous image"
+              label="Image précédente"
               onClick={goPrev}
             >
               <ChevronLeft className="size-5" />
             </NavButton>
             <NavButton
               className="right-2 sm:right-4"
-              label="Next image"
+              label="Image suivante"
               onClick={goNext}
             >
               <ChevronRight className="size-5" />
@@ -254,7 +254,7 @@ function Lightbox({
             {/* Native img keeps original aspect ratio (not cropped) */}
             <img
               src={src}
-              alt={`${title} screenshot ${index + 1}`}
+              alt={`Capture ${index + 1} de ${title}`}
               className="max-h-full max-w-full select-none object-contain shadow-2xl"
               draggable={false}
             />
@@ -264,7 +264,7 @@ function Lightbox({
 
       <p className="hidden items-center justify-center gap-2 border-t border-border px-4 py-2 text-center text-xs text-muted-foreground sm:flex">
         <ZoomIn className="size-3.5" aria-hidden />
-        Scroll or use +/− to zoom · drag when zoomed · Esc to close
+        Molette ou +/− pour zoomer · glisser une fois zoomé · Échap pour fermer
       </p>
     </div>
   )

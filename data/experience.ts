@@ -1,20 +1,20 @@
 import type { Experience, Education } from "@/lib/types"
 
-/** Career experiences — sourced from NAWFAL_CV_FrenshV.pdf */
+/** Expériences professionnelles — issues du CV */
 export const experiences: Experience[] = [
   {
     id: "alvon-collaboration",
     year: "2026",
-    period: "2026 — Present",
+    period: "2026 — Présent",
     company: "Alvon Digital Group",
-    role: "Full-Stack & Mobile Developer",
-    contractType: "Collaboration Contract",
+    role: "Développeur Full-Stack & Mobile",
+    contractType: "Contrat de collaboration",
     description:
-      "Development and maintenance of mobile applications, technical architecture design, performance optimization, and participation in strategic product decisions.",
+      "Développement et maintenance d’applications mobiles, conception d’architecture technique, optimisation des performances et participation aux décisions produit stratégiques.",
     highlights: [
-      "Develop and maintain mobile applications",
-      "Design technical architecture and optimize performance",
-      "Contribute to strategic product decisions",
+      "Développer et maintenir des applications mobiles",
+      "Concevoir l’architecture technique et optimiser les performances",
+      "Contribuer aux décisions produit stratégiques",
     ],
     technologies: ["React Native", "Next.js", "Express.js", "Mobile", "Architecture"],
     current: true,
@@ -22,40 +22,40 @@ export const experiences: Experience[] = [
   {
     id: "alvon-pfe",
     year: "2026",
-    period: "2026 — 2 months",
+    period: "2026 — 2 mois",
     company: "Alvon Digital Group",
-    role: "Full-Stack Developer — PFE Internship",
-    contractType: "PFE Internship",
+    role: "Développeur Full-Stack — Stage PFE",
+    contractType: "Stage PFE",
     description:
-      "Designed and developed MonPassTCF, a TCF exam preparation platform: full-stack architecture (Express.js, React Native, Next.js), AI integration (Groq), real-time social features, gamification, and an admin dashboard.",
+      "Conception et développement de MonPassTCF, plateforme de préparation au TCF : architecture full-stack (Express.js, React Native, Next.js), intégration IA (Groq), fonctionnalités sociales en temps réel, gamification et tableau de bord administrateur.",
     highlights: [
-      "Built MonPassTCF — TCF preparation platform end-to-end",
-      "Full-stack architecture with Express.js, React Native & Next.js",
-      "Integrated AI via Groq, real-time social features & gamification",
-      "Delivered an administration dashboard",
+      "Réalisation end-to-end de MonPassTCF — préparation au TCF",
+      "Architecture full-stack avec Express.js, React Native & Next.js",
+      "Intégration IA via Groq, social temps réel & gamification",
+      "Livraison d’un dashboard d’administration",
     ],
     technologies: [
       "Express.js",
       "React Native",
       "Next.js",
       "Groq AI",
-      "Real-time",
+      "Temps réel",
     ],
     link: "/projects/monpasstcf",
   },
   {
     id: "adam-adventure",
     year: "2025",
-    period: "2025 — 1 month",
+    period: "2025 — 1 mois",
     company: "Adam Adventure Tours & Tourism",
-    role: "Web Developer — Internship",
-    contractType: "Internship",
+    role: "Développeur Web — Stage",
+    contractType: "Stage",
     description:
-      "End-to-end design and development of a showcase website: needs analysis, technology choices, graphic design, Next.js integration, Vercel deployment, and ongoing maintenance.",
+      "Conception et développement d’un site vitrine de bout en bout : analyse des besoins, choix technologiques, design graphique, intégration Next.js, déploiement Vercel et maintenance.",
     highlights: [
-      "Needs analysis and technology selection",
-      "Graphic design and Next.js integration",
-      "Deployed on Vercel with continuous maintenance",
+      "Analyse des besoins et choix technologiques",
+      "Design graphique et intégration Next.js",
+      "Déploiement sur Vercel avec maintenance continue",
     ],
     technologies: ["Next.js", "Vercel", "React", "UI Design"],
     link: "/projects/adam-adventure-tours",
@@ -63,29 +63,29 @@ export const experiences: Experience[] = [
   {
     id: "mb-way",
     year: "2025",
-    period: "2025 — 2 months",
+    period: "2025 — 2 mois",
     company: "MB Way",
-    role: "Backend Developer & Brand Designer — PFE Internship",
-    contractType: "PFE Internship",
+    role: "Développeur Backend & Brand Designer — Stage PFE",
+    contractType: "Stage PFE",
     description:
-      "Backend developer for the Quick Stay application (Laravel); created the full visual identity including logo and complete brand guidelines.",
+      "Développement backend de l’application Quick Stay (Laravel) ; création de l’identité visuelle complète, logo et charte graphique.",
     highlights: [
-      "Backend development for Quick Stay with Laravel",
-      "Designed logo and complete brand identity / graphic charter",
+      "Développement backend Quick Stay avec Laravel",
+      "Conception du logo et de la charte graphique complète",
     ],
     technologies: ["Laravel", "PHP", "MySQL", "Branding", "Logo Design"],
     link: "/projects/quick-stay",
   },
 ]
 
-/** Education — sourced from NAWFAL_CV_FrenshV.pdf */
+/** Formation — issue du CV */
 export const education: Education[] = [
   {
     id: "sup2i",
     period: "2025–2026",
     institution: "SUP2I – École Supérieure d'Ingénierie et Innovation",
     degree: "Licence en Développement Informatique",
-    status: "Current",
+    status: "En cours",
   },
   {
     id: "ifiag",
@@ -93,13 +93,13 @@ export const education: Education[] = [
     institution:
       "IFIAG – Institut de Formation d’Informatique Appliquée et de Gestion",
     degree: "Diplôme de Technicien Spécialisé en Développement Informatique",
-    status: "Completed",
+    status: "Terminé",
   },
   {
     id: "el-baroudi",
     period: "2021–2022",
     institution: "Lycée El Baroudi",
     degree: "Baccalauréat en Sciences Physiques – BIOF",
-    status: "Completed",
+    status: "Terminé",
   },
 ]

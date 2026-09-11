@@ -16,10 +16,10 @@ import type { Certification } from "@/lib/types"
 import { cn } from "@/lib/utils"
 
 const categoryIcon = {
-  Language: Globe,
-  Programming: Code,
-  Security: Shield,
-  Other: Code,
+  Langue: Globe,
+  Programmation: Code,
+  Sécurité: Shield,
+  Autre: Code,
 } as const
 
 function openCert(cert: Certification) {
@@ -67,18 +67,18 @@ export function CertificationsSection() {
       <div className="container-ln">
         <FadeIn className="mb-10 flex flex-col gap-6 sm:mb-14 sm:flex-row sm:items-end sm:justify-between">
           <div>
-            <p className="label-ln">Credentials</p>
+            <p className="label-ln">Qualifications</p>
             <h2 className="heading-lg mt-2">Certifications</h2>
             <p className="body-md mt-4 max-w-2xl">
-              Professional certifications that demonstrate continuous learning and
-              technical expertise.
+              Certifications professionnelles attestant d&apos;un apprentissage
+              continu et d&apos;une expertise technique.
             </p>
           </div>
 
           <div className="flex gap-2 self-start sm:self-auto">
             <button
               type="button"
-              aria-label="Previous certifications"
+              aria-label="Certifications précédentes"
               onClick={() => api?.scrollPrev()}
               className="flex h-11 w-11 items-center justify-center rounded-xl border border-border text-foreground-muted transition-colors hover:border-primary/40 hover:text-primary"
             >
@@ -86,7 +86,7 @@ export function CertificationsSection() {
             </button>
             <button
               type="button"
-              aria-label="Next certifications"
+              aria-label="Certifications suivantes"
               onClick={() => api?.scrollNext()}
               className="flex h-11 w-11 items-center justify-center rounded-xl border border-border text-foreground-muted transition-colors hover:border-primary/40 hover:text-primary"
             >
@@ -134,7 +134,9 @@ export function CertificationsSection() {
                       <p className="label-md-ln mt-2 text-foreground-muted">
                         {cert.institution}
                       </p>
-                      <span className="chip-mint mt-4 w-fit">{cert.category}</span>
+                      <span className="chip-mint mt-4 w-fit">
+                        {cert.category}
+                      </span>
                       {(cert.pdfPath || cert.pdfPaths) && (
                         <button
                           type="button"
@@ -142,7 +144,7 @@ export function CertificationsSection() {
                           className="label-md-ln mt-auto inline-flex items-center gap-2 pt-6 text-primary hover:underline"
                         >
                           <Eye className="h-4 w-4" />
-                          View Certificate
+                          Voir le certificat
                         </button>
                       )}
                     </article>
@@ -158,7 +160,7 @@ export function CertificationsSection() {
               <button
                 key={i}
                 type="button"
-                aria-label={`Go to slide ${i + 1}`}
+                aria-label={`Aller à la diapositive ${i + 1}`}
                 aria-current={selected === i}
                 onClick={() => api?.scrollTo(i)}
                 className={cn(

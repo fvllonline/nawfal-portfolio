@@ -18,8 +18,8 @@ export function ExperienceSection() {
     <section id="experience" className="section-ln">
       <div className="container-ln">
         <FadeIn className="mb-16 text-center">
-          <p className="label-ln">Journey</p>
-          <h2 className="heading-lg mt-2">Career Experience</h2>
+          <p className="label-ln">Parcours</p>
+          <h2 className="heading-lg mt-2">Expérience professionnelle</h2>
         </FadeIn>
 
         <div className="timeline-thread relative mx-auto max-w-3xl space-y-8 sm:space-y-10">
@@ -54,11 +54,11 @@ export function ExperienceSection() {
             >
               {showAll ? (
                 <>
-                  Show less <ChevronUp className="h-4 w-4" />
+                  Voir moins <ChevronUp className="h-4 w-4" />
                 </>
               ) : (
                 <>
-                  Show more ({remaining}) <ChevronDown className="h-4 w-4" />
+                  Voir plus ({remaining}) <ChevronDown className="h-4 w-4" />
                 </>
               )}
             </button>
@@ -158,7 +158,7 @@ function ExperienceCard({
             rel={isInternal ? undefined : "noopener noreferrer"}
             className="label-md-ln mt-4 inline-flex items-center gap-2 text-primary hover:underline"
           >
-            {isInternal ? "View Project" : "View Work"}{" "}
+            {isInternal ? "Voir le projet" : "Voir le travail"}{" "}
             <ExternalLink className="h-3.5 w-3.5" />
           </Link>
         )}

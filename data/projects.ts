@@ -1,21 +1,20 @@
 import type { Project } from "@/lib/types"
 
 /**
- * Featured projects — temporary set while waiting for remaining case studies.
- * Sourced from CV + user brief.
+ * Projets mis en avant — contenus issus du CV et des briefs.
  */
 export const projects: Project[] = [
   {
     slug: "monpasstcf",
     title: "MonPassTCF",
     subtitle:
-      "Mobile application for TCF exam preparation — practice, track progress, and stay exam-ready.",
+      "Application mobile de préparation au TCF — s’entraîner, suivre sa progression et rester prêt le jour J.",
     shortDescription:
-      "Mobile app for TCF exam preparation with real-time feedback, AI support, and progress tracking.",
+      "App mobile de préparation au TCF avec feedback en temps réel, assistance IA et suivi de progression.",
     description: [
-      "MonPassTCF is a mobile-first ed-tech product designed to help candidates prepare for the Test de Connaissance du Français (TCF). It covers listening, reading, structure, and writing with a structured, data-driven approach.",
-      "Built during a PFE internship at Alvon Digital Group, the platform combines a full-stack architecture (Express.js, React Native, Next.js), AI integration via Groq, real-time social features, gamification, and an admin dashboard.",
-      "The goal: a premium, distraction-free study experience that feels like a polished app — on the go or at home.",
+      "MonPassTCF est un produit ed-tech mobile-first conçu pour aider les candidats à préparer le Test de Connaissance du Français (TCF). Il couvre compréhension orale, écrite, structures et expression écrite avec une approche structurée et data-driven.",
+      "Réalisé durant un stage PFE chez Alvon Digital Group, la plateforme combine une architecture full-stack (Express.js, React Native, Next.js), une intégration IA via Groq, des fonctionnalités sociales en temps réel, de la gamification et un dashboard administrateur.",
+      "L’objectif : une expérience d’étude premium, sans distractions, digne d’une vraie app — en mobilité comme à la maison.",
     ],
     coverImage: "/MonPassTCF/miniature-monpasstcf.png",
     gallery: [
@@ -38,61 +37,61 @@ export const projects: Project[] = [
       "Groq AI",
       "MySQL",
     ],
-    type: "Mobile Application",
+    type: "Application mobile",
     year: "2026",
-    role: "Full-Stack Developer",
+    role: "Développeur Full-Stack",
     liveUrl: "https://lnkd.in/p/e3FwCSgD",
     features: [
       {
-        title: "Adaptive Simulations",
+        title: "Simulations adaptatives",
         description:
-          "Timed exam simulations that mirror the real TCF format and difficulty.",
+          "Simulations chronométrées qui reproduisent le format et le niveau du vrai TCF.",
         icon: "zap",
       },
       {
-        title: "AI-Assisted Practice",
+        title: "Pratique assistée par IA",
         description:
-          "Groq-powered assistance to guide learners and improve weak areas.",
+          "Assistance powered by Groq pour guider les apprenants et renforcer les points faibles.",
         icon: "sparkles",
       },
       {
-        title: "Progress Tracking",
+        title: "Suivi de progression",
         description:
-          "Clear dashboards to follow CEFR-level progress over time.",
+          "Tableaux de bord clairs pour suivre l’évolution au niveau CECR.",
         icon: "chart",
       },
       {
-        title: "Social & Gamification",
+        title: "Social & gamification",
         description:
-          "Real-time social features and gamification to keep motivation high.",
+          "Fonctionnalités sociales en temps réel et gamification pour garder la motivation.",
         icon: "users",
       },
     ],
     challenges: [
       {
-        challenge: "Real-time Features on Mobile",
+        challenge: "Fonctionnalités temps réel sur mobile",
         challengeDetail:
-          "Delivering social and sync features without hurting battery life or UX on mid-range devices.",
-        solution: "Efficient Real-time Stack",
+          "Offrir du social et de la sync sans dégrader batterie ni UX sur des appareils mid-range.",
+        solution: "Stack temps réel optimisée",
         solutionDetail:
-          "Optimized API payloads and selective real-time updates so the app stays responsive under load.",
+          "Payloads API allégés et mises à jour sélectives pour garder l’app réactive sous charge.",
       },
     ],
     quote:
-      "A study companion that feels like a product — not another pile of PDFs.",
+      "Un compagnon d’étude qui a le feeling d’un produit — pas juste une pile de PDF.",
     featured: true,
   },
   {
     slug: "quick-stay",
     title: "Quick Stay",
     subtitle:
-      "End-of-studies internship — Laravel backend APIs, technical docs, and full brand identity.",
+      "Stage de fin d’études — APIs backend Laravel, documentation technique et identité visuelle complète.",
     shortDescription:
-      "Backend development & branding for Quick Stay: REST APIs with Laravel, Postman testing, and complete visual identity.",
+      "Backend & branding pour Quick Stay : APIs REST Laravel, tests Postman et identité visuelle complète.",
     description: [
-      "During my end-of-studies internship, I contributed actively to the Quick Stay web application, with a strong focus on technical design and backend delivery.",
-      "On the organization side, I wrote the functional and technical specifications, helped coordinate tasks within the project team, and created the logo plus the full graphic charter for the product.",
-      "On the backend, I designed and implemented robust REST APIs with Laravel (routes, controllers, models, middlewares), thoroughly tested endpoints with Postman, and documented requests/responses in a complete Excel technical pack. The internship strengthened both my backend craft and my project teamwork skills.",
+      "Durant mon stage de fin d’études, j’ai participé activement au développement de l’application web Quick Stay, avec une forte implication sur la conception technique et la réalisation du backend.",
+      "Côté organisation : rédaction du cahier des charges fonctionnel et technique, coordination des tâches en équipe, création du logo et définition de la charte graphique complète.",
+      "Côté backend : conception et implémentation d’APIs REST robustes avec Laravel (routes, contrôleurs, modèles, middlewares), tests approfondis via Postman, et documentation technique complète sous format Excel. Ce stage a renforcé mes compétences backend et mon travail d’équipe.",
     ],
     coverImage: "/QuickSTAY/miniature-quickstay.jpg",
     gallery: ["/QuickSTAY/1-screen-repository.png"],
@@ -104,68 +103,68 @@ export const projects: Project[] = [
       "MySQL",
       "Branding",
     ],
-    type: "Web Application",
+    type: "Application web",
     year: "2025",
-    role: "Backend Developer & Brand Designer",
+    role: "Développeur Backend & Brand Designer",
     githubUrl: "https://github.com/fvllonline/QUICKSTAY-backend-project",
     features: [
       {
-        title: "Specs & Team Coordination",
+        title: "Cahier des charges & coordination",
         description:
-          "Wrote functional and technical requirements, and helped distribute work across the project team.",
+          "Rédaction des spécifications fonctionnelles et techniques, répartition des tâches en équipe.",
         icon: "file-text",
       },
       {
-        title: "Laravel REST APIs",
+        title: "APIs REST Laravel",
         description:
-          "Structured backend with routes, controllers, models, and middlewares for reliable endpoints.",
+          "Backend structuré : routes, contrôleurs, modèles et middlewares pour des endpoints fiables.",
         icon: "server",
       },
       {
-        title: "Postman Testing & Docs",
+        title: "Tests Postman & docs",
         description:
-          "Deep endpoint testing and full technical documentation (requests/responses) in Excel.",
+          "Tests approfondis des endpoints et documentation technique complète (requêtes/réponses) en Excel.",
         icon: "chart",
       },
       {
-        title: "Brand Identity",
+        title: "Identité de marque",
         description:
-          "Logo design and complete graphic charter for a cohesive Quick Stay product look.",
+          "Logo et charte graphique complète pour une identité cohérente de Quick Stay.",
         icon: "palette",
       },
     ],
     challenges: [
       {
-        challenge: "Reliable API Surface",
+        challenge: "Surface API fiable",
         challengeDetail:
-          "APIs had to stay consistent under real team usage and evolving product rules.",
-        solution: "Structured Laravel Architecture",
+          "Les APIs devaient rester cohérentes face à un usage réel et des règles métier évolutives.",
+        solution: "Architecture Laravel structurée",
         solutionDetail:
-          "Clear resource structure, middleware, and Postman-validated contracts before handoff.",
+          "Structure claire des ressources, middlewares et contrats validés via Postman avant livraison.",
       },
       {
-        challenge: "Product + Brand Alignment",
+        challenge: "Alignement produit + marque",
         challengeDetail:
-          "The app needed both solid backend foundations and a recognizable visual identity.",
-        solution: "Dual Delivery",
+          "L’app avait besoin à la fois de solides fondations backend et d’une identité visuelle forte.",
+        solution: "Double livraison",
         solutionDetail:
-          "Parallel tracks: engineering (APIs, docs) and design (logo, charter) owned end-to-end.",
+          "Deux axes menés de bout en bout : engineering (APIs, docs) et design (logo, charte).",
       },
     ],
     quote:
-      "A strong backend is invisible when it works — documentation and design make it last.",
+      "Un backend solide se fait oublier quand il fonctionne — la doc et le design le font durer.",
     featured: true,
   },
   {
     slug: "breezoria",
     title: "Breezoria",
     subtitle:
-      "Modern e-commerce storefront built for conversion, speed, and a smooth shopping journey.",
+      "Boutique e-commerce moderne pensée pour la conversion, la vitesse et un parcours d’achat fluide.",
     shortDescription:
-      "E-commerce website with catalog, cart, and a polished checkout experience.",
+      "Site e-commerce avec catalogue, panier et parcours de commande soigné.",
     description: [
-      "Breezoria is a customizable e-commerce website focused on clean product presentation and a frictionless path from discovery to purchase.",
-      "The storefront emphasizes performance, responsive layout, and a clear merchandising structure suitable for a growing online brand.",
+      "Breezoria est un site e-commerce personnalisable, axé sur une présentation produit claire et un chemin sans friction de la découverte à l’achat.",
+      "La vitrine mise sur la performance, le responsive et une structure merchandising adaptée à une marque en croissance.",
     ],
     coverImage: "/Breezoria/miniature-breezoria.png",
     gallery: [
@@ -175,60 +174,60 @@ export const projects: Project[] = [
       "/Breezoria/4-formulaire.png",
     ],
     technologies: ["Next.js", "Tailwind CSS", "React", "Vercel"],
-    type: "E-commerce Website",
+    type: "Site e-commerce",
     year: "2025",
-    role: "Full-Stack Developer",
+    role: "Développeur Full-Stack",
     liveUrl: "https://breezoria.vercel.app/",
     features: [
       {
-        title: "Product Catalog",
+        title: "Catalogue produits",
         description:
-          "Browsable catalog with clear categories and product detail pages.",
+          "Catalogue navigable avec catégories claires et pages détail produit.",
         icon: "shopping-bag",
       },
       {
-        title: "Cart & Checkout",
+        title: "Panier & commande",
         description:
-          "Streamlined cart flow designed for mobile and desktop shoppers.",
+          "Parcours panier fluide, pensé pour mobile et desktop.",
         icon: "credit-card",
       },
       {
-        title: "Responsive Storefront",
+        title: "Vitrine responsive",
         description:
-          "Mobile-first shopping UI that stays sharp on large screens.",
+          "UI mobile-first qui reste nette aussi sur grand écran.",
         icon: "smartphone",
       },
       {
-        title: "Brand-Ready UI",
+        title: "UI prête pour la marque",
         description:
-          "Customizable layout ready for branding and seasonal campaigns.",
+          "Layout personnalisable pour le branding et les campagnes saisonnières.",
         icon: "palette",
       },
     ],
     challenges: [
       {
-        challenge: "Speed vs Rich Product Media",
+        challenge: "Vitesse vs médias produits riches",
         challengeDetail:
-          "High-quality product imagery risked slowing the first load on mobile networks.",
-        solution: "Optimized Media Delivery",
+          "Des images produit haute qualité risquaient de ralentir le premier chargement sur mobile.",
+        solution: "Médias optimisés",
         solutionDetail:
-          "Lazy-loaded images and prioritized above-the-fold content to keep Core Web Vitals healthy.",
+          "Lazy-loading et priorisation du contenu above-the-fold pour préserver les Core Web Vitals.",
       },
     ],
-    quote: "An e-com store should feel effortless from the first scroll.",
+    quote: "Une boutique e-com doit sembler évidente dès le premier scroll.",
     featured: true,
   },
   {
     slug: "zacastore",
     title: "ZacaStore",
     subtitle:
-      "E-commerce website in active development — product browsing, cart, and storefront UX.",
+      "Site e-commerce en cours de développement — catalogue, panier et UX boutique.",
     shortDescription:
-      "E-commerce website currently in development (not 100% finished yet) — live preview available.",
+      "Site e-commerce encore en développement (pas terminé à 100 %) — aperçu en ligne disponible.",
     description: [
-      "ZacaStore is an e-commerce website designed for a clear product hierarchy and a fast shopping experience.",
-      "It focuses on a clean storefront, responsive product pages, and a checkout path that stays simple on every device.",
-      "Note: this project is still under active development and is not finished at 100% yet — the live demo reflects work in progress.",
+      "ZacaStore est un site e-commerce conçu pour une hiérarchie produit claire et une expérience d’achat rapide.",
+      "Il mise sur une vitrine propre, des pages produit responsive et un parcours de commande simple sur tous les appareils.",
+      "Note : ce projet est encore en développement actif et n’est pas terminé à 100 % — la démo en ligne reflète un travail en cours.",
     ],
     coverImage: "/ZacaStore/miniature-zacastore.jpg",
     gallery: [
@@ -241,60 +240,60 @@ export const projects: Project[] = [
       "/ZacaStore/7-formulaire.png",
     ],
     technologies: ["Next.js", "Tailwind CSS", "React", "MySQL"],
-    type: "E-commerce Website",
+    type: "Site e-commerce",
     year: "2025",
-    role: "Full-Stack Developer",
+    role: "Développeur Full-Stack",
     liveUrl: "https://zacastore.vercel.app/",
     inProgress: true,
     features: [
       {
-        title: "Storefront Grid",
+        title: "Grille boutique",
         description:
-          "Product listing with filters and a clear visual hierarchy.",
+          "Listing produits avec filtres et hiérarchie visuelle claire.",
         icon: "layout-dashboard",
       },
       {
-        title: "Product Pages",
+        title: "Pages produit",
         description:
-          "Detailed product views with images, pricing, and CTAs.",
+          "Fiches détaillées avec images, prix et appels à l’action.",
         icon: "shopping-bag",
       },
       {
-        title: "Cart Experience",
+        title: "Expérience panier",
         description:
-          "Persistent cart and a straightforward path to checkout.",
+          "Panier persistant et chemin simple vers la commande.",
         icon: "credit-card",
       },
       {
-        title: "Admin-Ready Structure",
+        title: "Structure admin-ready",
         description:
-          "Architecture prepared for catalog updates and order handling.",
+          "Architecture préparée pour la gestion catalogue et des commandes.",
         icon: "server",
       },
     ],
     challenges: [
       {
-        challenge: "Catalog Clarity",
+        challenge: "Clarté du catalogue",
         challengeDetail:
-          "Too many products without structure makes shoppers bounce quickly.",
-        solution: "Clear Merchandising UI",
+          "Trop de produits sans structure font rebondir les acheteurs rapidement.",
+        solution: "UI merchandising claire",
         solutionDetail:
-          "Organized categories and scannable cards so users find what they need fast.",
+          "Catégories organisées et cartes scannables pour trouver vite ce qu’il faut.",
       },
     ],
-    quote: "Good e-commerce is clarity — products first, friction last.",
+    quote: "Un bon e-commerce, c’est de la clarté — produits d’abord, friction en dernier.",
     featured: true,
   },
   {
     slug: "dupond-cafe",
     title: "Dupond Café",
     subtitle:
-      "Showcase website for an artisanal café — ambiance, menu, and a warm digital presence.",
+      "Site vitrine pour un café artisanal — ambiance, menu et présence digitale chaleureuse.",
     shortDescription:
-      "Showcase website for Dupond Café with elegant visuals and a clear brand story.",
+      "Site vitrine Dupond Café avec visuels élégants et storytelling de marque clair.",
     description: [
-      "Dupond Café is a showcase (vitrine) website that presents the café’s atmosphere, menu highlights, and brand personality online.",
-      "Built with React + Vite and Tailwind CSS, and deployed on Vercel, it prioritizes elegant visuals and a simple visitor journey.",
+      "Dupond Café est un site vitrine qui présente l’ambiance du café, les points forts du menu et la personnalité de la marque en ligne.",
+      "Réalisé avec React + Vite et Tailwind CSS, déployé sur Vercel, il privilégie des visuels élégants et un parcours visiteur simple.",
     ],
     coverImage: "/DupondCafe/miniature-dupondcafe.png",
     gallery: [
@@ -304,54 +303,54 @@ export const projects: Project[] = [
       "/DupondCafe/4-contact.png",
     ],
     technologies: ["React", "Vite", "Tailwind CSS", "Vercel"],
-    type: "Showcase Website",
+    type: "Site vitrine",
     year: "2024",
-    role: "Frontend Developer",
+    role: "Développeur Frontend",
     liveUrl: "https://dupondcafe.vercel.app/",
     features: [
       {
-        title: "Brand Storytelling",
+        title: "Storytelling de marque",
         description:
-          "Warm visual layout that reflects the café’s artisanal identity.",
+          "Mise en page chaleureuse qui reflète l’identité artisanale du café.",
         icon: "coffee",
       },
       {
-        title: "Menu Highlights",
+        title: "Highlights du menu",
         description:
-          "Clear presentation of signature items and offers.",
+          "Présentation claire des signatures et des offres.",
         icon: "file-text",
       },
       {
-        title: "Responsive Design",
+        title: "Design responsive",
         description:
-          "Looks sharp on phones, tablets, and desktop screens.",
+          "Rendu net sur téléphone, tablette et desktop.",
         icon: "monitor",
       },
     ],
     challenges: [
       {
-        challenge: "Atmosphere Online",
+        challenge: "Ambiance en ligne",
         challengeDetail:
-          "Translating a physical café vibe into a lightweight web experience.",
-        solution: "Visual-First Layout",
+          "Transposer l’ambiance d’un café physique dans une expérience web légère.",
+        solution: "Layout visual-first",
         solutionDetail:
-          "Strong photography hierarchy and restrained typography to keep the site inviting without heavy load.",
+          "Hiérarchie photo forte et typographie retenue pour rester accueillant sans alourdir le chargement.",
       },
     ],
-    quote: "A café site should feel like walking in before you arrive.",
+    quote: "Un site de café doit donner l’impression d’entrer avant même d’arriver.",
     featured: true,
   },
   {
     slug: "adam-adventure-tours",
     title: "Adam Adventure Tours",
     subtitle:
-      "Showcase website for a tourism brand — from needs analysis to Next.js deployment.",
+      "Site vitrine pour une marque tourisme — de l’analyse des besoins au déploiement Next.js.",
     shortDescription:
-      "Showcase website for Adam Adventure Tours, built with Next.js and deployed on Vercel.",
+      "Site vitrine Adam Adventure Tours, réalisé avec Next.js et déployé sur Vercel.",
     description: [
-      "End-to-end design and development of the Adam Adventure Tours & Tourism showcase website during an internship.",
-      "Scope covered needs analysis, technology choices, graphic design, Next.js integration, Vercel deployment, and ongoing maintenance.",
-      "The result is a fast, professional tourism presence ready to welcome visitors and clients online.",
+      "Conception et développement de bout en bout du site vitrine Adam Adventure Tours & Tourism durant un stage.",
+      "Périmètre : analyse des besoins, choix technologiques, design graphique, intégration Next.js, déploiement Vercel et maintenance.",
+      "Résultat : une présence tourisme rapide et professionnelle, prête à accueillir visiteurs et clients en ligne.",
     ],
     coverImage: "/AdamAdventureTours/miniature-adamadventuretours.png",
     gallery: [
@@ -364,41 +363,41 @@ export const projects: Project[] = [
       "/AdamAdventureTours/7-contact.png",
     ],
     technologies: ["Next.js", "React", "Vercel", "UI Design"],
-    type: "Showcase Website",
+    type: "Site vitrine",
     year: "2025",
-    role: "Web Developer",
+    role: "Développeur Web",
     liveUrl: "https://www.adamadventuretours.com/",
     features: [
       {
-        title: "Brand Showcase",
+        title: "Vitrine de marque",
         description:
-          "Clear presentation of tours, atmosphere, and tourism offerings.",
+          "Présentation claire des circuits, de l’ambiance et de l’offre tourisme.",
         icon: "sparkles",
       },
       {
-        title: "Custom Design",
+        title: "Design sur mesure",
         description:
-          "Graphic design aligned with the travel brand identity.",
+          "Design graphique aligné sur l’identité de la marque voyage.",
         icon: "palette",
       },
       {
         title: "Next.js + Vercel",
         description:
-          "Modern stack with fast deployment and easy maintenance.",
+          "Stack moderne avec déploiement rapide et maintenance simple.",
         icon: "zap",
       },
     ],
     challenges: [
       {
-        challenge: "From Brief to Live Site",
+        challenge: "Du brief au site live",
         challengeDetail:
-          "Delivering a complete vitrine site in a short internship window.",
-        solution: "Focused Delivery Pipeline",
+          "Livrer un site vitrine complet dans une fenêtre de stage courte.",
+        solution: "Pipeline de livraison concentré",
         solutionDetail:
-          "Tight scope: analysis → design → Next.js build → Vercel ship → maintain.",
+          "Périmètre serré : analyse → design → build Next.js → ship Vercel → maintenance.",
       },
     ],
-    quote: "A tourism brand deserves a site as inviting as the destination.",
+    quote: "Une marque tourisme mérite un site aussi invitant que la destination.",
     featured: true,
   },
 ]

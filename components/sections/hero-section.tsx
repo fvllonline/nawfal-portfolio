@@ -109,7 +109,7 @@ export function HeroSection() {
                 href="/#projects"
                 className="gradient-bg glow-sm flex min-h-12 w-full items-center justify-center rounded-xl px-8 py-4 font-mono text-sm text-white sm:inline-flex sm:w-auto"
               >
-                View Projects
+                Voir les projets
               </Link>
             </motion.div>
             <motion.div
@@ -121,7 +121,7 @@ export function HeroSection() {
                 href="/#contact"
                 className="flex min-h-12 w-full items-center justify-center rounded-xl border border-border-strong bg-background/30 px-8 py-4 font-mono text-sm text-foreground backdrop-blur-sm transition-colors hover:border-primary/50 hover:bg-white/5 sm:inline-flex sm:w-auto"
               >
-                Contact Me
+                Me contacter
               </Link>
             </motion.div>
           </motion.div>

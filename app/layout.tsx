@@ -13,11 +13,11 @@ export const metadata: Metadata = {
   },
   description: siteConfig.tagline,
   keywords: [
-    "Full Stack Developer",
+    "Développeur Full Stack",
     "React",
     "Laravel",
     "Next.js",
-    "Web Development",
+    "Développement web",
     "Nawfal ADDAOUI",
     "Casablanca",
   ],
@@ -32,8 +32,8 @@ export const metadata: Metadata = {
     title: `${siteConfig.fullName} — ${siteConfig.title}`,
     description: siteConfig.tagline,
     url: siteConfig.url,
-    siteName: `${siteConfig.fullName} Portfolio`,
-    locale: "en_US",
+    siteName: `Portfolio de ${siteConfig.fullName}`,
+    locale: "fr_FR",
     type: "website",
   },
   twitter: {
@@ -50,7 +50,7 @@ export default function RootLayout({
 }>) {
   return (
     <html
-      lang="en"
+      lang="fr"
       className={`dark scroll-smooth ${fontDisplay.variable} ${fontSans.variable} ${fontMono.variable}`}
     >
       <body className="min-h-screen bg-background font-sans text-foreground antialiased">

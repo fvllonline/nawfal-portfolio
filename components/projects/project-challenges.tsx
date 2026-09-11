@@ -13,19 +13,19 @@ export function ProjectChallenges({
   return (
     <FadeIn>
       <article>
-        <h2 className="heading-lg mb-6 text-primary">Challenges & Solutions</h2>
+        <h2 className="heading-lg mb-6 text-primary">Défis & solutions</h2>
         <div className="space-y-4">
           {challenges.map((item) => (
             <div key={item.challenge} className="space-y-4">
               <div className="rounded-r-xl border-l-2 border-primary/40 bg-accent/50 p-6">
                 <strong className="block text-foreground">
-                  The Challenge: {item.challenge}
+                  Le défi : {item.challenge}
                 </strong>
                 <p className="body-md mt-2">{item.challengeDetail}</p>
               </div>
               <div className="rounded-r-xl border-l-2 border-secondary-bright/40 bg-accent/50 p-6">
                 <strong className="block text-foreground">
-                  The Solution: {item.solution}
+                  La solution : {item.solution}
                 </strong>
                 <p className="body-md mt-2">{item.solutionDetail}</p>
               </div>

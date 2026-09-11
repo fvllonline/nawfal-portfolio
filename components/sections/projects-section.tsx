@@ -50,17 +50,17 @@ export function ProjectsSection() {
       <div className="container-ln">
         <FadeIn className="mb-10 flex flex-col gap-6 sm:mb-14 sm:flex-row sm:items-end sm:justify-between">
           <div>
-            <p className="label-ln">Work</p>
-            <h2 className="heading-lg mt-2">Featured Projects</h2>
+            <p className="label-ln">Réalisations</p>
+            <h2 className="heading-lg mt-2">Projets phares</h2>
             <p className="body-md mt-2 max-w-2xl">
-              A showcase of recent engineering work — swipe or use arrows to explore.
+              Une sélection de réalisations récentes — glissez ou utilisez les flèches pour explorer.
             </p>
           </div>
 
           <div className="flex gap-2 self-start sm:self-auto">
             <button
               type="button"
-              aria-label="Previous projects"
+              aria-label="Projets précédents"
               onClick={() => api?.scrollPrev()}
               className="flex h-11 w-11 items-center justify-center rounded-xl border border-border text-foreground-muted transition-colors hover:border-primary/40 hover:text-primary"
             >
@@ -68,7 +68,7 @@ export function ProjectsSection() {
             </button>
             <button
               type="button"
-              aria-label="Next projects"
+              aria-label="Projets suivants"
               onClick={() => api?.scrollNext()}
               className="flex h-11 w-11 items-center justify-center rounded-xl border border-border text-foreground-muted transition-colors hover:border-primary/40 hover:text-primary"
             >
@@ -107,7 +107,7 @@ export function ProjectsSection() {
               <button
                 key={i}
                 type="button"
-                aria-label={`Go to slide ${i + 1}`}
+                aria-label={`Aller à la diapositive ${i + 1}`}
                 aria-current={selected === i}
                 onClick={() => api?.scrollTo(i)}
                 className={cn(

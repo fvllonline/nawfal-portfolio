@@ -77,7 +77,7 @@ export type Education = {
   period: string
   institution: string
   degree: string
-  status: "Current" | "Completed"
+  status: "En cours" | "Terminé"
 }
 
 export type ProjectFeature = {
@@ -119,7 +119,7 @@ export type Certification = {
   id: string
   name: string
   institution: string
-  category: "Language" | "Programming" | "Security" | "Other"
+  category: "Langue" | "Programmation" | "Sécurité" | "Autre"
   icon: "globe" | "code" | "shield"
   logo: string
   pdfPath?: string

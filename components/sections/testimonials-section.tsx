@@ -12,10 +12,10 @@ export function TestimonialsSection() {
     <section id="testimonials" className="section-ln">
       <div className="container-ln overflow-hidden rounded-3xl bg-accent/40 py-12 sm:rounded-[40px] sm:py-section-sm md:py-section">
         <FadeIn className="mb-10 px-2 text-center sm:mb-16 sm:px-4">
-          <p className="label-ln">Kind Words</p>
-          <h2 className="heading-lg mt-2">What Clients Say</h2>
+          <p className="label-ln">Témoignages</p>
+          <h2 className="heading-lg mt-2">Ce que disent les clients</h2>
           <p className="body-md mx-auto mt-4 max-w-2xl">
-            What colleagues and collaborators say about working with me.
+            Ce que collègues et collaborateurs disent de notre collaboration.
           </p>
         </FadeIn>
 
@@ -59,7 +59,7 @@ export function TestimonialsSection() {
                           href={t.linkedin}
                           target="_blank"
                           rel="noopener noreferrer"
-                          aria-label={`${t.name} on LinkedIn`}
+                          aria-label={`${t.name} sur LinkedIn`}
                           className="shrink-0 text-foreground-muted transition-colors hover:text-primary"
                         >
                           <FaLinkedin className="h-4 w-4" />

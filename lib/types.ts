@@ -150,10 +150,16 @@ export type SiteConfig = {
   phone: string
   phoneDisplay: string
   tagline: string
+  /** SEO meta description (search / social) */
+  seoDescription: string
+  /** Default document title for the homepage */
+  seoTitle: string
   availability: string
   bio: string
   url: string
   github: string
+  linkedin: string
+  portrait: string
   cv: {
     fr: string
     en: string

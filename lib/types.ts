@@ -141,6 +141,23 @@ export type Testimonial = {
   linkedin?: string
 }
 
+export type SiteNap = {
+  /** Nom affiché partout (NAP) — doit matcher Google Business */
+  name: string
+  streetAddress?: string
+  addressLocality: string
+  addressRegion: string
+  addressCountry: string
+  addressCountryName: string
+  /** Ligne adresse lisible (sans téléphone) */
+  addressLine: string
+  /** Coordonnées ville (service area Casablanca) */
+  geo: {
+    latitude: number
+    longitude: number
+  }
+}
+
 export type SiteConfig = {
   name: string
   fullName: string
@@ -160,6 +177,8 @@ export type SiteConfig = {
   github: string
   linkedin: string
   portrait: string
+  /** NAP local SEO — source unique pour schema, footer, contact */
+  nap: SiteNap
   cv: {
     fr: string
     en: string

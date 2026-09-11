@@ -7,29 +7,48 @@ export function absoluteUrl(path = "/") {
   return `${base}${path.startsWith("/") ? path : `/${path}`}`
 }
 
+function postalAddress() {
+  const { nap } = siteConfig
+  return {
+    "@type": "PostalAddress" as const,
+    ...(nap.streetAddress ? { streetAddress: nap.streetAddress } : {}),
+    addressLocality: nap.addressLocality,
+    addressRegion: nap.addressRegion,
+    addressCountry: nap.addressCountry,
+  }
+}
+
 /**
  * Person + ProfessionalService JSON-LD for local SEO (Casablanca / Maroc).
+ * NAP aligns with footer / contact / future Google Business Profile.
  */
 export function buildSiteJsonLd() {
   const personId = absoluteUrl("/#person")
   const serviceId = absoluteUrl("/#professional-service")
   const portrait = absoluteUrl(siteConfig.portrait)
+  const address = postalAddress()
 
   const person = {
     "@type": "Person",
     "@id": personId,
-    name: siteConfig.fullName,
+    name: siteConfig.nap.name,
+    alternateName: siteConfig.fullName,
     url: siteConfig.url,
     image: portrait,
-    jobTitle: siteConfig.title,
+    jobTitle: "Développeur Full-Stack",
     description: siteConfig.seoDescription,
     email: siteConfig.email,
     telephone: siteConfig.phone,
-    address: {
-      "@type": "PostalAddress",
-      addressLocality: "Casablanca",
-      addressRegion: "Casablanca-Settat",
-      addressCountry: "MA",
+    address,
+    homeLocation: {
+      "@type": "Place",
+      name: siteConfig.nap.addressLocality,
+      address,
+      geo: {
+        "@type": "GeoCoordinates",
+        latitude: siteConfig.nap.geo.latitude,
+        longitude: siteConfig.nap.geo.longitude,
+      },
     },
     worksFor: {
       "@type": "Organization",
@@ -58,31 +77,46 @@ export function buildSiteJsonLd() {
   const professionalService = {
     "@type": "ProfessionalService",
     "@id": serviceId,
-    name: `${siteConfig.fullName} — Développement Full-Stack`,
+    name: `${siteConfig.nap.name} — Développement Full-Stack Casablanca`,
+    alternateName: "Nawfal Addaoui Freelance",
     url: siteConfig.url,
     image: portrait,
     description: siteConfig.seoDescription,
     email: siteConfig.email,
     telephone: siteConfig.phone,
     priceRange: "$$",
+    currenciesAccepted: "MAD",
+    paymentAccepted: "Bank Transfer, Cash",
     areaServed: [
       {
         "@type": "City",
         name: "Casablanca",
+        containedInPlace: {
+          "@type": "AdministrativeArea",
+          name: "Casablanca-Settat",
+        },
       },
       {
         "@type": "Country",
         name: "Maroc",
       },
     ],
-    address: {
-      "@type": "PostalAddress",
-      addressLocality: "Casablanca",
-      addressRegion: "Casablanca-Settat",
-      addressCountry: "MA",
+    address,
+    geo: {
+      "@type": "GeoCoordinates",
+      latitude: siteConfig.nap.geo.latitude,
+      longitude: siteConfig.nap.geo.longitude,
     },
     founder: { "@id": personId },
     provider: { "@id": personId },
+    contactPoint: {
+      "@type": "ContactPoint",
+      contactType: "customer service",
+      telephone: siteConfig.phone,
+      email: siteConfig.email,
+      areaServed: "MA",
+      availableLanguage: ["French", "Arabic", "English"],
+    },
     serviceType: [
       "Développement web",
       "Développement mobile",

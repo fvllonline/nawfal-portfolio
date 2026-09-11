@@ -1,6 +1,7 @@
 import Link from "next/link"
 import { Terminal } from "lucide-react"
 import { siteConfig } from "@/data"
+import { NapBlock } from "@/components/seo/nap-block"
 
 const footerLinks = siteConfig.socials.filter(
   (s) => s.icon === "github" || s.icon === "linkedin" || s.icon === "mail"
@@ -16,7 +17,7 @@ export function Footer() {
           <Link
             href="/#home"
             className="flex items-center gap-2 text-primary transition-opacity hover:opacity-80"
-            aria-label={`${siteConfig.fullName} — Développeur Full-Stack Casablanca`}
+            aria-label={`${siteConfig.nap.name} — Développeur Full-Stack Casablanca`}
           >
             <Terminal className="h-5 w-5" aria-hidden />
             <span className="font-display text-xl font-semibold tracking-tighter">
@@ -24,19 +25,9 @@ export function Footer() {
             </span>
           </Link>
           <p className="label-md-ln text-foreground-muted/80">
-            © {year} {siteConfig.fullName}. Tous droits réservés.
+            © {year} {siteConfig.nap.name}. Tous droits réservés.
           </p>
-          {/* NAP — Nom, Adresse, Téléphone (cohérent avec le schema) */}
-          <p className="max-w-xs text-center text-xs text-foreground-muted/60 md:text-left">
-            {siteConfig.fullName} · Développeur Full-Stack ·{" "}
-            {siteConfig.location}
-          </p>
-          <a
-            href={`tel:${siteConfig.phone}`}
-            className="text-xs text-foreground-muted/60 transition-colors hover:text-primary"
-          >
-            {siteConfig.phoneDisplay}
-          </a>
+          <NapBlock variant="footer" />
         </div>
 
         <nav

@@ -20,6 +20,19 @@ export const siteConfig: SiteConfig = {
   github: "https://github.com/fvllonline",
   linkedin: "https://www.linkedin.com/in/nawfal-addaoui-40b651248/",
   portrait: "/PRFLN.webp",
+  nap: {
+    name: "Nawfal Addaoui",
+    addressLocality: "Casablanca",
+    addressRegion: "Casablanca-Settat",
+    addressCountry: "MA",
+    addressCountryName: "Maroc",
+    addressLine: "Casablanca, Casablanca-Settat, Maroc",
+    // Centre-ville Casablanca — service area (pas de local commercial)
+    geo: {
+      latitude: 33.5731,
+      longitude: -7.5898,
+    },
+  },
   cv: {
     fr: "/CV-NAWFAL-French.pdf",
     en: "/CV-NAWFAL-English.pdf",

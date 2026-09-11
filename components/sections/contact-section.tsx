@@ -3,9 +3,10 @@
 import { useEffect, useState, type FormEvent } from "react"
 import Link from "next/link"
 import { motion } from "framer-motion"
-import { Mail, Phone, MapPin, Send, CheckCircle, Github, FileText, Linkedin } from "lucide-react"
+import { Send, CheckCircle, Github, FileText, Linkedin } from "lucide-react"
 import { siteConfig } from "@/data"
 import { FadeIn } from "@/components/ui/motion"
+import { NapBlock } from "@/components/seo/nap-block"
 import {
   QUOTE_REQUEST_EVENT,
   buildQuoteMessage,
@@ -107,25 +108,7 @@ export function ContactSection() {
             </p>
           </div>
 
-          <div className="space-y-5">
-            <ContactRow
-              icon={Mail}
-              label="Écrivez-moi à"
-              value={siteConfig.email}
-              href={`mailto:${siteConfig.email}`}
-            />
-            <ContactRow
-              icon={Phone}
-              label="Appelez-moi"
-              value={siteConfig.phoneDisplay}
-              href={`tel:${siteConfig.phone}`}
-            />
-            <ContactRow
-              icon={MapPin}
-              label="Basé à"
-              value={siteConfig.location}
-            />
-          </div>
+          <NapBlock variant="contact" className="max-w-md" />
 
           <div className="flex gap-4 pt-2">
             <Link
@@ -138,7 +121,7 @@ export function ContactSection() {
               <Github className="h-5 w-5" />
             </Link>
             <Link
-              href="https://www.linkedin.com/in/nawfal-addaoui-40b651248/"
+              href={siteConfig.linkedin}
               target="_blank"
               rel="noopener noreferrer"
               aria-label="LinkedIn"
@@ -361,38 +344,4 @@ function Field({
       />
     </div>
   )
-}
-
-function ContactRow({
-  icon: Icon,
-  label,
-  value,
-  href,
-}: {
-  icon: typeof Mail
-  label: string
-  value: string
-  href?: string
-}) {
-  const inner = (
-    <>
-      <div className="glass-card flex h-12 w-12 items-center justify-center rounded-xl text-primary transition-colors group-hover:bg-primary/10">
-        <Icon className="h-5 w-5" />
-      </div>
-      <div>
-        <p className="label-ln text-foreground-muted">{label}</p>
-        <p className="label-md-ln text-foreground">{value}</p>
-      </div>
-    </>
-  )
-
-  if (href) {
-    return (
-      <Link href={href} className="group flex items-center gap-4">
-        {inner}
-      </Link>
-    )
-  }
-
-  return <div className="group flex items-center gap-4">{inner}</div>
 }

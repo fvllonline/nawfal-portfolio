@@ -7,12 +7,24 @@
 
 ## Profil
 
-- Nom : Nawfal Addaoui
+- Nom (NAP) : Nawfal Addaoui
 - Métier : Développeur Full-Stack à Casablanca
-- Localisation : Casablanca, Maroc
+- Adresse (NAP) : Casablanca, Casablanca-Settat, Maroc
+- Téléphone (NAP) : +212 631-108355
 - Email : naoufaladdaoui@gmail.com
-- Téléphone : +212 631-108355
-- Disponibilité : missions freelance, collaborations, projets web & mobile (Casablanca, Maroc, remote)
+- Zone : Casablanca & Maroc (présentiel ou remote)
+- Disponibilité : missions freelance, collaborations, projets web & mobile
+
+## NAP (à reprendre à l’identique sur Google Business)
+
+```
+Nawfal Addaoui
+Casablanca, Casablanca-Settat, Maroc
++212 631-108355
+https://nawfalsportfolio.vercel.app
+```
+
+Catégorie Google Business recommandée : Développeur de logiciels / Conception de sites Web (service area business — masquer l’adresse rue si pas de local).
 
 ## Site
 

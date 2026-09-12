@@ -19,43 +19,43 @@
 - Nom : Nawfal Addaoui
 - Adresse : Casablanca, Casablanca-Settat, Maroc
 - Téléphone : +212 631-108355
-- Site : [https://nawfalsportfolio.vercel.app](https://nawfalsportfolio.vercel.app)
+- Site : [https://nawfal.online](https://nawfal.online)
 
 Catégorie recommandée : Développeur de logiciels / Conception de sites Web (service area business — masquer l’adresse rue si pas de local).
 
 ## Site
 
-- [Accueil / portfolio](https://nawfalsportfolio.vercel.app)
-- [Sitemap](https://nawfalsportfolio.vercel.app/sitemap.xml)
-- [Contact](https://nawfalsportfolio.vercel.app/#contact)
-- [llms.txt](https://nawfalsportfolio.vercel.app/llms.txt)
+- [Accueil / portfolio](https://nawfal.online)
+- [Sitemap](https://nawfal.online/sitemap.xml)
+- [Contact](https://nawfal.online/#contact)
+- [llms.txt](https://nawfal.online/llms.txt)
 
 ## Services
 
 Pages détaillées (packs & devis) :
 
-- [Sites web / Landing page](https://nawfalsportfolio.vercel.app/services/website)
-- [E-commerce](https://nawfalsportfolio.vercel.app/services/ecommerce)
-- [Applications web Full-Stack](https://nawfalsportfolio.vercel.app/services/web_app)
-- [Applications mobiles](https://nawfalsportfolio.vercel.app/services/mobile_app)
-- [SEO & optimisation](https://nawfalsportfolio.vercel.app/services/seo)
-- [Refonte de site](https://nawfalsportfolio.vercel.app/services/redesign)
-- [Maintenance & support](https://nawfalsportfolio.vercel.app/services/maintenance)
-- [UI/UX Design](https://nawfalsportfolio.vercel.app/services/uiux)
-- [WordPress / CMS](https://nawfalsportfolio.vercel.app/services/wordpress)
-- [API & Backend](https://nawfalsportfolio.vercel.app/services/api_backend)
-- [Consulting & audit](https://nawfalsportfolio.vercel.app/services/consulting)
+- [Sites web / Landing page](https://nawfal.online/services/website)
+- [E-commerce](https://nawfal.online/services/ecommerce)
+- [Applications web Full-Stack](https://nawfal.online/services/web_app)
+- [Applications mobiles](https://nawfal.online/services/mobile_app)
+- [SEO & optimisation](https://nawfal.online/services/seo)
+- [Refonte de site](https://nawfal.online/services/redesign)
+- [Maintenance & support](https://nawfal.online/services/maintenance)
+- [UI/UX Design](https://nawfal.online/services/uiux)
+- [WordPress / CMS](https://nawfal.online/services/wordpress)
+- [API & Backend](https://nawfal.online/services/api_backend)
+- [Consulting & audit](https://nawfal.online/services/consulting)
 
 ## Projets
 
 Études de cas :
 
-- [MonPassTCF](https://nawfalsportfolio.vercel.app/projects/monpasstcf)
-- [Quick Stay](https://nawfalsportfolio.vercel.app/projects/quick-stay)
-- [Breezoria](https://nawfalsportfolio.vercel.app/projects/breezoria)
-- [ZacaStore](https://nawfalsportfolio.vercel.app/projects/zacastore)
-- [Dupond Café](https://nawfalsportfolio.vercel.app/projects/dupond-cafe)
-- [Adam Adventure Tours](https://nawfalsportfolio.vercel.app/projects/adam-adventure-tours)
+- [MonPassTCF](https://nawfal.online/projects/monpasstcf)
+- [Quick Stay](https://nawfal.online/projects/quick-stay)
+- [Breezoria](https://nawfal.online/projects/breezoria)
+- [ZacaStore](https://nawfal.online/projects/zacastore)
+- [Dupond Café](https://nawfal.online/projects/dupond-cafe)
+- [Adam Adventure Tours](https://nawfal.online/projects/adam-adventure-tours)
 
 ## Présence en ligne
 

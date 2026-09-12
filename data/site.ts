@@ -16,7 +16,7 @@ export const siteConfig: SiteConfig = {
     "Développeur Full-Stack basé à Casablanca. Spécialiste React, Next.js, Laravel et React Native. Portfolio de projets web & mobile. Disponible pour missions freelance et collaborations.",
   availability: "Disponible pour missions freelance · Casablanca & Maroc",
   bio: "Développeur Full-Stack passionné basé à Casablanca, spécialisé en React, Laravel et Next.js. Créatif, adaptable et motivé pour contribuer à des projets innovants qui allient fonctionnalité et esthétique.",
-  url: "https://nawfalsportfolio.vercel.app",
+  url: "https://nawfal.online",
   github: "https://github.com/fvllonline",
   linkedin: "https://www.linkedin.com/in/nawfal-addaoui-40b651248/",
   portrait: "/PRFLN.webp",

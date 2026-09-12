@@ -23,13 +23,13 @@ export function RelatedServices({
   return (
     <FadeIn className="mt-16 border-t border-border pt-16 md:mt-24">
       <div className="mb-8 max-w-2xl">
-        <p className="label-ln">Services</p>
+        <p className="label-ln">Services associés</p>
         <h2 className="heading-lg mt-2 text-primary">
-          Un projet comme {projectTitle} ?
+          Services utilisés sur {projectTitle}
         </h2>
         <p className="body-md mt-3">
-          Voici le service le plus adapté, ainsi que d&apos;autres offres qui
-          peuvent vous intéresser.
+          Le service principal et les offres complémentaires pour un projet
+          similaire.
         </p>
       </div>
 

@@ -1,4 +1,9 @@
 import type { Project } from "@/lib/types"
+import {
+  projectServiceIds,
+  serviceProjectSlugs,
+  similarProjectSlugs,
+} from "./internal-links"
 
 /**
  * Projets mis en avant — contenus issus du CV et des briefs.
@@ -80,7 +85,7 @@ export const projects: Project[] = [
     quote:
       "Un compagnon d’étude qui a le feeling d’un produit — pas juste une pile de PDF.",
     relatedServiceId: "mobile_app",
-    relatedServiceIds: ["web_app", "uiux", "api_backend"],
+    relatedServiceIds: ["web_app", "api_backend"],
     featured: true,
   },
   {
@@ -155,8 +160,8 @@ export const projects: Project[] = [
     ],
     quote:
       "Un backend solide se fait oublier quand il fonctionne — la doc et le design le font durer.",
-    relatedServiceId: "api_backend",
-    relatedServiceIds: ["web_app", "uiux", "consulting"],
+    relatedServiceId: "web_app",
+    relatedServiceIds: ["api_backend"],
     featured: true,
   },
   {
@@ -220,7 +225,7 @@ export const projects: Project[] = [
     ],
     quote: "Une boutique e-com doit sembler évidente dès le premier scroll.",
     relatedServiceId: "ecommerce",
-    relatedServiceIds: ["website", "seo", "maintenance"],
+    relatedServiceIds: ["website"],
     featured: true,
   },
   {
@@ -289,7 +294,7 @@ export const projects: Project[] = [
     ],
     quote: "Un bon e-commerce, c’est de la clarté — produits d’abord, friction en dernier.",
     relatedServiceId: "ecommerce",
-    relatedServiceIds: ["website", "seo", "uiux"],
+    relatedServiceIds: [],
     featured: true,
   },
   {
@@ -348,7 +353,7 @@ export const projects: Project[] = [
     ],
     quote: "Un site de café doit donner l’impression d’entrer avant même d’arriver.",
     relatedServiceId: "website",
-    relatedServiceIds: ["uiux", "seo", "wordpress"],
+    relatedServiceIds: ["uiux", "redesign"],
     featured: true,
   },
   {
@@ -410,7 +415,7 @@ export const projects: Project[] = [
     ],
     quote: "Une marque tourisme mérite un site aussi invitant que la destination.",
     relatedServiceId: "website",
-    relatedServiceIds: ["seo", "uiux", "maintenance"],
+    relatedServiceIds: ["seo", "redesign"],
     featured: true,
   },
 ]
@@ -424,6 +429,13 @@ export function getAllProjectSlugs(): string[] {
 }
 
 export function getRelatedProjects(slug: string, limit = 3): Project[] {
+  const mapped = similarProjectSlugs[slug] ?? []
+  const fromMap = mapped
+    .map((item) => getProjectBySlug(item))
+    .filter((project): project is Project => Boolean(project))
+
+  if (fromMap.length) return fromMap.slice(0, limit)
+
   return projects.filter((project) => project.slug !== slug).slice(0, limit)
 }
 
@@ -432,6 +444,14 @@ export function getFeaturedProjects(): Project[] {
 }
 
 export function getProjectsByServiceId(serviceId: string, limit = 3): Project[] {
+  const slugs = serviceProjectSlugs[serviceId]
+  if (slugs) {
+    return slugs
+      .map((slug) => getProjectBySlug(slug))
+      .filter((project): project is Project => Boolean(project))
+      .slice(0, limit)
+  }
+
   return projects
     .filter(
       (project) =>
@@ -442,9 +462,9 @@ export function getProjectsByServiceId(serviceId: string, limit = 3): Project[] 
 }
 
 export function getProjectRelatedServiceIds(project: Project): string[] {
-  const ids = [
-    project.relatedServiceId,
-    ...(project.relatedServiceIds ?? []),
-  ]
+  const mapped = projectServiceIds[project.slug]
+  if (mapped?.length) return mapped
+
+  const ids = [project.relatedServiceId, ...(project.relatedServiceIds ?? [])]
   return [...new Set(ids.filter(Boolean))]
 }

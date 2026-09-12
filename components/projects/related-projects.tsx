@@ -13,7 +13,7 @@ export function RelatedProjects({ projects }: { projects: Project[] }) {
     <LazyMount minHeight={280} rootMargin="200px 0px">
       <FadeIn className="mt-16 border-t border-border pt-16 md:mt-24">
         <div className="mb-8 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between sm:gap-4">
-          <h2 className="heading-lg text-primary">Projets liés</h2>
+          <h2 className="heading-lg text-primary">Projets similaires</h2>
           <Link
             href="/#projects"
             className="label-md-ln shrink-0 text-foreground-muted transition-colors hover:text-primary"

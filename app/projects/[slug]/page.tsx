@@ -12,6 +12,7 @@ import {
   RelatedServices,
   ProjectServiceOffer,
 } from "@/components/projects"
+import { Breadcrumbs } from "@/components/seo/breadcrumbs"
 import {
   getAllProjectSlugs,
   getProjectBySlug,
@@ -19,7 +20,7 @@ import {
   getProjectRelatedServiceIds,
   getServiceById,
 } from "@/data"
-import { buildProjectPageJsonLd } from "@/lib/seo"
+import { buildBreadcrumbJsonLd, buildProjectPageJsonLd } from "@/lib/seo"
 
 type ProjectPageProps = {
   params: Promise<{ slug: string }>
@@ -59,19 +60,36 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
   if (!project) notFound()
 
   const related = getRelatedProjects(slug)
-  const primaryService = getServiceById(project.relatedServiceId)
-  const relatedServices = getProjectRelatedServiceIds(project)
+  const relatedServiceIds = getProjectRelatedServiceIds(project)
+  const primaryService = getServiceById(
+    relatedServiceIds[0] ?? project.relatedServiceId
+  )
+  const relatedServices = relatedServiceIds
     .map((id) => getServiceById(id))
     .filter((service): service is NonNullable<typeof service> => Boolean(service))
   const jsonLd = buildProjectPageJsonLd(project)
+  const crumbs = [
+    { name: "Accueil", path: "/" },
+    { name: "Projets", path: "/#projects" },
+    { name: project.title, path: `/projects/${project.slug}` },
+  ]
 
   return (
     <SiteShell>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify([jsonLd, buildBreadcrumbJsonLd(crumbs)]),
+        }}
       />
       <article className="container-ln pb-16 pt-24 sm:pb-20 sm:pt-28 md:pt-32">
+        <Breadcrumbs
+          items={[
+            { label: "Accueil", href: "/" },
+            { label: "Projets", href: "/#projects" },
+            { label: project.title },
+          ]}
+        />
         <ProjectHero project={project} />
 
         <div className="mt-12 flex flex-col gap-10 sm:mt-16 sm:gap-12 lg:mt-20 lg:flex-row lg:gap-16">

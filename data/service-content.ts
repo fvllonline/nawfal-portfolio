@@ -8,7 +8,7 @@ export const servicePageContent: Record<string, ServicePageContent> = {
     h1: "Création de site vitrine à Casablanca",
     intro: [
       "Vous cherchez un développeur pour créer un site vitrine ou une landing page à Casablanca ? Je conçois des sites rapides, responsive et pensés pour convertir — startups, TPE/PME et indépendants au Maroc.",
-      "Stack moderne (React, Next.js ou WordPress selon le besoin), design soigné, SEO technique de base et mise en ligne incluse. Packs clairs en MAD, devis sur mesure si votre projet sort du cadre.",
+      "Stack moderne (React, Next.js ou WordPress selon le besoin), design soigné, SEO technique de base et mise en ligne incluse. Packs clairs en MAD. Pour une boutique, voir aussi la création de site e-commerce.",
     ],
     benefits: [
       "Site professionnel livré en 1 à 3 semaines selon le pack",

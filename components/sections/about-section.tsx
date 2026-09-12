@@ -1,6 +1,7 @@
 "use client"
 
 import Image from "next/image"
+import Link from "next/link"
 import { aboutContent, softSkills, languages } from "@/data"
 import {
   FadeIn,
@@ -43,11 +44,57 @@ export function AboutSection() {
 
           <FadeIn direction="right" delay={0.1}>
             <div className="space-y-4">
-              {aboutContent.paragraphs.map((p) => (
-                <p key={p.slice(0, 28)} className="body-lg">
-                  {p}
-                </p>
-              ))}
+              <p className="body-lg">
+                Je suis Nawfal Addaoui, développeur Full-Stack basé à Casablanca
+                (Maroc). Je réalise des{" "}
+                <Link
+                  href="/services/website"
+                  className="text-primary underline-offset-4 hover:underline"
+                >
+                  sites vitrines
+                </Link>{" "}
+                et des{" "}
+                <Link
+                  href="/services/web_app"
+                  className="text-primary underline-offset-4 hover:underline"
+                >
+                  applications web
+                </Link>{" "}
+                pour des clients à Casablanca, avec React, Next.js, Laravel et
+                React Native — du prototype au déploiement.
+              </p>
+              <p className="body-lg">{aboutContent.paragraphs[1]}</p>
+              <p className="body-lg">
+                Disponible en freelance pour{" "}
+                <Link
+                  href="/services/ecommerce"
+                  className="text-primary underline-offset-4 hover:underline"
+                >
+                  e-commerce
+                </Link>
+                ,{" "}
+                <Link
+                  href="/services/mobile_app"
+                  className="text-primary underline-offset-4 hover:underline"
+                >
+                  applications mobiles
+                </Link>{" "}
+                et{" "}
+                <Link
+                  href="/services/api_backend"
+                  className="text-primary underline-offset-4 hover:underline"
+                >
+                  APIs
+                </Link>
+                . Au Maroc ou en remote, je porte le projet de bout en bout —{" "}
+                <Link
+                  href="/#contact"
+                  className="text-primary underline-offset-4 hover:underline"
+                >
+                  demander un devis
+                </Link>
+                .
+              </p>
             </div>
           </FadeIn>
 

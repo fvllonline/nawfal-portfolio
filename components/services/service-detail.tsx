@@ -6,6 +6,7 @@ import { ArrowLeft, ArrowRight, Check } from "lucide-react"
 import { motion, useReducedMotion } from "framer-motion"
 import { serviceGeneralTerms } from "@/data"
 import { FadeIn, easeOutExpo } from "@/components/ui/motion"
+import { Breadcrumbs } from "@/components/seo/breadcrumbs"
 import { ServicePackCard } from "@/components/services/service-pack-card"
 import { serviceIcons } from "@/components/services/service-icons"
 import type { Project, Service } from "@/lib/types"
@@ -13,11 +14,15 @@ import type { Project, Service } from "@/lib/types"
 type ServiceDetailProps = {
   service: Service
   relatedProjects?: Project[]
+  complementaryServices?: Service[]
+  extraLinks?: { href: string; label: string }[]
 }
 
 export function ServiceDetail({
   service,
   relatedProjects = [],
+  complementaryServices = [],
+  extraLinks = [],
 }: ServiceDetailProps) {
   const reduce = useReducedMotion()
   const Icon = serviceIcons[service.icon]
@@ -34,10 +39,17 @@ export function ServiceDetail({
 
   return (
     <article className="container-ln pb-16 pt-24 sm:pb-20 sm:pt-28 md:pt-32">
+      <Breadcrumbs
+        items={[
+          { label: "Accueil", href: "/" },
+          { label: "Services", href: "/#services" },
+          { label: service.title },
+        ]}
+      />
       <motion.div {...enter(0)}>
         <Link
           href="/#services"
-          className="label-md-ln group mb-8 inline-flex items-center gap-2 text-primary transition-opacity hover:opacity-80"
+          className="label-md-ln group mb-6 inline-flex items-center gap-2 text-primary transition-opacity hover:opacity-80"
         >
           <ArrowLeft className="h-4 w-4 transition-transform group-hover:-translate-x-1" />
           Retour aux services
@@ -58,9 +70,25 @@ export function ServiceDetail({
       {content && (
         <FadeIn className="mb-12 max-w-3xl space-y-10 sm:mb-16">
           <div className="space-y-4">
-            {content.intro.map((paragraph) => (
+            {content.intro.map((paragraph, index) => (
               <p key={paragraph.slice(0, 36)} className="body-lg">
-                {paragraph}
+                {service.id === "website" && index === 1 ? (
+                  <>
+                    Stack moderne (React, Next.js ou WordPress selon le besoin),
+                    design soigné, SEO technique de base et mise en ligne
+                    incluse. Packs clairs en MAD. Pour une boutique, voir aussi
+                    la{" "}
+                    <Link
+                      href="/services/ecommerce"
+                      className="text-primary underline-offset-4 hover:underline"
+                    >
+                      création de site e-commerce
+                    </Link>
+                    .
+                  </>
+                ) : (
+                  paragraph
+                )}
               </p>
             ))}
           </div>
@@ -132,9 +160,10 @@ export function ServiceDetail({
 
       {relatedProjects.length > 0 && (
         <FadeIn delay={0.08} className="mt-12 sm:mt-16">
-          <h2 className="heading-lg text-primary">Projets liés</h2>
+          <h2 className="heading-lg text-primary">Projets associés</h2>
           <p className="body-md mt-2 max-w-2xl">
-            Exemples concrets liés à ce service — réalisés en Full-Stack.
+            Études de cas liées à ce service — réalisées en Full-Stack à
+            Casablanca.
           </p>
           <div className="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {relatedProjects.map((project) => (
@@ -155,11 +184,40 @@ export function ServiceDetail({
                   />
                 </div>
                 <h3 className="heading-sm transition-colors group-hover:text-primary">
-                  {project.title}
+                  Voir le projet {project.title}
                 </h3>
                 <p className="body-md mt-1 line-clamp-2 text-foreground-muted">
                   {project.shortDescription}
                 </p>
+              </Link>
+            ))}
+          </div>
+        </FadeIn>
+      )}
+
+      {(complementaryServices.length > 0 || extraLinks.length > 0) && (
+        <FadeIn delay={0.09} className="mt-10 sm:mt-12">
+          <h2 className="heading-lg text-primary">Services complémentaires</h2>
+          <p className="body-md mt-2 max-w-2xl">
+            Offres souvent combinées avec {service.title.toLowerCase()}.
+          </p>
+          <div className="mt-5 flex flex-wrap gap-3">
+            {complementaryServices.map((item) => (
+              <Link
+                key={item.id}
+                href={`/services/${item.id}`}
+                className="label-md-ln rounded-xl border border-border px-4 py-2.5 text-foreground transition-colors hover:border-primary/40 hover:text-primary"
+              >
+                {item.title}
+              </Link>
+            ))}
+            {extraLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="label-md-ln rounded-xl border border-border px-4 py-2.5 text-foreground transition-colors hover:border-primary/40 hover:text-primary"
+              >
+                {link.label}
               </Link>
             ))}
           </div>

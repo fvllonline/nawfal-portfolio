@@ -15,3 +15,9 @@ export {
   getProjectRelatedServiceIds,
   getProjectsByServiceId,
 } from "./projects"
+export {
+  serviceComplementaryIds,
+  serviceExtraLinks,
+  footerServiceIds,
+  footerProjectSlugs,
+} from "./internal-links"

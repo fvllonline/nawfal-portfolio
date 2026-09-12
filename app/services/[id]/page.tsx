@@ -6,9 +6,11 @@ import {
   getAllServiceIds,
   getProjectsByServiceId,
   getServiceById,
+  serviceComplementaryIds,
+  serviceExtraLinks,
   siteConfig,
 } from "@/data"
-import { buildServicePageJsonLd } from "@/lib/seo"
+import { buildBreadcrumbJsonLd, buildServicePageJsonLd } from "@/lib/seo"
 
 type ServicePageProps = {
   params: Promise<{ id: string }>
@@ -53,15 +55,31 @@ export default async function ServicePage({ params }: ServicePageProps) {
   if (!service) notFound()
 
   const relatedProjects = getProjectsByServiceId(service.id)
+  const complementaryServices = (serviceComplementaryIds[service.id] ?? [])
+    .map((serviceId) => getServiceById(serviceId))
+    .filter((item): item is NonNullable<typeof item> => Boolean(item))
+  const extraLinks = serviceExtraLinks[service.id] ?? []
   const jsonLd = buildServicePageJsonLd(service)
+  const crumbs = [
+    { name: "Accueil", path: "/" },
+    { name: "Services", path: "/#services" },
+    { name: service.title, path: `/services/${service.id}` },
+  ]
 
   return (
     <SiteShell>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify([jsonLd, buildBreadcrumbJsonLd(crumbs)]),
+        }}
       />
-      <ServiceDetail service={service} relatedProjects={relatedProjects} />
+      <ServiceDetail
+        service={service}
+        relatedProjects={relatedProjects}
+        complementaryServices={complementaryServices}
+        extraLinks={extraLinks}
+      />
     </SiteShell>
   )
 }

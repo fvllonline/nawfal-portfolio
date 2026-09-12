@@ -8,8 +8,14 @@ export const servicePageContent: Record<string, ServicePageContent> = {
     h1: "Création de site vitrine à Casablanca",
     intro: [
       "Vous cherchez un développeur pour créer un site vitrine ou une landing page à Casablanca ? Je conçois des sites rapides, responsive et pensés pour convertir — startups, TPE/PME et indépendants au Maroc.",
-      "Stack moderne (React, Next.js ou WordPress selon le besoin), design soigné, SEO technique de base et mise en ligne incluse. Packs clairs en MAD. Pour une boutique, voir aussi la création de site e-commerce.",
+      "Stack moderne (React, Next.js ou WordPress selon le besoin), design soigné, SEO technique de base et mise en ligne incluse. Packs clairs en MAD, devis sur mesure si votre projet sort du cadre.",
     ],
+    seeAlso: {
+      before: "Pour vendre en ligne plutôt qu’une simple vitrine, voir aussi la ",
+      href: "/services/ecommerce",
+      label: "création de site e-commerce",
+      after: ".",
+    },
     benefits: [
       "Site professionnel livré en 1 à 3 semaines selon le pack",
       "Design responsive (mobile, tablette, desktop)",
@@ -34,6 +40,12 @@ export const servicePageContent: Record<string, ServicePageContent> = {
       "Boutique en ligne pour vendre au Maroc et à l’international : catalogue, panier, parcours de commande et vitrine produit claire.",
       "Je développe des e-commerces performants (Next.js / stack moderne) avec une UX mobile-first — essentiel pour les acheteurs marocains.",
     ],
+    seeAlso: {
+      before: "Une fois la boutique en ligne, le ",
+      href: "/services/seo",
+      label: "SEO & l’optimisation",
+      after: " aident à attirer du trafic qualifié à Casablanca et au Maroc.",
+    },
     benefits: [
       "Parcours d’achat fluide et catalogue structuré",
       "Design conversion-oriented, pensé mobile",
@@ -58,6 +70,12 @@ export const servicePageContent: Record<string, ServicePageContent> = {
       "Applications web, SaaS, dashboards et plateformes métier — conçues et développées en Full-Stack depuis Casablanca.",
       "React / Next.js côté front, Laravel ou Node côté API : une architecture claire, sécurisée et maintenable pour votre équipe.",
     ],
+    seeAlso: {
+      before: "Le socle data et l’auth passent souvent par un ",
+      href: "/services/api_backend",
+      label: "développement API & backend",
+      after: " dédié.",
+    },
     benefits: [
       "Produit sur mesure adapté à vos process métier",
       "Stack moderne et documentée",
@@ -82,6 +100,12 @@ export const servicePageContent: Record<string, ServicePageContent> = {
       "Applications Android & iOS avec React Native / Expo — une base unique, deux stores, coût maîtrisé.",
       "De la maquette à la publication, je livre des apps mobiles pour startups et entreprises au Maroc, avec une UX soignée.",
     ],
+    seeAlso: {
+      before: "Exemple concret : l’étude de cas ",
+      href: "/projects/monpasstcf",
+      label: "MonPassTCF",
+      after: ", app mobile full-stack réalisée à Casablanca.",
+    },
     benefits: [
       "Cross-platform (Android + iOS)",
       "Intégration API / backend",
@@ -106,6 +130,12 @@ export const servicePageContent: Record<string, ServicePageContent> = {
       "Améliorer la visibilité de votre site sur Google au Maroc : technique, on-page, performances et SEO local (Casablanca).",
       "Audit concret, corrections prioritaires, schema, Search Console — sans jargon inutile, avec un plan d’action clair.",
     ],
+    seeAlso: {
+      before: "Si le site est trop daté pour bien se positionner, une ",
+      href: "/services/redesign",
+      label: "refonte de site",
+      after: " peut être le bon point de départ.",
+    },
     benefits: [
       "Audit technique actionnable",
       "Title, meta, headings et structure",
@@ -224,8 +254,14 @@ export const servicePageContent: Record<string, ServicePageContent> = {
     h1: "Développement API & backend à Casablanca",
     intro: [
       "APIs REST robustes (Laravel / Node) pour alimenter web apps et mobiles — auth, rôles, validation, documentation.",
-      "Backend pensé pour la prod : sécurité, tests, déploiement. Expérience concrète (ex. Quick Stay) depuis Casablanca.",
+      "Backend pensé pour la prod : sécurité, tests, déploiement. Expérience concrète depuis Casablanca.",
     ],
+    seeAlso: {
+      before: "Voir le projet ",
+      href: "/projects/quick-stay",
+      label: "Quick Stay",
+      after: " — APIs REST Laravel, documentation et identité visuelle.",
+    },
     benefits: [
       "API documentée et testée",
       "Auth et gestion des rôles",

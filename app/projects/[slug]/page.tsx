@@ -103,7 +103,10 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
 
           <div className="lg:w-1/3">
             <div className="lg:sticky lg:top-28">
-              <ProjectSidebar project={project} />
+              <ProjectSidebar
+                project={project}
+                primaryService={primaryService}
+              />
             </div>
           </div>
         </div>

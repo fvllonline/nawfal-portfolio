@@ -70,27 +70,23 @@ export function ServiceDetail({
       {content && (
         <FadeIn className="mb-12 max-w-3xl space-y-10 sm:mb-16">
           <div className="space-y-4">
-            {content.intro.map((paragraph, index) => (
+            {content.intro.map((paragraph) => (
               <p key={paragraph.slice(0, 36)} className="body-lg">
-                {service.id === "website" && index === 1 ? (
-                  <>
-                    Stack moderne (React, Next.js ou WordPress selon le besoin),
-                    design soigné, SEO technique de base et mise en ligne
-                    incluse. Packs clairs en MAD. Pour une boutique, voir aussi
-                    la{" "}
-                    <Link
-                      href="/services/ecommerce"
-                      className="text-primary underline-offset-4 hover:underline"
-                    >
-                      création de site e-commerce
-                    </Link>
-                    .
-                  </>
-                ) : (
-                  paragraph
-                )}
+                {paragraph}
               </p>
             ))}
+            {content.seeAlso && (
+              <p className="body-lg">
+                {content.seeAlso.before}
+                <Link
+                  href={content.seeAlso.href}
+                  className="text-primary underline-offset-4 hover:underline"
+                >
+                  {content.seeAlso.label}
+                </Link>
+                {content.seeAlso.after}
+              </p>
+            )}
           </div>
 
           <div>

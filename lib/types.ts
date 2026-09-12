@@ -59,6 +59,13 @@ export type ServicePageContent = {
   benefits: string[]
   idealFor: string[]
   process: string[]
+  /** Un lien contextuel dans le texte (maillage, max 1 par page) */
+  seeAlso?: {
+    before: string
+    href: string
+    label: string
+    after?: string
+  }
 }
 
 export type ServiceGeneralTerms = {

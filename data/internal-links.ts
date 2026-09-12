@@ -41,6 +41,9 @@ export const serviceComplementaryIds: Record<string, string[]> = {
 /** Liens hors projets (ex. accueil sur la page SEO) */
 export const serviceExtraLinks: Record<string, ExtraInternalLink[]> = {
   seo: [{ href: "/", label: "Voir le portfolio (accueil)" }],
+  wordpress: [
+    { href: "/services/website", label: "Site vitrine (Next.js / sur mesure)" },
+  ],
 }
 
 /** Projet → services associés (le 1er = principal) */

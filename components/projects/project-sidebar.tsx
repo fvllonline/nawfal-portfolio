@@ -3,9 +3,15 @@
 import Link from "next/link"
 import { ExternalLink, Github, Rocket } from "lucide-react"
 import { FadeIn } from "@/components/ui/motion"
-import type { Project } from "@/lib/types"
+import type { Project, Service } from "@/lib/types"
 
-export function ProjectSidebar({ project }: { project: Project }) {
+export function ProjectSidebar({
+  project,
+  primaryService,
+}: {
+  project: Project
+  primaryService?: Service
+}) {
   return (
     <FadeIn delay={0.15} className="space-y-6">
       <aside className="glass-card space-y-6 rounded-2xl p-6 md:p-8">
@@ -32,6 +38,20 @@ export function ProjectSidebar({ project }: { project: Project }) {
             />
           )}
         </div>
+
+        {primaryService && (
+          <div>
+            <p className="label-ln mb-2 text-foreground-muted">
+              Service principal
+            </p>
+            <Link
+              href={`/services/${primaryService.id}`}
+              className="text-base font-medium text-primary transition-colors hover:underline"
+            >
+              {primaryService.title}
+            </Link>
+          </div>
+        )}
 
         <div className="flex flex-col gap-3">
           {project.liveUrl ? (

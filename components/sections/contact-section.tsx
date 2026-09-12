@@ -102,9 +102,29 @@ export function ContactSection() {
               <span className="gradient-text italic">Casablanca</span>
             </h2>
             <p className="body-lg mt-4 max-w-md">
-              Une idée de site, d&apos;app ou d&apos;API ? Développeur Full-Stack
-              freelance à Casablanca, je réponds aux demandes au Maroc et en
-              remote. Écrivez-moi pour un devis ou un premier échange.
+              Une idée de{" "}
+              <Link
+                href="/services/website"
+                className="text-primary underline-offset-4 hover:underline"
+              >
+                site vitrine
+              </Link>
+              , d&apos;
+              <Link
+                href="/services/mobile_app"
+                className="text-primary underline-offset-4 hover:underline"
+              >
+                application mobile
+              </Link>{" "}
+              ou d&apos;
+              <Link
+                href="/services/api_backend"
+                className="text-primary underline-offset-4 hover:underline"
+              >
+                API
+              </Link>{" "}
+              ? Développeur Full-Stack freelance à Casablanca, je réponds aux
+              demandes au Maroc et en remote.
             </p>
           </div>
 

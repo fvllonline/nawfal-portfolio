@@ -23,7 +23,7 @@ export function RelatedProjects({ projects }: { projects: Project[] }) {
           </Link>
         </div>
 
-        <Stagger className="grid grid-cols-1 gap-8 md:grid-cols-3">
+        <Stagger className="grid grid-cols-1 gap-8 md:grid-cols-2">
           {projects.map((project) => (
             <StaggerItem key={project.slug}>
               <Link href={`/projects/${project.slug}`} className="group block">

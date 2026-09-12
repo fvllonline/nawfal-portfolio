@@ -33,7 +33,7 @@ export function RelatedServices({
         </p>
       </div>
 
-      <Stagger className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      <Stagger className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {services.map((service) => {
           const Icon = serviceIcons[service.icon]
           const isPrimary = service.id === primaryService.id

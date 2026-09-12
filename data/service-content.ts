@@ -160,6 +160,12 @@ export const servicePageContent: Record<string, ServicePageContent> = {
       "Votre site est lent, daté ou peu clair ? Je modernise design, UX, performances et SEO technique — sans perdre votre contenu utile.",
       "Refonte progressive ou complète, migration soignée, résultat professionnel pour marques et entreprises au Maroc.",
     ],
+    seeAlso: {
+      before: "Exemple de vitrine modernisée : ",
+      href: "/projects/adam-adventure-tours",
+      label: "Adam Adventure Tours",
+      after: ".",
+    },
     benefits: [
       "Nouveau look + meilleure conversion",
       "Mobile-first et perf",
@@ -184,6 +190,12 @@ export const servicePageContent: Record<string, ServicePageContent> = {
       "Mises à jour, sauvegardes, corrections et petites évolutions — un forfait mensuel en MAD pour garder votre site fiable.",
       "Idéal si vous n’avez pas d’équipe tech en interne à Casablanca ou au Maroc.",
     ],
+    seeAlso: {
+      before: "Souvent après une ",
+      href: "/services/website",
+      label: "création de site vitrine",
+      after: " ou un e-commerce déjà en ligne.",
+    },
     benefits: [
       "Sérénité technique au mois",
       "Correctifs et évolutions limitées incluses selon pack",
@@ -208,6 +220,12 @@ export const servicePageContent: Record<string, ServicePageContent> = {
       "Interfaces Figma claires et modernes pour le web et le mobile — avant le développement, pour éviter les allers-retours coûteux.",
       "Design system, prototypes cliquables et handoff développeur pour startups et agences au Maroc.",
     ],
+    seeAlso: {
+      before: "Côté produit livré, voir le projet ",
+      href: "/projects/dupond-cafe",
+      label: "Dupond Café",
+      after: " — vitrine et identité visuelle.",
+    },
     benefits: [
       "Maquettes desktop + mobile",
       "Prototype pour valider le parcours",
@@ -232,6 +250,12 @@ export const servicePageContent: Record<string, ServicePageContent> = {
       "Sites WordPress professionnels, responsives et administrables — pour entreprises qui veulent éditer leur contenu facilement.",
       "Installation, thème, pages, SEO de base et formation : packs en MAD adaptés au marché marocain.",
     ],
+    seeAlso: {
+      before: "Pour un site plus sur mesure (hors CMS), voir la ",
+      href: "/services/website",
+      label: "création de site vitrine",
+      after: ".",
+    },
     benefits: [
       "Autonomie de contenu (admin WP)",
       "Design responsive",
@@ -286,6 +310,12 @@ export const servicePageContent: Record<string, ServicePageContent> = {
       "Un regard extérieur sur votre projet web : perf, SEO, UX, architecture et sécurité — avec un plan d’action priorisé.",
       "Utile avant une refonte, un recrutement ou un lancement. Accompagnement possible après l’audit.",
     ],
+    seeAlso: {
+      before: "Si l’audit conclut à un rebuild, je peux enchaîner sur une ",
+      href: "/services/redesign",
+      label: "refonte de site",
+      after: ".",
+    },
     benefits: [
       "Diagnostic clair et priorisé",
       "Recommandations actionnables",

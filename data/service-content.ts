@@ -251,10 +251,10 @@ export const servicePageContent: Record<string, ServicePageContent> = {
       "Installation, thème, pages, SEO de base et formation : packs en MAD adaptés au marché marocain.",
     ],
     seeAlso: {
-      before: "Pour un site plus sur mesure (hors CMS), voir la ",
+      before: "Pour un site plus sur mesure (hors CMS), voir les ",
       href: "/services/website",
-      label: "création de site vitrine",
-      after: ".",
+      label: "sites vitrines Next.js",
+      after: "."
     },
     benefits: [
       "Autonomie de contenu (admin WP)",
@@ -313,8 +313,8 @@ export const servicePageContent: Record<string, ServicePageContent> = {
     seeAlso: {
       before: "Si l’audit conclut à un rebuild, je peux enchaîner sur une ",
       href: "/services/redesign",
-      label: "refonte de site",
-      after: ".",
+      label: "modernisation de site existant",
+      after: "."
     },
     benefits: [
       "Diagnostic clair et priorisé",

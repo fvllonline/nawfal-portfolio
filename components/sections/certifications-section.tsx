@@ -133,7 +133,7 @@ export function CertificationsSection() {
                           <Icon className="h-5 w-5" />
                         </div>
                       </div>
-                      <h4 className="heading-sm text-lg">{cert.name}</h4>
+                      <h3 className="heading-sm text-lg">{cert.name}</h3>
                       <p className="label-md-ln mt-2 text-foreground-muted">
                         {cert.institution}
                       </p>

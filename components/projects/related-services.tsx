@@ -40,8 +40,7 @@ export function RelatedServices({
 
           return (
             <StaggerItem key={service.id}>
-              <Link
-                href={`/services/${service.id}`}
+              <article
                 className={cn(
                   "glass-card group relative flex h-full flex-col rounded-2xl border p-5 transition-colors",
                   isPrimary
@@ -57,17 +56,25 @@ export function RelatedServices({
                 <div className="mb-3 flex h-11 w-11 items-center justify-center rounded-xl bg-primary/10 text-primary transition-transform group-hover:scale-110">
                   <Icon className="h-5 w-5" />
                 </div>
-                <h3 className="heading-sm text-base transition-colors group-hover:text-primary">
-                  {service.title}
+                <h3 className="heading-sm text-base">
+                  <Link
+                    href={`/services/${service.id}`}
+                    className="transition-colors hover:text-primary group-hover:text-primary"
+                  >
+                    {service.title}
+                  </Link>
                 </h3>
                 <p className="body-md mt-2 flex-1 line-clamp-3 text-sm">
                   {service.description}
                 </p>
-                <span className="label-md-ln mt-4 inline-flex items-center gap-2 text-primary">
-                  Voir les packs
+                <Link
+                  href={`/services/${service.id}`}
+                  className="label-md-ln mt-4 inline-flex items-center gap-2 text-primary hover:underline"
+                >
+                  {isPrimary ? "Découvrir le service" : "En savoir plus"}
                   <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
-                </span>
-              </Link>
+                </Link>
+              </article>
             </StaggerItem>
           )
         })}

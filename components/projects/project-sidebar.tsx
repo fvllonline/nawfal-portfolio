@@ -3,6 +3,7 @@
 import Link from "next/link"
 import { ExternalLink, Github, Rocket } from "lucide-react"
 import { FadeIn } from "@/components/ui/motion"
+import { getServiceShortLabel } from "@/data"
 import type { Project, Service } from "@/lib/types"
 
 export function ProjectSidebar({
@@ -48,7 +49,7 @@ export function ProjectSidebar({
               href={`/services/${primaryService.id}`}
               className="text-base font-medium text-primary transition-colors hover:underline"
             >
-              {primaryService.title}
+              {getServiceShortLabel(primaryService.id, primaryService.title)}
             </Link>
           </div>
         )}

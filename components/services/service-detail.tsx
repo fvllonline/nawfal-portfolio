@@ -4,7 +4,7 @@ import Link from "next/link"
 import Image from "next/image"
 import { ArrowLeft, ArrowRight, Check } from "lucide-react"
 import { motion, useReducedMotion } from "framer-motion"
-import { serviceGeneralTerms } from "@/data"
+import { getServiceShortLabel, serviceGeneralTerms } from "@/data"
 import { FadeIn, easeOutExpo } from "@/components/ui/motion"
 import { Breadcrumbs } from "@/components/seo/breadcrumbs"
 import { ServicePackCard } from "@/components/services/service-pack-card"
@@ -163,29 +163,35 @@ export function ServiceDetail({
           </p>
           <div className="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {relatedProjects.map((project) => (
-              <Link
-                key={project.slug}
-                href={`/projects/${project.slug}`}
-                className="group block"
-              >
+              <article key={project.slug} className="group">
                 <div className="glass-card relative mb-3 aspect-[16/10] overflow-hidden rounded-2xl bg-muted">
                   <Image
                     src={project.coverImage}
-                    alt={`${project.title} — projet ${service.title}`}
+                    alt=""
                     fill
                     loading="lazy"
                     className="object-cover transition-transform duration-500 group-hover:scale-105"
                     sizes="(max-width: 768px) 100vw, 33vw"
                     quality={70}
                   />
+                  <Link
+                    href={`/projects/${project.slug}`}
+                    className="absolute inset-0"
+                    aria-label={`Découvrir ${project.title}`}
+                  />
                 </div>
-                <h3 className="heading-sm transition-colors group-hover:text-primary">
-                  Voir le projet {project.title}
+                <h3 className="heading-sm">
+                  <Link
+                    href={`/projects/${project.slug}`}
+                    className="transition-colors hover:text-primary group-hover:text-primary"
+                  >
+                    {project.title}
+                  </Link>
                 </h3>
                 <p className="body-md mt-1 line-clamp-2 text-foreground-muted">
                   {project.shortDescription}
                 </p>
-              </Link>
+              </article>
             ))}
           </div>
         </FadeIn>
@@ -204,7 +210,7 @@ export function ServiceDetail({
                 href={`/services/${item.id}`}
                 className="label-md-ln rounded-xl border border-border px-4 py-2.5 text-foreground transition-colors hover:border-primary/40 hover:text-primary"
               >
-                {item.title}
+                {getServiceShortLabel(item.id, item.title)}
               </Link>
             ))}
             {extraLinks.map((link) => (
@@ -260,7 +266,7 @@ export function ServiceDetail({
           href="/#contact"
           className="label-md-ln group inline-flex items-center gap-2 text-primary hover:underline"
         >
-          Une question ? Contactez-moi à Casablanca
+          Une question ? Contactez-moi
           <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
         </Link>
       </FadeIn>

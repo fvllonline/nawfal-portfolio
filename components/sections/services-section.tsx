@@ -100,24 +100,29 @@ export function ServicesSection() {
                     key={service.id}
                     className="basis-full pl-4 sm:basis-1/2 lg:basis-1/3"
                   >
-                    <Link
-                      href={`/services/${service.id}`}
-                      className="glass-card group flex h-full min-h-[260px] flex-col rounded-2xl border border-border p-6 transition-colors hover:border-primary/40 select-none"
-                    >
+                    <article className="glass-card group flex h-full min-h-[260px] flex-col rounded-2xl border border-border p-6 transition-colors hover:border-primary/40 select-none">
                       <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary transition-transform group-hover:scale-110">
                         <Icon className="h-6 w-6" />
                       </div>
-                      <h3 className="heading-sm text-lg transition-colors group-hover:text-primary">
-                        {service.title}
+                      <h3 className="heading-sm text-lg">
+                        <Link
+                          href={`/services/${service.id}`}
+                          className="transition-colors hover:text-primary group-hover:text-primary"
+                        >
+                          {service.title}
+                        </Link>
                       </h3>
                       <p className="body-md mt-2 flex-1 line-clamp-3">
                         {service.description}
                       </p>
-                      <span className="label-md-ln mt-5 inline-flex items-center gap-2 text-primary">
+                      <Link
+                        href={`/services/${service.id}`}
+                        className="label-md-ln mt-5 inline-flex items-center gap-2 text-primary hover:underline"
+                      >
                         Voir les packs
                         <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-                      </span>
-                    </Link>
+                      </Link>
+                    </article>
                   </CarouselItem>
                 )
               })}

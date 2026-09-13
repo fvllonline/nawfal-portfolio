@@ -26,30 +26,40 @@ export function RelatedProjects({ projects }: { projects: Project[] }) {
         <Stagger className="grid grid-cols-1 gap-8 md:grid-cols-2">
           {projects.map((project) => (
             <StaggerItem key={project.slug}>
-              <Link href={`/projects/${project.slug}`} className="group block">
+              <article className="group">
                 <div className="glass-card relative mb-4 aspect-[4/3] overflow-hidden rounded-2xl bg-muted">
                   <Image
                     src={project.coverImage}
-                    alt={project.title}
+                    alt=""
                     fill
                     loading="lazy"
                     className="object-cover transition-all duration-500 group-hover:scale-105 group-hover:opacity-70"
                     sizes="(max-width: 768px) 100vw, 33vw"
                     quality={70}
                   />
-                  <div className="absolute inset-0 flex items-center justify-center opacity-0 transition-opacity group-hover:opacity-100">
+                  <div className="pointer-events-none absolute inset-0 flex items-center justify-center opacity-0 transition-opacity group-hover:opacity-100">
                     <span className="rounded-full border border-primary bg-background/90 px-4 py-2 font-mono text-sm text-primary">
-                      Voir l’étude de cas
+                      Étude de cas
                     </span>
                   </div>
+                  <Link
+                    href={`/projects/${project.slug}`}
+                    className="absolute inset-0"
+                    aria-label={`Découvrir ${project.title}`}
+                  />
                 </div>
-                <h3 className="heading-sm transition-colors group-hover:text-primary">
-                  {project.title}
+                <h3 className="heading-sm">
+                  <Link
+                    href={`/projects/${project.slug}`}
+                    className="transition-colors hover:text-primary group-hover:text-primary"
+                  >
+                    {project.title}
+                  </Link>
                 </h3>
                 <p className="body-md mt-1 line-clamp-1">
                   {project.shortDescription}
                 </p>
-              </Link>
+              </article>
             </StaggerItem>
           ))}
         </Stagger>

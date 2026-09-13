@@ -62,7 +62,7 @@ export function ProjectFeatures({ features }: { features: ProjectFeature[] }) {
                     <Icon className="h-5 w-5" aria-hidden />
                   </span>
                   <div>
-                    <h4 className="heading-sm text-lg">{feature.title}</h4>
+                    <h3 className="heading-sm text-lg">{feature.title}</h3>
                     <p className="body-md mt-1">{feature.description}</p>
                   </div>
                 </div>

@@ -66,6 +66,25 @@ export const similarProjectSlugs: Record<string, string[]> = {
   "adam-adventure-tours": ["dupond-cafe"],
 }
 
+/** Ancres courtes pour le maillage (évite de répéter les H1 « … à Casablanca ») */
+export const serviceShortLabel: Record<string, string> = {
+  website: "Sites vitrines",
+  ecommerce: "Boutiques en ligne",
+  web_app: "Applications web",
+  mobile_app: "Applications mobiles",
+  seo: "SEO & visibilité",
+  redesign: "Refonte et modernisation",
+  maintenance: "Maintenance et suivi",
+  uiux: "Design UI/UX",
+  wordpress: "Sites WordPress",
+  api_backend: "API & backend",
+  consulting: "Audit technique",
+}
+
+export function getServiceShortLabel(id: string, fallback: string) {
+  return serviceShortLabel[id] ?? fallback
+}
+
 export const footerServiceIds = [
   "website",
   "ecommerce",

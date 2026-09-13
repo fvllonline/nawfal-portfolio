@@ -5,6 +5,7 @@ import {
   footerServiceIds,
   getProjectBySlug,
   getServiceById,
+  getServiceShortLabel,
   siteConfig,
 } from "@/data"
 import { NapBlock } from "@/components/seo/nap-block"
@@ -29,7 +30,7 @@ export function Footer() {
           <Link
             href="/"
             className="flex items-center gap-2 text-primary transition-opacity hover:opacity-80"
-            aria-label={`${siteConfig.nap.name} — Développeur Full-Stack Casablanca`}
+            aria-label={`Accueil — ${siteConfig.nap.name}`}
           >
             <Terminal className="h-5 w-5" aria-hidden />
             <span className="font-display text-xl font-semibold tracking-tighter">
@@ -53,7 +54,7 @@ export function Footer() {
                   href={`/services/${service.id}`}
                   className="label-md-ln text-foreground-muted transition-colors hover:text-primary"
                 >
-                  {service.title}
+                  {getServiceShortLabel(service.id, service.title)}
                 </Link>
               </li>
             ))}

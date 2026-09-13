@@ -85,6 +85,36 @@ export function getServiceShortLabel(id: string, fallback: string) {
   return serviceShortLabel[id] ?? fallback
 }
 
+/**
+ * Ancres vers un service complémentaire, selon la page source.
+ * Évite le même exact-match (« Maintenance de site web ») partout.
+ */
+export const complementaryLinkLabel: Record<
+  string,
+  Partial<Record<string, string>>
+> = {
+  ecommerce: {
+    maintenance: "suivi et maintenance",
+  },
+  seo: {
+    maintenance: "maintenance technique",
+  },
+  wordpress: {
+    maintenance: "accompagnement et maintenance",
+  },
+}
+
+export function getComplementaryLinkLabel(
+  fromServiceId: string,
+  toServiceId: string,
+  fallback: string
+) {
+  return (
+    complementaryLinkLabel[fromServiceId]?.[toServiceId] ??
+    getServiceShortLabel(toServiceId, fallback)
+  )
+}
+
 export const footerServiceIds = [
   "website",
   "ecommerce",

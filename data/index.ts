@@ -21,4 +21,5 @@ export {
   footerServiceIds,
   footerProjectSlugs,
   getServiceShortLabel,
+  getComplementaryLinkLabel,
 } from "./internal-links"

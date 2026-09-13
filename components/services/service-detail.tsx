@@ -4,7 +4,7 @@ import Link from "next/link"
 import Image from "next/image"
 import { ArrowLeft, ArrowRight, Check } from "lucide-react"
 import { motion, useReducedMotion } from "framer-motion"
-import { getServiceShortLabel, serviceGeneralTerms } from "@/data"
+import { getComplementaryLinkLabel, serviceGeneralTerms } from "@/data"
 import { FadeIn, easeOutExpo } from "@/components/ui/motion"
 import { Breadcrumbs } from "@/components/seo/breadcrumbs"
 import { ServiceFaq } from "@/components/services/service-faq"
@@ -223,7 +223,7 @@ export function ServiceDetail({
                 href={`/services/${item.id}`}
                 className="label-md-ln rounded-xl border border-border px-4 py-2.5 text-foreground transition-colors hover:border-primary/40 hover:text-primary"
               >
-                {getServiceShortLabel(item.id, item.title)}
+                {getComplementaryLinkLabel(service.id, item.id, item.title)}
               </Link>
             ))}
             {extraLinks.map((link) => (

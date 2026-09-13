@@ -40,7 +40,7 @@ Pages détaillées (packs & devis) :
 - [Applications mobiles](https://nawfal.online/services/mobile_app)
 - [SEO & optimisation](https://nawfal.online/services/seo)
 - [Refonte de site](https://nawfal.online/services/redesign)
-- [Maintenance & support](https://nawfal.online/services/maintenance)
+- [Forfait de maintenance](https://nawfal.online/services/maintenance)
 - [UI/UX Design](https://nawfal.online/services/uiux)
 - [WordPress / CMS](https://nawfal.online/services/wordpress)
 - [API & Backend](https://nawfal.online/services/api_backend)

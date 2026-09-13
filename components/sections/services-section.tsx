@@ -117,7 +117,9 @@ export function ServicesSection() {
                         href={`/services/${service.id}`}
                         className="label-md-ln mt-5 inline-flex items-center gap-2 text-primary hover:underline"
                       >
-                        Voir les packs
+                        {service.id === "maintenance"
+                          ? "Voir les forfaits mensuels"
+                          : "Voir les packs"}
                         <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                       </Link>
                     </article>

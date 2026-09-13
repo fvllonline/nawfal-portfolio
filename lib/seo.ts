@@ -69,15 +69,13 @@ export function buildSiteJsonLd() {
       "Développement Full-Stack",
       "Développement Web",
       "Développement Mobile",
-      "Casablanca",
-      "Maroc",
     ],
   }
 
   const professionalService = {
     "@type": "ProfessionalService",
     "@id": serviceId,
-    name: `${siteConfig.nap.name} — Développement Full-Stack Casablanca`,
+    name: `${siteConfig.nap.name} — Développeur Full-Stack`,
     alternateName: "Nawfal Addaoui Freelance",
     url: siteConfig.url,
     image: portrait,
@@ -127,9 +125,37 @@ export function buildSiteJsonLd() {
     knowsLanguage: ["fr", "en", "ar"],
   }
 
+  const website = {
+    "@type": "WebSite",
+    "@id": absoluteUrl("/#website"),
+    url: siteConfig.url,
+    name: siteConfig.fullName,
+    alternateName: siteConfig.name,
+    inLanguage: "fr",
+    description: siteConfig.seoDescription,
+    publisher: { "@id": personId },
+  }
+
   return {
     "@context": "https://schema.org",
-    "@graph": [person, professionalService],
+    "@graph": [website, person, professionalService],
+  }
+}
+
+export function buildFaqPageJsonLd(
+  items: { question: string; answer: string }[]
+) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: items.map((item) => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.answer,
+      },
+    })),
   }
 }
 
@@ -138,13 +164,15 @@ export function buildServicePageJsonLd(service: {
   id: string
   title: string
   description: string
-  content?: { h1: string; intro: string[] }
+  content?: { h1: string; intro: string[]; metaDescription?: string }
   packs: { name: string; price: number; currency: string }[]
 }) {
   const url = absoluteUrl(`/services/${service.id}`)
   const name = service.content?.h1 ?? service.title
   const description =
-    service.content?.intro?.[0] ?? service.description
+    service.content?.metaDescription ??
+    service.content?.intro?.[0] ??
+    service.description
 
   return {
     "@context": "https://schema.org",

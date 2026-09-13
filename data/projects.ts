@@ -15,7 +15,7 @@ export const projects: Project[] = [
     subtitle:
       "Application mobile de préparation au TCF — s’entraîner, suivre sa progression et rester prêt le jour J.",
     shortDescription:
-      "App mobile de préparation au TCF — projet full-stack réalisé à Casablanca (React Native, Next.js, IA).",
+      "Application mobile de préparation au TCF — React Native, Next.js et IA.",
     description: [
       "MonPassTCF est un produit ed-tech mobile-first conçu pour aider les candidats — notamment au Maroc — à préparer le Test de Connaissance du Français (TCF). Il couvre compréhension orale, écrite, structures et expression écrite avec une approche structurée et data-driven.",
       "Réalisé durant un stage PFE chez Alvon Digital Group à Casablanca, la plateforme combine une architecture full-stack (Express.js, React Native, Next.js), une intégration IA via Groq, des fonctionnalités sociales en temps réel, de la gamification et un dashboard administrateur.",
@@ -94,7 +94,7 @@ export const projects: Project[] = [
     subtitle:
       "Stage de fin d’études — APIs backend Laravel, documentation technique et identité visuelle complète.",
     shortDescription:
-      "Backend Laravel & branding pour Quick Stay — stage full-stack à Casablanca (APIs REST, Postman, identité visuelle).",
+      "Backend Laravel et identité visuelle pour Quick Stay — APIs REST, Postman et documentation.",
     description: [
       "Durant mon stage de fin d’études à Casablanca, j’ai participé activement au développement de l’application web Quick Stay, avec une forte implication sur la conception technique et la réalisation du backend.",
       "Côté organisation : rédaction du cahier des charges fonctionnel et technique, coordination des tâches en équipe, création du logo et définition de la charte graphique complète.",
@@ -170,7 +170,7 @@ export const projects: Project[] = [
     subtitle:
       "Boutique e-commerce moderne pensée pour la conversion, la vitesse et un parcours d’achat fluide.",
     shortDescription:
-      "E-commerce Next.js pensé pour la conversion — vitrine produit livrée depuis Casablanca.",
+      "Boutique e-commerce Next.js : catalogue, panier et parcours d’achat.",
     description: [
       "Breezoria est un site e-commerce personnalisable, axé sur une présentation produit claire et un chemin sans friction de la découverte à l’achat — adapté aux marques qui veulent vendre en ligne au Maroc ou à l’international.",
       "La vitrine mise sur la performance, le responsive et une structure merchandising adaptée à une marque en croissance.",
@@ -234,9 +234,9 @@ export const projects: Project[] = [
     subtitle:
       "Site e-commerce en cours de développement — catalogue, panier et UX boutique.",
     shortDescription:
-      "E-commerce Next.js en cours (Casablanca) — catalogue, panier et UX boutique ; démo en ligne disponible.",
+      "E-commerce Next.js en cours — catalogue, panier et UX boutique ; démo en ligne disponible.",
     description: [
-      "ZacaStore est un site e-commerce conçu pour une hiérarchie produit claire et une expérience d’achat rapide — un cas concret de boutique en ligne développée en Full-Stack depuis Casablanca.",
+      "ZacaStore est un site e-commerce conçu pour une hiérarchie produit claire et une expérience d’achat rapide.",
       "Il mise sur une vitrine propre (Next.js, React, Tailwind), des pages produit responsive et un parcours de commande simple sur tous les appareils, adapté aux attentes des acheteurs au Maroc.",
       "Note : ce projet est encore en développement actif et n’est pas terminé à 100 % — la démo en ligne reflète un travail en cours, utile pour évaluer l’approche UX et technique.",
     ],
@@ -303,10 +303,10 @@ export const projects: Project[] = [
     subtitle:
       "Site vitrine pour un café artisanal — ambiance, menu et présence digitale chaleureuse.",
     shortDescription:
-      "Site vitrine café artisanal (React) — storytelling, menu et présence digitale ; exemple de site vitrine professionnel.",
+      "Site vitrine React pour un café artisanal — menu, galerie et contact.",
     description: [
       "Dupond Café est un site vitrine qui présente l’ambiance du café, les points forts du menu et la personnalité de la marque en ligne — le type de présence digitale dont ont besoin restaurants et commerces de proximité.",
-      "Réalisé avec React + Vite et Tailwind CSS, déployé sur Vercel, il privilégie des visuels élégants et un parcours visiteur simple : une référence concrète pour des projets de site vitrine à Casablanca ou ailleurs au Maroc.",
+      "Réalisé avec React + Vite et Tailwind CSS, déployé sur Vercel : visuels soignés et parcours visiteur simple, le type de présence dont ont besoin les commerces de proximité.",
       "Objectif : donner envie avant même la visite physique — photos, typographie et structure claires, sans surcharger le chargement.",
     ],
     coverImage: "/DupondCafe/miniature-dupondcafe.webp",
@@ -362,7 +362,7 @@ export const projects: Project[] = [
     subtitle:
       "Site vitrine pour une marque tourisme — de l’analyse des besoins au déploiement Next.js.",
     shortDescription:
-      "Site vitrine tourisme Next.js pour Adam Adventure Tours — présence digitale professionnelle au Maroc.",
+      "Site vitrine tourisme Next.js pour Adam Adventure Tours — design, intégration et déploiement.",
     description: [
       "Conception et développement de bout en bout du site vitrine Adam Adventure Tours & Tourism durant un stage — une marque tourisme qui s’adresse à des voyageurs au Maroc et à l’étranger.",
       "Périmètre : analyse des besoins, choix technologiques, design graphique, intégration Next.js, déploiement Vercel et maintenance.",

@@ -7,6 +7,7 @@ import { motion, useReducedMotion } from "framer-motion"
 import { getServiceShortLabel, serviceGeneralTerms } from "@/data"
 import { FadeIn, easeOutExpo } from "@/components/ui/motion"
 import { Breadcrumbs } from "@/components/seo/breadcrumbs"
+import { ServiceFaq } from "@/components/services/service-faq"
 import { ServicePackCard } from "@/components/services/service-pack-card"
 import { serviceIcons } from "@/components/services/service-icons"
 import type { Project, Service } from "@/lib/types"
@@ -129,6 +130,19 @@ export function ServiceDetail({
               ))}
             </ol>
           </div>
+
+          {content.technologies && content.technologies.length > 0 && (
+            <div>
+              <h2 className="heading-lg text-primary">Technologies</h2>
+              <ul className="mt-5 flex flex-wrap gap-2">
+                {content.technologies.map((tech) => (
+                  <li key={tech} className="chip-muted">
+                    {tech}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
         </FadeIn>
       )}
 
@@ -138,7 +152,7 @@ export function ServiceDetail({
             <h2 className="heading-lg text-primary">Packs & tarifs (MAD)</h2>
             <p className="body-md mt-2 max-w-2xl">
               Comparez Starter, Pro et Business, puis demandez un devis adapté à
-              Casablanca et au Maroc.
+              votre besoin.
             </p>
           </div>
         </div>
@@ -158,8 +172,7 @@ export function ServiceDetail({
         <FadeIn delay={0.08} className="mt-12 sm:mt-16">
           <h2 className="heading-lg text-primary">Projets associés</h2>
           <p className="body-md mt-2 max-w-2xl">
-            Études de cas liées à ce service — réalisées en Full-Stack à
-            Casablanca.
+            Réalisations liées à cette offre — pour voir l’approche concrète.
           </p>
           <div className="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {relatedProjects.map((project) => (
@@ -223,6 +236,12 @@ export function ServiceDetail({
               </Link>
             ))}
           </div>
+        </FadeIn>
+      )}
+
+      {content?.faq && content.faq.length > 0 && (
+        <FadeIn delay={0.1} className="mt-12 sm:mt-16">
+          <ServiceFaq items={content.faq} />
         </FadeIn>
       )}
 

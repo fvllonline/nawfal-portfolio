@@ -27,6 +27,16 @@ const MIN_ZOOM = 1
 const MAX_ZOOM = 4
 const ZOOM_STEP = 0.35
 
+function galleryAlt(src: string, title: string, index: number) {
+  const file =
+    src.split("/").pop()?.replace(/\.(webp|png|jpe?g|avif)$/i, "") ?? ""
+  const hint = file.replace(/^\d+-?/, "").replace(/[-_]/g, " ").trim()
+  if (!hint || /^\d+$/.test(file)) {
+    return `Interface ${index + 1} — ${title}`
+  }
+  return `${title} — ${hint}`
+}
+
 type ProjectGalleryProps = {
   images: string[]
   title: string
@@ -55,7 +65,7 @@ export function ProjectGallery({ images, title }: ProjectGalleryProps) {
                 >
                   <Image
                     src={src}
-                    alt={`Capture ${index + 1} de ${title}`}
+                    alt={galleryAlt(src, title, index)}
                     fill
                     loading="lazy"
                     className="object-cover transition-transform duration-500 group-hover:scale-105"
@@ -261,7 +271,7 @@ function Lightbox({
             {/* Full-res only when lightbox is open (mounted on click) */}
             <img
               src={src}
-              alt={`Capture ${index + 1} de ${title}`}
+              alt={galleryAlt(src, title, index)}
               className="max-h-full max-w-full select-none object-contain shadow-2xl"
               draggable={false}
               decoding="async"

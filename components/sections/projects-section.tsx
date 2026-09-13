@@ -79,8 +79,8 @@ export function ProjectsSection() {
           <p className="label-ln">Réalisations</p>
           <h2 className="heading-lg mt-2">Projets web & mobile</h2>
           <p className="body-md mx-auto mt-4 max-w-2xl">
-            Une sélection de réalisations full-stack — apps, e-commerce et sites
-            vitrines livrés pour des clients et partenaires, depuis Casablanca.
+            Une sélection de réalisations — apps, e-commerce et sites vitrines
+            livrés pour des clients et partenaires.
           </p>
           <div className="mt-6 flex justify-center gap-2">
             <button

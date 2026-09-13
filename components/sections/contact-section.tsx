@@ -98,8 +98,8 @@ export function ContactSection() {
           <div>
             <p className="label-ln">Contact</p>
             <h2 className="heading-lg mt-2">
-              Parlons de votre projet à{" "}
-              <span className="gradient-text italic">Casablanca</span>
+              Parlons de{" "}
+              <span className="gradient-text italic">votre projet</span>
             </h2>
             <p className="body-lg mt-4 max-w-md">
               Une idée de{" "}

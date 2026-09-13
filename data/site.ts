@@ -10,10 +10,9 @@ export const siteConfig: SiteConfig = {
   phoneDisplay: "+212 631-108355",
   tagline:
     "Développeur Full-Stack à Casablanca : je conçois des sites web, apps et APIs performants avec React, Next.js et Laravel — pour startups et entreprises au Maroc.",
-  seoTitle:
-    "Nawfal Addaoui | Développeur Full-Stack Casablanca | React, Next.js, Laravel",
+  seoTitle: "Développeur Full-Stack à Casablanca | Nawfal ADDAOUI",
   seoDescription:
-    "Développeur Full-Stack basé à Casablanca. Spécialiste React, Next.js, Laravel et React Native. Portfolio de projets web & mobile. Disponible pour missions freelance et collaborations.",
+    "Freelance Full-Stack à Casablanca : sites web, applications et APIs avec React, Next.js, Laravel et React Native. Devis en MAD, missions au Maroc ou en remote.",
   availability: "Disponible pour missions freelance · Casablanca & Maroc",
   bio: "Développeur Full-Stack passionné basé à Casablanca, spécialisé en React, Laravel et Next.js. Créatif, adaptable et motivé pour contribuer à des projets innovants qui allient fonctionnalité et esthétique.",
   url: "https://nawfal.online",

@@ -15,8 +15,8 @@ export function TestimonialsSection() {
           <p className="label-ln">Témoignages</p>
           <h2 className="heading-lg mt-2">Avis clients & collaborateurs</h2>
           <p className="body-md mx-auto mt-4 max-w-2xl">
-            Ce que disent ceux qui ont travaillé avec un développeur Full-Stack
-            basé à Casablanca.
+            Ce que disent ceux qui ont travaillé avec moi — stages, projets et
+            collaborations.
           </p>
         </FadeIn>
 

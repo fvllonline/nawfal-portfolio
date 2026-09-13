@@ -1,6 +1,6 @@
 import { buildSiteJsonLd } from "@/lib/seo"
 
-/** Injects Person + ProfessionalService structured data into the document. */
+/** Injects WebSite + Person + ProfessionalService structured data. */
 export function JsonLd() {
   const data = buildSiteJsonLd()
 

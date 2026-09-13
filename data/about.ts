@@ -2,8 +2,8 @@ import type { SoftSkill, Language } from "@/lib/types"
 
 export const aboutContent = {
   label: "À propos",
-  heading: "Développeur Full-Stack à",
-  headingAccent: "Casablanca",
+  heading: "Du web au mobile,",
+  headingAccent: "une stack complète",
   paragraphs: [
     "Je suis Nawfal Addaoui, développeur Full-Stack basé à Casablanca (Maroc). Je conçois et développe des produits web et mobile avec React, Next.js, Laravel et React Native — du prototype au déploiement.",
     "Mon approche : allier performance technique et expérience utilisateur. Chaque interface doit être claire, rapide et adaptée aux besoins réels des clients marocains comme internationaux.",

@@ -10,7 +10,11 @@ import {
   serviceExtraLinks,
   siteConfig,
 } from "@/data"
-import { buildBreadcrumbJsonLd, buildServicePageJsonLd } from "@/lib/seo"
+import {
+  buildBreadcrumbJsonLd,
+  buildFaqPageJsonLd,
+  buildServicePageJsonLd,
+} from "@/lib/seo"
 
 type ServicePageProps = {
   params: Promise<{ id: string }>
@@ -27,24 +31,25 @@ export async function generateMetadata({
   const service = getServiceById(id)
   if (!service) return { title: "Service introuvable" }
 
-  const title = service.content?.h1
-    ? `${service.content.h1} | Devis MAD`
-    : `${service.title} Casablanca | Devis MAD`
-
+  const title = service.content?.metaTitle ?? service.title
   const description =
-    service.content?.intro?.[0] ??
-    `${service.description} Packs en MAD — Nawfal Addaoui, développeur Full-Stack freelance à Casablanca.`
+    service.content?.metaDescription ?? service.description
 
   return {
     title,
     description,
     alternates: { canonical: `/services/${service.id}` },
     openGraph: {
-      title: `${service.content?.h1 ?? service.title} | ${siteConfig.nap.name}`,
+      title: `${title} | ${siteConfig.fullName}`,
       description,
       type: "website",
       locale: "fr_MA",
       url: `/services/${service.id}`,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${title} | ${siteConfig.fullName}`,
+      description,
     },
   }
 }
@@ -59,11 +64,17 @@ export default async function ServicePage({ params }: ServicePageProps) {
     .map((serviceId) => getServiceById(serviceId))
     .filter((item): item is NonNullable<typeof item> => Boolean(item))
   const extraLinks = serviceExtraLinks[service.id] ?? []
-  const jsonLd = buildServicePageJsonLd(service)
   const crumbs = [
     { name: "Accueil", path: "/" },
     { name: "Services", path: "/#services" },
     { name: service.title, path: `/services/${service.id}` },
+  ]
+  const jsonLd = [
+    buildServicePageJsonLd(service),
+    buildBreadcrumbJsonLd(crumbs),
+    ...(service.content?.faq?.length
+      ? [buildFaqPageJsonLd(service.content.faq)]
+      : []),
   ]
 
   return (
@@ -71,7 +82,7 @@ export default async function ServicePage({ params }: ServicePageProps) {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify([jsonLd, buildBreadcrumbJsonLd(crumbs)]),
+          __html: JSON.stringify(jsonLd),
         }}
       />
       <ServiceDetail

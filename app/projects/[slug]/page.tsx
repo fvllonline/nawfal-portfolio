@@ -37,19 +37,26 @@ export async function generateMetadata({
   const project = getProjectBySlug(slug)
   if (!project) return { title: "Projet introuvable" }
 
-  const description = `${project.shortDescription} Étude de cas par Nawfal Addaoui, développeur Full-Stack à Casablanca.`
+  const title = `${project.title} — ${project.type}`
+  const description = project.shortDescription
 
   return {
-    title: `${project.title} | Étude de cas — Full-Stack Casablanca`,
+    title,
     description,
     alternates: { canonical: `/projects/${project.slug}` },
     openGraph: {
-      title: `${project.title} | Nawfal Addaoui — Casablanca`,
-      description: project.shortDescription,
+      title: `${title} | Nawfal ADDAOUI`,
+      description,
       images: [project.coverImage],
       type: "article",
       locale: "fr_MA",
       url: `/projects/${project.slug}`,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${title} | Nawfal ADDAOUI`,
+      description,
+      images: [project.coverImage],
     },
   }
 }

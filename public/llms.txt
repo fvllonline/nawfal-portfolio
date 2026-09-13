@@ -62,6 +62,6 @@ Pages détaillées (packs & devis) :
 - [GitHub](https://github.com/fvllonline)
 - [LinkedIn](https://www.linkedin.com/in/nawfal-addaoui-40b651248/)
 
-## Mots-clés
+## Positionnement
 
-développeur full-stack Casablanca, développeur web Maroc, freelance React Next.js Laravel, développement mobile React Native, portfolio Nawfal Addaoui
+Nawfal Addaoui — développeur Full-Stack freelance à Casablanca (Maroc). Sites web, applications React / Next.js, Laravel, React Native.

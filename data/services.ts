@@ -15,7 +15,7 @@ export const services: Service[] = [
     id: "website",
     title: "Site Vitrine / Landing Page",
     description:
-      "Création de sites web modernes, rapides et responsive à Casablanca — pour présenter une entreprise, un produit ou un service au Maroc.",
+      "Sites vitrines et landing pages rapides, responsive, pensés pour présenter une activité et convertir vers le contact.",
     icon: "globe",
     packs: [
       {
@@ -71,7 +71,7 @@ export const services: Service[] = [
     id: "ecommerce",
     title: "Site E-commerce",
     description:
-      "Boutiques en ligne modernes (catalogue, panier, commande) pour vendre au Maroc et à l’international — livrées depuis Casablanca.",
+      "Boutiques en ligne : catalogue, panier et parcours de commande — pour vendre au Maroc et à l’international.",
     icon: "shopping-bag",
     packs: [
       {
@@ -130,7 +130,7 @@ export const services: Service[] = [
     id: "web_app",
     title: "Application Web Full-Stack",
     description:
-      "Applications web, SaaS et dashboards sur mesure — développement Full-Stack à Casablanca (React, Next.js, Laravel).",
+      "Applications web, SaaS et dashboards sur mesure — React, Next.js et Laravel.",
     icon: "layout",
     packs: [
       {
@@ -192,7 +192,7 @@ export const services: Service[] = [
     id: "mobile_app",
     title: "Application Mobile",
     description:
-      "Applications mobiles Android & iOS avec React Native / Expo — pour startups et entreprises au Maroc.",
+      "Applications Android et iOS avec React Native / Expo — une base, deux stores.",
     icon: "smartphone",
     packs: [
       {
@@ -251,7 +251,7 @@ export const services: Service[] = [
     id: "seo",
     title: "SEO & Optimisation",
     description:
-      "SEO technique et on-page à Casablanca — visibilité Google, performances et SEO local pour entreprises au Maroc.",
+      "SEO technique et on-page : visibilité Google, performances et structure.",
     icon: "search",
     packs: [
       {
@@ -306,7 +306,7 @@ export const services: Service[] = [
     id: "redesign",
     title: "Refonte de Site Existant",
     description:
-      "Refonte de site à Casablanca : moderniser design, UX, performances et SEO d’un site existant au Maroc.",
+      "Moderniser design, UX, performances et SEO d’un site déjà en ligne.",
     icon: "refresh",
     packs: [
       {
@@ -361,7 +361,7 @@ export const services: Service[] = [
     id: "maintenance",
     title: "Maintenance & Support",
     description:
-      "Maintenance mensuelle en MAD — mises à jour, sauvegardes et support pour votre site à Casablanca.",
+      "Forfait mensuel : mises à jour, sauvegardes, correctifs et support.",
     icon: "wrench",
     packs: [
       {
@@ -412,7 +412,7 @@ export const services: Service[] = [
     id: "uiux",
     title: "UI/UX Design",
     description:
-      "UI/UX Design Figma à Casablanca — interfaces web & mobile, prototypes et design system pour produits au Maroc.",
+      "Interfaces Figma web et mobile, prototypes et design system — avant le développement.",
     icon: "palette",
     packs: [
       {
@@ -461,7 +461,7 @@ export const services: Service[] = [
     id: "wordpress",
     title: "WordPress / CMS",
     description:
-      "Sites WordPress professionnels à Casablanca — design, contenu administrable et SEO de base pour entreprises au Maroc.",
+      "Sites WordPress administrables : design, contenu éditable et SEO de base.",
     icon: "wordpress",
     packs: [
       {
@@ -516,7 +516,7 @@ export const services: Service[] = [
     id: "api_backend",
     title: "API & Backend",
     description:
-      "APIs REST et backends (Laravel / Node) à Casablanca — auth, docs et déploiement pour apps web & mobile.",
+      "APIs REST Laravel ou Node : authentification, documentation et déploiement.",
     icon: "server",
     packs: [
       {
@@ -573,7 +573,7 @@ export const services: Service[] = [
     id: "consulting",
     title: "Consulting & Audit Technique",
     description:
-      "Audit technique & consulting à Casablanca — perf, SEO, UX, architecture et plan d’action pour votre projet au Maroc.",
+      "Audit technique : performance, SEO, UX, architecture et plan d’action priorisé.",
     icon: "message-square",
     packs: [
       {

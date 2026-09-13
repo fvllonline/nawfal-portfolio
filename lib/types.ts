@@ -51,14 +51,22 @@ export type Service = {
   content?: ServicePageContent
 }
 
+export type ServiceFaqItem = {
+  question: string
+  answer: string
+}
+
 export type ServicePageContent = {
-  /** H1 optimisé local */
   h1: string
-  /** Paragraphes d’autorité */
+  /** Title tag (sans le suffixe marque — ajouté par le template) */
+  metaTitle: string
+  metaDescription: string
   intro: string[]
   benefits: string[]
   idealFor: string[]
   process: string[]
+  technologies?: string[]
+  faq?: ServiceFaqItem[]
   /** Un lien contextuel dans le texte (maillage, max 1 par page) */
   seeAlso?: {
     before: string

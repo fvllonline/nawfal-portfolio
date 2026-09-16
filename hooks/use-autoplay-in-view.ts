@@ -35,7 +35,7 @@ export function useAutoplayInView(
       else autoplay.play()
     }
 
-    // Stop until we know visibility — avoids timer work below the fold
+    // Stop until we know visibility; avoids timer work below the fold
     autoplay.stop()
 
     const observer = new IntersectionObserver(

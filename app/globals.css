@@ -4,7 +4,7 @@
 @custom-variant dark (&:is(.dark *));
 
 /*═══════════════════════════════════════════
-  Lumina Noir — Design Tokens
+  Lumina Noir Design Tokens
 ═══════════════════════════════════════════*/
 :root {
   /* Core surfaces */
@@ -54,7 +54,7 @@
   --chart-4: #c9bfff;
   --chart-5: #94a3b8;
 
-  /* Radius — Lumina Noir */
+  /* Radius Lumina Noir */
   --radius: 1rem; /* 16px cards/buttons */
   --radius-xl: 1.5rem; /* 24px featured */
 
@@ -75,7 +75,7 @@
   --sidebar-ring: #00e5a0;
 }
 
-/* Dark is the only mode — keep .dark in sync for shadcn */
+/* Dark is the only mode; keep .dark in sync for shadcn */
 .dark {
   --background: #0b0f19;
   --foreground: #f8fafc;

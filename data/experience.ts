@@ -1,11 +1,11 @@
 import type { Experience, Education } from "@/lib/types"
 
-/** Expériences professionnelles — issues du CV */
+/** Expériences professionnelles issues du CV */
 export const experiences: Experience[] = [
   {
     id: "alvon-collaboration",
     year: "2026",
-    period: "2026 — Présent",
+    period: "Depuis 2026",
     company: "Alvon Digital Group",
     role: "Développeur Full-Stack & Mobile",
     contractType: "Contrat de collaboration",
@@ -22,14 +22,14 @@ export const experiences: Experience[] = [
   {
     id: "alvon-pfe",
     year: "2026",
-    period: "2026 — 2 mois",
+    period: "2026 (2 mois)",
     company: "Alvon Digital Group",
-    role: "Développeur Full-Stack — Stage PFE",
+    role: "Développeur Full-Stack (Stage PFE)",
     contractType: "Stage PFE",
     description:
       "Conception et développement de MonPassTCF, plateforme de préparation au TCF : architecture full-stack (Express.js, React Native, Next.js), intégration IA (Groq), fonctionnalités sociales en temps réel, gamification et tableau de bord administrateur.",
     highlights: [
-      "Réalisation end-to-end de MonPassTCF — préparation au TCF",
+      "Réalisation end-to-end de MonPassTCF pour la préparation au TCF",
       "Architecture full-stack avec Express.js, React Native & Next.js",
       "Intégration IA via Groq, social temps réel & gamification",
       "Livraison d’un dashboard d’administration",
@@ -46,9 +46,9 @@ export const experiences: Experience[] = [
   {
     id: "adam-adventure",
     year: "2025",
-    period: "2025 — 1 mois",
+    period: "2025 (1 mois)",
     company: "Adam Adventure Tours & Tourism",
-    role: "Développeur Web — Stage",
+    role: "Développeur Web (Stage)",
     contractType: "Stage",
     description:
       "Conception et développement d’un site vitrine de bout en bout : analyse des besoins, choix technologiques, design graphique, intégration Next.js, déploiement Vercel et maintenance.",
@@ -63,9 +63,9 @@ export const experiences: Experience[] = [
   {
     id: "mb-way",
     year: "2025",
-    period: "2025 — 2 mois",
+    period: "2025 (2 mois)",
     company: "MB Way",
-    role: "Développeur Backend & Brand Designer — Stage PFE",
+    role: "Développeur Backend & Brand Designer (Stage PFE)",
     contractType: "Stage PFE",
     description:
       "Développement backend de l’application Quick Stay (Laravel) ; création de l’identité visuelle complète, logo et charte graphique.",
@@ -78,7 +78,7 @@ export const experiences: Experience[] = [
   },
 ]
 
-/** Formation — issue du CV */
+/** Formation issue du CV */
 export const education: Education[] = [
   {
     id: "sup2i",

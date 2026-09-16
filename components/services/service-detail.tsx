@@ -172,7 +172,7 @@ export function ServiceDetail({
         <FadeIn delay={0.08} className="mt-12 sm:mt-16">
           <h2 className="heading-lg text-primary">Projets associés</h2>
           <p className="body-md mt-2 max-w-2xl">
-            Réalisations liées à cette offre — pour voir l’approche concrète.
+            Réalisations liées à cette offre, pour voir l’approche concrète.
           </p>
           <div className="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {relatedProjects.map((project) => (

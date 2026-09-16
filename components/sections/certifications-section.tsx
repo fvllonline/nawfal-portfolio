@@ -73,7 +73,7 @@ export function CertificationsSection() {
           <p className="label-ln">Qualifications</p>
           <h2 className="heading-lg mt-2">Certifications & compétences</h2>
           <p className="body-md mx-auto mt-4 max-w-2xl">
-            Langues, programmation et cybersécurité — un socle pour des
+            Langues, programmation et cybersécurité : un socle pour des
             missions web et mobile.
           </p>
           <div className="mt-6 flex justify-center gap-2">

@@ -1,4 +1,4 @@
-# Nawfal Addaoui — Portfolio
+# Nawfal Addaoui Portfolio
 
 > Développeur Full-Stack freelance basé à Casablanca (Maroc). Spécialités : React, Next.js, Laravel, React Native, APIs et e-commerce. Disponible pour startups et entreprises au Maroc (devis en MAD).
 
@@ -21,7 +21,7 @@
 - Téléphone : +212 631-108355
 - Site : [https://nawfal.online](https://nawfal.online)
 
-Catégorie recommandée : Développeur de logiciels / Conception de sites Web (service area business — masquer l’adresse rue si pas de local).
+Catégorie recommandée : Développeur de logiciels / Conception de sites Web (service area business : masquer l’adresse rue si pas de local).
 
 ## Site
 
@@ -64,4 +64,4 @@ Pages détaillées (packs & devis) :
 
 ## Positionnement
 
-Nawfal Addaoui — développeur Full-Stack freelance à Casablanca (Maroc). Sites web, applications React / Next.js, Laravel, React Native.
+Nawfal Addaoui, développeur Full-Stack freelance à Casablanca (Maroc). Sites web, applications React / Next.js, Laravel, React Native.

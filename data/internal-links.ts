@@ -1,5 +1,5 @@
 /**
- * Maillage sémantique — source unique Services ↔ Projets.
+ * Maillage sémantique : source unique Services ↔ Projets.
  * Max 2–3 projets par service, 2–3 services par projet.
  */
 

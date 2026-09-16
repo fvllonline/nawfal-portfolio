@@ -7,7 +7,7 @@ export type QuoteRequestDetail = {
 export const QUOTE_REQUEST_EVENT = "quote-request"
 
 export function buildQuoteSubject(service: string, pack: string) {
-  return `Demande de devis — ${service} · Pack ${pack}`
+  return `Demande de devis : ${service} · Pack ${pack}`
 }
 
 export function buildQuoteMessage(

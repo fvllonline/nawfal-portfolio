@@ -61,7 +61,7 @@ export function AboutSection() {
                   applications web
                 </Link>{" "}
                 pour des clients à Casablanca, avec React, Next.js, Laravel et
-                React Native — du prototype au déploiement.
+                React Native, du prototype au déploiement.
               </p>
               <p className="body-lg">{aboutContent.paragraphs[1]}</p>
               <p className="body-lg">
@@ -86,7 +86,7 @@ export function AboutSection() {
                 >
                   APIs
                 </Link>
-                . Au Maroc ou en remote, je porte le projet de bout en bout —{" "}
+                . Au Maroc ou en remote, je porte le projet de bout en bout :{" "}
                 <Link
                   href="/#contact"
                   className="text-primary underline-offset-4 hover:underline"

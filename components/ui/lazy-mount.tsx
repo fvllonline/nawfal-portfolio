@@ -15,7 +15,7 @@ type LazyMountProps = {
 }
 
 /**
- * Mounts children only when near the viewport — avoids fetching carousel /
+ * Mounts children only when near the viewport; avoids fetching carousel /
  * gallery images on initial paint.
  */
 export function LazyMount({

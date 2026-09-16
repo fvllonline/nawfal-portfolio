@@ -9,7 +9,7 @@ export const siteConfig: SiteConfig = {
   phone: "+212631108355",
   phoneDisplay: "+212 631-108355",
   tagline:
-    "Développeur Full-Stack à Casablanca : je conçois des sites web, apps et APIs performants avec React, Next.js et Laravel — pour startups et entreprises au Maroc.",
+    "Développeur Full-Stack à Casablanca : je conçois des sites web, apps et APIs performants avec React, Next.js et Laravel, pour startups et entreprises au Maroc.",
   seoTitle: "Développeur Full-Stack à Casablanca | Nawfal ADDAOUI",
   seoDescription:
     "Freelance Full-Stack à Casablanca : sites web, applications et APIs avec React, Next.js, Laravel et React Native. Devis en MAD, missions au Maroc ou en remote.",
@@ -26,7 +26,7 @@ export const siteConfig: SiteConfig = {
     addressCountry: "MA",
     addressCountryName: "Maroc",
     addressLine: "Casablanca, Casablanca-Settat, Maroc",
-    // Centre-ville Casablanca — service area (pas de local commercial)
+    // Centre-ville Casablanca, service area (pas de local commercial)
     geo: {
       latitude: 33.5731,
       longitude: -7.5898,

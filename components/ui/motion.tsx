@@ -9,7 +9,7 @@ import {
 import type { ReactNode } from "react"
 import { cn } from "@/lib/utils"
 
-/** Shared easing — premium, slightly overshoot-free */
+/** Shared easing: premium, slightly overshoot-free */
 export const easeOutExpo: [number, number, number, number] = [0.22, 1, 0.36, 1]
 
 export const fadeUp: Variants = {
@@ -162,7 +162,7 @@ export function HoverLift({
   )
 }
 
-/** Animated progress bar — fills when in view */
+/** Animated progress bar; fills when in view */
 export function AnimatedBar({
   value,
   className,

@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react"
 
-/** True after scrolling past `threshold` px — used for navbar shrink */
+/** True after scrolling past `threshold` px; used for navbar shrink */
 export function useScrolled(threshold = 50) {
   const [scrolled, setScrolled] = useState(false)
 

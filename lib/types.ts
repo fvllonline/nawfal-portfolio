@@ -58,7 +58,7 @@ export type ServiceFaqItem = {
 
 export type ServicePageContent = {
   h1: string
-  /** Title tag (sans le suffixe marque — ajouté par le template) */
+  /** Title tag (sans le suffixe marque, ajouté par le template) */
   metaTitle: string
   metaDescription: string
   intro: string[]
@@ -134,7 +134,7 @@ export type Project = {
   role: string
   liveUrl?: string
   githubUrl?: string
-  /** Still being developed — not 100% finished */
+  /** Still being developed; not 100% finished */
   inProgress?: boolean
   /** Primary service to suggest on this project page */
   relatedServiceId: string
@@ -169,7 +169,7 @@ export type Testimonial = {
 }
 
 export type SiteNap = {
-  /** Nom affiché partout (NAP) — doit matcher Google Business */
+  /** Nom affiché partout (NAP); doit matcher Google Business */
   name: string
   streetAddress?: string
   addressLocality: string
@@ -204,7 +204,7 @@ export type SiteConfig = {
   github: string
   linkedin: string
   portrait: string
-  /** NAP local SEO — source unique pour schema, footer, contact */
+  /** NAP local SEO: source unique pour schema, footer, contact */
   nap: SiteNap
   cv: {
     fr: string

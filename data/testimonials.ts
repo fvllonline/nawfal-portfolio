@@ -7,7 +7,7 @@ export const testimonials: Testimonial[] = [
     role: "Fondatrice / CEO de",
     company: "MB Way",
     content:
-      "Durant son stage PFE, Nawfal a développé le backend Laravel de notre application Quick Stay avec des APIs propres et fiables. Il a également conçu toute notre identité de marque — logo et charte graphique — avec un soin qui a renforcé le produit et notre image. Un contributeur solide et polyvalent.",
+      "Durant son stage PFE, Nawfal a développé le backend Laravel de notre application Quick Stay avec des APIs propres et fiables. Il a également conçu toute notre identité de marque (logo et charte graphique) avec un soin qui a renforcé le produit et notre image. Un contributeur solide et polyvalent.",
     rating: 5,
     image: "/Mina.webp",
     linkedin: "https://www.linkedin.com/in/mina-boujnah-560a06149/",

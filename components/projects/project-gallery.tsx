@@ -32,9 +32,9 @@ function galleryAlt(src: string, title: string, index: number) {
     src.split("/").pop()?.replace(/\.(webp|png|jpe?g|avif)$/i, "") ?? ""
   const hint = file.replace(/^\d+-?/, "").replace(/[-_]/g, " ").trim()
   if (!hint || /^\d+$/.test(file)) {
-    return `Interface ${index + 1} — ${title}`
+    return `Interface ${index + 1} : ${title}`
   }
-  return `${title} — ${hint}`
+  return `${title} : ${hint}`
 }
 
 type ProjectGalleryProps = {

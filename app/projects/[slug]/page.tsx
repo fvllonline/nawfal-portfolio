@@ -37,7 +37,7 @@ export async function generateMetadata({
   const project = getProjectBySlug(slug)
   if (!project) return { title: "Projet introuvable" }
 
-  const title = `${project.title} — ${project.type}`
+  const title = `${project.title} : ${project.type}`
   const description = project.shortDescription
 
   return {

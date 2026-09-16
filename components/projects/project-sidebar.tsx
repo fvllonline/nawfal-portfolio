@@ -34,7 +34,7 @@ export function ProjectSidebar({
           {project.inProgress && (
             <Meta
               label="Statut"
-              value="En cours — pas encore terminé"
+              value="En cours, pas encore terminé"
               className="col-span-2"
             />
           )}
@@ -68,7 +68,7 @@ export function ProjectSidebar({
             </Link>
           ) : (
             <span className="inline-flex w-full cursor-not-allowed items-center justify-center gap-2 rounded-xl border border-border py-4 font-mono text-sm text-foreground-muted/50">
-              Démo en ligne — bientôt
+              Démo en ligne bientôt
             </span>
           )}
 

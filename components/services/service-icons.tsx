@@ -14,7 +14,7 @@ import {
 import type { Service } from "@/lib/types"
 import type { ComponentType, SVGProps } from "react"
 
-/** Lightweight WordPress mark — avoids pulling react-icons into the services chunk */
+/** Lightweight WordPress mark; avoids pulling react-icons into the services chunk */
 function WordpressIcon(props: SVGProps<SVGSVGElement>) {
   return (
     <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden {...props}>

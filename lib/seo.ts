@@ -75,7 +75,7 @@ export function buildSiteJsonLd() {
   const professionalService = {
     "@type": "ProfessionalService",
     "@id": serviceId,
-    name: `${siteConfig.nap.name} — Développeur Full-Stack`,
+    name: `${siteConfig.nap.name}, Développeur Full-Stack`,
     alternateName: "Nawfal Addaoui Freelance",
     url: siteConfig.url,
     image: portrait,

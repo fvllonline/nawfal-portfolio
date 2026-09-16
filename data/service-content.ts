@@ -1,7 +1,7 @@
 import type { ServicePageContent } from "@/lib/types"
 
 /**
- * Contenu des pages service — une intention principale par URL.
+ * Contenu des pages service: une intention principale par URL.
  * La localisation (Casablanca / Maroc) est dans le label, le NAP et 1 phrase d’intro max.
  */
 export const servicePageContent: Record<string, ServicePageContent> = {
@@ -9,9 +9,9 @@ export const servicePageContent: Record<string, ServicePageContent> = {
     h1: "Création de site vitrine",
     metaTitle: "Création de site web à Casablanca",
     metaDescription:
-      "Site vitrine ou landing page : design responsive, SEO technique et mise en ligne. Packs dès 4 000 MAD — Nawfal Addaoui, freelance à Casablanca.",
+      "Site vitrine ou landing page : design responsive, SEO technique et mise en ligne. Packs dès 4 000 MAD. Nawfal Addaoui, freelance à Casablanca.",
     intro: [
-      "Vous avez besoin d’un site pour présenter votre activité, un produit ou un service — clairement, sur mobile comme sur desktop. Je conçois des vitrines et landing pages rapides, pensées pour le contact et la conversion.",
+      "Vous avez besoin d’un site pour présenter votre activité, un produit ou un service, clairement, sur mobile comme sur desktop. Je conçois des vitrines et landing pages rapides, pensées pour le contact et la conversion.",
       "Stack au choix selon le projet : React / Next.js pour un site sur mesure, ou WordPress si vous voulez éditer le contenu au quotidien. SEO technique de base et mise en ligne inclus. Packs en MAD, devis si le périmètre sort du cadre.",
     ],
     technologies: ["React", "Next.js", "Tailwind CSS", "WordPress"],
@@ -47,7 +47,7 @@ export const servicePageContent: Record<string, ServicePageContent> = {
       {
         question: "Quel délai pour un site web ?",
         answer:
-          "Environ 5 à 7 jours pour une landing, 10 à 14 jours pour un site Pro, 2 à 3 semaines pour un site Business — selon la disponibilité des contenus et le nombre d’allers-retours.",
+          "Environ 5 à 7 jours pour une landing, 10 à 14 jours pour un site Pro, 2 à 3 semaines pour un site Business, selon la disponibilité des contenus et le nombre d’allers-retours.",
       },
       {
         question: "Quelle différence entre un site vitrine et une boutique e-commerce ?",
@@ -65,9 +65,9 @@ export const servicePageContent: Record<string, ServicePageContent> = {
     h1: "Boutique e-commerce sur mesure",
     metaTitle: "Création de site e-commerce",
     metaDescription:
-      "Boutique en ligne : catalogue, panier et commande. Packs dès 12 000 MAD, UX mobile-first — pour vendre au Maroc et à l’international.",
+      "Boutique en ligne : catalogue, panier et commande. Packs dès 12 000 MAD, UX mobile-first, pour vendre au Maroc et à l’international.",
     intro: [
-      "Une boutique en ligne sert à vendre : catalogue lisible, fiches produit, panier et parcours de commande. Je développe des e-commerces performants, d’abord pensés pour le mobile — le canal d’achat le plus courant au Maroc.",
+      "Une boutique en ligne sert à vendre : catalogue lisible, fiches produit, panier et parcours de commande. Je développe des e-commerces performants, d’abord pensés pour le mobile, le canal d’achat le plus courant au Maroc.",
       "Stack moderne (Next.js / React), administration du catalogue selon le pack, et base technique qui peut grandir. Les passerelles de paiement se calent au devis selon votre activité.",
     ],
     technologies: ["Next.js", "React", "Tailwind CSS"],
@@ -111,7 +111,7 @@ export const servicePageContent: Record<string, ServicePageContent> = {
     h1: "Applications web Full-Stack",
     metaTitle: "Développement d’application web",
     metaDescription:
-      "SaaS, dashboards et outils métier en React / Next.js et Laravel. Packs dès 18 000 MAD — du cadrage au déploiement.",
+      "SaaS, dashboards et outils métier en React / Next.js et Laravel. Packs dès 18 000 MAD, du cadrage au déploiement.",
     intro: [
       "Applications web, SaaS, dashboards et plateformes métier : un produit qui sert vos process, pas seulement une vitrine. Front React / Next.js, API Laravel ou Node, architecture claire pour que votre équipe puisse reprendre le projet.",
       "Je travaille en Full-Stack depuis Casablanca : cadrage, modèles de données, auth, rôles, puis itérations jusqu’au déploiement.",
@@ -145,10 +145,10 @@ export const servicePageContent: Record<string, ServicePageContent> = {
     h1: "Applications mobiles React Native",
     metaTitle: "Développement d’application mobile",
     metaDescription:
-      "Apps Android et iOS avec React Native / Expo. Packs dès 15 000 MAD — une base, deux stores, UX soignée.",
+      "Apps Android et iOS avec React Native / Expo. Packs dès 15 000 MAD : une base, deux stores, UX soignée.",
     intro: [
       "Une application Android et iOS à partir d’une seule base React Native / Expo : délai et budget plus raisonnables qu’un double développement natif, avec une interface proche du natif.",
-      "De la maquette à la publication (packs avancés), je livre des apps pour startups et entreprises au Maroc — auth, API, notifications selon le périmètre.",
+      "De la maquette à la publication (packs avancés), je livre des apps pour startups et entreprises au Maroc (auth, API, notifications selon le périmètre).",
     ],
     technologies: ["React Native", "Expo", "TypeScript"],
     seeAlso: {
@@ -191,10 +191,10 @@ export const servicePageContent: Record<string, ServicePageContent> = {
     h1: "SEO technique et visibilité",
     metaTitle: "SEO et optimisation de site",
     metaDescription:
-      "Audit et corrections SEO : technique, on-page, performances. Packs dès 2 500 MAD — pour mieux apparaître sur Google au Maroc.",
+      "Audit et corrections SEO : technique, on-page, performances. Packs dès 2 500 MAD, pour mieux apparaître sur Google au Maroc.",
     intro: [
       "Un site lent, mal structuré ou sans balises claires reste invisible, même avec un bon design. J’audite le technique, l’on-page et les performances, puis je corrige ce qui bloque vraiment l’indexation et le clic.",
-      "Plan d’action priorisé, Search Console, schema si pertinent. Le SEO local (ville + métier) se traite quand vous avez une zone d’activité réelle — pas en répétant la ville partout.",
+      "Plan d’action priorisé, Search Console, schema si pertinent. Le SEO local (ville + métier) se traite quand vous avez une zone d’activité réelle, pas en répétant la ville partout.",
     ],
     technologies: ["Search Console", "Core Web Vitals", "Schema.org"],
     seeAlso: {
@@ -227,7 +227,7 @@ export const servicePageContent: Record<string, ServicePageContent> = {
     metaDescription:
       "Moderniser un site lent ou daté : design, UX, performances et SEO technique, sans perdre le contenu utile. Packs dès 5 000 MAD.",
     intro: [
-      "Votre site est lent, daté ou peu clair ? La refonte sert à moderniser le design, l’UX et la technique — pas à tout jeter. On garde ce qui convertit, on reconstruit ce qui bloque.",
+      "Votre site est lent, daté ou peu clair ? La refonte sert à moderniser le design, l’UX et la technique, pas à tout jeter. On garde ce qui convertit, on reconstruit ce qui bloque.",
       "Refonte progressive ou complète, migration soignée, stack moderne (souvent Next.js) quand l’existant ne tient plus.",
     ],
     technologies: ["Next.js", "React", "SEO technique"],
@@ -259,10 +259,10 @@ export const servicePageContent: Record<string, ServicePageContent> = {
     h1: "Maintenance et suivi de site",
     metaTitle: "Maintenance de site web",
     metaDescription:
-      "Forfait mensuel : mises à jour, sauvegardes, correctifs. Dès 800 MAD / mois — pour un site déjà en ligne, sans équipe tech interne.",
+      "Forfait mensuel : mises à jour, sauvegardes, correctifs. Dès 800 MAD / mois, pour un site déjà en ligne, sans équipe tech interne.",
     intro: [
       "Un site livré n’est pas « fini » : mises à jour, sauvegardes, petits bugs, évolutions mineures. Un forfait mensuel en MAD évite de tout traiter en urgence.",
-      "Utile si vous n’avez pas de développeur en interne — que le site ait été fait avec moi ou ailleurs, après un inventaire.",
+      "Utile si vous n’avez pas de développeur en interne, que le site ait été fait avec moi ou ailleurs, après un inventaire.",
     ],
     technologies: ["Sauvegardes", "Mises à jour", "Monitoring"],
     seeAlso: {
@@ -300,7 +300,7 @@ export const servicePageContent: Record<string, ServicePageContent> = {
     h1: "Design UI/UX produit",
     metaTitle: "UI/UX Design web et mobile",
     metaDescription:
-      "Maquettes Figma, prototypes et design system avant le développement. Packs dès 2 500 MAD — pour valider le parcours sans coder trop tôt.",
+      "Maquettes Figma, prototypes et design system avant le développement. Packs dès 2 500 MAD, pour valider le parcours sans coder trop tôt.",
     intro: [
       "Des interfaces Figma claires pour le web et le mobile, avant d’écrire une ligne de code. Ça évite les allers-retours coûteux une fois le développement lancé.",
       "Wireframes, UI, prototype cliquable et handoff pour l’équipe de dev. Ce n’est pas une offre « graphiste / print » : le livrable sert un produit digital.",
@@ -310,7 +310,7 @@ export const servicePageContent: Record<string, ServicePageContent> = {
       before: "Côté produit livré, voir le projet ",
       href: "/projects/dupond-cafe",
       label: "Dupond Café",
-      after: " — vitrine et identité visuelle.",
+      after: " (vitrine et identité visuelle).",
     },
     benefits: [
       "Maquettes desktop + mobile",
@@ -334,9 +334,9 @@ export const servicePageContent: Record<string, ServicePageContent> = {
     h1: "Sites WordPress administrables",
     metaTitle: "Création de site WordPress",
     metaDescription:
-      "Site WordPress professionnel, éditable sans développeur. Packs dès 4 000 MAD — thème, pages, SEO de base et formation.",
+      "Site WordPress professionnel, éditable sans développeur. Packs dès 4 000 MAD : thème, pages, SEO de base et formation.",
     intro: [
-      "WordPress convient quand vous voulez modifier textes, pages et actualités vous-même, sans passer par un développeur à chaque changement. Je livre un site administrable, responsive, avec l’essentiel des plugins — pas un thème surchargé.",
+      "WordPress convient quand vous voulez modifier textes, pages et actualités vous-même, sans passer par un développeur à chaque changement. Je livre un site administrable, responsive, avec l’essentiel des plugins, pas un thème surchargé.",
       "Si vous voulez un site plus sur mesure, plus rapide, ou une app, Next.js reste souvent le meilleur choix. Les deux offres ne se remplacent pas : CMS éditable vs stack applicative.",
     ],
     technologies: ["WordPress", "WooCommerce"],
@@ -368,9 +368,9 @@ export const servicePageContent: Record<string, ServicePageContent> = {
     h1: "API REST et backend",
     metaTitle: "Développeur Laravel et API",
     metaDescription:
-      "APIs REST Laravel ou Node : auth, rôles, tests et documentation. Packs dès 6 000 MAD — pour apps web et mobiles.",
+      "APIs REST Laravel ou Node : auth, rôles, tests et documentation. Packs dès 6 000 MAD, pour apps web et mobiles.",
     intro: [
-      "Un front ou une app mobile a besoin d’un vrai backend : auth, rôles, validation, documentation. Je construis des APIs REST (Laravel ou Node) pensées pour la prod — pas un prototype jetable.",
+      "Un front ou une app mobile a besoin d’un vrai backend : auth, rôles, validation, documentation. Je construis des APIs REST (Laravel ou Node) pensées pour la prod, pas un prototype jetable.",
       "Contrats clairs, tests Postman, déploiement. Référence concrète : le backend Laravel de Quick Stay.",
     ],
     technologies: ["Laravel", "PHP", "Node.js", "Postman"],
@@ -378,7 +378,7 @@ export const servicePageContent: Record<string, ServicePageContent> = {
       before: "Voir le projet ",
       href: "/projects/quick-stay",
       label: "Quick Stay",
-      after: " — APIs REST Laravel, documentation et identité visuelle.",
+      after: " (APIs REST Laravel, documentation et identité visuelle).",
     },
     benefits: [
       "API documentée et testée",
@@ -404,7 +404,7 @@ export const servicePageContent: Record<string, ServicePageContent> = {
     metaDescription:
       "Regard extérieur sur perf, SEO, UX et architecture, avec un plan d’action priorisé. Packs dès 1 500 MAD.",
     intro: [
-      "Un regard extérieur avant une refonte, un recrutement ou un lancement : performance, SEO, UX, architecture, sécurité — puis un plan d’action ordonné, pas un rapport de 40 pages illisible.",
+      "Un regard extérieur avant une refonte, un recrutement ou un lancement : performance, SEO, UX, architecture, sécurité, puis un plan d’action ordonné, pas un rapport de 40 pages illisible.",
       "L’accompagnement après l’audit est optionnel. Si le diagnostic pointe un rebuild, on enchaîne sur une refonte ou un nouveau développement.",
     ],
     technologies: ["Audit", "Architecture", "SEO", "UX"],

@@ -52,7 +52,7 @@ export function Navbar() {
     e.preventDefault()
     e.stopPropagation()
 
-    // Unlock scroll before scrolling — overflow:hidden blocks scrollIntoView on mobile
+    // Unlock scroll before scrolling; overflow:hidden blocks scrollIntoView on mobile
     closeMenu()
 
     if (pathname === "/") {
@@ -84,7 +84,7 @@ export function Navbar() {
           href="/#home"
           onClick={(e) => handleNavClick(e, "/#home")}
           className="group flex items-center gap-2 text-primary transition-transform active:scale-95"
-          aria-label={`${siteConfig.fullName} — Accueil`}
+          aria-label={`${siteConfig.fullName}, Accueil`}
         >
           <Terminal
             className="h-6 w-6 transition-transform group-hover:rotate-6"
@@ -95,7 +95,7 @@ export function Navbar() {
           </span>
         </Link>
 
-        {/* Desktop links — xl to avoid cramped 7-link row on tablets */}
+        {/* Desktop links: xl to avoid cramped 7-link row on tablets */}
         <div className="hidden items-center gap-5 xl:flex xl:gap-7">
           {navLinks.map((link) => {
             const id = sectionIdFromHref(link.href)

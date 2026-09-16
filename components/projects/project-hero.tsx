@@ -39,7 +39,7 @@ export function ProjectHero({ project }: { project: Project }) {
           {...enter(0.09)}
           className="mt-4 inline-flex items-center rounded-full border border-secondary/40 bg-secondary/10 px-3 py-1 font-mono text-xs uppercase tracking-wider text-secondary-bright"
         >
-          En cours — pas encore terminé à 100 %
+          En cours, pas encore terminé à 100 %
         </motion.p>
       )}
 

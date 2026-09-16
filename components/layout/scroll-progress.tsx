@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react"
 
 /**
- * Lightweight top progress bar — no Framer Motion scroll listeners / springs.
+ * Lightweight top progress bar without Framer Motion scroll listeners / springs.
  */
 export function ScrollProgress() {
   const [progress, setProgress] = useState(0)

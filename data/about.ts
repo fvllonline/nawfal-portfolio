@@ -5,7 +5,7 @@ export const aboutContent = {
   heading: "Du web au mobile,",
   headingAccent: "une stack complète",
   paragraphs: [
-    "Je suis Nawfal Addaoui, développeur Full-Stack basé à Casablanca (Maroc). Je conçois et développe des produits web et mobile avec React, Next.js, Laravel et React Native — du prototype au déploiement.",
+    "Je suis Nawfal Addaoui, développeur Full-Stack basé à Casablanca (Maroc). Je conçois et développe des produits web et mobile avec React, Next.js, Laravel et React Native, du prototype au déploiement.",
     "Mon approche : allier performance technique et expérience utilisateur. Chaque interface doit être claire, rapide et adaptée aux besoins réels des clients marocains comme internationaux.",
     "Disponible en freelance pour sites vitrines, e-commerce, applications web/mobile et APIs. Que vous soyez à Casablanca, ailleurs au Maroc ou en remote, je m’intègre facilement à votre équipe ou je porte le projet de bout en bout.",
   ],

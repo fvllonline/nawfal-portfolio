@@ -1,6 +1,6 @@
 import { DM_Sans, Hanken_Grotesk, JetBrains_Mono } from "next/font/google"
 
-/** Display — headlines & hero (Lumina Noir) */
+/** Display: headlines & hero (Lumina Noir) */
 export const fontDisplay = Hanken_Grotesk({
   subsets: ["latin"],
   variable: "--font-hanken",
@@ -8,7 +8,7 @@ export const fontDisplay = Hanken_Grotesk({
   display: "swap",
 })
 
-/** Body — readable dark-mode copy */
+/** Body: readable dark-mode copy */
 export const fontSans = DM_Sans({
   subsets: ["latin"],
   variable: "--font-dm-sans",
@@ -16,7 +16,7 @@ export const fontSans = DM_Sans({
   display: "swap",
 })
 
-/** Labels / meta — developer precision */
+/** Labels / meta: developer precision */
 export const fontMono = JetBrains_Mono({
   subsets: ["latin"],
   variable: "--font-jetbrains",

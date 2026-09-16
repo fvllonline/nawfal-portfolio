@@ -30,7 +30,7 @@ export function Footer() {
           <Link
             href="/"
             className="flex items-center gap-2 text-primary transition-opacity hover:opacity-80"
-            aria-label={`Accueil — ${siteConfig.nap.name}`}
+            aria-label={`Accueil, ${siteConfig.nap.name}`}
           >
             <Terminal className="h-5 w-5" aria-hidden />
             <span className="font-display text-xl font-semibold tracking-tighter">

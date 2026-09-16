@@ -8,7 +8,7 @@ export function ProjectOverview({ project }: { project: Project }) {
     <FadeIn>
       <article>
         <h2 className="heading-lg mb-6 text-primary">
-          Étude de cas — {project.title}
+          Étude de cas : {project.title}
         </h2>
         <p className="label-md-ln mb-6 text-foreground-muted">
           {project.type} · {project.year} · {project.role}

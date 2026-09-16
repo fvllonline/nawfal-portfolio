@@ -55,7 +55,7 @@ export function ExperienceSection() {
           <p className="label-ln">Parcours</p>
           <h2 className="heading-lg mt-2">Expérience au Maroc</h2>
           <p className="body-md mx-auto mt-4 max-w-2xl">
-            Stages, collaborations et missions freelance — un parcours ancré à
+            Stages, collaborations et missions freelance : un parcours ancré à
             Casablanca, orienté produits web & mobile.
           </p>
           <div className="mt-6 flex justify-center gap-2">

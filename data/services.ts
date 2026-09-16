@@ -71,7 +71,7 @@ export const services: Service[] = [
     id: "ecommerce",
     title: "Site E-commerce",
     description:
-      "Boutiques en ligne : catalogue, panier et parcours de commande — pour vendre au Maroc et à l’international.",
+      "Boutiques en ligne : catalogue, panier et parcours de commande, pour vendre au Maroc et à l’international.",
     icon: "shopping-bag",
     packs: [
       {
@@ -130,7 +130,7 @@ export const services: Service[] = [
     id: "web_app",
     title: "Application Web Full-Stack",
     description:
-      "Applications web, SaaS et dashboards sur mesure — React, Next.js et Laravel.",
+      "Applications web, SaaS et dashboards sur mesure avec React, Next.js et Laravel.",
     icon: "layout",
     packs: [
       {
@@ -192,7 +192,7 @@ export const services: Service[] = [
     id: "mobile_app",
     title: "Application Mobile",
     description:
-      "Applications Android et iOS avec React Native / Expo — une base, deux stores.",
+      "Applications Android et iOS avec React Native / Expo : une base, deux stores.",
     icon: "smartphone",
     packs: [
       {
@@ -412,7 +412,7 @@ export const services: Service[] = [
     id: "uiux",
     title: "UI/UX Design",
     description:
-      "Interfaces Figma web et mobile, prototypes et design system — avant le développement.",
+      "Interfaces Figma web et mobile, prototypes et design system, avant le développement.",
     icon: "palette",
     packs: [
       {

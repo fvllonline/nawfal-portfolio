@@ -1,5 +1,5 @@
 /**
- * Étape 2 — Compress & convert public images to WebP
+ * Étape 2 : Compress & convert public images to WebP
  * Run: node scripts/optimize-images.mjs
  */
 import sharp from "sharp"

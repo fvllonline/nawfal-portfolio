@@ -166,7 +166,7 @@ export type Testimonial = {
   company: string
   content: string
   rating: number
-  image: string
+  image?: string
   linkedin?: string
 }
 

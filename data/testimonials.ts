@@ -34,4 +34,15 @@ export const testimonials: Testimonial[] = [
     image: "/Ayman.webp",
     linkedin: "https://www.linkedin.com/in/aymanboujjar/",
   },
+  {
+    id: "issraa",
+    name: "Mlle. Issraa KASS",
+    role: "Community Manager",
+    company: "Breezoria",
+    content:
+      "Nawfal a conçu et développé le site e-commerce Breezoria avec une vraie exigence sur le parcours client et l’image de marque. La boutique est claire, rapide et professionnelle, fidèle à notre positionnement. Un interlocuteur fiable, à l’écoute et précis jusqu’à la livraison.",
+    rating: 5,
+    image: "/issraa_kass.jpg",
+    linkedin: "https://www.linkedin.com/in/issraa-kass-5430471b2/",
+  },
 ]

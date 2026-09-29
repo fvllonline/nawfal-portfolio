@@ -19,13 +19,14 @@ import {
   X,
   ZoomIn,
 } from "lucide-react"
-import { FadeIn, Stagger, StaggerItem } from "@/components/ui/motion"
+import { FadeIn } from "@/components/ui/motion"
 import { LazyMount } from "@/components/ui/lazy-mount"
 import { cn } from "@/lib/utils"
 
 const MIN_ZOOM = 1
 const MAX_ZOOM = 4
 const ZOOM_STEP = 0.35
+const PREVIEW_COUNT = 4
 
 function galleryAlt(src: string, title: string, index: number) {
   const file =
@@ -44,19 +45,32 @@ type ProjectGalleryProps = {
 
 export function ProjectGallery({ images, title }: ProjectGalleryProps) {
   const [activeIndex, setActiveIndex] = useState<number | null>(null)
+  const [expanded, setExpanded] = useState(false)
 
   if (!images.length) return null
+
+  const hasMore = images.length > PREVIEW_COUNT
+  const visibleImages = expanded ? images : images.slice(0, PREVIEW_COUNT)
+  const hiddenCount = images.length - PREVIEW_COUNT
 
   return (
     <>
       <LazyMount minHeight={320} rootMargin="200px 0px">
         <FadeIn className="mt-16 md:mt-24">
-          <h2 className="heading-lg mb-8 text-primary">
-            Galerie d&apos;interfaces
-          </h2>
-          <Stagger className="grid grid-cols-2 gap-3 sm:gap-4 md:grid-cols-3 lg:grid-cols-4">
-            {images.map((src, index) => (
-              <StaggerItem key={`${src}-${index}`}>
+          <div className="mb-8 flex flex-wrap items-end justify-between gap-3">
+            <h2 className="heading-lg text-primary">
+              Galerie d&apos;interfaces
+            </h2>
+            <p className="font-mono text-xs text-foreground-muted">
+              {expanded || !hasMore
+                ? `${images.length} capture${images.length > 1 ? "s" : ""}`
+                : `${PREVIEW_COUNT} sur ${images.length}`}
+            </p>
+          </div>
+
+          <div className="grid grid-cols-2 gap-3 sm:gap-4 md:grid-cols-3 lg:grid-cols-4">
+            {visibleImages.map((src, index) => (
+              <div key={`${src}-${index}`}>
                 <button
                   type="button"
                   onClick={() => setActiveIndex(index)}
@@ -79,9 +93,24 @@ export function ProjectGallery({ images, title }: ProjectGalleryProps) {
                     </span>
                   </span>
                 </button>
-              </StaggerItem>
+              </div>
             ))}
-          </Stagger>
+          </div>
+
+          {hasMore && (
+            <div className="mt-6 flex justify-center">
+              <button
+                type="button"
+                onClick={() => setExpanded((v) => !v)}
+                className="inline-flex items-center gap-2 rounded-xl border border-border bg-card/60 px-5 py-2.5 font-mono text-xs uppercase tracking-wider text-primary transition-colors hover:border-primary/40 hover:bg-primary/10"
+                aria-expanded={expanded}
+              >
+                {expanded
+                  ? "Voir moins"
+                  : `Voir ${hiddenCount} image${hiddenCount > 1 ? "s" : ""} de plus`}
+              </button>
+            </div>
+          )}
         </FadeIn>
       </LazyMount>
 

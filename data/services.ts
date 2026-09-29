@@ -623,6 +623,58 @@ export const services: Service[] = [
       },
     ],
   },
+  {
+    id: "traffic_managing",
+    title: "Traffic Managing (Ads)",
+    description:
+      "Campagnes Google Ads, Meta Ads et TikTok Ads pour générer du trafic qualifié et des conversions.",
+    icon: "megaphone",
+    packs: [
+      {
+        name: "Starter",
+        price: 3500,
+        currency: "MAD",
+        delivery: "Setup 5-7 jours + 2 semaines de suivi",
+        features: [
+          "1 plateforme (Google Ads ou Meta Ads)",
+          "Structure de campagne",
+          "Tracking conversions / pixels de base",
+          "2 semaines d'optimisation",
+          "Reporting simple",
+        ],
+      },
+      {
+        name: "Pro",
+        price: 7500,
+        currency: "MAD",
+        delivery: "Setup 7-10 jours + 1 mois de gestion",
+        popular: true,
+        features: [
+          "Google Ads + Meta Ads",
+          "Tunnel lead ou vente",
+          "Pixels et conversions avancées",
+          "Briefs créatifs publicitaires",
+          "1 mois d'optimisation continue",
+          "Reporting hebdomadaire",
+        ],
+      },
+      {
+        name: "Business",
+        price: 14000,
+        currency: "MAD",
+        delivery: "Setup 10-14 jours + 2 mois de gestion",
+        features: [
+          "Google Ads + Meta Ads + TikTok Ads",
+          "Stratégie multi-plateformes",
+          "A/B testing audiences et créatifs",
+          "Retargeting",
+          "2 mois d'optimisation",
+          "Dashboard et reporting détaillé",
+          "Accompagnement stratégique",
+        ],
+      },
+    ],
+  },
 ]
 
 export function getServiceById(id: string): Service | undefined {

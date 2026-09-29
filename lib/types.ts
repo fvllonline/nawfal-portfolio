@@ -46,6 +46,7 @@ export type Service = {
     | "wordpress"
     | "server"
     | "message-square"
+    | "megaphone"
   packs: ServicePack[]
   /** Contenu SEO longue forme (page /services/[id]) */
   content?: ServicePageContent

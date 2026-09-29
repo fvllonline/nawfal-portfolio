@@ -25,17 +25,18 @@ export const serviceProjectSlugs: Record<string, string[]> = {
 
 /** Service → 1–2 services complémentaires */
 export const serviceComplementaryIds: Record<string, string[]> = {
-  website: ["seo", "uiux"],
-  ecommerce: ["seo", "maintenance"],
+  website: ["seo", "traffic_managing"],
+  ecommerce: ["seo", "traffic_managing"],
   web_app: ["api_backend", "uiux"],
   mobile_app: ["api_backend", "web_app"],
-  seo: ["website", "maintenance"],
+  seo: ["website", "traffic_managing"],
   redesign: ["seo", "website"],
   maintenance: ["seo", "website"],
   uiux: ["website", "mobile_app"],
   wordpress: ["seo", "maintenance"],
   api_backend: ["web_app", "mobile_app"],
   consulting: ["web_app", "seo"],
+  traffic_managing: ["seo", "website"],
 }
 
 /** Liens hors projets (ex. accueil sur la page SEO) */
@@ -79,6 +80,7 @@ export const serviceShortLabel: Record<string, string> = {
   wordpress: "Sites WordPress",
   api_backend: "API & backend",
   consulting: "Audit technique",
+  traffic_managing: "Traffic Managing & Ads",
 }
 
 export function getServiceShortLabel(id: string, fallback: string) {

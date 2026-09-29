@@ -103,8 +103,23 @@ export function ProjectsSection() {
   }, [reduce, paused, pageCount])
 
   return (
-    <section id="projects" className="section-ln">
-      <div className="container-ln">
+    <section id="projects" className="section-ln relative overflow-hidden">
+      <div className="pointer-events-none absolute inset-0" aria-hidden>
+        <Image
+          src="/bg/bg_projets.png"
+          alt=""
+          fill
+          loading="lazy"
+          className="object-cover object-center"
+          sizes="100vw"
+        />
+        <div className="absolute inset-0 bg-background/75" />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/85 via-background/55 to-background/85" />
+        <div className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-background to-transparent" />
+        <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-background to-transparent" />
+      </div>
+
+      <div className="container-ln relative z-10">
         <FadeIn className="mb-10 flex max-w-3xl flex-col gap-6 sm:mb-14 sm:flex-row sm:items-end sm:justify-between sm:max-w-none">
           <div className="max-w-2xl">
             <p className="label-ln">Réalisations</p>

@@ -117,10 +117,19 @@ export function CertificationsSection() {
 
   return (
     <section id="certifications" className="section-ln relative overflow-hidden">
-      {/* Subtle ambient without dedicated bg asset */}
       <div className="pointer-events-none absolute inset-0" aria-hidden>
-        <div className="absolute inset-0 bg-gradient-to-b from-background via-background-secondary/40 to-background" />
-        <div className="absolute left-1/2 top-1/3 h-64 w-64 -translate-x-1/2 rounded-full bg-primary/[0.04] blur-3xl" />
+        <Image
+          src="/bg/bg_certif.png"
+          alt=""
+          fill
+          loading="lazy"
+          className="object-cover object-center"
+          sizes="100vw"
+        />
+        <div className="absolute inset-0 bg-background/75" />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/85 via-background/55 to-background/85" />
+        <div className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-background to-transparent" />
+        <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-background to-transparent" />
       </div>
 
       <div className="container-ln relative z-10">

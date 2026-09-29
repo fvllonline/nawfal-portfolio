@@ -26,15 +26,23 @@ export function HeroSection() {
       id="home"
       className="relative flex min-h-[100dvh] items-center overflow-hidden pb-16 pt-28 sm:pb-20 sm:pt-32"
     >
-      <div className="absolute inset-0 -z-10">
-        <div className="absolute inset-0 bg-background" />
+      <div className="absolute inset-0 -z-10" aria-hidden>
+        <Image
+          src="/bg/bg_hero.png"
+          alt=""
+          fill
+          priority
+          className="object-cover object-center"
+          sizes="100vw"
+        />
+        <div className="absolute inset-0 bg-background/70" />
+        <div className="absolute inset-0 bg-gradient-to-r from-background/90 via-background/55 to-background/75" />
+        <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-background to-transparent" />
         <div
           className="animate-ambient-glow pointer-events-none absolute -right-[15%] top-[10%] h-[360px] w-[360px] rounded-full bg-primary/10 blur-[120px] sm:h-[480px] sm:w-[480px]"
-          aria-hidden
         />
         <div
           className="animate-ambient-glow-delayed pointer-events-none absolute -left-[10%] bottom-[5%] h-[280px] w-[280px] rounded-full bg-secondary/10 blur-[120px] sm:h-[400px] sm:w-[400px]"
-          aria-hidden
         />
       </div>
 

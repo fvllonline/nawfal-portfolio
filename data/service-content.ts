@@ -432,6 +432,57 @@ export const servicePageContent: Record<string, ServicePageContent> = {
       "Restitution + suite optionnelle",
     ],
   },
+  traffic_managing: {
+    h1: "Traffic Managing & publicité digitale",
+    metaTitle: "Google Ads, Meta Ads et TikTok Ads",
+    metaDescription:
+      "Gestion de campagnes Google Ads, Meta Ads et TikTok Ads. Packs dès 3 500 MAD, tracking, optimisation et reporting. Nawfal Addaoui, Casablanca.",
+    intro: [
+      "Un site ou une app sans trafic reste invisible. Je mets en place et j’optimise des campagnes Google Ads, Meta Ads (Facebook / Instagram) et TikTok Ads pour attirer des visiteurs qualifiés et convertir (leads, ventes, installs).",
+      "Setup technique (pixels, conversions), structure de campagnes, créatifs et suivi régulier : l’objectif est un budget utile, pas des clics vides. Packs en MAD, budget média à part.",
+    ],
+    technologies: ["Google Ads", "Meta Ads", "TikTok Ads", "Pixel / Tracking"],
+    seeAlso: {
+      before: "Pour que les campagnes convertissent mieux, un ",
+      href: "/services/website",
+      label: "site vitrine ou landing page",
+      after: " solide reste indispensable.",
+    },
+    benefits: [
+      "Campagnes structurées sur Google, Meta et/ou TikTok",
+      "Tracking conversions fiable (pixels, événements)",
+      "Optimisation continue du coût par résultat",
+      "Reporting clair pour piloter le budget",
+    ],
+    idealFor: [
+      "Entreprises qui veulent des leads ou des ventes rapidement",
+      "E-commerces et marques locales au Maroc",
+      "Lancements produit avec besoin d’acquisition payante",
+    ],
+    process: [
+      "Brief objectifs & audiences",
+      "Setup comptes, pixels et campagnes",
+      "Lancement & optimisation",
+      "Reporting et itérations",
+    ],
+    faq: [
+      {
+        question: "Le budget publicitaire est-il inclus dans le pack ?",
+        answer:
+          "Non. Les packs couvrent le setup, la gestion et l’optimisation. Le budget média (dépensé sur Google, Meta ou TikTok) est à part, selon vos objectifs.",
+      },
+      {
+        question: "Quelles plateformes proposez-vous ?",
+        answer:
+          "Google Ads, Meta Ads (Facebook / Instagram) et TikTok Ads. Le Starter démarre sur une plateforme ; le Pro en couvre deux ; le Business les trois.",
+      },
+      {
+        question: "Combien de temps avant de voir des résultats ?",
+        answer:
+          "Les premières données utiles arrivent en général sous 7 à 14 jours. L’optimisation fine demande souvent quelques semaines de volume pour stabiliser le coût par conversion.",
+      },
+    ],
+  },
 }
 
 export function getServicePageContent(

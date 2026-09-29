@@ -1,6 +1,7 @@
 import {
   Globe,
   Layout,
+  Megaphone,
   MessageSquare,
   Palette,
   RefreshCw,
@@ -38,4 +39,5 @@ export const serviceIcons: Record<
   wordpress: WordpressIcon,
   server: Server,
   "message-square": MessageSquare,
+  megaphone: Megaphone,
 }

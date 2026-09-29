@@ -1,7 +1,7 @@
 # TESTIMONIALS_REDESIGN.md
 
 > Section uniquement : `#testimonials`  
-> Statut : **plan prêt — en attente de validation avant implémentation**  
+> Statut : **implemented**  
 > Référence : image WhatsApp (concept interaction / composition uniquement, pas de copie visuelle)
 
 ---
@@ -217,4 +217,10 @@ Aucune nouvelle dépendance.
 
 ## Prochaine étape
 
-**Valider ce plan** (ou demander des ajustements : carte collée à l’avatar vs carte centrale, sous-titre, etc.), puis implémentation limitée à cette section.
+Implémentation livrée :
+
+- `components/sections/testimonials-section.tsx`
+- `components/sections/testimonial-avatar.tsx`
+- `components/sections/testimonial-quote-card.tsx`
+
+Données inchangées dans `data/testimonials.ts`.

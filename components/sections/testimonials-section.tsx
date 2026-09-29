@@ -1,13 +1,37 @@
 "use client"
 
+import { useMemo, useState } from "react"
 import Image from "next/image"
-import Link from "next/link"
-import { Linkedin, Quote, Star } from "lucide-react"
 import { testimonials } from "@/data"
-import { FadeIn, Stagger, StaggerItem } from "@/components/ui/motion"
+import { FadeIn } from "@/components/ui/motion"
 import { LazyMount } from "@/components/ui/lazy-mount"
+import { TestimonialAvatar } from "./testimonial-avatar"
+import { TestimonialQuoteCard } from "./testimonial-quote-card"
+import { cn } from "@/lib/utils"
+
+const PANEL_ID = "testimonial-active-panel"
+
+/** Desktop absolute placements — organic, asymmetric */
+const desktopLayout: Record<
+  string,
+  { top: string; left: string; size: "sm" | "md" | "lg"; delay: number }
+> = {
+  mina: { top: "4%", left: "12%", size: "lg", delay: 0.2 },
+  youness: { top: "8%", left: "78%", size: "md", delay: 0.8 },
+  ayman: { top: "58%", left: "6%", size: "md", delay: 1.4 },
+  issraa: { top: "62%", left: "84%", size: "lg", delay: 0.5 },
+}
 
 export function TestimonialsSection() {
+  const [activeId, setActiveId] = useState(testimonials[0]?.id ?? "")
+
+  const active = useMemo(
+    () => testimonials.find((t) => t.id === activeId) ?? testimonials[0],
+    [activeId]
+  )
+
+  if (!active) return null
+
   return (
     <section id="testimonials" className="section-ln relative overflow-hidden">
       <div className="pointer-events-none absolute inset-0" aria-hidden>
@@ -26,88 +50,117 @@ export function TestimonialsSection() {
       </div>
 
       <div className="container-ln relative z-10">
-        <FadeIn className="mb-10 text-center sm:mb-14">
+        <FadeIn className="mx-auto mb-8 max-w-2xl text-center sm:mb-10">
           <p className="label-ln">Témoignages</p>
           <h2 className="heading-lg mt-3">
             Ce qu&apos;ils disent{" "}
             <span className="text-primary">de moi</span>
           </h2>
+          <p className="body-md mx-auto mt-4 max-w-md">
+            Quelques mots de ceux avec qui j&apos;ai eu le plaisir de
+            collaborer.
+          </p>
         </FadeIn>
 
-        <LazyMount minHeight={280} rootMargin="180px 0px">
-          <Stagger className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4 lg:gap-5">
-            {testimonials.map((t) => {
-              const initials = t.name
-                .replace(/^(M\.|Mme\.?|Mlle\.?)\s*/i, "")
-                .split(/\s+/)
-                .filter(Boolean)
-                .slice(0, 2)
-                .map((part) => part[0]?.toUpperCase() ?? "")
-                .join("")
+        <LazyMount minHeight={420} rootMargin="180px 0px">
+          {/* —— Mobile / tablet: avatar row + card —— */}
+          <div className="lg:hidden">
+            <div
+              className="mb-8 flex flex-wrap items-center justify-center gap-4 sm:gap-5"
+              role="group"
+              aria-label="Sélectionner un témoignage"
+            >
+              {testimonials.map((t, i) => (
+                <TestimonialAvatar
+                  key={t.id}
+                  testimonial={t}
+                  active={t.id === active.id}
+                  size={i % 2 === 0 ? "md" : "sm"}
+                  floatDelay={i * 0.4}
+                  onSelect={setActiveId}
+                  controlsId={PANEL_ID}
+                />
+              ))}
+            </div>
+            <TestimonialQuoteCard testimonial={active} id={PANEL_ID} />
+          </div>
 
+          {/* —— Desktop: organic stage —— */}
+          <div className="relative hidden min-h-[560px] lg:block">
+            {/* Soft network connectors */}
+            <svg
+              className="pointer-events-none absolute inset-0 h-full w-full"
+              aria-hidden
+              viewBox="0 0 100 100"
+              preserveAspectRatio="none"
+            >
+              <line
+                x1="18"
+                y1="12"
+                x2="50"
+                y2="48"
+                stroke="rgba(0,217,181,0.12)"
+                strokeWidth="0.25"
+              />
+              <line
+                x1="82"
+                y1="14"
+                x2="50"
+                y2="48"
+                stroke="rgba(0,217,181,0.1)"
+                strokeWidth="0.25"
+              />
+              <line
+                x1="12"
+                y1="68"
+                x2="50"
+                y2="52"
+                stroke="rgba(0,217,181,0.1)"
+                strokeWidth="0.25"
+              />
+              <line
+                x1="88"
+                y1="72"
+                x2="50"
+                y2="52"
+                stroke="rgba(0,217,181,0.12)"
+                strokeWidth="0.25"
+              />
+              <circle
+                cx="50"
+                cy="50"
+                r="18"
+                fill="none"
+                stroke="rgba(0,217,181,0.06)"
+                strokeWidth="0.2"
+              />
+            </svg>
+
+            {testimonials.map((t) => {
+              const layout = desktopLayout[t.id]
+              if (!layout) return null
               return (
-              <StaggerItem key={t.id}>
-                <article className="glass-card relative flex h-full flex-col rounded-2xl border border-border p-5 transition-colors hover:border-primary/30 sm:p-6">
-                  <Quote
-                    className="absolute right-4 top-4 h-8 w-8 text-primary/20"
-                    aria-hidden
+                <div
+                  key={t.id}
+                  className={cn("absolute z-20 -translate-x-1/2 -translate-y-1/2")}
+                  style={{ top: layout.top, left: layout.left }}
+                >
+                  <TestimonialAvatar
+                    testimonial={t}
+                    active={t.id === active.id}
+                    size={layout.size}
+                    floatDelay={layout.delay}
+                    onSelect={setActiveId}
+                    controlsId={PANEL_ID}
                   />
-                  <div className="mb-3 flex gap-0.5">
-                    {Array.from({ length: t.rating }).map((_, i) => (
-                      <Star
-                        key={i}
-                        className="h-3.5 w-3.5 fill-primary text-primary"
-                        aria-hidden
-                      />
-                    ))}
-                  </div>
-                  <p className="body-md relative z-10 flex-1 italic">
-                    &ldquo;{t.content}&rdquo;
-                  </p>
-                  <div className="mt-6 flex items-center gap-3 border-t border-border pt-5">
-                    <div className="relative flex h-11 w-11 shrink-0 items-center justify-center overflow-hidden rounded-full border border-border bg-muted">
-                      {t.image ? (
-                        <Image
-                          src={t.image}
-                          alt={t.name}
-                          fill
-                          loading="lazy"
-                          className="object-cover"
-                          sizes="44px"
-                        />
-                      ) : (
-                        <span className="font-mono text-xs font-semibold text-primary">
-                          {initials || "?"}
-                        </span>
-                      )}
-                    </div>
-                    <div className="min-w-0 flex-1">
-                      <div className="flex items-center gap-2">
-                        <p className="truncate text-sm font-semibold text-foreground">
-                          {t.name}
-                        </p>
-                        {t.linkedin && (
-                          <Link
-                            href={t.linkedin}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            aria-label={`${t.name} sur LinkedIn`}
-                            className="shrink-0 text-foreground-muted transition-colors hover:text-primary"
-                          >
-                            <Linkedin className="h-3.5 w-3.5" />
-                          </Link>
-                        )}
-                      </div>
-                      <p className="truncate font-mono text-[11px] text-primary">
-                        {t.role} {t.company}
-                      </p>
-                    </div>
-                  </div>
-                </article>
-              </StaggerItem>
+                </div>
               )
             })}
-          </Stagger>
+
+            <div className="absolute left-1/2 top-1/2 z-10 w-[min(100%,36rem)] -translate-x-1/2 -translate-y-1/2 px-4">
+              <TestimonialQuoteCard testimonial={active} id={PANEL_ID} />
+            </div>
+          </div>
         </LazyMount>
       </div>
     </section>

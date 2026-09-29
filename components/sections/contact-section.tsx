@@ -244,7 +244,7 @@ export function ContactSection() {
                   <Field
                     label="Nom complet"
                     name="name"
-                    placeholder="Jean Dupont"
+                    placeholder="Entrez votre nom complet"
                     required
                     autoFocus={Boolean(quoteMeta)}
                     emphasized={Boolean(quoteMeta)}
@@ -253,7 +253,7 @@ export function ContactSection() {
                     label="Adresse e-mail"
                     name="email"
                     type="email"
-                    placeholder="jean@exemple.com"
+                    placeholder="Votre-mail@exemple.com"
                     required
                     emphasized={Boolean(quoteMeta)}
                   />

@@ -97,6 +97,8 @@ export type Experience = {
   technologies: string[]
   link?: string
   current?: boolean
+  /** Company logo under /public (e.g. /logo_exp/...) */
+  logo?: string
 }
 
 export type Education = {

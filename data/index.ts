@@ -6,6 +6,7 @@ export { getServicePageContent, servicePageContent } from "./service-content"
 export { experiences, education } from "./experience"
 export { certifications } from "./certifications"
 export { testimonials } from "./testimonials"
+export { skillPills, homepageServiceCards } from "./skills"
 export {
   projects,
   getProjectBySlug,

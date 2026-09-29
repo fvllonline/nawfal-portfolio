@@ -4,19 +4,9 @@ import { HeroSection } from "@/components/sections/hero-section"
 
 function SectionFallback({ minHeight = 360 }: { minHeight?: number }) {
   return (
-    <div
-      className="section-ln"
-      style={{ minHeight }}
-      aria-hidden
-    />
+    <div className="section-ln" style={{ minHeight }} aria-hidden />
   )
 }
-
-const AboutSection = dynamic(
-  () =>
-    import("@/components/sections/about-section").then((m) => m.AboutSection),
-  { loading: () => <SectionFallback minHeight={480} /> }
-)
 
 const ServicesSection = dynamic(
   () =>
@@ -31,7 +21,7 @@ const ProjectsSection = dynamic(
     import("@/components/sections/projects-section").then(
       (m) => m.ProjectsSection
     ),
-  { loading: () => <SectionFallback minHeight={420} /> }
+  { loading: () => <SectionFallback minHeight={480} /> }
 )
 
 const ExperienceSection = dynamic(
@@ -39,6 +29,12 @@ const ExperienceSection = dynamic(
     import("@/components/sections/experience-section").then(
       (m) => m.ExperienceSection
     ),
+  { loading: () => <SectionFallback minHeight={520} /> }
+)
+
+const SkillsSection = dynamic(
+  () =>
+    import("@/components/sections/skills-section").then((m) => m.SkillsSection),
   { loading: () => <SectionFallback /> }
 )
 
@@ -70,10 +66,10 @@ export default function HomePage() {
   return (
     <SiteShell>
       <HeroSection />
-      <AboutSection />
       <ServicesSection />
       <ProjectsSection />
       <ExperienceSection />
+      <SkillsSection />
       <CertificationsSection />
       <TestimonialsSection />
       <ContactSection />

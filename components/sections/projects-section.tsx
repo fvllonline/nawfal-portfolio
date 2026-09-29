@@ -1,154 +1,199 @@
 "use client"
 
-import { useEffect, useState } from "react"
-import Autoplay from "embla-carousel-autoplay"
-import { ChevronLeft, ChevronRight } from "lucide-react"
-import { getFeaturedProjects } from "@/data"
-import { ProjectCard } from "@/components/projects/project-card"
+import { useCallback, useEffect, useState } from "react"
+import Image from "next/image"
+import Link from "next/link"
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion"
+import { ArrowLeft, ArrowRight } from "lucide-react"
+import { projects } from "@/data"
 import { FadeIn } from "@/components/ui/motion"
 import { LazyMount } from "@/components/ui/lazy-mount"
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  type CarouselApi,
-} from "@/components/ui/carousel"
-import { useAutoplayInView } from "@/hooks/use-autoplay-in-view"
 import { cn } from "@/lib/utils"
+import type { Project } from "@/lib/types"
 
-/** Keep a small window of covers loaded around the active snap (loop-safe). */
-function useLoadedSlideIndices(selected: number, total: number, windowSize = 4) {
-  const [loaded, setLoaded] = useState(() => {
-    const initial = new Set<number>()
-    for (let i = 0; i < Math.min(windowSize, total); i++) initial.add(i)
-    return initial
-  })
+const PAGE_SIZE = 3
+const AUTO_MS = 7000
 
-  useEffect(() => {
-    if (total === 0) return
-    setLoaded((prev) => {
-      const next = new Set(prev)
-      for (let i = -1; i < windowSize; i++) {
-        next.add((selected + i + total) % total)
-      }
-      return next
-    })
-  }, [selected, total, windowSize])
+function chunkProjects(items: Project[], size: number) {
+  const pages: Project[][] = []
+  for (let i = 0; i < items.length; i += size) {
+    pages.push(items.slice(i, i + size))
+  }
+  return pages
+}
 
-  return loaded
+const pages = chunkProjects(projects, PAGE_SIZE)
+
+function ProjectCard({ project }: { project: Project }) {
+  return (
+    <article className="glass-card group grid overflow-hidden rounded-2xl border border-border transition-all duration-300 hover:border-primary/35 hover:shadow-[0_0_40px_rgba(0,217,181,0.08)] md:grid-cols-2">
+      <Link
+        href={`/projects/${project.slug}`}
+        className="relative aspect-[16/10] overflow-hidden bg-muted md:aspect-auto md:min-h-[240px]"
+        aria-label={`Découvrir ${project.title}`}
+      >
+        <Image
+          src={project.coverImage}
+          alt=""
+          fill
+          loading="lazy"
+          className="object-cover transition-transform duration-700 group-hover:scale-105"
+          sizes="(max-width: 768px) 100vw, 50vw"
+          quality={75}
+        />
+        {project.inProgress && (
+          <span className="absolute left-3 top-3 rounded-full border border-primary/40 bg-background/80 px-3 py-1 font-mono text-[10px] uppercase tracking-wider text-primary backdrop-blur-md">
+            En cours
+          </span>
+        )}
+      </Link>
+
+      <div className="flex flex-col justify-center p-6 sm:p-8">
+        <p className="label-ln">{project.type}</p>
+        <h3 className="heading-sm mt-2 text-xl sm:text-2xl">
+          <Link
+            href={`/projects/${project.slug}`}
+            className="transition-colors hover:text-primary group-hover:text-primary"
+          >
+            {project.title}
+          </Link>
+        </h3>
+        <p className="body-md mt-3 line-clamp-3">{project.shortDescription}</p>
+        <ul className="mt-4 flex flex-wrap gap-2">
+          {project.technologies.slice(0, 4).map((tech) => (
+            <li key={tech} className="chip-muted">
+              {tech}
+            </li>
+          ))}
+        </ul>
+        <Link
+          href={`/projects/${project.slug}`}
+          className="label-md-ln mt-6 inline-flex items-center gap-2 text-primary hover:underline"
+        >
+          Voir le projet
+          <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+        </Link>
+      </div>
+    </article>
+  )
 }
 
 export function ProjectsSection() {
-  const projects = getFeaturedProjects()
-  const [api, setApi] = useState<CarouselApi>()
-  const [selected, setSelected] = useState(0)
-  const [snapCount, setSnapCount] = useState(0)
-  const loadedSlides = useLoadedSlideIndices(selected, projects.length)
-  const [autoplayPlugin] = useState(() =>
-    Autoplay({
-      delay: 7000,
-      stopOnInteraction: false,
-      stopOnMouseEnter: true,
-    })
+  const reduce = useReducedMotion()
+  const [page, setPage] = useState(0)
+  const [paused, setPaused] = useState(false)
+  const pageCount = pages.length
+
+  const goTo = useCallback(
+    (index: number) => {
+      setPage(((index % pageCount) + pageCount) % pageCount)
+    },
+    [pageCount]
   )
 
-  useAutoplayInView(api)
+  const next = useCallback(() => goTo(page + 1), [goTo, page])
+  const prev = useCallback(() => goTo(page - 1), [goTo, page])
 
   useEffect(() => {
-    if (!api) return
-
-    const onSelect = () => {
-      setSelected(api.selectedScrollSnap())
-      setSnapCount(api.scrollSnapList().length)
-    }
-
-    onSelect()
-    api.on("select", onSelect)
-    api.on("reInit", onSelect)
-
-    return () => {
-      api.off("select", onSelect)
-      api.off("reInit", onSelect)
-    }
-  }, [api])
+    if (reduce || paused || pageCount <= 1) return
+    const id = window.setInterval(() => {
+      setPage((current) => (current + 1) % pageCount)
+    }, AUTO_MS)
+    return () => window.clearInterval(id)
+  }, [reduce, paused, pageCount])
 
   return (
     <section id="projects" className="section-ln">
       <div className="container-ln">
-        <FadeIn className="mb-10 text-center sm:mb-14">
-          <p className="label-ln">Réalisations</p>
-          <h2 className="heading-lg mt-2">Projets web & mobile</h2>
-          <p className="body-md mx-auto mt-4 max-w-2xl">
-            Une sélection de réalisations : apps, e-commerce et sites vitrines
-            livrés pour des clients et partenaires.
-          </p>
-          <div className="mt-6 flex justify-center gap-2">
-            <button
-              type="button"
-              aria-label="Projets précédents"
-              onClick={() => api?.scrollPrev()}
-              className="flex h-11 w-11 items-center justify-center rounded-xl border border-border text-foreground-muted transition-colors hover:border-primary/40 hover:text-primary"
-            >
-              <ChevronLeft className="h-5 w-5" />
-            </button>
-            <button
-              type="button"
-              aria-label="Projets suivants"
-              onClick={() => api?.scrollNext()}
-              className="flex h-11 w-11 items-center justify-center rounded-xl border border-border text-foreground-muted transition-colors hover:border-primary/40 hover:text-primary"
-            >
-              <ChevronRight className="h-5 w-5" />
-            </button>
+        <FadeIn className="mb-10 flex max-w-3xl flex-col gap-6 sm:mb-14 sm:flex-row sm:items-end sm:justify-between sm:max-w-none">
+          <div className="max-w-2xl">
+            <p className="label-ln">Réalisations</p>
+            <h2 className="heading-lg mt-3">
+              Des projets concrets,
+              <br />
+              <span className="text-primary">une vraie valeur</span>
+            </h2>
+            <p className="body-md mt-4">
+              Études de cas : apps, e-commerce et sites vitrines livrés pour des
+              clients et partenaires. Trois projets à la fois, tous accessibles
+              via le carrousel.
+            </p>
           </div>
+
+          {pageCount > 1 && (
+            <div className="flex items-center gap-2 self-start sm:self-auto">
+              <button
+                type="button"
+                onClick={prev}
+                aria-label="Projets précédents"
+                className="flex h-10 w-10 items-center justify-center rounded-xl border border-border text-foreground-muted transition-colors hover:border-primary/40 hover:text-primary"
+              >
+                <ArrowLeft className="h-4 w-4" />
+              </button>
+              <button
+                type="button"
+                onClick={next}
+                aria-label="Projets suivants"
+                className="flex h-10 w-10 items-center justify-center rounded-xl border border-border text-foreground-muted transition-colors hover:border-primary/40 hover:text-primary"
+              >
+                <ArrowRight className="h-4 w-4" />
+              </button>
+            </div>
+          )}
         </FadeIn>
 
-        <LazyMount minHeight={360}>
-          <FadeIn>
-            <Carousel
-              setApi={setApi}
-              opts={{
-                align: "start",
-                loop: true,
-                dragFree: false,
-              }}
-              plugins={[autoplayPlugin]}
-              className="w-full"
-            >
-              <CarouselContent className="-ml-4">
-                {projects.map((project, index) => (
-                  <CarouselItem
-                    key={project.slug}
-                    className="basis-full pl-4 sm:basis-1/2 lg:basis-1/3"
-                  >
-                    <div className="h-full select-none">
-                      <ProjectCard
-                        project={project}
-                        loadImage={loadedSlides.has(index)}
-                      />
-                    </div>
-                  </CarouselItem>
+        <LazyMount minHeight={480} rootMargin="200px 0px">
+          <div
+            onMouseEnter={() => setPaused(true)}
+            onMouseLeave={() => setPaused(false)}
+            onFocusCapture={() => setPaused(true)}
+            onBlurCapture={(e) => {
+              if (!e.currentTarget.contains(e.relatedTarget as Node | null)) {
+                setPaused(false)
+              }
+            }}
+          >
+            <AnimatePresence mode="wait" initial={false}>
+              <motion.div
+                key={page}
+                initial={reduce ? false : { opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={reduce ? undefined : { opacity: 0, y: -12 }}
+                transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+                className="space-y-6 md:space-y-8"
+                aria-live="polite"
+              >
+                {pages[page]?.map((project) => (
+                  <ProjectCard key={project.slug} project={project} />
                 ))}
-              </CarouselContent>
-            </Carousel>
+              </motion.div>
+            </AnimatePresence>
 
-            <div className="mt-8 flex items-center justify-center gap-2">
-              {Array.from({ length: snapCount }).map((_, i) => (
-                <button
-                  key={i}
-                  type="button"
-                  aria-label={`Aller à la diapositive ${i + 1}`}
-                  aria-current={selected === i}
-                  onClick={() => api?.scrollTo(i)}
-                  className={cn(
-                    "h-2 rounded-full transition-all duration-300",
-                    selected === i
-                      ? "w-6 bg-primary"
-                      : "w-2 bg-foreground-muted/30 hover:bg-foreground-muted/50"
-                  )}
-                />
-              ))}
-            </div>
-          </FadeIn>
+            {pageCount > 1 && (
+              <div
+                className="mt-8 flex items-center justify-center gap-2"
+                role="tablist"
+                aria-label="Pages de projets"
+              >
+                {pages.map((_, index) => (
+                  <button
+                    key={index}
+                    type="button"
+                    role="tab"
+                    aria-selected={index === page}
+                    aria-label={`Afficher les projets ${index * PAGE_SIZE + 1} à ${Math.min((index + 1) * PAGE_SIZE, projects.length)}`}
+                    onClick={() => goTo(index)}
+                    className={cn(
+                      "h-2 rounded-full transition-all",
+                      index === page
+                        ? "w-8 bg-primary"
+                        : "w-2 bg-foreground-muted/40 hover:bg-primary/50"
+                    )}
+                  />
+                ))}
+              </div>
+            )}
+          </div>
         </LazyMount>
       </div>
     </section>

@@ -9,6 +9,7 @@ export const experiences: Experience[] = [
     company: "Alvon Digital Group",
     role: "Développeur Full-Stack & Mobile",
     contractType: "Contrat de collaboration",
+    logo: "/logo_exp/logo_alvon.jpg",
     description:
       "Développement et maintenance d’applications mobiles, conception d’architecture technique, optimisation des performances et participation aux décisions produit stratégiques.",
     highlights: [
@@ -26,6 +27,7 @@ export const experiences: Experience[] = [
     company: "Alvon Digital Group",
     role: "Développeur Full-Stack (Stage PFE)",
     contractType: "Stage PFE",
+    logo: "/logo_exp/logo_alvon.jpg",
     description:
       "Conception et développement de MonPassTCF, plateforme de préparation au TCF : architecture full-stack (Express.js, React Native, Next.js), intégration IA (Groq), fonctionnalités sociales en temps réel, gamification et tableau de bord administrateur.",
     highlights: [
@@ -50,6 +52,7 @@ export const experiences: Experience[] = [
     company: "Adam Adventure Tours & Tourism",
     role: "Développeur Web (Stage)",
     contractType: "Stage",
+    logo: "/logo_exp/logo_adam.png",
     description:
       "Conception et développement d’un site vitrine de bout en bout : analyse des besoins, choix technologiques, design graphique, intégration Next.js, déploiement Vercel et maintenance.",
     highlights: [
@@ -67,6 +70,7 @@ export const experiences: Experience[] = [
     company: "MB Way",
     role: "Développeur Backend & Brand Designer (Stage PFE)",
     contractType: "Stage PFE",
+    logo: "/logo_exp/logo_mbway.png",
     description:
       "Développement backend de l’application Quick Stay (Laravel) ; création de l’identité visuelle complète, logo et charte graphique.",
     highlights: [

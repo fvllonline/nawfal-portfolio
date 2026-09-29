@@ -2,7 +2,7 @@
 
 import Link from "next/link"
 import { usePathname, useRouter } from "next/navigation"
-import { Terminal, Menu, X } from "lucide-react"
+import { ArrowRight, Menu, X } from "lucide-react"
 import { useEffect, useState, type MouseEvent } from "react"
 import { AnimatePresence, motion } from "framer-motion"
 import { navLinks, siteConfig } from "@/data"
@@ -22,12 +22,11 @@ function scrollToId(id: string) {
 
 export function Navbar() {
   const [open, setOpen] = useState(false)
-  const scrolled = useScrolled(50)
+  const scrolled = useScrolled(40)
   const active = useActiveSection()
   const pathname = usePathname()
   const router = useRouter()
 
-  // Lock body scroll when mobile menu is open
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : ""
     return () => {
@@ -35,7 +34,6 @@ export function Navbar() {
     }
   }, [open])
 
-  // Close menu on route change
   useEffect(() => {
     setOpen(false)
   }, [pathname])
@@ -51,8 +49,6 @@ export function Navbar() {
 
     e.preventDefault()
     e.stopPropagation()
-
-    // Unlock scroll before scrolling; overflow:hidden blocks scrollIntoView on mobile
     closeMenu()
 
     if (pathname === "/") {
@@ -68,35 +64,29 @@ export function Navbar() {
   return (
     <header
       className={cn(
-        "fixed top-0 z-[70] w-full border-b border-white/10 transition-all duration-300",
-        "bg-[#101415]/70 backdrop-blur-xl",
-        "shadow-[0_0_40px_rgba(110,255,192,0.15)]",
-        scrolled && "bg-[#101415]/90 shadow-[0_0_30px_rgba(110,255,192,0.1)]"
+        "fixed top-0 z-[70] w-full transition-all duration-300",
+        scrolled
+          ? "border-b border-border bg-background/80 shadow-[0_0_30px_rgba(0,217,181,0.06)] backdrop-blur-xl"
+          : "border-b border-transparent bg-transparent"
       )}
     >
       <nav
         className={cn(
           "container-ln relative z-[72] flex items-center justify-between transition-all duration-300",
-          scrolled ? "py-2" : "py-4"
+          scrolled ? "py-2.5" : "py-4"
         )}
       >
         <Link
           href="/#home"
           onClick={(e) => handleNavClick(e, "/#home")}
-          className="group flex items-center gap-2 text-primary transition-transform active:scale-95"
+          className="group font-display text-lg font-bold tracking-tight transition-opacity hover:opacity-90 sm:text-xl"
           aria-label={`${siteConfig.fullName}, Accueil`}
         >
-          <Terminal
-            className="h-6 w-6 transition-transform group-hover:rotate-6"
-            aria-hidden
-          />
-          <span className="font-display text-xl font-bold tracking-tighter">
-            {siteConfig.name}
-          </span>
+          <span className="text-foreground">Nawfal </span>
+          <span className="text-primary">ADDAOUI</span>
         </Link>
 
-        {/* Desktop links: xl to avoid cramped 7-link row on tablets */}
-        <div className="hidden items-center gap-5 xl:flex xl:gap-7">
+        <div className="hidden items-center gap-6 lg:flex lg:gap-8">
           {navLinks.map((link) => {
             const id = sectionIdFromHref(link.href)
             const isActive = id === active
@@ -128,10 +118,20 @@ export function Navbar() {
           })}
         </div>
 
-        {/* Mobile / tablet toggle */}
+        <div className="hidden lg:block">
+          <Link
+            href="/#contact"
+            onClick={(e) => handleNavClick(e, "/#contact")}
+            className="label-md-ln inline-flex items-center gap-1.5 text-primary transition-opacity hover:opacity-80"
+          >
+            Me contacter
+            <ArrowRight className="h-3.5 w-3.5" aria-hidden />
+          </Link>
+        </div>
+
         <button
           type="button"
-          className="relative z-[72] flex h-11 w-11 items-center justify-center text-primary xl:hidden"
+          className="relative z-[72] flex h-11 w-11 items-center justify-center text-primary lg:hidden"
           aria-label={open ? "Fermer le menu" : "Ouvrir le menu"}
           aria-expanded={open}
           aria-controls="mobile-nav"
@@ -141,7 +141,6 @@ export function Navbar() {
         </button>
       </nav>
 
-      {/* Mobile drawer + backdrop */}
       <AnimatePresence>
         {open && (
           <>
@@ -152,7 +151,7 @@ export function Navbar() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.2 }}
-              className="fixed inset-0 z-[68] bg-background/55 xl:hidden"
+              className="fixed inset-0 z-[68] bg-background/55 lg:hidden"
               onClick={closeMenu}
             />
             <motion.div
@@ -161,7 +160,7 @@ export function Navbar() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -8 }}
               transition={{ duration: 0.2, ease: "easeOut" }}
-              className="absolute left-0 right-0 top-full z-[71] max-h-[min(70dvh,calc(100dvh-4.5rem))] overflow-y-auto overscroll-contain border-t border-border bg-background/98 shadow-2xl backdrop-blur-xl xl:hidden"
+              className="absolute left-0 right-0 top-full z-[71] max-h-[min(70dvh,calc(100dvh-4.5rem))] overflow-y-auto overscroll-contain border-t border-border bg-background/98 shadow-2xl backdrop-blur-xl lg:hidden"
             >
               <div className="container-ln flex flex-col gap-1 py-3 pb-[max(1rem,env(safe-area-inset-bottom))]">
                 {navLinks.map((link, i) => {
@@ -197,6 +196,14 @@ export function Navbar() {
                     </motion.div>
                   )
                 })}
+                <a
+                  href="/#contact"
+                  onClick={(e) => handleNavClick(e, "/#contact")}
+                  className="label-md-ln mt-2 flex min-h-12 items-center justify-center gap-2 rounded-xl bg-primary/10 px-4 py-3 text-primary"
+                >
+                  Me contacter
+                  <ArrowRight className="h-4 w-4" aria-hidden />
+                </a>
               </div>
             </motion.div>
           </>

@@ -10,30 +10,29 @@ import { LazyMount } from "@/components/ui/lazy-mount"
 export function TestimonialsSection() {
   return (
     <section id="testimonials" className="section-ln">
-      <div className="container-ln overflow-hidden rounded-3xl bg-accent/40 py-12 sm:rounded-[40px] sm:py-section-sm md:py-section">
-        <FadeIn className="mb-10 px-2 text-center sm:mb-16 sm:px-4">
+      <div className="container-ln">
+        <FadeIn className="mb-10 text-center sm:mb-14">
           <p className="label-ln">Témoignages</p>
-          <h2 className="heading-lg mt-2">Avis clients & collaborateurs</h2>
-          <p className="body-md mx-auto mt-4 max-w-2xl">
-            Ce que disent ceux qui ont travaillé avec moi : stages, projets et
-            collaborations.
-          </p>
+          <h2 className="heading-lg mt-3">
+            Ce qu&apos;ils disent{" "}
+            <span className="text-primary">de moi</span>
+          </h2>
         </FadeIn>
 
-        <LazyMount minHeight={320}>
-          <Stagger className="grid grid-cols-1 gap-6 px-2 sm:gap-8 sm:px-4 md:grid-cols-3">
+        <LazyMount minHeight={280} rootMargin="180px 0px">
+          <Stagger className="grid grid-cols-1 gap-5 md:grid-cols-3 md:gap-6">
             {testimonials.map((t) => (
               <StaggerItem key={t.id}>
-                <article className="glass-card relative flex h-full flex-col rounded-2xl p-5 sm:rounded-3xl sm:p-8">
+                <article className="glass-card relative flex h-full flex-col rounded-2xl border border-border p-5 transition-colors hover:border-primary/30 sm:p-6">
                   <Quote
-                    className="absolute right-5 top-4 h-10 w-10 text-primary/20 sm:right-8 sm:top-6 sm:h-14 sm:w-14"
+                    className="absolute right-4 top-4 h-8 w-8 text-primary/20"
                     aria-hidden
                   />
-                  <div className="mb-4 flex gap-1">
+                  <div className="mb-3 flex gap-0.5">
                     {Array.from({ length: t.rating }).map((_, i) => (
                       <Star
                         key={i}
-                        className="h-4 w-4 fill-primary text-primary"
+                        className="h-3.5 w-3.5 fill-primary text-primary"
                         aria-hidden
                       />
                     ))}
@@ -41,39 +40,39 @@ export function TestimonialsSection() {
                   <p className="body-md relative z-10 flex-1 italic">
                     &ldquo;{t.content}&rdquo;
                   </p>
-                  <div className="mt-8 flex items-center gap-4">
-                    <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-full border border-border bg-muted">
+                  <div className="mt-6 flex items-center gap-3 border-t border-border pt-5">
+                    <div className="relative h-11 w-11 shrink-0 overflow-hidden rounded-full border border-border bg-muted">
                       <Image
                         src={t.image}
                         alt={t.name}
                         fill
                         loading="lazy"
                         className="object-cover"
-                        sizes="48px"
+                        sizes="44px"
                       />
                     </div>
-                  <div className="min-w-0 flex-1">
-                    <div className="flex items-center gap-2">
-                      <p className="truncate font-semibold text-foreground">
-                        {t.name}
+                    <div className="min-w-0 flex-1">
+                      <div className="flex items-center gap-2">
+                        <p className="truncate text-sm font-semibold text-foreground">
+                          {t.name}
+                        </p>
+                        {t.linkedin && (
+                          <Link
+                            href={t.linkedin}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label={`${t.name} sur LinkedIn`}
+                            className="shrink-0 text-foreground-muted transition-colors hover:text-primary"
+                          >
+                            <Linkedin className="h-3.5 w-3.5" />
+                          </Link>
+                        )}
+                      </div>
+                      <p className="truncate font-mono text-[11px] text-primary">
+                        {t.role} {t.company}
                       </p>
-                      {t.linkedin && (
-                        <Link
-                          href={t.linkedin}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          aria-label={`${t.name} sur LinkedIn`}
-                          className="shrink-0 text-foreground-muted transition-colors hover:text-primary"
-                        >
-                          <Linkedin className="h-4 w-4" />
-                        </Link>
-                      )}
                     </div>
-                    <p className="label-md-ln truncate text-primary">
-                      {t.role} {t.company}
-                    </p>
                   </div>
-                </div>
                 </article>
               </StaggerItem>
             ))}

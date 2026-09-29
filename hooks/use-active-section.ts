@@ -5,10 +5,10 @@ import { usePathname } from "next/navigation"
 
 const SECTION_IDS = [
   "home",
-  "about",
   "services",
   "projects",
   "experience",
+  "skills",
   "certifications",
   "testimonials",
   "contact",

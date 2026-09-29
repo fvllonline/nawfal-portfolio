@@ -1,6 +1,7 @@
 "use client"
 
 import { useEffect, useState, type FormEvent } from "react"
+import Image from "next/image"
 import Link from "next/link"
 import { motion } from "framer-motion"
 import { Send, CheckCircle, Github, FileText, Linkedin } from "lucide-react"
@@ -91,15 +92,30 @@ export function ContactSection() {
   }
 
   return (
-    <section id="contact" className="section-ln">
-      <div className="container-ln grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-16">
+    <section id="contact" className="section-ln relative overflow-hidden">
+      <div className="pointer-events-none absolute inset-0" aria-hidden>
+        <Image
+          src="/bg/bg_contact.png"
+          alt=""
+          fill
+          loading="lazy"
+          className="object-cover object-center"
+          sizes="100vw"
+        />
+        <div className="absolute inset-0 bg-background/75" />
+        <div className="absolute inset-0 bg-gradient-to-r from-background/85 via-background/55 to-background/80" />
+        <div className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-background to-transparent" />
+        <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-background to-transparent" />
+      </div>
+
+      <div className="container-ln relative z-10 grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-16">
         {/* Info */}
         <FadeIn className="space-y-8">
           <div>
             <p className="label-ln">Contact</p>
             <h2 className="heading-lg mt-2">
               Parlons de{" "}
-              <span className="gradient-text italic">votre projet</span>
+              <span className="text-primary">votre projet</span>
             </h2>
             <p className="body-lg mt-4 max-w-md">
               Une idée de{" "}

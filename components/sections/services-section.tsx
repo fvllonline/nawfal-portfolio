@@ -1,152 +1,82 @@
 "use client"
 
-import { useEffect, useState } from "react"
+import Image from "next/image"
 import Link from "next/link"
-import Autoplay from "embla-carousel-autoplay"
-import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react"
-import { services } from "@/data"
-import { FadeIn } from "@/components/ui/motion"
-import { serviceIcons } from "@/components/services/service-icons"
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  type CarouselApi,
-} from "@/components/ui/carousel"
-import { useAutoplayInView } from "@/hooks/use-autoplay-in-view"
-import { cn } from "@/lib/utils"
+import { ArrowRight } from "lucide-react"
+import { homepageServiceCards } from "@/data"
+import { FadeIn, Stagger, StaggerItem } from "@/components/ui/motion"
 
 export function ServicesSection() {
-  const [api, setApi] = useState<CarouselApi>()
-  const [selected, setSelected] = useState(0)
-  const [snapCount, setSnapCount] = useState(0)
-  const [autoplayPlugin] = useState(() =>
-    Autoplay({
-      delay: 7000,
-      stopOnInteraction: false,
-      stopOnMouseEnter: true,
-    })
-  )
-
-  useAutoplayInView(api)
-
-  useEffect(() => {
-    if (!api) return
-
-    const onSelect = () => {
-      setSelected(api.selectedScrollSnap())
-      setSnapCount(api.scrollSnapList().length)
-    }
-
-    onSelect()
-    api.on("select", onSelect)
-    api.on("reInit", onSelect)
-
-    return () => {
-      api.off("select", onSelect)
-      api.off("reInit", onSelect)
-    }
-  }, [api])
-
   return (
-    <section id="services" className="section-ln">
-      <div className="container-ln">
-        <FadeIn className="mb-10 text-center sm:mb-14">
-          <p className="label-ln">Expertises</p>
-          <h2 className="heading-lg mt-2">Sites, applications et APIs</h2>
-          <p className="body-md mx-auto mt-4 max-w-2xl">
-            Packs clairs en MAD pour sites web, e-commerce, apps et APIs
-            conçus pour startups et entreprises au Maroc. Comparez les offres et
-            demandez un devis adapté à votre projet.
+    <section id="services" className="section-ln relative overflow-hidden">
+      <div className="pointer-events-none absolute inset-0" aria-hidden>
+        <Image
+          src="/bg/bg_service.jpg"
+          alt=""
+          fill
+          loading="lazy"
+          className="object-cover object-left"
+          sizes="100vw"
+        />
+        <div className="absolute inset-0 bg-background/75" />
+        <div className="absolute inset-0 bg-gradient-to-r from-background/90 via-background/55 to-background/80" />
+        <div className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-background to-transparent" />
+        <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-background to-transparent" />
+      </div>
+
+      <div className="container-ln relative z-10 grid grid-cols-1 items-start gap-10 lg:grid-cols-12 lg:gap-14">
+        <FadeIn className="lg:col-span-5">
+          <p className="label-ln">Services</p>
+          <h2 className="heading-lg mt-3">
+            Des solutions sur mesure
+            <br />
+            <span className="text-primary">pour vos projets</span>
+          </h2>
+          <p className="body-lg mt-4 max-w-md">
+            Packs clairs en MAD pour le web, le mobile, les APIs et le design,
+            du brief au déploiement, pour startups et entreprises au Maroc.
           </p>
-          <div className="mt-6 flex justify-center gap-2">
-            <button
-              type="button"
-              aria-label="Services précédents"
-              onClick={() => api?.scrollPrev()}
-              className="flex h-11 w-11 items-center justify-center rounded-xl border border-border text-foreground-muted transition-colors hover:border-primary/40 hover:text-primary"
-            >
-              <ChevronLeft className="h-5 w-5" />
-            </button>
-            <button
-              type="button"
-              aria-label="Services suivants"
-              onClick={() => api?.scrollNext()}
-              className="flex h-11 w-11 items-center justify-center rounded-xl border border-border text-foreground-muted transition-colors hover:border-primary/40 hover:text-primary"
-            >
-              <ChevronRight className="h-5 w-5" />
-            </button>
-          </div>
-        </FadeIn>
-
-        <FadeIn>
-          <Carousel
-            setApi={setApi}
-            opts={{
-              align: "start",
-              loop: true,
-              dragFree: false,
-            }}
-            plugins={[autoplayPlugin]}
-            className="w-full"
+          <Link
+            href="/services/website"
+            className="label-md-ln mt-6 inline-flex items-center gap-2 text-primary hover:underline"
           >
-            <CarouselContent className="-ml-4">
-              {services.map((service) => {
-                const Icon = serviceIcons[service.icon]
-                return (
-                  <CarouselItem
-                    key={service.id}
-                    className="basis-full pl-4 sm:basis-1/2 lg:basis-1/3"
-                  >
-                    <article className="glass-card group flex h-full min-h-[260px] flex-col rounded-2xl border border-border p-6 transition-colors hover:border-primary/40 select-none">
-                      <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary transition-transform group-hover:scale-110">
-                        <Icon className="h-6 w-6" />
-                      </div>
-                      <h3 className="heading-sm text-lg">
-                        <Link
-                          href={`/services/${service.id}`}
-                          className="transition-colors hover:text-primary group-hover:text-primary"
-                        >
-                          {service.title}
-                        </Link>
-                      </h3>
-                      <p className="body-md mt-2 flex-1 line-clamp-3">
-                        {service.description}
-                      </p>
-                      <Link
-                        href={`/services/${service.id}`}
-                        className="label-md-ln mt-5 inline-flex items-center gap-2 text-primary hover:underline"
-                      >
-                        {service.id === "maintenance"
-                          ? "Voir les forfaits mensuels"
-                          : "Voir les packs"}
-                        <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-                      </Link>
-                    </article>
-                  </CarouselItem>
-                )
-              })}
-            </CarouselContent>
-          </Carousel>
-
-          <div className="mt-8 flex items-center justify-center gap-2">
-            {Array.from({ length: snapCount }).map((_, i) => (
-              <button
-                key={i}
-                type="button"
-                aria-label={`Aller au service ${i + 1}`}
-                aria-current={selected === i}
-                onClick={() => api?.scrollTo(i)}
-                className={cn(
-                  "h-2 rounded-full transition-all duration-300",
-                  selected === i
-                    ? "w-6 bg-primary"
-                    : "w-2 bg-foreground-muted/30 hover:bg-foreground-muted/50"
-                )}
-              />
-            ))}
-          </div>
+            Voir tous les packs
+            <ArrowRight className="h-4 w-4" aria-hidden />
+          </Link>
         </FadeIn>
+
+        <Stagger className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:col-span-7">
+          {homepageServiceCards.map((card) => {
+            const Icon = card.icon
+            return (
+              <StaggerItem key={card.id}>
+                <article className="glass-card group flex h-full flex-col rounded-2xl border border-border p-5 transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 sm:p-6">
+                  <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-xl bg-primary/10 text-primary transition-transform group-hover:scale-110">
+                    <Icon className="h-5 w-5" aria-hidden />
+                  </div>
+                  <h3 className="heading-sm text-lg">
+                    <Link
+                      href={card.href}
+                      className="transition-colors hover:text-primary group-hover:text-primary"
+                    >
+                      {card.title}
+                    </Link>
+                  </h3>
+                  <p className="body-md mt-2 flex-1 line-clamp-3">
+                    {card.description}
+                  </p>
+                  <Link
+                    href={card.href}
+                    className="label-md-ln mt-4 inline-flex items-center gap-2 text-primary hover:underline"
+                  >
+                    En savoir plus
+                    <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
+                  </Link>
+                </article>
+              </StaggerItem>
+            )
+          })}
+        </Stagger>
       </div>
     </section>
   )

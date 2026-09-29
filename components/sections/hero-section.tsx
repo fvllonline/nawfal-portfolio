@@ -1,153 +1,163 @@
 "use client"
 
-import type { ReactNode } from "react"
 import Image from "next/image"
 import Link from "next/link"
-import {
-  Facebook,
-  Github,
-  Instagram,
-  Linkedin,
-  Mail,
-} from "lucide-react"
+import { ArrowRight } from "lucide-react"
 import { motion, useReducedMotion } from "framer-motion"
-import { siteConfig } from "@/data"
+import { projects, siteConfig } from "@/data"
 import { easeOutExpo } from "@/components/ui/motion"
+
+/** Tech badges drawn only from stacks present in real projects / site copy */
+const HERO_TECH = [
+  "React",
+  "Next.js",
+  "Laravel",
+  "React Native",
+  "Express.js",
+  "Tailwind CSS",
+] as const
 
 export function HeroSection() {
   const reduce = useReducedMotion()
+  const projectCount = projects.length
 
   return (
     <section
       id="home"
-      className="relative flex min-h-[100dvh] items-center overflow-hidden pb-16 pt-24 sm:pb-20"
+      className="relative flex min-h-[100dvh] items-center overflow-hidden pb-16 pt-28 sm:pb-20 sm:pt-32"
     >
-      {/* Background image */}
       <div className="absolute inset-0 -z-10">
-        <Image
-          src="/herobg.webp"
-          alt=""
-          fill
-          priority
-          fetchPriority="high"
-          quality={75}
-          className="object-cover object-center"
-          sizes="100vw"
+        <div className="absolute inset-0 bg-background" />
+        <div
+          className="animate-ambient-glow pointer-events-none absolute -right-[15%] top-[10%] h-[360px] w-[360px] rounded-full bg-primary/10 blur-[120px] sm:h-[480px] sm:w-[480px]"
+          aria-hidden
         />
-        <div className="absolute inset-0 bg-background/75" />
-        <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-transparent to-background" />
+        <div
+          className="animate-ambient-glow-delayed pointer-events-none absolute -left-[10%] bottom-[5%] h-[280px] w-[280px] rounded-full bg-secondary/10 blur-[120px] sm:h-[400px] sm:w-[400px]"
+          aria-hidden
+        />
       </div>
 
-      <div
-        className="animate-ambient-glow pointer-events-none absolute -right-[20%] -top-[10%] h-[320px] w-[320px] rounded-full bg-primary/10 blur-[120px] sm:-right-[10%] sm:-top-[20%] sm:h-[500px] sm:w-[500px]"
-        aria-hidden
-      />
-      <div
-        className="animate-ambient-glow-delayed pointer-events-none absolute -bottom-[10%] -left-[20%] h-[280px] w-[280px] rounded-full bg-secondary/10 blur-[120px] sm:-bottom-[20%] sm:-left-[10%] sm:h-[500px] sm:w-[500px]"
-        aria-hidden
-      />
-
-      <div className="container-ln relative z-10 mx-auto flex max-w-3xl justify-center">
-        <div className="flex w-full flex-col items-center space-y-5 text-center sm:space-y-6">
-          <motion.div
-            initial={reduce ? false : { opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, ease: easeOutExpo }}
-            className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-4 py-2 backdrop-blur-sm"
-          >
-            <span className="h-2 w-2 animate-pulse rounded-full bg-primary" />
-            <span className="label-ln">{siteConfig.availability}</span>
-          </motion.div>
-
-          <motion.h1
-            initial={reduce ? false : { opacity: 0, y: 28 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.65, delay: 0.1, ease: easeOutExpo }}
-            className="heading-display leading-[0.95]"
-          >
-            <span className="block">NAWFAL ADDAOUI</span>
-          </motion.h1>
-
-          <motion.h2
-            initial={reduce ? false : { opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.55, delay: 0.22, ease: easeOutExpo }}
-            className="heading-md text-foreground-muted"
-          >
-            {siteConfig.title}
-          </motion.h2>
-
-          <motion.p
-            initial={reduce ? false : { opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.55, delay: 0.32, ease: easeOutExpo }}
-            className="body-lg mx-auto max-w-lg"
-          >
-            {siteConfig.tagline}
-          </motion.p>
-
-          <motion.div
-            initial={reduce ? false : { opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.55, delay: 0.42, ease: easeOutExpo }}
-            className="flex w-full flex-col items-center justify-center gap-3 pt-2 sm:w-auto sm:flex-row sm:flex-wrap sm:gap-4"
-          >
+      <div className="container-ln relative z-10">
+        <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-16">
+          {/* Copy */}
+          <div className="lg:col-span-7">
             <motion.div
-              whileHover={{ scale: 1.04 }}
-              whileTap={{ scale: 0.97 }}
-              className="w-full sm:w-auto"
+              initial={reduce ? false : { opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, ease: easeOutExpo }}
+              className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-4 py-2"
+            >
+              <span className="h-2 w-2 animate-pulse rounded-full bg-primary" />
+              <span className="label-ln">{siteConfig.availability}</span>
+            </motion.div>
+
+            <motion.p
+              initial={reduce ? false : { opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.06, ease: easeOutExpo }}
+              className="mt-6 font-display text-lg font-semibold tracking-tight sm:text-xl"
+            >
+              <span className="text-foreground">Nawfal </span>
+              <span className="gradient-text">ADDAOUI</span>
+            </motion.p>
+            <p className="mt-1 font-mono text-xs uppercase tracking-[0.12em] text-foreground-muted">
+              {siteConfig.title}
+            </p>
+
+            <motion.h1
+              initial={reduce ? false : { opacity: 0, y: 28 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.65, delay: 0.12, ease: easeOutExpo }}
+              className="heading-display mt-6 max-w-xl leading-[0.95]"
+            >
+              <span className="block text-foreground">Des idées</span>
+              <span className="block gradient-text">en applications</span>
+              <span className="block text-foreground">qui comptent.</span>
+            </motion.h1>
+
+            <motion.p
+              initial={reduce ? false : { opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.55, delay: 0.22, ease: easeOutExpo }}
+              className="body-lg mt-5 max-w-lg"
+            >
+              Je conçois et développe des solutions web et mobiles modernes,
+              performantes et sur mesure, avec React, Next.js, Laravel et React
+              Native.
+            </motion.p>
+
+            <motion.div
+              initial={reduce ? false : { opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.55, delay: 0.32, ease: easeOutExpo }}
+              className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:gap-4"
             >
               <Link
                 href="/#projects"
-                className="gradient-bg glow-sm flex min-h-12 w-full items-center justify-center rounded-xl px-8 py-4 font-mono text-sm text-white sm:inline-flex sm:w-auto"
+                className="gradient-btn glow-sm inline-flex min-h-12 items-center justify-center gap-2 rounded-xl px-7 py-3.5 font-mono text-sm font-medium text-primary-foreground transition-transform hover:scale-[1.02] active:scale-[0.98]"
               >
-                Voir les projets
+                Voir mes projets
+                <ArrowRight className="h-4 w-4" aria-hidden />
               </Link>
-            </motion.div>
-            <motion.div
-              whileHover={{ scale: 1.04 }}
-              whileTap={{ scale: 0.97 }}
-              className="w-full sm:w-auto"
-            >
               <Link
                 href="/#contact"
-                className="flex min-h-12 w-full items-center justify-center rounded-xl border border-border-strong bg-background/30 px-8 py-4 font-mono text-sm text-foreground backdrop-blur-sm transition-colors hover:border-primary/50 hover:bg-white/5 sm:inline-flex sm:w-auto"
+                className="inline-flex min-h-12 items-center justify-center rounded-xl border border-border-strong bg-card/40 px-7 py-3.5 font-mono text-sm text-foreground transition-colors hover:border-primary/40 hover:bg-white/5"
               >
                 Me contacter
               </Link>
             </motion.div>
-          </motion.div>
 
+            <motion.ul
+              initial={reduce ? false : { opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.42, ease: easeOutExpo }}
+              className="mt-8 flex flex-wrap gap-2"
+            >
+              {HERO_TECH.map((tech) => (
+                <li key={tech} className="chip-muted">
+                  {tech}
+                </li>
+              ))}
+            </motion.ul>
+
+            <motion.div
+              initial={reduce ? false : { opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.5, ease: easeOutExpo }}
+              className="mt-10 grid grid-cols-3 gap-4 border-t border-border pt-8 sm:max-w-md"
+            >
+              <Stat value={`${projectCount}`} label="Projets" />
+              <Stat value="4" label="Expériences" />
+              <Stat value="Freelance" label="Disponible" />
+            </motion.div>
+          </div>
+
+          {/* Visual */}
           <motion.div
-            initial={reduce ? false : { opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: 0.55 }}
-            className="flex justify-center gap-5 pt-2"
+            initial={reduce ? false : { opacity: 0, scale: 0.96 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.7, delay: 0.2, ease: easeOutExpo }}
+            className="relative mx-auto w-full max-w-sm lg:col-span-5 lg:mx-0 lg:max-w-none"
           >
-            <SocialIcon href={siteConfig.github} label="GitHub">
-              <Github className="h-5 w-5" />
-            </SocialIcon>
-            <SocialIcon
-              href="https://www.linkedin.com/in/nawfal-addaoui-40b651248/"
-              label="LinkedIn"
-            >
-              <Linkedin className="h-5 w-5" />
-            </SocialIcon>
-            <SocialIcon href={`mailto:${siteConfig.email}`} label="Email">
-              <Mail className="h-5 w-5" />
-            </SocialIcon>
-            <SocialIcon
-              href="https://www.facebook.com/naoufal.addaoui.3"
-              label="Facebook"
-            >
-              <Facebook className="h-5 w-5" />
-            </SocialIcon>
-            <SocialIcon
-              href="https://www.instagram.com/fvllonline/"
-              label="Instagram"
-            >
-              <Instagram className="h-5 w-5" />
-            </SocialIcon>
+            <div className="glow-box relative overflow-hidden rounded-2xl border border-border bg-card p-2">
+              <div className="relative aspect-[4/5] overflow-hidden rounded-xl">
+                <Image
+                  src={siteConfig.portrait}
+                  alt={`Portrait de ${siteConfig.fullName}`}
+                  fill
+                  priority
+                  fetchPriority="high"
+                  className="object-cover object-top"
+                  sizes="(max-width: 1024px) 90vw, 40vw"
+                  quality={80}
+                />
+              </div>
+            </div>
+            <div
+              className="pointer-events-none absolute -inset-4 -z-10 rounded-[2rem] bg-primary/10 blur-3xl"
+              aria-hidden
+            />
           </motion.div>
         </div>
       </div>
@@ -155,26 +165,15 @@ export function HeroSection() {
   )
 }
 
-function SocialIcon({
-  href,
-  label,
-  children,
-}: {
-  href: string
-  label: string
-  children: ReactNode
-}) {
+function Stat({ value, label }: { value: string; label: string }) {
   return (
-    <motion.div whileHover={{ y: -4 }} transition={{ duration: 0.2 }}>
-      <Link
-        href={href}
-        target={href.startsWith("http") ? "_blank" : undefined}
-        rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
-        aria-label={label}
-        className="flex h-11 w-11 items-center justify-center text-foreground-muted transition-colors hover:text-primary"
-      >
-        {children}
-      </Link>
-    </motion.div>
+    <div>
+      <p className="font-display text-xl font-bold text-foreground sm:text-2xl">
+        {value}
+      </p>
+      <p className="mt-1 font-mono text-[10px] uppercase tracking-wider text-foreground-muted">
+        {label}
+      </p>
+    </div>
   )
 }

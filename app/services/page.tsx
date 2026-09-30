@@ -4,16 +4,9 @@ import Link from "next/link"
 import { ArrowRight } from "lucide-react"
 import { SiteShell } from "@/components/layout"
 import { FreelancePlatformsSection } from "@/components/sections/freelance-platforms-section"
-import { serviceIcons } from "@/components/services/service-icons"
-import { FadeIn, Stagger, StaggerItem } from "@/components/ui/motion"
+import { ServicesCatalog } from "@/components/services/services-catalog"
+import { FadeIn } from "@/components/ui/motion"
 import { services, siteConfig } from "@/data"
-import type { ServicePack } from "@/lib/types"
-
-function formatStartingPrice(pack: ServicePack) {
-  const amount = new Intl.NumberFormat("fr-MA").format(pack.price)
-  const suffix = pack.billing === "monthly" ? " / mois" : ""
-  return `${amount} ${pack.currency}${suffix}`
-}
 
 export const metadata: Metadata = {
   title: "Services & packs",
@@ -49,82 +42,23 @@ export default function ServicesIndexPage() {
         </div>
 
         <div className="container-ln relative z-10">
-          <FadeIn className="mb-10 max-w-2xl sm:mb-14">
+          <FadeIn className="mb-12 max-w-2xl sm:mb-16 lg:mb-20">
             <p className="label-ln">Services</p>
             <h1 className="heading-lg mt-3">
               Tous mes <span className="text-primary">packs</span>
             </h1>
             <p className="body-md mt-4 max-w-xl">
-              Offres claires en MAD pour le web, le mobile, les APIs, le design
-              et l&apos;acquisition. Choisissez un service pour voir le détail
-              des packs et demander un devis.
+              Une offre claire, classée par intention. Parcourez à votre rythme,
+              puis ouvrez un service pour voir les packs en détail.
             </p>
-            <p className="mt-4 font-mono text-xs text-foreground-muted">
-              {services.length} services
+            <p className="mt-5 font-mono text-xs text-foreground-muted">
+              {services.length} services · tarifs en MAD
             </p>
           </FadeIn>
 
-          <Stagger
-            className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3"
-            stagger={0.06}
-          >
-            {services.map((service) => {
-              const Icon = serviceIcons[service.icon]
-              const startingPack = [...service.packs].sort(
-                (a, b) => a.price - b.price
-              )[0]
-              const popular = service.packs.find((p) => p.popular)
+          <ServicesCatalog />
 
-              return (
-                <StaggerItem key={service.id}>
-                  <article className="glass-card group flex h-full flex-col rounded-2xl border border-border p-5 transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 sm:p-6">
-                    <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-xl bg-primary/10 text-primary transition-transform group-hover:scale-110">
-                      <Icon className="h-5 w-5" aria-hidden />
-                    </div>
-
-                    <h2 className="heading-sm text-lg">
-                      <Link
-                        href={`/services/${service.id}`}
-                        className="transition-colors hover:text-primary group-hover:text-primary"
-                      >
-                        {service.title}
-                      </Link>
-                    </h2>
-
-                    <p className="body-md mt-2 flex-1 line-clamp-3">
-                      {service.description}
-                    </p>
-
-                    <div className="mt-4 space-y-1.5 border-t border-border pt-4">
-                      {startingPack && (
-                        <p className="font-mono text-xs text-foreground-muted">
-                          À partir de{" "}
-                          <span className="text-primary">
-                            {formatStartingPrice(startingPack)}
-                          </span>
-                        </p>
-                      )}
-                      <p className="font-mono text-[10px] uppercase tracking-wider text-foreground-muted">
-                        {service.packs.length} pack
-                        {service.packs.length > 1 ? "s" : ""}
-                        {popular ? ` · ${popular.name} populaire` : ""}
-                      </p>
-                    </div>
-
-                    <Link
-                      href={`/services/${service.id}`}
-                      className="label-md-ln mt-5 inline-flex items-center gap-2 text-primary hover:underline"
-                    >
-                      Voir les packs
-                      <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
-                    </Link>
-                  </article>
-                </StaggerItem>
-              )
-            })}
-          </Stagger>
-
-          <FadeIn delay={0.15} className="mt-12 text-center sm:mt-16">
+          <FadeIn delay={0.12} className="mt-16 border-t border-border/70 pt-12 text-center sm:mt-20 sm:pt-14">
             <p className="body-md mx-auto max-w-md">
               Un besoin hors pack ? Décrivez votre projet, je vous réponds avec
               un devis adapté.

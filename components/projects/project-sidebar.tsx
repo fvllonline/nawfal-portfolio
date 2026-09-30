@@ -3,6 +3,7 @@
 import Link from "next/link"
 import { ExternalLink, Github, Linkedin, Rocket } from "lucide-react"
 import { FadeIn } from "@/components/ui/motion"
+import { FreelancePlatformLinks } from "@/components/freelance/platform-links"
 import { getServiceShortLabel } from "@/data"
 import type { Project, Service } from "@/lib/types"
 
@@ -103,6 +104,14 @@ export function ProjectSidebar({
               Dépôt GitHub
             </a>
           ) : null}
+        </div>
+
+        <div className="border-t border-border pt-5">
+          <FreelancePlatformLinks
+            variant="both"
+            size="sm"
+            label="Me trouver aussi sur"
+          />
         </div>
       </aside>
 

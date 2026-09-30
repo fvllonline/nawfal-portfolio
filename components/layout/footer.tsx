@@ -1,5 +1,6 @@
 import Link from "next/link"
-import { siteConfig } from "@/data"
+import { freelancePlatforms, siteConfig } from "@/data"
+import { FreelancePlatformLinks } from "@/components/freelance/platform-links"
 
 export function Footer() {
   const year = new Date().getFullYear()
@@ -44,6 +45,18 @@ export function Footer() {
           </Link>
         ))}
       </nav>
+
+      <div className="container-ln mt-6 flex flex-col items-center gap-3 border-t border-border pt-6">
+        <FreelancePlatformLinks
+          variant="icons"
+          size="sm"
+          label="Profils freelance"
+          className="items-center text-center [&_nav]:justify-center [&_p]:text-center"
+        />
+        <p className="max-w-md text-center font-mono text-[10px] text-foreground-muted">
+          {freelancePlatforms.map((p) => p.name).join(" · ")}
+        </p>
+      </div>
     </footer>
   )
 }

@@ -7,6 +7,7 @@ import { motion, useReducedMotion } from "framer-motion"
 import { getComplementaryLinkLabel, serviceGeneralTerms } from "@/data"
 import { FadeIn, easeOutExpo } from "@/components/ui/motion"
 import { Breadcrumbs } from "@/components/seo/breadcrumbs"
+import { FreelancePlatformLinks } from "@/components/freelance/platform-links"
 import { ServiceFaq } from "@/components/services/service-faq"
 import { ServicePackCard } from "@/components/services/service-pack-card"
 import { serviceIcons } from "@/components/services/service-icons"
@@ -288,6 +289,12 @@ export function ServiceDetail({
           Une question ? Contactez-moi
           <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
         </Link>
+        <FreelancePlatformLinks
+          variant="both"
+          size="sm"
+          label="Ou me commander via"
+          className="mt-2 items-center text-center [&_nav]:justify-center [&_p]:text-center"
+        />
       </FadeIn>
     </article>
   )

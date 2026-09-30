@@ -8,6 +8,7 @@ import { Send, CheckCircle, Github, FileText, Linkedin } from "lucide-react"
 import { siteConfig } from "@/data"
 import { FadeIn } from "@/components/ui/motion"
 import { NapBlock } from "@/components/seo/nap-block"
+import { FreelancePlatformLinks } from "@/components/freelance/platform-links"
 import {
   QUOTE_REQUEST_EVENT,
   buildQuoteMessage,
@@ -166,6 +167,13 @@ export function ContactSection() {
               <Linkedin className="h-5 w-5" />
             </Link>
           </div>
+
+          <FreelancePlatformLinks
+            variant="both"
+            size="md"
+            label="Plateformes freelance"
+            className="pt-1"
+          />
 
           <div className="flex flex-wrap gap-3 pt-2">
             <a

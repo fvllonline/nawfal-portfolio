@@ -6,6 +6,7 @@ import { ArrowRight } from "lucide-react"
 import { motion, useReducedMotion } from "framer-motion"
 import { projects, siteConfig } from "@/data"
 import { easeOutExpo } from "@/components/ui/motion"
+import { FreelancePlatformLinks } from "@/components/freelance/platform-links"
 
 /** Tech badges drawn only from stacks present in real projects / site copy */
 const HERO_TECH = [
@@ -114,6 +115,15 @@ export function HeroSection() {
               >
                 Me contacter
               </Link>
+            </motion.div>
+
+            <motion.div
+              initial={reduce ? false : { opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.45, delay: 0.38, ease: easeOutExpo }}
+              className="mt-5"
+            >
+              <FreelancePlatformLinks variant="icons" size="sm" />
             </motion.div>
 
             <motion.ul

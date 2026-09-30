@@ -1,10 +1,28 @@
 "use client"
 
 import Link from "next/link"
-import { ExternalLink, Github, Rocket } from "lucide-react"
+import { ExternalLink, Github, Linkedin, Rocket } from "lucide-react"
 import { FadeIn } from "@/components/ui/motion"
 import { getServiceShortLabel } from "@/data"
 import type { Project, Service } from "@/lib/types"
+
+function isLinkedInUrl(url: string) {
+  return /linkedin\.com|lnkd\.in/i.test(url)
+}
+
+function liveCta(project: Project) {
+  if (!project.liveUrl) return null
+  if (isLinkedInUrl(project.liveUrl)) {
+    return {
+      label: "Voir sur LinkedIn",
+      Icon: Linkedin,
+    }
+  }
+  return {
+    label: project.inProgress ? "Aperçu en ligne" : "Démo en ligne",
+    Icon: Rocket,
+  }
+}
 
 export function ProjectSidebar({
   project,
@@ -13,6 +31,8 @@ export function ProjectSidebar({
   project: Project
   primaryService?: Service
 }) {
+  const cta = liveCta(project)
+
   return (
     <FadeIn delay={0.15} className="space-y-6">
       <aside className="glass-card space-y-6 rounded-2xl p-6 md:p-8">
@@ -55,17 +75,17 @@ export function ProjectSidebar({
         )}
 
         <div className="flex flex-col gap-3">
-          {project.liveUrl ? (
-            <Link
+          {project.liveUrl && cta ? (
+            <a
               href={project.liveUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="gradient-bg inline-flex w-full items-center justify-center gap-2 rounded-xl py-4 font-mono text-sm text-white transition-all hover:shadow-[0_0_20px_rgba(110,255,192,0.4)] active:scale-[0.98]"
             >
-              <Rocket className="h-4 w-4" />
-              {project.inProgress ? "Aperçu en ligne" : "Démo en ligne"}
+              <cta.Icon className="h-4 w-4" />
+              {cta.label}
               <ExternalLink className="h-3.5 w-3.5 opacity-70" />
-            </Link>
+            </a>
           ) : (
             <span className="inline-flex w-full cursor-not-allowed items-center justify-center gap-2 rounded-xl border border-border py-4 font-mono text-sm text-foreground-muted/50">
               Démo en ligne bientôt
@@ -73,7 +93,7 @@ export function ProjectSidebar({
           )}
 
           {project.githubUrl ? (
-            <Link
+            <a
               href={project.githubUrl}
               target="_blank"
               rel="noopener noreferrer"
@@ -81,7 +101,7 @@ export function ProjectSidebar({
             >
               <Github className="h-4 w-4" />
               Dépôt GitHub
-            </Link>
+            </a>
           ) : null}
         </div>
       </aside>

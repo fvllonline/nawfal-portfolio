@@ -30,9 +30,9 @@ export function Footer() {
         className="container-ln mt-6 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 border-t border-border pt-6"
       >
         {[
-          { label: "Projets", href: "/#projects" },
-          { label: "Expérience", href: "/#experience" },
-          { label: "Services", href: "/#services" },
+          { label: "Services", href: "/services" },
+          { label: "Projets", href: "/projects" },
+          { label: "Expérience", href: "/experiences" },
           { label: "Contact", href: "/#contact" },
         ].map((link) => (
           <Link

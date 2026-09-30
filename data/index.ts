@@ -7,6 +7,8 @@ export { experiences, education } from "./experience"
 export { certifications } from "./certifications"
 export { testimonials } from "./testimonials"
 export { skillPills } from "./skills"
+export { freelancePlatforms } from "./freelance-platforms"
+export type { FreelancePlatform } from "./freelance-platforms"
 export {
   projects,
   getProjectBySlug,

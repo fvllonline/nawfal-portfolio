@@ -1,60 +1,35 @@
 "use client"
 
-import { useEffect, useState } from "react"
 import { usePathname } from "next/navigation"
 
-const SECTION_IDS = [
-  "home",
-  "services",
-  "projects",
-  "experience",
-  "skills",
-  "certifications",
-  "testimonials",
-  "contact",
-] as const
-
 /**
- * Tracks which homepage section is in view.
- * On `/projects/*`, forces "projects" as active.
+ * Page-level active key for the navbar.
+ * Accueil / Projets / Expérience stay lit for the whole page
+ * (no section observer — that made the dot vanish or jump to Compétences).
  */
 export function useActiveSection() {
   const pathname = usePathname()
-  const [active, setActive] = useState("home")
 
-  useEffect(() => {
-    if (pathname?.startsWith("/projects")) {
-      setActive("projects")
-      return
-    }
+  if (pathname?.startsWith("/services")) return "services"
+  if (pathname?.startsWith("/projects")) return "projects"
+  if (pathname?.startsWith("/experiences")) return "experience"
+  if (pathname === "/") return "home"
+  return "home"
+}
 
-    const elements = SECTION_IDS.map((id) =>
-      document.getElementById(id)
-    ).filter(Boolean) as HTMLElement[]
-
-    if (!elements.length) return
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const visible = entries
-          .filter((e) => e.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)
-
-        if (visible[0]?.target.id) {
-          setActive(visible[0].target.id)
-        }
-      },
-      {
-        rootMargin: "-20% 0px -55% 0px",
-        threshold: [0, 0.25, 0.5, 0.75],
-      }
-    )
-
-    elements.forEach((el) => observer.observe(el))
-    return () => observer.disconnect()
-  }, [pathname])
-
-  return active
+/**
+ * Whether a nav link owns the active indicator for the current page.
+ */
+export function isNavLinkActive(href: string, activePage: string): boolean {
+  if (href === "/services" || href.startsWith("/services/")) {
+    return activePage === "services"
+  }
+  if (href.startsWith("/projects")) return activePage === "projects"
+  if (href === "/experiences") return activePage === "experience"
+  if (href.startsWith("/experiences#")) return false
+  if (href === "/#home" || href === "/") return activePage === "home"
+  if (href.startsWith("/#")) return false
+  return false
 }
 
 /** Extract section id from href like `/#about` or `#about` */

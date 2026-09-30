@@ -11,7 +11,7 @@ export default function ProjectNotFound() {
           Cette étude de cas n&apos;existe pas ou a peut-être été déplacée.
         </p>
         <Link
-          href="/#projects"
+          href="/projects"
           className="gradient-bg mt-8 rounded-xl px-8 py-4 font-mono text-sm text-white transition-transform hover:scale-105"
         >
           Retour aux projets

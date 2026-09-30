@@ -43,13 +43,13 @@ export function ServiceDetail({
       <Breadcrumbs
         items={[
           { label: "Accueil", href: "/" },
-          { label: "Services", href: "/#services" },
+          { label: "Services", href: "/services" },
           { label: service.title },
         ]}
       />
       <motion.div {...enter(0)}>
         <Link
-          href="/#services"
+          href="/services"
           className="label-md-ln group mb-6 inline-flex items-center gap-2 text-primary transition-opacity hover:opacity-80"
         >
           <ArrowLeft className="h-4 w-4 transition-transform group-hover:-translate-x-1" />

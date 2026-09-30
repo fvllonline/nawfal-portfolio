@@ -78,7 +78,7 @@ export function ServicesSection() {
             déploiement.
           </p>
           <Link
-            href="/services/website"
+            href="/services"
             className="label-md-ln mt-6 inline-flex items-center gap-2 text-primary hover:underline"
           >
             Voir tous les packs

@@ -22,7 +22,7 @@ export function ProjectHero({ project }: { project: Project }) {
     <div>
       <motion.div {...enter(0)}>
         <Link
-          href="/#projects"
+          href="/projects"
           className="label-md-ln group mb-8 inline-flex items-center gap-2 text-primary transition-opacity hover:opacity-80"
         >
           <ArrowLeft className="h-4 w-4 transition-transform group-hover:-translate-x-1" />

@@ -102,7 +102,7 @@ export function HeroSection() {
               className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:gap-4"
             >
               <Link
-                href="/#projects"
+                href="/projects"
                 className="gradient-btn glow-sm inline-flex min-h-12 items-center justify-center gap-2 rounded-xl px-7 py-3.5 font-mono text-sm font-medium text-primary-foreground transition-transform hover:scale-[1.02] active:scale-[0.98]"
               >
                 Voir mes projets

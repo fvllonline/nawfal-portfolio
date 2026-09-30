@@ -9,6 +9,7 @@ import { navLinks, siteConfig } from "@/data"
 import { useScrolled } from "@/hooks/use-scrolled"
 import {
   useActiveSection,
+  isNavLinkActive,
   sectionIdFromHref,
 } from "@/hooks/use-active-section"
 import { cn } from "@/lib/utils"
@@ -17,7 +18,6 @@ function scrollToId(id: string) {
   const el = document.getElementById(id)
   if (!el) return
   el.scrollIntoView({ behavior: "smooth", block: "start" })
-  window.history.replaceState(null, "", `/#${id}`)
 }
 
 export function Navbar() {
@@ -44,21 +44,42 @@ export function Navbar() {
   }
 
   const handleNavClick = (e: MouseEvent<HTMLAnchorElement>, href: string) => {
-    const id = sectionIdFromHref(href)
-    if (!id) return
+    const hash = sectionIdFromHref(href)
+    const pathPart = href.split("#")[0]
+    const path = pathPart === "" ? "/" : pathPart
 
-    e.preventDefault()
-    e.stopPropagation()
     closeMenu()
 
-    if (pathname === "/") {
-      window.requestAnimationFrame(() => {
-        window.setTimeout(() => scrollToId(id), 40)
-      })
+    // Homepage anchors
+    if (path === "/") {
+      if (!hash) return
+      e.preventDefault()
+      e.stopPropagation()
+      if (pathname === "/") {
+        window.requestAnimationFrame(() => {
+          window.setTimeout(() => {
+            scrollToId(hash)
+            window.history.replaceState(null, "", `/#${hash}`)
+          }, 40)
+        })
+        return
+      }
+      router.push(`/#${hash}`)
       return
     }
 
-    router.push(`/#${id}`)
+    // Same dedicated page + hash (e.g. already on /experiences)
+    if (pathname === path && hash) {
+      e.preventDefault()
+      e.stopPropagation()
+      window.requestAnimationFrame(() => {
+        window.setTimeout(() => {
+          scrollToId(hash)
+          window.history.replaceState(null, "", `${path}#${hash}`)
+        }, 40)
+      })
+    }
+    // Otherwise let <Link> navigate normally
   }
 
   return (
@@ -88,8 +109,7 @@ export function Navbar() {
 
         <div className="hidden items-center gap-6 lg:flex lg:gap-8">
           {navLinks.map((link) => {
-            const id = sectionIdFromHref(link.href)
-            const isActive = id === active
+            const isActive = isNavLinkActive(link.href, active)
 
             return (
               <Link
@@ -164,8 +184,7 @@ export function Navbar() {
             >
               <div className="container-ln flex flex-col gap-1 py-3 pb-[max(1rem,env(safe-area-inset-bottom))]">
                 {navLinks.map((link, i) => {
-                  const id = sectionIdFromHref(link.href)
-                  const isActive = id === active
+                  const isActive = isNavLinkActive(link.href, active)
 
                   return (
                     <motion.div
@@ -174,7 +193,7 @@ export function Navbar() {
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ delay: i * 0.03 }}
                     >
-                      <a
+                      <Link
                         href={link.href}
                         onClick={(e) => handleNavClick(e, link.href)}
                         className={cn(
@@ -192,18 +211,18 @@ export function Navbar() {
                           />
                         )}
                         {link.label}
-                      </a>
+                      </Link>
                     </motion.div>
                   )
                 })}
-                <a
+                <Link
                   href="/#contact"
                   onClick={(e) => handleNavClick(e, "/#contact")}
                   className="label-md-ln mt-2 flex min-h-12 items-center justify-center gap-2 rounded-xl bg-primary/10 px-4 py-3 text-primary"
                 >
                   Me contacter
                   <ArrowRight className="h-4 w-4" aria-hidden />
-                </a>
+                </Link>
               </div>
             </motion.div>
           </>

@@ -8,14 +8,12 @@ export function HashScroll() {
   const pathname = usePathname()
 
   useEffect(() => {
-    if (pathname !== "/") return
-
     const scrollToHash = () => {
       const hash = window.location.hash.replace("#", "")
       if (!hash) return
       window.setTimeout(() => {
         document.getElementById(hash)?.scrollIntoView({ behavior: "smooth" })
-      }, 80)
+      }, 100)
     }
 
     scrollToHash()

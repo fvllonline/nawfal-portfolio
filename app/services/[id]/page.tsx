@@ -66,7 +66,7 @@ export default async function ServicePage({ params }: ServicePageProps) {
   const extraLinks = serviceExtraLinks[service.id] ?? []
   const crumbs = [
     { name: "Accueil", path: "/" },
-    { name: "Services", path: "/#services" },
+    { name: "Services", path: "/services" },
     { name: service.title, path: `/services/${service.id}` },
   ]
   const jsonLd = [

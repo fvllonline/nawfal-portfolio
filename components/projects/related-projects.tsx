@@ -17,7 +17,7 @@ export function RelatedProjects({ projects }: { projects: Project[] }) {
             Projets similaires
           </h2>
           <Link
-            href="/#projects"
+            href="/projects"
             className="label-md-ln shrink-0 text-[11px] text-foreground-muted transition-colors hover:text-primary"
           >
             <span className="sm:hidden">Tout voir →</span>

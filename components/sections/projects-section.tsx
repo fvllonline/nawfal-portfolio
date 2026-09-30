@@ -78,7 +78,11 @@ function ProjectCard({ project }: { project: Project }) {
   )
 }
 
-export function ProjectsSection() {
+export function ProjectsSection({
+  className,
+}: {
+  className?: string
+} = {}) {
   const reduce = useReducedMotion()
   const [page, setPage] = useState(0)
   const [paused, setPaused] = useState(false)
@@ -103,7 +107,10 @@ export function ProjectsSection() {
   }, [reduce, paused, pageCount])
 
   return (
-    <section id="projects" className="section-ln relative overflow-hidden">
+    <section
+      id="projects"
+      className={cn("section-ln relative overflow-hidden", className)}
+    >
       <div className="pointer-events-none absolute inset-0" aria-hidden>
         <Image
           src="/bg/bg_projets.png"

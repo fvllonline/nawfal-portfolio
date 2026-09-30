@@ -16,36 +16,6 @@ const ServicesSection = dynamic(
   { loading: () => <SectionFallback /> }
 )
 
-const ProjectsSection = dynamic(
-  () =>
-    import("@/components/sections/projects-section").then(
-      (m) => m.ProjectsSection
-    ),
-  { loading: () => <SectionFallback minHeight={480} /> }
-)
-
-const ExperienceSection = dynamic(
-  () =>
-    import("@/components/sections/experience-section").then(
-      (m) => m.ExperienceSection
-    ),
-  { loading: () => <SectionFallback minHeight={520} /> }
-)
-
-const SkillsSection = dynamic(
-  () =>
-    import("@/components/sections/skills-section").then((m) => m.SkillsSection),
-  { loading: () => <SectionFallback /> }
-)
-
-const CertificationsSection = dynamic(
-  () =>
-    import("@/components/sections/certifications-section").then(
-      (m) => m.CertificationsSection
-    ),
-  { loading: () => <SectionFallback /> }
-)
-
 const TestimonialsSection = dynamic(
   () =>
     import("@/components/sections/testimonials-section").then(
@@ -67,10 +37,6 @@ export default function HomePage() {
     <SiteShell>
       <HeroSection />
       <ServicesSection />
-      <ProjectsSection />
-      <ExperienceSection />
-      <SkillsSection />
-      <CertificationsSection />
       <TestimonialsSection />
       <ContactSection />
     </SiteShell>

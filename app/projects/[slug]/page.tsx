@@ -77,7 +77,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
   const jsonLd = buildProjectPageJsonLd(project)
   const crumbs = [
     { name: "Accueil", path: "/" },
-    { name: "Projets", path: "/#projects" },
+    { name: "Projets", path: "/projects" },
     { name: project.title, path: `/projects/${project.slug}` },
   ]
 
@@ -93,7 +93,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         <Breadcrumbs
           items={[
             { label: "Accueil", href: "/" },
-            { label: "Projets", href: "/#projects" },
+            { label: "Projets", href: "/projects" },
             { label: project.title },
           ]}
         />

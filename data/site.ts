@@ -4,7 +4,7 @@ export const siteConfig: SiteConfig = {
   name: "NAWFAL",
   fullName: "Nawfal ADDAOUI",
   title: "Développeur Full-Stack à Casablanca",
-  location: "Casablanca, Maroc",
+  location: "",
   email: "naoufaladdaoui@gmail.com",
   phone: "+212631108355",
   phoneDisplay: "+212 631-108355",

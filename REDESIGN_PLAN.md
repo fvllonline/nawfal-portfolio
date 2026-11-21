@@ -117,7 +117,7 @@ Ordre actuel dans `app/page.tsx` :
 
 | Asset | Usage |
 |---|---|
-| `/PRFLN.webp` | Portrait Nawfal |
+| `/PRFLN.png` | Portrait Nawfal |
 | `/herobg.webp` | Fond hero / workspace |
 | `/Mina.webp`, `/Youness.webp`, `/Ayman.webp` | Avatars témoignages |
 | `/tcf.webp`, `/cisco.webp` | Logos certifications |

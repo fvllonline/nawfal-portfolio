@@ -9,7 +9,7 @@ export const aboutContent = {
     "Mon approche : allier performance technique et expérience utilisateur. Chaque interface doit être claire, rapide et adaptée aux besoins réels des clients marocains comme internationaux.",
     "Disponible en freelance pour sites vitrines, e-commerce, applications web/mobile et APIs. Que vous soyez à Casablanca, ailleurs au Maroc ou en remote, je m’intègre facilement à votre équipe ou je porte le projet de bout en bout.",
   ],
-  portrait: "/PRFLN.webp",
+  portrait: "/PRFLN.png",
   workspaceImage: "/herobg.webp",
   skillBars: [
     { name: "Frontend / UI-UX", level: 95 },

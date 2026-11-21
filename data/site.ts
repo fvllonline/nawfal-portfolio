@@ -18,7 +18,7 @@ export const siteConfig: SiteConfig = {
   url: "https://nawfal.online",
   github: "https://github.com/fvllonline",
   linkedin: "https://www.linkedin.com/in/nawfal-addaoui-40b651248/",
-  portrait: "/PRFLN.webp",
+  portrait: "/PRFLN.png",
   nap: {
     name: "Nawfal Addaoui",
     addressLocality: "Casablanca",
